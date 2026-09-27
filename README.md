@@ -8,10 +8,11 @@ Web tasarım stilleri için canlı referans sayfaları. Her stil, anlattığı k
 | 002 · Soft Minimalism | `/stil/002/` | `src/soft/` | `tokens/soft.tokens.json` |
 | 003 · Corporate Modern | `/stil/003/` | `src/corporate/` | `tokens/corporate.tokens.json` |
 | 004 · Glassmorphism | `/stil/004/` | `src/glass/` | `tokens/glass.tokens.json` |
+| 005 · Neumorphism | `/stil/005/` | `src/neu/` | `tokens/neu.tokens.json` |
 
 ```bash
 npm install
-npm run dev        # http://localhost:5173  → katalog, /stil/001/, /stil/002/, /stil/003/, /stil/004/
+npm run dev        # http://localhost:5173  → katalog, /stil/001/, /stil/002/, /stil/003/, /stil/004/, /stil/005/
 npm run build      # tip denetimi + dist/
 npm run typecheck
 ```
@@ -24,11 +25,13 @@ stil/001/index.html      Swiss Style giriş noktası
 stil/002/index.html      Soft Minimalism giriş noktası
 stil/003/index.html      Corporate Modern giriş noktası
 stil/004/index.html      Glassmorphism giriş noktası
+stil/005/index.html      Neumorphism giriş noktası
 src/shared/              stiller arası ortak yardımcılar (cx, useTheme)
 src/swiss/               swiss.css (tema) · components/ · sections/
 src/soft/                soft.css (tema) · components/ · sections/
 src/corporate/           corporate.css (tema) · ui/ (shadcn) · views/ · charts/ · data/
 src/glass/               glass.css (tema) · components/ · sections/
+src/neu/                 neu.css (tema) · components/ · sections/
 tokens/                  W3C DTCG token dosyaları (Figma / Tokens Studio)
 ```
 
@@ -107,6 +110,19 @@ Canlı degrade zemin üstünde buzlu cam paneller. İki tema: koyu "derin uzay" 
 - **Mobil (Madde 17):** 768px altında blur değerleri yaklaşık yarıya iner (24 → 14, 40 → 20), doygunluk %140.
 - **Erişilebilirlik (Madde 18):** `prefers-reduced-transparency` ve sayfadaki "Saydamlığı azalt" anahtarı blur'u kaldırıp camı opaklaştırır; `backdrop-filter` desteklemeyen tarayıcılarda cam yoğunlaşır; canlı görsel üstündeki metin için opak degrade katman (`.glass-scrim`); hareket azaltmada eğilme, süzülme ve zemin kayması durur.
 
+## Stil 005 · Neumorphism
+
+Zeminle aynı renkte bileşenler; biçimi yalnızca iki gölge verir: sol üstte açık yansıma, sağ altta koyu gölge. Tanımdaki değerler (`9px 9px 16px rgb(163 177 198 / .5)`, `-9px -9px 16px rgb(255 255 255 / .5)`) gri tabanın varsayılanıdır.
+
+- **Yüzeyler:** `.neu-raised` (kabartma, iki dış gölge), `.neu-inset` (çökme, iki iç gölge), `.neu-convex` / `.neu-concave` (yönlü degrade), `.neu-press` (Default → Pressed: 80ms çökme, bırakınca 500ms yay).
+- **Color/MonochromeBase:** gri `#E0E5EC`, mavi `#DCE4F2`, bej `#EBE5DC`; koyu modda grafit `#2B2F36`. Taban değişince iki gölge de değişir.
+- **Bileşenler:** `NeumorphButton` (daire, hap, köşeli; açma/kapama durumunda vurgu rengi + ışık noktası + `aria-pressed`), `SoftSlider` (dairesel; sürükleme ve klavye: oklar, PageUp/PageDown, Home/End), doğrusal kaydırıcı (yerel `input[type=range]`), anahtar, segment seçici, gömülü metin alanı.
+- **Gölge laboratuvarı:** Mesafe, yayılma, güç ve yarıçap canlı ayarlanır; CSS, Tailwind çıktısı ve sınır kontrastı anında güncellenir.
+- **Uygulama:** akıllı ev termostatı (hero), müzik çalar, çalışan hesap makinesi (klavye destekli).
+- **Hareket:** Yay eğrisi CSS `linear()` ile üretildi (k=300, c=20, m=1; %10,8 aşma, 500ms) ve `--spring` tokenında durur.
+- **Mobil (Madde 17):** Gölge taşması mesafe + yayılma kadardır (9 + 16 = 25px); bu yüzden kabarık bileşenler arası en az 24px. 640px altında gölgeler 6/12px'e, aralık 16px'e iner.
+- **Erişilebilirlik (Madde 18):** Metin her tabanda AA'yı geçer (ana 9,63:1, ikincil 5,13:1, vurgu 4,97:1). Bileşeni yalnızca gölge tanımladığı için sınır kontrastı 1,29:1 kalır (WCAG 1.4.11 için 3:1 gerekir). Erişilebilir mod her bileşene 1px kenar ekler (`#737D91`, 3,27:1); işletim sisteminde yüksek kontrast açıksa kendiliğinden devreye girer. Odakta 2px vurgu renkli çerçeve.
+
 ## Yazı tipleri
 
-Hepsi OFL lisanslı, `@fontsource-variable` paketlerinden yalnızca Latin ve Latin Genişletilmiş alt kümeleriyle yüklenir: Inter (Stil 001 ve 003), Lora ve Plus Jakarta Sans (Stil 002), Geist ve Geist Mono (Stil 004; `₺` glifi olmadığı için tutarlar "TL" ile yazılır). Lisanslı Helvetica Now ya da Neue Haas Grotesk kullanmak için `src/swiss/swiss.css` içindeki `@font-face` bloklarını ve `--font-sans` sırasını değiştirin.
+Hepsi OFL lisanslı, `@fontsource-variable` paketlerinden yalnızca Latin ve Latin Genişletilmiş alt kümeleriyle yüklenir: Inter (Stil 001 ve 003), Lora ve Plus Jakarta Sans (Stil 002), Geist ve Geist Mono (Stil 004; `₺` glifi olmadığı için tutarlar "TL" ile yazılır), Nunito (Stil 005). Lisanslı Helvetica Now ya da Neue Haas Grotesk kullanmak için `src/swiss/swiss.css` içindeki `@font-face` bloklarını ve `--font-sans` sırasını değiştirin.

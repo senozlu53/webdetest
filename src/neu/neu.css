@@ -1,0 +1,333 @@
+@import 'tailwindcss' source(none);
+@source '.';
+
+/* ─────────────────────────────────────────────────────────────
+   STİL 005 · NEUMORPHISM (SOFT UI)
+   Zemin ve bileşen aynı renktir; biçimi yalnızca iki gölge verir:
+   sol üstte açık ışık, sağ altta koyu gölge.
+   Değerler tokens/neu.tokens.json ile birebir aynıdır.
+   ───────────────────────────────────────────────────────────── */
+
+@font-face {
+  font-family: 'Nunito Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 200 1000;
+  src: url('@fontsource-variable/nunito/files/nunito-latin-ext-wght-normal.woff2') format('woff2-variations');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329,
+    U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Nunito Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 200 1000;
+  src: url('@fontsource-variable/nunito/files/nunito-latin-wght-normal.woff2') format('woff2-variations');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* ── Color/MonochromeBase: gri (varsayılan) ───────────────────
+   Tanımdaki çift gölge: 9px 9px 16px rgb(163 177 198 / .5), -9px -9px 16px rgb(255 255 255 / .5).
+   Metin #31344B 9.63:1 · ikincil #555E73 5.13:1 · vurgu #4F46E5 4.97:1.
+   Gölge kenarının zeminle kontrastı yalnızca 1.29:1; erişilebilir mod 1px kenar ekler (#737D91, 3.27:1). */
+:root {
+  --base: #e0e5ec;
+  --ink: #31344b;
+  --muted: #555e73;
+  --accent: #4f46e5;
+  --on-accent: #ffffff;
+  --neu-light: rgb(255 255 255 / 0.5);
+  --neu-dark: rgb(163 177 198 / 0.5);
+  --neu-hi: #eef1f5;
+  --neu-lo: #cbd2dc;
+  --a11y-border: #737d91;
+  --engrave: #aab4c4;
+
+  /* Effects/Neumorph: mesafe ve yayılma */
+  --neu-d: 9px;
+  --neu-b: 16px;
+  --neu-d-sm: 5px;
+  --neu-b-sm: 10px;
+  --neu-d-lg: 14px;
+  --neu-b-lg: 28px;
+  --neu-d-in: 6px;
+  --neu-b-in: 10px;
+
+  /* Madde 16: yaylı hareket (k=300, c=20, m=1 · %10,8 aşma · 500ms) */
+  --spring: linear(0, 0.033, 0.117, 0.234, 0.368, 0.505, 0.636, 0.755, 0.857, 0.941, 1.006, 1.053, 1.084, 1.102, 1.108, 1.106, 1.098, 1.086, 1.072, 1.057, 1.042, 1.029, 1.018, 1.008, 1.001, 0.995, 0.991, 0.989, 0.988, 0.988, 0.989, 0.99, 1);
+
+  color-scheme: light;
+}
+
+:root[data-base='mavi'] {
+  --base: #dce4f2;
+  --neu-light: rgb(255 255 255 / 0.6);
+  --neu-dark: rgb(150 166 196 / 0.55);
+  --neu-hi: #ecf1f9;
+  --neu-lo: #c6d0e2;
+}
+:root[data-base='bej'] {
+  --base: #ebe5dc;
+  --neu-light: rgb(255 255 255 / 0.6);
+  --neu-dark: rgb(190 176 156 / 0.55);
+  --neu-hi: #f6f2ec;
+  --neu-lo: #d9d0c4;
+}
+
+/* Koyu mod: grafit plastik. Metin #E6E9EF 11.05:1 · ikincil #AEB6C3 6.58:1 · vurgu #A5B4FC 6.74:1 */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --base: #2b2f36;
+    --ink: #e6e9ef;
+    --muted: #aeb6c3;
+    --accent: #a5b4fc;
+    --on-accent: #1e1b4b;
+    --neu-light: rgb(62 68 79 / 0.7);
+    --neu-dark: rgb(16 18 22 / 0.7);
+    --neu-hi: #31363e;
+    --neu-lo: #262a30;
+    --a11y-border: #7c8594;
+    --engrave: #1c1f24;
+    color-scheme: dark;
+  }
+}
+:root[data-theme='dark'] {
+  --base: #2b2f36;
+  --ink: #e6e9ef;
+  --muted: #aeb6c3;
+  --accent: #a5b4fc;
+  --on-accent: #1e1b4b;
+  --neu-light: rgb(62 68 79 / 0.7);
+  --neu-dark: rgb(16 18 22 / 0.7);
+  --neu-hi: #31363e;
+  --neu-lo: #262a30;
+  --a11y-border: #7c8594;
+  --engrave: #1c1f24;
+  color-scheme: dark;
+}
+
+/* Madde 17: mobilde gölge mesafesi ve yayılması küçülür; bileşen aralığı buna göre ayarlanır */
+@media (max-width: 639px) {
+  :root {
+    --neu-d: 6px;
+    --neu-b: 12px;
+    --neu-d-lg: 9px;
+    --neu-b-lg: 18px;
+    --neu-d-in: 4px;
+    --neu-b-in: 8px;
+  }
+}
+
+/* Madde 18: erişilebilir mod (sayfadaki anahtar ya da işletim sisteminde yüksek kontrast) */
+:root[data-a11y='on'] {
+  --neu-border: var(--a11y-border);
+}
+@media (prefers-contrast: more) {
+  :root:not([data-a11y='off']) {
+    --neu-border: var(--a11y-border);
+  }
+}
+
+@theme {
+  --color-*: initial;
+  --font-*: initial;
+
+  --font-sans: 'Nunito Variable', 'Nunito', 'Poppins', ui-rounded, 'SF Pro Rounded', system-ui, sans-serif;
+  --font-mono: ui-monospace, 'SF Mono', Menlo, monospace;
+
+  --radius-neu: 24px;
+  --radius-neu-lg: 36px;
+
+  --color-white: #ffffff;
+}
+
+@theme inline {
+  --color-surface: var(--base);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-on-accent: var(--on-accent);
+  --color-neu-lo: var(--neu-lo);
+  --ease-spring: var(--spring);
+}
+
+@layer base {
+  html {
+    background: var(--base);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-padding-top: 104px;
+  }
+  body {
+    margin: 0;
+    background: var(--base);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.6;
+    transition: background-color 300ms ease;
+  }
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+    letter-spacing: -0.01em;
+  }
+  p {
+    text-wrap: pretty;
+  }
+  /* Madde 18: odakta ince, renkli çerçeve */
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+  }
+  ::selection {
+    background: var(--accent);
+    color: var(--on-accent);
+  }
+}
+
+@layer components {
+  .neu {
+    background-color: var(--base);
+    border: 1px solid var(--neu-border, transparent);
+  }
+  /* Kabartma (embossed): iki dış gölge */
+  .neu-raised {
+    box-shadow:
+      var(--neu-d) var(--neu-d) var(--neu-b) var(--neu-dark),
+      calc(var(--neu-d) * -1) calc(var(--neu-d) * -1) var(--neu-b) var(--neu-light);
+  }
+  .neu-raised-sm {
+    box-shadow:
+      var(--neu-d-sm) var(--neu-d-sm) var(--neu-b-sm) var(--neu-dark),
+      calc(var(--neu-d-sm) * -1) calc(var(--neu-d-sm) * -1) var(--neu-b-sm) var(--neu-light);
+  }
+  .neu-raised-lg {
+    box-shadow:
+      var(--neu-d-lg) var(--neu-d-lg) var(--neu-b-lg) var(--neu-dark),
+      calc(var(--neu-d-lg) * -1) calc(var(--neu-d-lg) * -1) var(--neu-b-lg) var(--neu-light);
+  }
+  /* Çökme (debossed): iki iç gölge */
+  .neu-inset {
+    box-shadow:
+      inset var(--neu-d-in) var(--neu-d-in) var(--neu-b-in) var(--neu-dark),
+      inset calc(var(--neu-d-in) * -1) calc(var(--neu-d-in) * -1) var(--neu-b-in) var(--neu-light);
+  }
+  /* Dışbükey ve içbükey yüzey: gölge + yönlü degrade */
+  .neu-convex {
+    background-image: linear-gradient(145deg, var(--neu-hi), var(--neu-lo));
+  }
+  .neu-concave {
+    background-image: linear-gradient(145deg, var(--neu-lo), var(--neu-hi));
+  }
+
+  /* Basılabilir yüzey: Default → Pressed (Figma Variants).
+     Basarken 80ms'de çöker, bırakınca yayla geri kalkar. */
+  .neu-press {
+    cursor: pointer;
+    transition:
+      transform 500ms var(--spring),
+      box-shadow 220ms ease-out,
+      color 200ms ease-out;
+  }
+  .neu-press:active:not(:disabled),
+  .neu-press[aria-pressed='true'],
+  .neu-press[data-pressed] {
+    box-shadow:
+      inset var(--neu-d-in) var(--neu-d-in) var(--neu-b-in) var(--neu-dark),
+      inset calc(var(--neu-d-in) * -1) calc(var(--neu-d-in) * -1) var(--neu-b-in) var(--neu-light);
+  }
+  .neu-press:active:not(:disabled) {
+    transform: scale(0.97);
+    transition-duration: 80ms;
+  }
+  .neu-press:disabled {
+    cursor: not-allowed;
+    box-shadow: none;
+    color: var(--muted);
+  }
+
+  /* Gömülü ikon: açık kenar alt-sağda, koyu kenar üst-solda */
+  .neu-engraved {
+    filter: drop-shadow(1px 1px 0 var(--neu-light)) drop-shadow(-1px -1px 0 var(--neu-dark));
+  }
+  /* Tamamen gömülü ikon: zeminden bir ton koyu dolgu + kazıma kenarları */
+  .neu-deboss {
+    color: var(--engrave);
+    filter: drop-shadow(1px 1px 0 rgb(255 255 255 / 0.9)) drop-shadow(-1px -1px 0 var(--neu-dark));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .neu-press,
+  .neu-press:active {
+    transition: none !important;
+    transform: none !important;
+  }
+  * {
+    transition-duration: 1ms !important;
+  }
+}
+
+/* Doğrusal kaydırıcı: gömülü oluk, kabartma tutamak, dolu kısım vurgu renginde (--fill) */
+.neu-range {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 44px;
+  background: transparent;
+  cursor: pointer;
+}
+.neu-range::-webkit-slider-runnable-track {
+  height: 12px;
+  border-radius: 999px;
+  border: 1px solid var(--neu-border, transparent);
+  background: linear-gradient(90deg, var(--accent) 0 var(--fill, 0%), transparent var(--fill, 0%)) no-repeat, var(--base);
+  box-shadow:
+    inset 3px 3px 6px var(--neu-dark),
+    inset -3px -3px 6px var(--neu-light);
+}
+.neu-range::-moz-range-track {
+  height: 12px;
+  border-radius: 999px;
+  border: 1px solid var(--neu-border, transparent);
+  background: var(--base);
+  box-shadow:
+    inset 3px 3px 6px var(--neu-dark),
+    inset -3px -3px 6px var(--neu-light);
+}
+.neu-range::-moz-range-progress {
+  height: 12px;
+  border-radius: 999px;
+  background: var(--accent);
+}
+.neu-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 28px;
+  height: 28px;
+  margin-top: -9px;
+  border-radius: 50%;
+  border: 1px solid var(--neu-border, transparent);
+  background: linear-gradient(145deg, var(--neu-hi), var(--neu-lo));
+  box-shadow:
+    4px 4px 8px var(--neu-dark),
+    -4px -4px 8px var(--neu-light);
+}
+.neu-range::-moz-range-thumb {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid var(--neu-border, transparent);
+  background: linear-gradient(145deg, var(--neu-hi), var(--neu-lo));
+  box-shadow:
+    4px 4px 8px var(--neu-dark),
+    -4px -4px 8px var(--neu-light);
+}
+.neu-range:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+  border-radius: 999px;
+}

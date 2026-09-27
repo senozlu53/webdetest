@@ -1,0 +1,58 @@
+{
+  "$description": "Stil 005: Neumorphism (Soft UI). W3C DTCG formatı. Adlar Figma yolu ile aynıdır: Effects/NeumorphLight, Effects/NeumorphDark, Color/MonochromeBase. Her bileşende iki Drop Shadow (Default) ya da iki Inner Shadow (Pressed) bulunur.",
+  "Color": {
+    "MonochromeBase": {
+      "Gri": { "$type": "color", "$value": "#E0E5EC", "$description": "Varsayılan; tanımdaki değer" },
+      "Mavi": { "$type": "color", "$value": "#DCE4F2" },
+      "Bej": { "$type": "color", "$value": "#EBE5DC" },
+      "Grafit": { "$type": "color", "$value": "#2B2F36", "$description": "Koyu mod" }
+    },
+    "Text": {
+      "Default": { "$type": "color", "light": "#31344B", "dark": "#E6E9EF", "contrast": { "gri": 9.63, "mavi": 9.53, "bej": 9.73, "grafit": 11.05 } },
+      "Muted": { "$type": "color", "light": "#555E73", "dark": "#AEB6C3", "contrast": { "gri": 5.13, "mavi": 5.08, "bej": 5.19, "grafit": 6.58 } },
+      "Accent": { "$type": "color", "light": "#4F46E5", "dark": "#A5B4FC", "contrast": { "gri": 4.97, "mavi": 4.92, "bej": 5.02, "grafit": 6.74 } }
+    },
+    "Border": {
+      "A11y": {
+        "$type": "color",
+        "light": "#737D91",
+        "dark": "#7C8594",
+        "contrast": { "gri": 3.27, "mavi": 3.24, "bej": 3.31, "grafit": 3.61 },
+        "$description": "Erişilebilir modda her bileşene eklenen 1px kenar (WCAG 1.4.11). Yalnız gölgeyle sınır kontrastı 1.29:1."
+      }
+    }
+  },
+  "Effects": {
+    "NeumorphLight": {
+      "$type": "shadow",
+      "$value": { "offsetX": "-9px", "offsetY": "-9px", "blur": "16px", "spread": "0px", "color": "#FFFFFF80" },
+      "variants": { "mavi": "#FFFFFF99", "bej": "#FFFFFF99", "grafit": "#3E444FB3" },
+      "$description": "Sol üstteki ışık yansıması"
+    },
+    "NeumorphDark": {
+      "$type": "shadow",
+      "$value": { "offsetX": "9px", "offsetY": "9px", "blur": "16px", "spread": "0px", "color": "#A3B1C680" },
+      "variants": { "mavi": "#96A6C48C", "bej": "#BEB09C8C", "grafit": "#121416B3" },
+      "$description": "Sağ alttaki gölge"
+    },
+    "Distance": {
+      "Sm": { "$type": "dimension", "$value": "5px", "blur": "10px" },
+      "Md": { "$type": "dimension", "$value": "9px", "blur": "16px", "mobile": { "distance": "6px", "blur": "12px" } },
+      "Lg": { "$type": "dimension", "$value": "14px", "blur": "28px", "mobile": { "distance": "9px", "blur": "18px" } },
+      "Inset": { "$type": "dimension", "$value": "6px", "blur": "10px", "mobile": { "distance": "4px", "blur": "8px" } }
+    }
+  },
+  "Radius": {
+    "Neu": { "$type": "dimension", "$value": "24px" },
+    "NeuLg": { "$type": "dimension", "$value": "36px" },
+    "Pill": { "$type": "dimension", "$value": "9999px" }
+  },
+  "Spacing": {
+    "BetweenRaised": { "$type": "dimension", "$value": "24px", "mobile": "16px", "$description": "Kabarık bileşenler arası en az aralık: gölge mesafe + yayılma kadar taşar" }
+  },
+  "Motion": {
+    "Press": { "$type": "duration", "$value": "80ms", "scale": 0.97 },
+    "Release": { "$type": "duration", "$value": "500ms" },
+    "Spring": { "$type": "easing", "$value": "linear(0, 0.033, 0.117, 0.234, 0.368, 0.505, 0.636, 0.755, 0.857, 0.941, 1.006, 1.053, 1.084, 1.102, 1.108, 1.106, 1.098, 1.086, 1.072, 1.057, 1.042, 1.029, 1.018, 1.008, 1.001, 0.995, 0.991, 0.989, 0.988, 0.988, 0.989, 0.99, 1)", "$description": "Yay: k=300, c=20, m=1; %10,8 aşma" }
+  }
+}

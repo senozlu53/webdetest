@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="description" content="Stil 005: Neumorphism. Zeminle aynı renkte, çift gölgeyle kabaran ve çöken bileşenler; termostat, müzik çalar, hesap makinesi ve erişilebilir mod." />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' rx='8' fill='%23E0E5EC'/%3E%3Ccircle cx='8' cy='8' r='3' fill='%234F46E5'/%3E%3C/svg%3E" />
+    <title>Stil 005 · Neumorphism</title>
+    <script>
+      try {
+        var t = localStorage.getItem('neu-theme')
+        if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t
+        var b = localStorage.getItem('neu-base')
+        if (b === 'mavi' || b === 'bej') document.documentElement.dataset.base = b
+        if (localStorage.getItem('neu-a11y') === 'on') document.documentElement.dataset.a11y = 'on'
+      } catch (e) {}
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/neu/main.tsx"></script>
+  </body>
+</html>
