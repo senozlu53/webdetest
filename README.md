@@ -12,10 +12,11 @@ Web tasarım stilleri için canlı referans sayfaları. Her stil, anlattığı k
 | 006 · Ambient UI | `/stil/006/` | `src/ambient/` | `tokens/ambient.tokens.json` |
 | 007 · Claymorphism | `/stil/007/` | `src/clay/` | `tokens/clay.tokens.json` |
 | 008 · Isometric 3D | `/stil/008/` | `src/iso/` | `tokens/iso.tokens.json` |
+| 009 · Low Poly | `/stil/009/` | `src/lowpoly/` | `tokens/lowpoly.tokens.json` |
 
 ```bash
 npm install
-npm run dev        # http://localhost:5173  → katalog, /stil/001/, /stil/002/, /stil/003/, /stil/004/, /stil/005/, /stil/006/, /stil/007/, /stil/008/
+npm run dev        # http://localhost:5173  → katalog, /stil/001/, /stil/002/, /stil/003/, /stil/004/, /stil/005/, /stil/006/, /stil/007/, /stil/008/, /stil/009/
 npm run build      # tip denetimi + dist/
 npm run typecheck
 ```
@@ -32,6 +33,7 @@ stil/005/index.html      Neumorphism giriş noktası
 stil/006/index.html      Ambient UI giriş noktası
 stil/007/index.html      Claymorphism giriş noktası
 stil/008/index.html      Isometric 3D giriş noktası
+stil/009/index.html      Low Poly giriş noktası
 src/shared/              stiller arası ortak yardımcılar (cx, useTheme)
 src/swiss/               swiss.css (tema) · components/ · sections/
 src/soft/                soft.css (tema) · components/ · sections/
@@ -41,10 +43,12 @@ src/neu/                 neu.css (tema) · components/ · sections/
 src/ambient/             ambient.css (tema) · components/ · hooks/ · sections/
 src/clay/                clay.css (tema) · components/ · hooks/ · sections/
 src/iso/                 iso.css (tema) · lib/ (projeksiyon) · components/ · sections/
+src/lowpoly/             lowpoly.css (tema) · three/ (R3F sahneleri) · assets/ (GLB, .webp) · lib/ · sections/
+scripts/lowpoly-glb.mjs  Stil 009'un GLB modellerini üretir
 tokens/                  W3C DTCG token dosyaları (Figma / Tokens Studio)
 ```
 
-Vite çok sayfalı derlenir (`vite.config.ts` → `build.rollupOptions.input`). Her stilin CSS dosyası `@import 'tailwindcss' source(none)` ve `@source '.'` ile yalnızca kendi klasörünü tarar; böylece temalar birbirine sızmaz. `base: './'` sayesinde `dist/` herhangi bir alt dizinden servis edilebilir.
+Vite çok sayfalı derlenir (`vite.config.ts` → `build.rollupOptions.input`). Stil 009 ayrı bir TypeScript projesidir (`tsconfig.lowpoly.json`): React Three Fiber JSX'e global three.js öğeleri eklediği için diğer stillerin tiplerinden yalıtılır. Her stilin CSS dosyası `@import 'tailwindcss' source(none)` ve `@source '.'` ile yalnızca kendi klasörünü tarar; böylece temalar birbirine sızmaz. `base: './'` sayesinde `dist/` herhangi bir alt dizinden servis edilebilir.
 
 Yeni stil eklemek için: `stil/00N/index.html`, `src/<ad>/` altında `main.tsx` + tema CSS'i, `tokens/<ad>.tokens.json`, `vite.config.ts` içine yeni giriş ve katalogda bir kart.
 
@@ -170,6 +174,18 @@ Ortografik projeksiyon: kaçış noktası yok, çizgiler paralel, nesneler 30° 
 - **Mobil (Madde 17):** 768px altında izometrik sahneler ve CSS 3D katmanlar gizlenir, aynı katmanlar düz liste ya da dikey yığın olarak gösterilir.
 - **Erişilebilirlik (Madde 18):** Form öğeleri hiçbir zaman dönüşüm almaz; izometrik form yalnızca "yapmayın" örneğidir (`inert`, `aria-hidden`). Düz form izometrik sahneyi yönetir. Her veri sahnesinin kısa açıklaması ve düz tablosu var; durum renkleri ikon ve etiketle birlikte. Metin 17,06:1 (açık) · 17,19:1 (koyu), form kenarı 4,76:1 · 3,73:1.
 
+## Stil 009 · Low Poly
+
+Yüzey detayı en aza indirilmiş, düz gölgeli üçgenlerle kurulan nesneler: dijital origami. Varsayılan tema koyu "Derin Gece" (`#101820`); açık varyant "Gündüz".
+
+- **3B (Madde 14 · 16):** three.js ve React Three Fiber. Hero'da düşük poligon arazi (seyrek düzlem, `toNonIndexed` ile yüz başına normal, yüksekliğe göre köşe rengi) ve imleci izleyen GLB kristal; kamera imlece göre paralaks yapar. Vitrinde dört GLB model (kristal, kağıt uçak, kaya, ağaç), renk varyantı, sürükleyerek ve düğmelerle döndürme. Tıklamada modeller parçalanır: her üçgen normali boyunca savrulur ve kendi merkezinde döner, normali de döndüğü için düz ışık korunur.
+- **GLB modeller:** `node scripts/lowpoly-glb.mjs` bağımlılıksız ve sabit tohumla üretir: paylaşımsız köşeler, yüz başına normal, `COLOR_0` köşe rengi, mat malzeme (metalik 0, pürüzlülük 1). Kristal 32, uçak 5, kaya 80, ağaç 54 üçgen; toplam 22 KB.
+- **Yüz gölgelendirme (Madde 7 · 11):** 2B çokgen zeminler SVG'dir; her üçgenin normali 3B noktalardan hesaplanır, tonu `taban × (0,34 + 0,66 × max(0, n·L))`. Işık yönü ve yüksekliği canlı ayarlanır. Az yüzlü küre örneği poligon sayısını ve düz/yumuşak gölgelendirme farkını gösterir.
+- **Maskeler (Madde 12 · 13 · 15):** `Shape/PolygonMask` varyantları (kristal, kalkan, kırık, ok, bayrak); noktaları %5'lik ızgaraya kilitli düzenleyici (sürükleme ve ok tuşları) CSS `clip-path` üretir. Düğmelerde şekil `::before` katmanındadır; düğme kırpılmadığı için odak halkası görünür kalır. Maskeli görseller üzerine gelince aynı nokta sayısındaki poligona geçiş yapar.
+- **İkonlar (Madde 9):** üç tonlu üçgenlerden kurulu origami ikonlar (kağıt uçak, kristal, dağ, tilki, yaprak, kalp).
+- **Mobil ve performans (Madde 17):** 768px altında, veri tasarrufunda ya da WebGL yoksa sahne yüklenmez; yerine sahneden alınmış `.webp` kare gelir (hero 13 KB). three.js parçası (960 KB, gzip 256 KB) tembel yüklenir: bu durumda hiç indirilmez; kullanıcı "3B sahneyi yükle" ile açabilir. Ekran dışındaki sahne çizilmez (`frameloop="never"`).
+- **Erişilebilirlik (Madde 18):** Metin çokgen zeminin doğrudan üstünde durmaz; cam panelde (koyu %78, açık %82 opaklık, 14px bulanıklık). Doğrudan zeminde en kötü durum 2,43:1, cam panelde 11,05:1; sayfadaki kaydırıcı panel opaklığıyla en kötü durum kontrastını gerçek yüz renkleri üzerinden hesaplar. Canvas ekran okuyucudan gizlidir, vitrinin açıklaması ve her etkileşimin düğmesi vardır; sahne durdurulabilir (WCAG 2.2.2), hareketi azaltta model dönmez ve imleci izlemez.
+
 ## Yazı tipleri
 
-Hepsi OFL lisanslı, `@fontsource-variable` paketlerinden yalnızca Latin ve Latin Genişletilmiş alt kümeleriyle yüklenir: Inter (Stil 001 ve 003), Lora ve Plus Jakarta Sans (Stil 002), Geist ve Geist Mono (Stil 004; `₺` glifi olmadığı için tutarlar "TL" ile yazılır), Nunito (Stil 005), Sora (Stil 006), Baloo 2 ve Quicksand (Stil 007; Fredoka ğ, ş ve İ içermediği için başlıkta Baloo 2 seçildi), Manrope ve IBM Plex Mono (Stil 008; Space Mono `₺` içermediği için Plex Mono seçildi). Lisanslı Helvetica Now ya da Neue Haas Grotesk kullanmak için `src/swiss/swiss.css` içindeki `@font-face` bloklarını ve `--font-sans` sırasını değiştirin.
+Hepsi OFL lisanslı, `@fontsource-variable` paketlerinden yalnızca Latin ve Latin Genişletilmiş alt kümeleriyle yüklenir: Inter (Stil 001 ve 003), Lora ve Plus Jakarta Sans (Stil 002), Geist ve Geist Mono (Stil 004; `₺` glifi olmadığı için tutarlar "TL" ile yazılır), Nunito (Stil 005), Sora (Stil 006), Baloo 2 ve Quicksand (Stil 007; Fredoka ğ, ş ve İ içermediği için başlıkta Baloo 2 seçildi), Manrope ve IBM Plex Mono (Stil 008; Space Mono `₺` içermediği için Plex Mono seçildi), Space Grotesk ve Inter (Stil 009). Lisanslı Helvetica Now ya da Neue Haas Grotesk kullanmak için `src/swiss/swiss.css` içindeki `@font-face` bloklarını ve `--font-sans` sırasını değiştirin.

@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="description" content="Stil 009: Low Poly. Düz gölgeli üçgen yüzeyler, React Three Fiber ile GLB modeller, parçalanan kristal, clip-path çokgen maskeler ve cam panellerde okunur metin." />
+    <meta name="theme-color" content="#101820" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cpolygon points='18,8 30,8 24,18' fill='%23E8D8B0'/%3E%3Cpolygon points='10,18 18,8 24,18' fill='%237A9E9F'/%3E%3Cpolygon points='24,18 30,8 38,18' fill='%23E8D8B0'/%3E%3Cpolygon points='10,18 24,18 24,42' fill='%237A9E9F'/%3E%3Cpolygon points='24,18 38,18 24,42' fill='%23314E52'/%3E%3C/svg%3E" />
+    <title>Stil 009 · Low Poly</title>
+    <script>
+      try {
+        var d = document.documentElement
+        var t = localStorage.getItem('lowpoly-theme')
+        if (t === 'light' || t === 'dark') d.dataset.theme = t
+        if (localStorage.getItem('lowpoly-grain') === 'off') d.dataset.grain = 'off'
+      } catch (e) {}
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/lowpoly/main.tsx"></script>
+  </body>
+</html>

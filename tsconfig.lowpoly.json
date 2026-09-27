@@ -1,0 +1,10 @@
+{
+  // Stil 009 ayrı derlenir: @react-three/fiber, JSX'e global three.js öğeleri ekler;
+  // bu tipler diğer stillerin çok biçimli (as=…) bileşenlerini bozmasın diye yalıtılır.
+  "extends": "./tsconfig.app.json",
+  "compilerOptions": {
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.lowpoly.tsbuildinfo"
+  },
+  "include": ["src/lowpoly", "src/shared", "src/vite-env.d.ts"],
+  "exclude": []
+}

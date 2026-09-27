@@ -1,0 +1,66 @@
+{
+  "$description": "Stil 009: Low Poly (Faceted 3D). W3C DTCG formatı. Adlar Figma yolu ile aynıdır: Shape/PolygonMask, Color/FacetHighlight, Color/FacetShadow. Varsayılan tema koyu 'Derin Gece'; açık varyant 'Gündüz'.",
+  "Color": {
+    "Palette": {
+      "DerinGece": { "$type": "color", "$value": "#101820" },
+      "Denizalti": { "$type": "color", "$value": "#314E52", "$description": "Zeminde 2,0:1: metin rengi değil, yalnızca yüz ve çizgi" },
+      "MatTurkuaz": { "$type": "color", "$value": "#7A9E9F", "$description": "Zeminde 6,15:1" },
+      "Kum": { "$type": "color", "$value": "#E8D8B0", "$description": "Zeminde 12,68:1; ana düğme ve vurgu" },
+      "KirikBeyaz": { "$type": "color", "$value": "#F2F2F2", "$description": "Zeminde 15,98:1; metin" }
+    },
+    "FacetHighlight": { "$type": "color", "$value": "#E8D8B0", "$description": "Işığa bakan yüz" },
+    "FacetShadow": { "$type": "color", "$value": "#0A1016", "$description": "Işıktan kaçan yüz" },
+    "Ramp": {
+      "$description": "Yüksekliğe göre taban renk: vadi → zirve. Yüz tonu = taban × (0,34 + 0,66 × max(0, n·L)).",
+      "$value": [
+        { "at": 0, "color": "#101820" },
+        { "at": 0.35, "color": "#314E52" },
+        { "at": 0.62, "color": "#7A9E9F" },
+        { "at": 0.85, "color": "#E8D8B0" },
+        { "at": 1, "color": "#F2F2F2" }
+      ]
+    },
+    "Text": {
+      "Default": { "$type": "color", "dark": "#F2F2F2", "light": "#101820", "contrast": { "zemin": 15.98, "camEnKotu": [8.3, 10.9] } },
+      "Muted": { "$type": "color", "dark": "#A9C4C4", "light": "#314E52", "contrast": { "zemin": [9.7, 8.01], "camEnKotu": [5.0, 5.5] } }
+    },
+    "Glass": {
+      "$description": "Madde 18: metin bu panelde. Opaklık en kötü durumu belirler; bulanıklık kontrastı değiştirmez.",
+      "dark": { "$type": "color", "$value": "rgb(16 24 32 / 0.78)" },
+      "light": { "$type": "color", "$value": "rgb(242 242 242 / 0.82)" },
+      "blur": { "$type": "dimension", "$value": "14px" }
+    }
+  },
+  "Shape": {
+    "PolygonMask": {
+      "$description": "Noktalar %5'lik ızgaraya kilitli. CSS: clip-path: polygon(...)",
+      "Kristal": { "$type": "string", "$value": "polygon(50% 0, 100% 30%, 80% 100%, 20% 100%, 0 30%)" },
+      "Kalkan": { "$type": "string", "$value": "polygon(0 0, 100% 0, 100% 60%, 50% 100%, 0 60%)" },
+      "Kirik": { "$type": "string", "$value": "polygon(0 10%, 40% 0, 100% 15%, 90% 100%, 25% 90%, 5% 70%)" },
+      "Ok": { "$type": "string", "$value": "polygon(0 15%, 70% 15%, 70% 0, 100% 50%, 70% 100%, 70% 85%, 0 85%)" },
+      "Bayrak": { "$type": "string", "$value": "polygon(0 0, 100% 0, 85% 50%, 100% 100%, 0 100%)" }
+    },
+    "Button": { "$type": "string", "$value": "polygon(0 22%, 9% 0, 100% 0, 100% 70%, 93% 100%, 0 100%)", "$description": "::before katmanında; odak halkası kırpılmaz" },
+    "Card": { "$type": "string", "$value": "polygon(0 0, 91% 0, 100% 9%, 100% 100%, 9% 100%, 0 91%)" }
+  },
+  "Model": {
+    "$description": "GLB, scripts/lowpoly-glb.mjs ile üretilir: paylaşımsız köşeler, yüz başına normal, COLOR_0 köşe rengi, mat malzeme (metalik 0, pürüzlülük 1).",
+    "Kristal": { "file": "kristal.glb", "triangles": 32, "bytes": 4404 },
+    "KagitUcak": { "file": "ucak.glb", "triangles": 5, "bytes": 1472 },
+    "Kaya": { "file": "kaya.glb", "triangles": 80, "bytes": 9588 },
+    "Agac": { "file": "agac.glb", "triangles": 54, "bytes": 6768 }
+  },
+  "Typography": {
+    "Display": { "$type": "typography", "$value": { "fontFamily": "Space Grotesk", "fontSize": "72px", "fontWeight": 700, "letterSpacing": "-0.02em" } },
+    "Heading": { "$type": "typography", "$value": { "fontFamily": "Space Grotesk", "fontSize": "28px", "fontWeight": 600 } },
+    "Body": { "$type": "typography", "$value": { "fontFamily": "Inter", "fontSize": "16px", "fontWeight": 400, "lineHeight": 1.6 } }
+  },
+  "Motion": {
+    "Shatter": { "$type": "duration", "$value": "700ms", "$description": "Üçgenler normali boyunca savrulur, kendi merkezinde döner; normal de döner" },
+    "Spin": { "$type": "number", "$value": 0.35, "$description": "radyan / saniye" },
+    "Parallax": { "$type": "number", "$value": 0.9, "$description": "Kameranın imleçle en fazla kayması (sahne birimi)" }
+  },
+  "Responsive": {
+    "staticBelow": { "$type": "dimension", "$value": "768px", "$description": "Altında WebGL yüklenmez; sahneden alınmış .webp kare gösterilir (hero 13 KB)" }
+  }
+}

@@ -1,0 +1,263 @@
+@import 'tailwindcss' source(none);
+@source '.';
+
+/* ─────────────────────────────────────────────────────────────
+   STİL 009 · LOW POLY (FACETED 3D)
+   Az üçgenli ağlar, düz gölgelendirme (yumuşatma yok), keskin açılar.
+   Metin hiçbir zaman çokgen zeminin doğrudan üstünde değil: cam panelde.
+   Değerler tokens/lowpoly.tokens.json ile birebir aynıdır.
+   ───────────────────────────────────────────────────────────── */
+
+@font-face {
+  font-family: 'Space Grotesk Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 300 700;
+  src: url('@fontsource-variable/space-grotesk/files/space-grotesk-latin-ext-wght-normal.woff2') format('woff2-variations');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329,
+    U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Space Grotesk Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 300 700;
+  src: url('@fontsource-variable/space-grotesk/files/space-grotesk-latin-wght-normal.woff2') format('woff2-variations');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Inter Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url('@fontsource-variable/inter/files/inter-latin-ext-wght-normal.woff2') format('woff2-variations');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329,
+    U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Inter Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url('@fontsource-variable/inter/files/inter-latin-wght-normal.woff2') format('woff2-variations');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* ── Derin Gece (varsayılan, koyu) ─────────────────────────────
+   Metin #F2F2F2 zeminde 15.98:1. Cam panel %78: en parlak yüz (#F2F2F2) arkadayken
+   bile metin 8.3:1, ikincil #A9C4C4 5.0:1, kum vurgu 6.6:1. */
+:root {
+  --bg: #101820;
+  --surface: #16212b;
+  --ink: #f2f2f2;
+  --muted: #a9c4c4;
+  --accent: #e8d8b0;
+  --turkuaz: #7a9e9f;
+  --deep: #314e52;
+  --line: rgb(122 158 159 / 0.28);
+  --glass: rgb(16 24 32 / 0.78);
+  --glass-line: rgb(232 216 176 / 0.22);
+  --ring: #e8d8b0;
+  --primary-bg: #e8d8b0;
+  --primary-ink: #101820;
+  /* Color/FacetHighlight · Color/FacetShadow */
+  --facet-hi: #e8d8b0;
+  --facet-lo: #0a1016;
+  --scene-fog: #101820;
+  color-scheme: dark;
+}
+
+/* ── Gündüz (açık varyant): kum zemin, gece mavisi mürekkep ──
+   Metin #101820 15.98:1; ikincil #314E52 8.01:1. Cam %82: en koyu yüz arkadayken metin 10.9:1. */
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme='dark']) {
+    --bg: #f2f2f2;
+    --surface: #ffffff;
+    --ink: #101820;
+    --muted: #314e52;
+    --accent: #314e52;
+    --line: rgb(49 78 82 / 0.24);
+    --glass: rgb(242 242 242 / 0.82);
+    --glass-line: rgb(16 24 32 / 0.16);
+    --ring: #314e52;
+    --primary-bg: #101820;
+    --primary-ink: #f2f2f2;
+    --scene-fog: #d9dedd;
+    color-scheme: light;
+  }
+}
+:root[data-theme='light'] {
+  --bg: #f2f2f2;
+  --surface: #ffffff;
+  --ink: #101820;
+  --muted: #314e52;
+  --accent: #314e52;
+  --line: rgb(49 78 82 / 0.24);
+  --glass: rgb(242 242 242 / 0.82);
+  --glass-line: rgb(16 24 32 / 0.16);
+  --ring: #314e52;
+  --primary-bg: #101820;
+  --primary-ink: #f2f2f2;
+  --scene-fog: #d9dedd;
+  color-scheme: light;
+}
+
+@theme {
+  --color-*: initial;
+  --font-*: initial;
+  --font-sans: 'Inter Variable', 'Inter', system-ui, sans-serif;
+  --font-display: 'Space Grotesk Variable', 'Space Grotesk', 'Manrope', system-ui, sans-serif;
+  --font-mono: ui-monospace, 'SF Mono', Menlo, monospace;
+  --color-white: #ffffff;
+  --color-black: #000000;
+  /* Tanımdaki palet: tema değişse de sabit */
+  --color-gece: #101820;
+  --color-denizalti: #314e52;
+  --color-turkuaz: #7a9e9f;
+  --color-kum: #e8d8b0;
+  --color-kirik-beyaz: #f2f2f2;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-line: var(--line);
+  --color-ring: var(--ring);
+  --color-primary: var(--primary-bg);
+  --color-on-primary: var(--primary-ink);
+}
+
+@layer base {
+  html {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-padding-top: 88px;
+  }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    text-wrap: balance;
+    letter-spacing: -0.02em;
+  }
+  p {
+    text-wrap: pretty;
+  }
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 4px;
+  }
+}
+
+@layer components {
+  /* ── Madde 18: metin cam panelde ── */
+  .glass {
+    background: var(--glass);
+    border: 1px solid var(--glass-line);
+    -webkit-backdrop-filter: blur(14px) saturate(115%);
+    backdrop-filter: blur(14px) saturate(115%);
+  }
+
+  /* ── Madde 15: clip-path ile asimetrik düğme.
+     Şekil ::before katmanında; düğmenin kendisi kırpılmaz, böylece odak halkası görünür kalır. ── */
+  .facet-btn {
+    position: relative;
+    isolation: isolate;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 48px;
+    padding: 0 1.4rem;
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    cursor: pointer;
+  }
+  .facet-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: var(--btn-bg, var(--primary-bg));
+    clip-path: var(--btn-shape, polygon(0 22%, 9% 0, 100% 0, 100% 70%, 93% 100%, 0 100%));
+    transition:
+      clip-path 260ms cubic-bezier(0.3, 0.7, 0.3, 1),
+      background-color 200ms;
+  }
+  .facet-btn:hover::before {
+    clip-path: var(--btn-shape-hover, polygon(0 0, 6% 0, 100% 0, 100% 100%, 100% 100%, 0 100%));
+  }
+  .facet-btn[data-variant='primary'] {
+    color: var(--primary-ink);
+  }
+  .facet-btn[data-variant='ghost'] {
+    --btn-bg: var(--line);
+    color: var(--ink);
+  }
+  .facet-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  /* ── Asimetrik kart ── */
+  .facet-card {
+    clip-path: polygon(0 0, 91% 0, 100% 9%, 100% 100%, 9% 100%, 0 91%);
+  }
+
+  /* ── Madde 8: hafif dijital gren ── */
+  .grain {
+    position: relative;
+  }
+  .grain::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: var(--grain, 0.08);
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  :root[data-grain='off'] .grain::after {
+    display: none;
+  }
+
+  /* ── Madde 16: çokgen parçalarının girişi ── */
+  .shard {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: shard-in 700ms cubic-bezier(0.2, 0.8, 0.2, 1) backwards;
+    animation-delay: calc(var(--i, 0) * 12ms);
+  }
+}
+
+@keyframes shard-in {
+  from {
+    opacity: 0;
+    transform: translate(var(--dx, 0), var(--dy, 18px)) rotate(var(--rot, 8deg)) scale(0.6);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shard {
+    animation: none;
+  }
+  .facet-btn::before {
+    transition: none;
+  }
+}

@@ -18,5 +18,6 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src", "tokens"]
+  "include": ["src", "tokens"],
+  "exclude": ["src/lowpoly"]
 }
