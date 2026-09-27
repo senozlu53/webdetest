@@ -1,0 +1,81 @@
+{
+  "$description": "Stil 014: Conversational UI (Chat-Driven). W3C DTCG formatı. Adlar Figma yolu ile aynıdır: Radius/BubbleUser, Radius/BubbleAssistant, Color/ChatBackground. Gezinme yok; ekran bir mesaj akışı ve altta sabit bir komut kutusudur. İki renk: kullanıcı balonu marka rengi, asistan balonu nötr.",
+  "Color": {
+    "ChatBackground": { "$type": "color", "light": "#FFFFFF", "dark": "#141517", "$description": "Sohbet zemini; komut kutusunun altındaki geçiş de bu renge söner" },
+    "Brand": {
+      "$description": "Kullanıcı balonu. Seçilebilir dört renk (data-brand); balon metni hep beyaz. Ink, balon dışındaki vurgu metni içindir; en kötü yüzeyde (açıkta Brand/Soft, koyuda asistan balonu) ölçüldü.",
+      "Mavi": { "$type": "color", "$value": "#2563EB", "onBrand": 5.17, "ink": { "light": "#1D4ED8", "dark": "#60A5FA" }, "inkContrast": { "light": 5.82, "dark": 5.88 } },
+      "Mor": { "$type": "color", "$value": "#7C3AED", "onBrand": 5.7, "ink": { "light": "#6D28D9", "dark": "#A78BFA" }, "inkContrast": { "light": 6.12, "dark": 5.56 } },
+      "Yesil": { "$type": "color", "$value": "#047857", "onBrand": 5.48, "ink": { "light": "#047857", "dark": "#34D399" }, "inkContrast": { "light": 4.78, "dark": 7.83 } },
+      "Mercan": { "$type": "color", "$value": "#C2410C", "onBrand": 5.18, "ink": { "light": "#9A3412", "dark": "#FB923C" }, "inkContrast": { "light": 6.33, "dark": 6.69 } },
+      "OnBrand": { "$type": "color", "$value": "#FFFFFF" },
+      "Soft": { "$type": "string", "light": "color-mix(in srgb, var(--brand) 10%, var(--chat-bg))", "dark": "color-mix(in srgb, var(--brand) 22%, var(--chat-bg))", "$description": "Ek dosya ikonu, seçili görünüm, sürükle-bırak katmanı" }
+    },
+    "BubbleAssistant": { "$type": "color", "light": "#F2F3F5", "dark": "#24262B", "$description": "Nötr asistan balonu; metin Neutral/Ink" },
+    "Neutral": {
+      "Surface": { "$type": "color", "light": "#FFFFFF", "dark": "#1C1D21", "$description": "Komut kutusu, öneri çipleri, kartlar" },
+      "Sunken": { "$type": "color", "light": "#F7F8F9", "dark": "#18191C" },
+      "Line": { "$type": "color", "light": "#E3E5E8", "dark": "#2C2E33" },
+      "LineStrong": { "$type": "color", "light": "#C9CDD2", "dark": "#43464D" },
+      "Ink": { "$type": "color", "light": "#1A1C20", "dark": "#ECEDEF", "contrast": { "light": 15.37, "dark": 12.92 }, "$description": "Asistan balonu üstünde ölçüldü" },
+      "Muted": { "$type": "color", "light": "#5B6068", "dark": "#A0A4AB", "contrast": { "light": 5.7, "dark": 6.05 }, "$description": "Saat, dipnot, düşünme adımları; asistan balonu üstünde ölçüldü" }
+    },
+    "Status": {
+      "$description": "Yalnız ikon ve metinle birlikte (hata kutusu role='alert', çevrimiçi rozeti 'Çevrimiçi' yazısıyla)",
+      "Ok": { "$type": "color", "light": "#067647", "dark": "#47CD89" },
+      "Error": { "$type": "color", "light": "#B42318", "dark": "#F97066" }
+    }
+  },
+  "Radius": {
+    "$description": "Madde 6: konuşmacıya bakan alt köşe sivri. Değerler sol üst, sağ üst, sağ alt, sol alt sırasıyla.",
+    "BubbleUser": { "$type": "string", "$value": "18px 18px 0 18px", "$description": "Sağ alt köşe 0: balon sağdaki kullanıcıdan çıkar" },
+    "BubbleAssistant": { "$type": "string", "$value": "18px 18px 18px 0", "$description": "Sol alt köşe 0: balon soldaki asistandan çıkar" },
+    "BubbleGrouped": { "$type": "dimension", "$value": "6px", "$description": "Art arda aynı konuşmacı: gruptaki iç köşeler 6px, sivri köşe yalnız son balonda" },
+    "PromptBox": { "$type": "dimension", "$value": "24px" },
+    "Chip": { "$type": "dimension", "$value": "9999px" },
+    "Variants": { "$description": "data-bubble: sivri (varsayılan) · kuyruk (üçgen kuyruk) · yuvarlak (dört köşe 18px)", "$value": ["sivri", "kuyruk", "yuvarlak"] }
+  },
+  "Shadow": {
+    "PromptBox": {
+      "$description": "Madde 7: sabit komut kutusu akışın üstünde yüzer; gölge yukarı doğru. Koyu temada 0.45 ve 0.4 saydamlık.",
+      "$type": "shadow",
+      "$value": [
+        { "offsetX": "0", "offsetY": "-10px", "blur": "40px", "spread": "0", "color": "rgb(0 0 0 / 0.05)" },
+        { "offsetX": "0", "offsetY": "1px", "blur": "2px", "spread": "0", "color": "rgb(0 0 0 / 0.04)" }
+      ]
+    },
+    "Bubble": { "$type": "string", "$value": "none", "$description": "Balonlar düz; tek yükseltilmiş katman komut kutusu" }
+  },
+  "Typography": {
+    "$description": "Madde 5: okunabilir sans-serif.",
+    "Message": { "$type": "typography", "$value": { "fontFamily": "Inter", "fontSize": "16px", "fontWeight": 400, "lineHeight": 1.6 } },
+    "Meta": { "$type": "typography", "$value": { "fontFamily": "Inter", "fontSize": "12px", "fontWeight": 400, "lineHeight": 1.4 }, "$description": "Saat, kopyala, dipnot" },
+    "Code": { "$type": "typography", "$value": { "fontFamily": "JetBrains Mono", "fontSize": "13px", "fontWeight": 400, "lineHeight": 1.6 }, "$description": "Bağlaçlar kapalı" }
+  },
+  "Spacing": {
+    "Turn": { "$type": "dimension", "$value": "20px", "$description": "Konuşmacı değişince" },
+    "Group": { "$type": "dimension", "$value": "4px", "$description": "Aynı konuşmacının art arda balonları" },
+    "BubblePadding": { "$type": "string", "$value": "10px 14px" },
+    "MaxWidth": { "$type": "string", "$value": "min(85%, 640px)", "$description": "Balon; akış sütunu en fazla 768px" }
+  },
+  "Layout": {
+    "Figma": { "$type": "string", "$value": "Auto Layout: Vertical, reversed (bottom-up) + fixed bottom bar", "$description": "Madde 12: akış alttan yukarı büyür; komut kutusu 'Fix position when scrolling'" },
+    "Scroller": { "$type": "string", "$value": "display: flex; flex-direction: column-reverse; overflow-y: auto", "$description": "Madde 15: tarayıcı en alttan başlar, yeni mesajda en altta kalır; kullanıcı yukarı kaydırdıysa yeri korunur" }
+  },
+  "Motion": {
+    "SlideUp": { "$type": "duration", "$value": "320ms", "$description": "Yeni balon: translateY(14px) → 0 ve saydamlık; cubic-bezier(0.2, 0.8, 0.2, 1)" },
+    "ThinkingStep": { "$type": "duration", "$value": "420ms", "$description": "AI Thinking Indicator adımı (yavaş 650ms, hızlı 200ms); bitince 'Düşündü · N adım' satırına katlanır" },
+    "Token": { "$type": "duration", "$value": "32ms", "$description": "Kelime başına akış (yavaş 90ms, hızlı 10ms)" },
+    "Dots": { "$type": "duration", "$value": "1.2s", "$description": "Üç nokta, 0.15s aralıkla" },
+    "Caret": { "$type": "duration", "$value": "1s", "$description": "Üretim imleci, steps(1)" },
+    "Levels": { "$description": "data-motion: on · off (hareketi azalt ya da kullanıcı; localStorage 'chat-motion'). Kapalıyken yanıt tek seferde gelir, döngüler durur.", "$value": ["oto", "acik", "kapali"] }
+  },
+  "Responsive": {
+    "AppHeight": { "$type": "string", "$value": "var(--app-h, 100dvh)", "$description": "Madde 17: visualViewport yüksekliği; klavye açılınca küçülür, komut kutusu klavyenin üstünde kalır. --app-top görünür alanın kayması." },
+    "Viewport": { "$type": "string", "$value": "width=device-width, initial-scale=1, interactive-widget=resizes-content" },
+    "Widget": { "$type": "string", "$value": "≥640px: 400 × min(640px, app-h − 116px), sağ alt; <640px: tam ekran", "$description": "Destek balonu penceresi; kenar çubuğu görünümü 1024px altında destek balonuna döner" }
+  },
+  "Accessibility": {
+    "Live": { "$type": "string", "$value": "aria-live='polite' + aria-atomic", "$description": "Madde 18: 'Asistan düşünüyor', yanıt bitince tamamı tek duyuru; hatalar 'assertive'. Akan balon aria-busy." }
+  }
+}

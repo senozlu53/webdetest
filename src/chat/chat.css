@@ -1,0 +1,420 @@
+@import 'tailwindcss' source(none);
+@source '.';
+
+/* ─────────────────────────────────────────────────────────────
+   STİL 014 · CONVERSATIONAL UI (CHAT-DRIVEN)
+   Gezinme yok: bütün deneyim bir mesaj akışı ve altta sabit bir komut kutusu.
+   İkili renk: kullanıcı balonu marka rengi, asistan balonu nötr zemin.
+   Değerler tokens/chat.tokens.json ile aynıdır.
+   ───────────────────────────────────────────────────────────── */
+
+@font-face {
+  font-family: 'Inter Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url('@fontsource-variable/inter/files/inter-latin-ext-wght-normal.woff2') format('woff2-variations');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329,
+    U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Inter Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url('@fontsource-variable/inter/files/inter-latin-wght-normal.woff2') format('woff2-variations');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'JetBrains Mono Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 800;
+  src: url('@fontsource-variable/jetbrains-mono/files/jetbrains-mono-latin-ext-wght-normal.woff2') format('woff2-variations');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329,
+    U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'JetBrains Mono Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 800;
+  src: url('@fontsource-variable/jetbrains-mono/files/jetbrains-mono-latin-wght-normal.woff2') format('woff2-variations');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* ── Açık (varsayılan) ──
+   Metin #1A1C20 asistan balonunda 15,37:1 · ikincil #5B6068 5,70:1.
+   Kullanıcı balonunda beyaz metin: mavi 5,17 · mor 5,70 · yeşil 5,48 · mercan 5,18. */
+:root {
+  /* Color/ChatBackground */
+  --chat-bg: #ffffff;
+  --surface: #ffffff;
+  --sunken: #f7f8f9;
+  --ink: #1a1c20;
+  --muted: #5b6068;
+  --line: #e3e5e8;
+  --line-strong: #c9cdd2;
+  /* Asistan balonu: nötr */
+  --bubble-a: #f2f3f5;
+  --bubble-a-ink: #1a1c20;
+  --on-brand: #ffffff;
+  --err: #b42318;
+  --ok: #067647;
+  /* Madde 7: sabit komut kutusunun yukarı gölgesi */
+  --prompt-shadow: 0 -10px 40px rgb(0 0 0 / 0.05), 0 1px 2px rgb(0 0 0 / 0.04);
+  --card-shadow: 0 1px 2px rgb(0 0 0 / 0.05);
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --chat-bg: #141517;
+    --surface: #1c1d21;
+    --sunken: #18191c;
+    --ink: #ecedef;
+    --muted: #a0a4ab;
+    --line: #2c2e33;
+    --line-strong: #43464d;
+    --bubble-a: #24262b;
+    --bubble-a-ink: #ecedef;
+    --err: #f97066;
+    --ok: #47cd89;
+    --prompt-shadow: 0 -10px 40px rgb(0 0 0 / 0.45), 0 1px 2px rgb(0 0 0 / 0.4);
+    --card-shadow: 0 1px 2px rgb(0 0 0 / 0.4);
+    color-scheme: dark;
+  }
+}
+:root[data-theme='dark'] {
+  --chat-bg: #141517;
+  --surface: #1c1d21;
+  --sunken: #18191c;
+  --ink: #ecedef;
+  --muted: #a0a4ab;
+  --line: #2c2e33;
+  --line-strong: #43464d;
+  --bubble-a: #24262b;
+  --bubble-a-ink: #ecedef;
+  --err: #f97066;
+  --ok: #47cd89;
+  --prompt-shadow: 0 -10px 40px rgb(0 0 0 / 0.45), 0 1px 2px rgb(0 0 0 / 0.4);
+  --card-shadow: 0 1px 2px rgb(0 0 0 / 0.4);
+  color-scheme: dark;
+}
+
+/* ── Marka rengi: kullanıcı balonu. --brand-ink metin/bağlantı için temaya göre koyu ya da açık ── */
+:root,
+[data-brand='mavi'] {
+  --brand: #2563eb;
+  --brand-ink-l: #1d4ed8;
+  --brand-ink-d: #60a5fa;
+}
+[data-brand='mor'] {
+  --brand: #7c3aed;
+  --brand-ink-l: #6d28d9;
+  --brand-ink-d: #a78bfa;
+}
+[data-brand='yesil'] {
+  --brand: #047857;
+  --brand-ink-l: #047857;
+  --brand-ink-d: #34d399;
+}
+[data-brand='mercan'] {
+  --brand: #c2410c;
+  --brand-ink-l: #9a3412;
+  --brand-ink-d: #fb923c;
+}
+:root {
+  --brand-ink: var(--brand-ink-l);
+  --brand-soft: color-mix(in srgb, var(--brand) 10%, var(--chat-bg));
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --brand-ink: var(--brand-ink-d);
+    --brand-soft: color-mix(in srgb, var(--brand) 22%, var(--chat-bg));
+  }
+}
+:root[data-theme='dark'] {
+  --brand-ink: var(--brand-ink-d);
+  --brand-soft: color-mix(in srgb, var(--brand) 22%, var(--chat-bg));
+}
+
+/* ── Madde 6 · 13: balon biçimi (Radius/BubbleUser, Radius/BubbleAssistant) ── */
+:root,
+[data-bubble='sivri'] {
+  --r: 18px;
+  --r-tail: 0px;
+}
+[data-bubble='yuvarlak'] {
+  --r: 18px;
+  --r-tail: 18px;
+}
+[data-bubble='kuyruk'] {
+  --r: 18px;
+  --r-tail: 0px;
+}
+
+@theme {
+  --color-*: initial;
+  --font-*: initial;
+  --font-sans: 'Inter Variable', 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono Variable', 'JetBrains Mono', ui-monospace, monospace;
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-transparent: transparent;
+}
+@theme inline {
+  --color-chat: var(--chat-bg);
+  --color-surface: var(--surface);
+  --color-sunken: var(--sunken);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-bubble-a: var(--bubble-a);
+  --color-brand: var(--brand);
+  --color-brand-ink: var(--brand-ink);
+  --color-brand-soft: var(--brand-soft);
+  --color-on-brand: var(--on-brand);
+  --color-err: var(--err);
+  --color-ok: var(--ok);
+}
+
+@layer base {
+  html {
+    background: var(--chat-bg);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  /* Madde 5: Inter 16px / 1,6 */
+  body {
+    margin: 0;
+    background: var(--chat-bg);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  :focus-visible {
+    outline: 2px solid var(--brand);
+    outline-offset: 2px;
+  }
+  ::selection {
+    background: color-mix(in srgb, var(--brand) 25%, transparent);
+  }
+  code,
+  pre {
+    font-variant-ligatures: none;
+  }
+}
+
+@layer components {
+  /* ── Madde 6: balonlar. Konuşmacı yönündeki alt köşe sivri; art arda mesajlarda yalnız son balon sivri ── */
+  .bubble {
+    position: relative;
+    padding: 10px 14px;
+    border-radius: var(--r);
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+  }
+  .bubble-user {
+    background: var(--brand);
+    color: var(--on-brand);
+    border-bottom-right-radius: var(--r-tail);
+  }
+  .bubble-asst {
+    background: var(--bubble-a);
+    color: var(--bubble-a-ink);
+    border-bottom-left-radius: var(--r-tail);
+  }
+  /* Grupta ilk/orta balonlar: konuşmacı tarafında küçük köşe, sivri köşe yalnız sonuncuda */
+  .bubble-user[data-pos='first'],
+  .bubble-user[data-pos='mid'] {
+    border-bottom-right-radius: 6px;
+  }
+  .bubble-user[data-pos='mid'],
+  .bubble-user[data-pos='last'] {
+    border-top-right-radius: 6px;
+  }
+  .bubble-asst[data-pos='first'],
+  .bubble-asst[data-pos='mid'] {
+    border-bottom-left-radius: 6px;
+  }
+  .bubble-asst[data-pos='mid'],
+  .bubble-asst[data-pos='last'] {
+    border-top-left-radius: 6px;
+  }
+  /* Kuyruk biçimi: sivri köşeye eklenen küçük üçgen */
+  :where([data-bubble='kuyruk']) .bubble-user:is([data-pos='last'], [data-pos='solo'])::after,
+  :where([data-bubble='kuyruk']) .bubble-asst:is([data-pos='last'], [data-pos='solo'])::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 10px;
+    height: 12px;
+    background: inherit;
+  }
+  :where([data-bubble='kuyruk']) .bubble-user:is([data-pos='last'], [data-pos='solo'])::after {
+    right: -8px;
+    clip-path: polygon(0 0, 0 100%, 100% 100%);
+  }
+  :where([data-bubble='kuyruk']) .bubble-asst:is([data-pos='last'], [data-pos='solo'])::after {
+    left: -8px;
+    clip-path: polygon(100% 0, 100% 100%, 0 100%);
+  }
+  .bubble p + p,
+  .bubble p + ul,
+  .bubble ul + p {
+    margin-top: 0.6em;
+  }
+  .bubble ul {
+    list-style: disc;
+    padding-left: 1.25em;
+    white-space: normal;
+  }
+  .bubble li + li {
+    margin-top: 0.2em;
+  }
+  .bubble code {
+    font-family: var(--font-mono);
+    font-size: 0.86em;
+    padding: 0.08em 0.35em;
+    border-radius: 4px;
+    background: color-mix(in srgb, currentColor 10%, transparent);
+  }
+  .bubble strong {
+    font-weight: 650;
+  }
+
+  /* ── Madde 7: sabit komut kutusu, derin yukarı gölge ── */
+  .prompt-box {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 24px;
+    box-shadow: var(--prompt-shadow);
+  }
+  .prompt-box:focus-within {
+    border-color: var(--line-strong);
+  }
+  /* Destek balonu penceresi: mobilde tam ekran (görünür alan kadar), geniş ekranda köşede */
+  .widget-panel {
+    position: fixed;
+    inset-inline: 0;
+    top: var(--app-top, 0px);
+    height: var(--app-h, 100dvh);
+  }
+  @media (min-width: 640px) {
+    .widget-panel {
+      inset-inline: auto;
+      right: 20px;
+      top: auto;
+      bottom: 92px;
+      width: 400px;
+      height: min(640px, calc(var(--app-h, 100dvh) - 116px));
+    }
+  }
+  .fade-up {
+    background: linear-gradient(to top, var(--chat-bg) 55%, transparent);
+  }
+
+  .scroll-x {
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scrollbar-width: thin;
+  }
+  .scroll-y {
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--line-strong) transparent;
+  }
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* ── Madde 16: yeni mesaj alttan yukarı belirir ── */
+  .slide-up {
+    animation: slide-up 320ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  }
+  .caret {
+    display: inline-block;
+    width: 0.45em;
+    height: 1.05em;
+    margin-left: 2px;
+    vertical-align: -0.15em;
+    border-radius: 2px;
+    background: currentColor;
+    opacity: 0.55;
+    animation: blink 1s steps(1) infinite;
+  }
+  .dots > * {
+    animation: dot 1.2s ease-in-out infinite;
+  }
+  .dots > :nth-child(2) {
+    animation-delay: 0.15s;
+  }
+  .dots > :nth-child(3) {
+    animation-delay: 0.3s;
+  }
+  .spin {
+    animation: spin 0.9s linear infinite;
+    transform-origin: center;
+  }
+  .level {
+    transform-origin: center;
+    transition: transform 90ms linear;
+  }
+  .pulse-ring {
+    animation: pulse-ring 1.4s ease-out infinite;
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+}
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+@keyframes dot {
+  0%,
+  80%,
+  100% {
+    opacity: 0.3;
+    transform: translateY(0);
+  }
+  40% {
+    opacity: 1;
+    transform: translateY(-3px);
+  }
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes pulse-ring {
+  from {
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--err) 45%, transparent);
+  }
+  to {
+    box-shadow: 0 0 0 10px transparent;
+  }
+}
+
+/* Hareket kapalı */
+:root[data-motion='off'] *,
+:root[data-motion='off'] *::before,
+:root[data-motion='off'] *::after {
+  animation: none !important;
+  transition: none !important;
+  scroll-behavior: auto !important;
+}

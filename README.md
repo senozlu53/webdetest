@@ -17,10 +17,11 @@ Web tasarım stilleri için canlı referans sayfaları. Her stil, anlattığı k
 | 011 · Holographic | `/stil/011/` | `src/holo/` | `tokens/holo.tokens.json` |
 | 012 · Terminal / Hacker UI | `/stil/012/` | `src/term/` | `tokens/term.tokens.json` |
 | 013 · Generative UI | `/stil/013/` | `src/gen/` | `tokens/gen.tokens.json` |
+| 014 · Conversational UI | `/stil/014/` | `src/chat/` | `tokens/chat.tokens.json` |
 
 ```bash
 npm install
-npm run dev        # http://localhost:5173  → katalog, /stil/001/, /stil/002/, /stil/003/, /stil/004/, /stil/005/, /stil/006/, /stil/007/, /stil/008/, /stil/009/, /stil/010/, /stil/011/, /stil/012/, /stil/013/
+npm run dev        # http://localhost:5173  → katalog, /stil/001/, /stil/002/, /stil/003/, /stil/004/, /stil/005/, /stil/006/, /stil/007/, /stil/008/, /stil/009/, /stil/010/, /stil/011/, /stil/012/, /stil/013/, /stil/014/
 npm run build      # tip denetimi + dist/
 npm run typecheck
 ```
@@ -42,6 +43,7 @@ stil/010/index.html      Cyberpunk giriş noktası
 stil/011/index.html      Holographic giriş noktası
 stil/012/index.html      Terminal / Hacker UI giriş noktası
 stil/013/index.html      Generative UI giriş noktası
+stil/014/index.html      Conversational UI giriş noktası
 src/shared/              stiller arası ortak yardımcılar (cx, useTheme)
 src/swiss/               swiss.css (tema) · components/ · sections/
 src/soft/                soft.css (tema) · components/ · sections/
@@ -56,6 +58,7 @@ src/cyber/               cyber.css (tema) · components/ (CyberCard, CyberButton
 src/holo/                holo.css (tema) · components/ (CommandCenter, HoloPanel, DataGrid, HoloCanvas) · charts/ · lib/ (3B çizici, veri) · sections/
 src/term/                term.css (tema) · components/ (TerminalShell, Kbd, LogStream, AsciiTable, CommandPalette) · lib/ (ascii, veri) · sections/
 src/gen/                 gen.css (tema) · components/ (ToolCall, ToolResult, AICitation, AISources, Markdown) · results/ · lib/ (markdown, senaryolar) · sections/
+src/chat/                chat.css (tema) · components/ (AIChat, AIPromptBox, AIMessage, AIVoiceInput) · widgets/ (yanıt içi örnekler) · lib/ (konular, dosya analizi) · hooks/ · host/
 scripts/lowpoly-glb.mjs  Stil 009'un GLB modellerini üretir
 tokens/                  W3C DTCG token dosyaları (Figma / Tokens Studio)
 ```
@@ -256,6 +259,20 @@ Arayüz önceden çizilmiş sabit ekranlardan değil, kullanıcının sorusundan
 - **Hareket (Madde 16):** Kelime kelime akış (22–60ms), adım ilerlemesi ve `ResizeObserver` ile ölçülen yükseklik geçişi (240ms): yeni araç sonucu geldiğinde kutu zıplamaz, kayarak uzar. Hareket kapalıyken (ya da hareketi azalt tercihinde) yanıt tek seferde gelir, döngüler durur.
 - **Erişilebilirlik (Madde 18):** Akan yanıt `aria-busy` ile işaretlenir; kelimeler tek tek duyurulmaz, bitince tek bir durum duyurusu yapılır. Takvim ve grafiklerin metin karşılığı var; durum hiçbir yerde yalnız renkle verilmez. En kötü yüzeyde metin 16,12:1 (koyu 13,55:1), ikincil 7,03:1 (5,81:1), vurgu 5,72:1 (4,99:1).
 
+## Stil 014 · Conversational UI
+
+Gezinme menüsü yok: bütün ekran bir mesaj akışı ve altta sabit duran bir komut kutusu. Sayfanın kendisi bir sohbet; stilin maddeleri sorulunca anlatılır ve her yanıtın altında o maddenin canlı örneği açılır (ekran anatomisi, balon köşeleri, komut kutusu, klavye yönetimi, `aria-live` günlüğü…). Sayfa bir tanıtımdır: model çalışmaz, yanıtlar önceden yazılmıştır ve dosyalar tarayıcıdan çıkmaz.
+
+- **Sohbet (Madde 2 · 10):** Dokuz konu öneri çipi olarak başlar; her yanıttan sonra o yanıta uyan üç yeni çip gelir. Konu dışı bir soruda asistan örneği olmadığını söyler ve konuları önerir. Üç görünüm aynı sohbeti paylaşır: tam ekran yapay zekâ sohbeti, bir sayfanın yanında kenar çubuğu (1024px altında destek balonuna döner) ve sağ altta açılan destek balonu (okunmamış yanıt rozeti, Escape ile kapanır, odak başlatıcıya döner). Görünüm, geçmiş silinmeden değişir.
+- **Bileşenler (Madde 11 · 14):** `<AIChat>` (akış, "son mesaja in" düğmesi yeni mesaj sayısıyla, sürükle-bırak katmanı), `<AIPromptBox>` (metin, dosya ve ses; Enter gönderir, Shift+Enter yeni satır, Escape üretimi durdurur; yapıştırılan dosyalar da eklenir; en fazla 5 dosya, dosya başına 10 MB), `<AIMessage>` (`role` ile kullanıcı ve asistan; art arda balonlar gruplanır, sivri köşe yalnız sonuncuda) ve `<AIVoiceInput>` (ses seviyesi, süre, iptal ve "metne çevir"; varsayılan tanıtım kaydıdır, ayarlardan tarayıcının konuşma tanıması açılabilir). AI Prompt Suggestions çipleri ve eklenen dosyanın analizi (görselde ölçü ve oran, CSV'de satır ve sütun, JSON'da yapı, metinde satır ve kelime).
+- **Renk ve yazı (Madde 4 · 5):** Beyaz zemin (`Color/ChatBackground`, koyuda `#141517`). Kullanıcı balonu marka rengi (mavi `#2563EB`, mor, yeşil ya da mercan; beyaz metin en az 5,17:1), asistan balonu nötr gri `#F2F3F5`. Inter 16px, satır yüksekliği 1,6.
+- **Şekil, derinlik, ikon (Madde 6 · 7 · 9):** 18px köşeli balonlarda konuşmacıya bakan alt köşe 0px (`Radius/BubbleUser` 18 18 0 18, `Radius/BubbleAssistant` 18 18 18 0); ayarlardan kuyruklu ya da tamamen yuvarlak biçime geçilebilir. Balonlar düz; tek yükseltilmiş katman komut kutusu, gölgesi yukarı doğru (`0 -10px 40px rgba(0,0,0,0.05)`). İkonlar: mikrofon, ataç, gönder, ayarlar.
+- **Figma (Madde 12 · 13):** Akış ters çevrilmiş dikey Auto Layout (alttan yukarı büyür), komut çubuğu kaydırmada sabit. Tokenlar: `Radius/BubbleUser`, `Radius/BubbleAssistant`, `Color/ChatBackground` ve diğerleri `tokens/chat.tokens.json` içinde.
+- **CSS (Madde 15):** Kaydırma alanı `flex flex-col-reverse`: tarayıcı en alttan başlar, yeni mesaj gelince en altta kalır, kullanıcı yukarı kaydırdıysa yeri korunur. Ek JavaScript ile kaydırma yalnız kullanıcı mesaj gönderince yapılır.
+- **Hareket (Madde 16):** Yeni balon aşağıdan kayarak gelir (320ms). AI Thinking Indicator adım adım ilerler, yanıt başlayınca "Düşündü · N adım · X sn" satırına katlanır ve yeniden açılabilir; sonra yanıt kelime kelime akar. Akış hızı ayarlanabilir; hareket kapalıyken (ya da hareketi azalt tercihinde) yanıt tek seferde gelir.
+- **Mobil (Madde 17):** Görünür alanın yüksekliği `visualViewport` ile `--app-h` değişkenine yazılır ve sohbet bu yükseklikle konumlanır; klavye açılınca komut kutusu klavyenin üstünde kalır (`interactive-widget=resizes-content` ile birlikte). Destek penceresi mobilde tam ekran açılır.
+- **Erişilebilirlik (Madde 18):** İki gizli `aria-live` bölgesi: "Asistan düşünüyor", yanıt bitince tamamı tek duyuru (kelimeler tek tek okunmaz, akan balon `aria-busy`), durdurma, eklenen ve kaldırılan dosyalar; hatalar `assertive`. Her balonda ekran okuyucu için "Siz" ya da "Asistan" başlığı, eklenen görsellerde dosya adıyla alt metin. En kötü yüzeyde metin 15,37:1 (koyu 12,92:1), ikincil 5,70:1 (6,05:1), vurgu metni en az 4,78:1 (5,56:1).
+
 ## Yazı tipleri
 
-Hepsi OFL lisanslı, `@fontsource-variable` paketlerinden yalnızca Latin ve Latin Genişletilmiş alt kümeleriyle yüklenir: Inter (Stil 001 ve 003), Lora ve Plus Jakarta Sans (Stil 002), Geist ve Geist Mono (Stil 004; `₺` glifi olmadığı için tutarlar "TL" ile yazılır), Nunito (Stil 005), Sora (Stil 006), Baloo 2 ve Quicksand (Stil 007; Fredoka ğ, ş ve İ içermediği için başlıkta Baloo 2 seçildi), Manrope ve IBM Plex Mono (Stil 008; Space Mono `₺` içermediği için Plex Mono seçildi), Space Grotesk ve Inter (Stil 009), Rajdhani, Orbitron, Space Grotesk ve IBM Plex Mono (Stil 010; Rajdhani ve Plex Mono sabit ağırlıklı `@fontsource` paketlerinden gelir; Orbitron ğ, ş ve İ içermediği için yalnız Latin alt kümesiyle yüklenir ve yalnız rakam, kod ve saatlerde kullanılır, başlıklar Rajdhani), Audiowide, Exo 2, Chakra Petch ve IBM Plex Mono (Stil 011; Audiowide ve Chakra Petch sabit ağırlıklı `@fontsource` paketlerinden), JetBrains Mono, Fira Code ve Source Code Pro (Stil 012), Inter, Source Serif 4 ve JetBrains Mono (Stil 013). Lisanslı Helvetica Now ya da Neue Haas Grotesk kullanmak için `src/swiss/swiss.css` içindeki `@font-face` bloklarını ve `--font-sans` sırasını değiştirin.
+Hepsi OFL lisanslı, `@fontsource-variable` paketlerinden yalnızca Latin ve Latin Genişletilmiş alt kümeleriyle yüklenir: Inter (Stil 001 ve 003), Lora ve Plus Jakarta Sans (Stil 002), Geist ve Geist Mono (Stil 004; `₺` glifi olmadığı için tutarlar "TL" ile yazılır), Nunito (Stil 005), Sora (Stil 006), Baloo 2 ve Quicksand (Stil 007; Fredoka ğ, ş ve İ içermediği için başlıkta Baloo 2 seçildi), Manrope ve IBM Plex Mono (Stil 008; Space Mono `₺` içermediği için Plex Mono seçildi), Space Grotesk ve Inter (Stil 009), Rajdhani, Orbitron, Space Grotesk ve IBM Plex Mono (Stil 010; Rajdhani ve Plex Mono sabit ağırlıklı `@fontsource` paketlerinden gelir; Orbitron ğ, ş ve İ içermediği için yalnız Latin alt kümesiyle yüklenir ve yalnız rakam, kod ve saatlerde kullanılır, başlıklar Rajdhani), Audiowide, Exo 2, Chakra Petch ve IBM Plex Mono (Stil 011; Audiowide ve Chakra Petch sabit ağırlıklı `@fontsource` paketlerinden), JetBrains Mono, Fira Code ve Source Code Pro (Stil 012), Inter, Source Serif 4 ve JetBrains Mono (Stil 013), Inter ve JetBrains Mono (Stil 014). Lisanslı Helvetica Now ya da Neue Haas Grotesk kullanmak için `src/swiss/swiss.css` içindeki `@font-face` bloklarını ve `--font-sans` sırasını değiştirin.
