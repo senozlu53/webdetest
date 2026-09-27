@@ -1,0 +1,84 @@
+{
+  "$description": "Stil 001: Swiss Style. W3C Design Tokens (DTCG) formatı; Tokens Studio ile Figma Variables'a aktarılabilir. 'color.mode.light' ve 'color.mode.invert' aynı koleksiyonun iki modudur.",
+  "color": {
+    "primitive": {
+      "white": { "$type": "color", "$value": "#FFFFFF", "$description": "Saf Beyaz" },
+      "black": { "$type": "color", "$value": "#111111", "$description": "Kömür Siyahı" },
+      "red": { "$type": "color", "$value": "#FF2A2A", "$description": "Swiss Kırmızısı" },
+      "gray": { "$type": "color", "$value": "#E5E5E5", "$description": "Nötr Gri" },
+      "gray-invert": {
+        "$type": "color",
+        "$value": "#2B2B2B",
+        "$description": "Invert modundaki Nötr Gri. Zemine olan uzaklığı açık moddakiyle aynı: #FF - #E5 = #2B - #11 = 26 adım."
+      }
+    },
+    "mode": {
+      "light": {
+        "paper": { "$type": "color", "$value": "{color.primitive.white}", "$description": "Background" },
+        "ink": { "$type": "color", "$value": "{color.primitive.black}", "$description": "Text / Surface" },
+        "accent": { "$type": "color", "$value": "{color.primitive.red}", "$description": "Accent" },
+        "mute": { "$type": "color", "$value": "{color.primitive.gray}", "$description": "Secondary" },
+        "on-accent": { "$type": "color", "$value": "{color.primitive.black}", "$description": "Kırmızı zemin üstündeki metin" }
+      },
+      "invert": {
+        "paper": { "$type": "color", "$value": "{color.primitive.black}", "$description": "Background" },
+        "ink": { "$type": "color", "$value": "{color.primitive.white}", "$description": "Text / Surface" },
+        "accent": { "$type": "color", "$value": "{color.primitive.red}", "$description": "Accent" },
+        "mute": { "$type": "color", "$value": "{color.primitive.gray-invert}", "$description": "Secondary" },
+        "on-accent": { "$type": "color", "$value": "{color.primitive.black}", "$description": "Kırmızı zemin üstündeki metin" }
+      }
+    }
+  },
+  "space": {
+    "xs": { "$type": "dimension", "$value": "8px" },
+    "s": { "$type": "dimension", "$value": "16px" },
+    "m": { "$type": "dimension", "$value": "32px" },
+    "l": { "$type": "dimension", "$value": "64px" },
+    "xl": { "$type": "dimension", "$value": "128px" },
+    "rule": { "$type": "dimension", "$value": "2px", "$description": "Auto Layout'ta çizgi olarak kullanılan boşluk" }
+  },
+  "grid": {
+    "columns": { "$type": "number", "$value": 12 },
+    "gutter": {
+      "sm": { "$type": "dimension", "$value": "8px" },
+      "md": { "$type": "dimension", "$value": "16px" },
+      "lg": { "$type": "dimension", "$value": "32px" }
+    },
+    "margin": {
+      "sm": { "$type": "dimension", "$value": "16px" },
+      "md": { "$type": "dimension", "$value": "32px" },
+      "lg": { "$type": "dimension", "$value": "64px" }
+    }
+  },
+  "font": {
+    "family": {
+      "sans": {
+        "$type": "fontFamily",
+        "$value": ["Inter Variable", "Inter", "Helvetica Now Display", "Neue Haas Grotesk Display Pro", "Roboto", "Helvetica Neue", "Arial", "sans-serif"]
+      }
+    },
+    "weight": {
+      "regular": { "$type": "fontWeight", "$value": 400 },
+      "bold": { "$type": "fontWeight", "$value": 700 },
+      "black": { "$type": "fontWeight", "$value": 900 }
+    },
+    "size": {
+      "label": { "$type": "dimension", "$value": "12px" },
+      "body": { "$type": "dimension", "$value": "14px" },
+      "lead": { "$type": "dimension", "$value": "20px" },
+      "h3": { "$type": "dimension", "$value": "32px" },
+      "h2": { "$type": "dimension", "$value": "64px" },
+      "display": { "$type": "dimension", "$value": "120px" }
+    }
+  },
+  "border": {
+    "hairline": { "$type": "dimension", "$value": "1px" },
+    "thick": { "$type": "dimension", "$value": "2px" },
+    "radius": { "$type": "dimension", "$value": "0px" }
+  },
+  "motion": {
+    "cut": { "$type": "duration", "$value": "0ms", "$description": "Hover ve durum değişimleri: geçiş yok, anında kesme." },
+    "reveal": { "$type": "duration", "$value": "240ms" },
+    "reveal-steps": { "$type": "number", "$value": 4, "$description": "steps(4, end). Yumuşak easing eğrisi kullanılmaz." }
+  }
+}
