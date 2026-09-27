@@ -1,7 +1,7 @@
 import { Section, SectionHeader } from '../components/Section'
 import { SwissCol, SwissGrid } from '../components/SwissGrid'
 import { CONTRAST, SWATCHES } from '../content'
-import { cx } from '../cx'
+import { cx } from '../../shared/cx'
 
 export function Palette() {
   return (

@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react'
-import { cx } from '../cx'
+import { cx } from '../../shared/cx'
 import { SwissCol, SwissGrid } from './SwissGrid'
 import { ThickDivider } from './ThickDivider'
 import { TypographyDisplay } from './TypographyDisplay'

@@ -31,8 +31,14 @@ export function Colophon() {
               yarıçapı: 0. Tokenlar: tokens/swiss.tokens.json.
             </p>
           </SwissCol>
-          <SwissCol span={[12, 4, 3]}>
-            <UnderlineLink href="#ust" className="inline-flex items-center gap-xs font-bold">
+          <SwissCol span={[12, 4, 3]} className="flex flex-col gap-xs">
+            <UnderlineLink href="../../" className="w-fit">
+              Tüm stiller
+            </UnderlineLink>
+            <UnderlineLink href="../002/" className="w-fit">
+              Stil 002 · <span lang="en">Soft Minimalism</span>
+            </UnderlineLink>
+            <UnderlineLink href="#ust" className="inline-flex w-fit items-center gap-xs font-bold">
               Başa dön
               <GeoIcon name="arrow-down" size={14} className="rotate-180" />
             </UnderlineLink>

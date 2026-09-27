@@ -1,0 +1,379 @@
+@import 'tailwindcss' source(none);
+@source '.';
+
+/* ─────────────────────────────────────────────────────────────
+   STİL 002 · SOFT MINIMALISM (JAPANDI / WARM MINIMAL)
+   Değerler tokens/soft.tokens.json ile birebir aynıdır.
+   ───────────────────────────────────────────────────────────── */
+
+/* Lora (başlık, italik vurgular) ve Plus Jakarta Sans (gövde).
+   Latin ve Latin Genişletilmiş alt kümeleri Türkçe karakterleri kapsar. */
+@font-face {
+  font-family: 'Lora Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400 700;
+  src: url('@fontsource-variable/lora/files/lora-latin-ext-wght-normal.woff2') format('woff2-variations');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329,
+    U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Lora Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400 700;
+  src: url('@fontsource-variable/lora/files/lora-latin-wght-normal.woff2') format('woff2-variations');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Lora Variable';
+  font-style: italic;
+  font-display: swap;
+  font-weight: 400 700;
+  src: url('@fontsource-variable/lora/files/lora-latin-ext-wght-italic.woff2') format('woff2-variations');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329,
+    U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Lora Variable';
+  font-style: italic;
+  font-display: swap;
+  font-weight: 400 700;
+  src: url('@fontsource-variable/lora/files/lora-latin-wght-italic.woff2') format('woff2-variations');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Plus Jakarta Sans Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 200 800;
+  src: url('@fontsource-variable/plus-jakarta-sans/files/plus-jakarta-sans-latin-ext-wght-normal.woff2')
+    format('woff2-variations');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329,
+    U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Plus Jakarta Sans Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 200 800;
+  src: url('@fontsource-variable/plus-jakarta-sans/files/plus-jakarta-sans-latin-wght-normal.woff2')
+    format('woff2-variations');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* ── Renk ve yüzey tokenları ──────────────────────────────────
+   Açık mod varsayılandır. Koyu mod saf siyah yerine derin sıcak
+   kahverengi (#1A1814) ve koyu zeytin (#24261D) kullanır.
+   Altın (#C2A878) açık zeminde 2.18:1 verir; bu yüzden metin, bağlantı
+   ve odak halkası türetilmiş --gold-deep ile çizilir (5.45:1). */
+:root {
+  --canvas: #faf9f6;
+  --ink: #4a4a4a;
+  --sand: #f2ede4;
+  --gold: #c2a878;
+  --gold-deep: #7a6333;
+  --ink-soft: #6b655c;
+  --field: #857e6e;
+  --line: #e6ded1;
+  --on-gold: #2a2520;
+  --float: rgb(255 255 255 / 0.62);
+  --float-solid: #ffffff;
+
+  --glow: color-mix(in oklab, var(--gold) 26%, var(--canvas));
+  --glow-2: color-mix(in oklab, var(--sand) 70%, #ffffff);
+
+  --shadow-soft-v: 0 24px 48px rgb(0 0 0 / 0.03);
+  --shadow-rest-v: 0 1px 2px rgb(60 48 30 / 0.04), 0 16px 40px -20px rgb(60 48 30 / 0.12);
+  --shadow-float-v: 0 32px 64px -24px rgb(60 48 30 / 0.14), 0 8px 24px -12px rgb(60 48 30 / 0.08);
+
+  --grain-opacity: 0.55;
+  --grain-blend: multiply;
+
+  --page-margin: 24px;
+
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --canvas: #1a1814;
+    --ink: #ede6da;
+    --sand: #24261d;
+    --gold: #c2a878;
+    --gold-deep: #d4be93;
+    --ink-soft: #ada391;
+    --field: #8a8270;
+    --line: #34362b;
+    --on-gold: #2a2520;
+    --float: rgb(44 47 36 / 0.62);
+    --float-solid: #2c2f24;
+    --glow: color-mix(in oklab, var(--gold) 14%, var(--canvas));
+    --glow-2: color-mix(in oklab, var(--sand) 80%, var(--canvas));
+    --shadow-soft-v: 0 24px 48px rgb(0 0 0 / 0.28);
+    --shadow-rest-v: 0 1px 2px rgb(0 0 0 / 0.3), 0 16px 40px -20px rgb(0 0 0 / 0.5);
+    --shadow-float-v: 0 32px 64px -24px rgb(0 0 0 / 0.6), 0 8px 24px -12px rgb(0 0 0 / 0.4);
+    --grain-opacity: 0.35;
+    --grain-blend: soft-light;
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme='dark'] {
+  --canvas: #1a1814;
+  --ink: #ede6da;
+  --sand: #24261d;
+  --gold: #c2a878;
+  --gold-deep: #d4be93;
+  --ink-soft: #ada391;
+  --field: #8a8270;
+  --line: #34362b;
+  --on-gold: #2a2520;
+  --float: rgb(44 47 36 / 0.62);
+  --float-solid: #2c2f24;
+  --glow: color-mix(in oklab, var(--gold) 14%, var(--canvas));
+  --glow-2: color-mix(in oklab, var(--sand) 80%, var(--canvas));
+  --shadow-soft-v: 0 24px 48px rgb(0 0 0 / 0.28);
+  --shadow-rest-v: 0 1px 2px rgb(0 0 0 / 0.3), 0 16px 40px -20px rgb(0 0 0 / 0.5);
+  --shadow-float-v: 0 32px 64px -24px rgb(0 0 0 / 0.6), 0 8px 24px -12px rgb(0 0 0 / 0.4);
+  --grain-opacity: 0.35;
+  --grain-blend: soft-light;
+  color-scheme: dark;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --page-margin: 48px;
+  }
+}
+@media (min-width: 1280px) {
+  :root {
+    --page-margin: 80px;
+  }
+}
+
+@theme {
+  --color-*: initial;
+  --font-*: initial;
+  --ease-*: initial;
+
+  --font-serif: 'Lora Variable', 'Lora', 'Playfair Display', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans Variable', 'Plus Jakarta Sans', 'Outfit', system-ui, sans-serif;
+  --font-mono: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+
+  /* Tip ölçeği */
+  --text-caption: 13px;
+  --text-caption--line-height: 1.6;
+  --text-small: 14px;
+  --text-small--line-height: 1.7;
+  --text-body: 16px;
+  --text-body--line-height: 1.8;
+  --text-lead: 20px;
+  --text-lead--line-height: 1.7;
+  --text-h3: 28px;
+  --text-h3--line-height: 1.3;
+  --text-h2: clamp(36px, 4.8vw, 60px);
+  --text-h2--line-height: 1.12;
+  --text-display: clamp(48px, 8vw, 112px);
+  --text-display--line-height: 1.02;
+
+  /* Yarıçap: Radius/Soft · Radius/Card · Radius/Pill (+ rounded-2xl=16, rounded-3xl=24) */
+  --radius-soft: 16px;
+  --radius-card: 24px;
+  --radius-pill: 999px;
+
+  --ease-soft: cubic-bezier(0.45, 0.05, 0.55, 0.95);
+  --ease-in-out: cubic-bezier(0.45, 0.05, 0.55, 0.95);
+}
+
+@theme inline {
+  --color-canvas: var(--canvas);
+  --color-ink: var(--ink);
+  --color-sand: var(--sand);
+  --color-gold: var(--gold);
+  --color-gold-deep: var(--gold-deep);
+  --color-ink-soft: var(--ink-soft);
+  --color-field: var(--field);
+  --color-line: var(--line);
+  --color-on-gold: var(--on-gold);
+  --color-float: var(--float);
+  --color-float-solid: var(--float-solid);
+  --color-glow: var(--glow);
+  --color-transparent: transparent;
+
+  /* Shadow/Soft = 0 24px 48px rgba(0,0,0,0.03) */
+  --shadow-soft: var(--shadow-soft-v);
+  --shadow-rest: var(--shadow-rest-v);
+  --shadow-float: var(--shadow-float-v);
+}
+
+@layer base {
+  html {
+    background: var(--canvas);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+    scroll-padding-top: 112px;
+  }
+
+  body {
+    margin: 0;
+    background: var(--canvas);
+    color: var(--ink);
+    font-size: var(--text-body);
+    line-height: var(--text-body--line-height);
+    letter-spacing: 0.01em;
+    /* Plus Jakarta Sans'ın boşluk karakteri dar; kelimeler birbirine yapışmasın */
+    word-spacing: 0.08em;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    background: color-mix(in oklab, var(--gold) 45%, transparent);
+    color: var(--ink);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--gold-deep);
+    outline-offset: 3px;
+  }
+
+  code,
+  pre {
+    font-family: var(--font-mono);
+  }
+}
+
+@layer components {
+  .soft-frame {
+    width: 100%;
+    max-width: 1280px;
+    margin-inline: auto;
+    padding-inline: var(--page-margin);
+  }
+
+  /* Belli belirsiz kağıt dokusu. Sabit bir katman; tıklamaları engellemez. */
+  .soft-grain::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    pointer-events: none;
+    opacity: var(--grain-opacity);
+    mix-blend-mode: var(--grain-blend);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .36 0 0 0 0 .3 0 0 0 0 .22 0 0 0 .16 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  :root[data-grain='off'] .soft-grain::before {
+    content: none;
+  }
+
+  .soft-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    border-radius: var(--radius-pill);
+    background: var(--sand);
+    padding: 6px 16px;
+    font-size: var(--text-caption);
+    line-height: var(--text-caption--line-height);
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    color: var(--ink);
+  }
+
+  .soft-link {
+    color: var(--gold-deep);
+    text-decoration-line: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.3em;
+    text-decoration-color: color-mix(in oklab, var(--gold-deep) 45%, transparent);
+    transition: text-decoration-color 400ms var(--ease-soft);
+  }
+  .soft-link:hover {
+    text-decoration-color: var(--gold-deep);
+  }
+
+  /* Yavaş sayfa açılışı: yükselerek belirme */
+  .soft-rise {
+    animation: soft-rise 900ms var(--ease-soft) both;
+    animation-delay: calc(var(--i, 0) * 150ms + 100ms);
+  }
+  .soft-bloom {
+    animation: soft-bloom 1400ms var(--ease-soft) both;
+    animation-delay: 200ms;
+  }
+
+  /* FadeSection: görünür başlar; alttan girdiği an 500ms'de yerine oturur. */
+  .soft-fade.is-entering {
+    animation: soft-rise 500ms var(--ease-soft) both;
+  }
+}
+
+@keyframes soft-rise {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes soft-bloom {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .soft-rise,
+  .soft-bloom,
+  .soft-fade.is-entering {
+    animation: none;
+  }
+  *,
+  ::before,
+  ::after {
+    transition-duration: 1ms !important;
+  }
+}
+
+/* Hero ışığı: shoji paravanından süzülen yumuşak gün ışığı */
+:root {
+  --light-patch: rgb(255 253 246 / 0.92);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --light-patch: rgb(194 168 120 / 0.16);
+  }
+}
+:root[data-theme='dark'] {
+  --light-patch: rgb(194 168 120 / 0.16);
+}

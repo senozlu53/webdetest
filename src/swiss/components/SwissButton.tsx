@@ -1,5 +1,5 @@
 import type { ButtonHTMLAttributes, ReactNode } from 'react'
-import { cx } from '../cx'
+import { cx } from '../../shared/cx'
 
 type Variant = 'solid' | 'outline' | 'accent'
 

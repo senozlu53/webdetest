@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="description" content="Stil 002: Soft Minimalism. Sıcak tonlar, hap formunda düğmeler, yumuşak gölgeler, serif ve sans birlikteliği. Canlı tasarım sistemi referansı." />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23C2A878'/%3E%3C/svg%3E" />
+    <title>Stil 002 · Soft Minimalism</title>
+    <script>
+      try {
+        var t = localStorage.getItem('soft-theme')
+        if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t
+        if (localStorage.getItem('soft-grain') === 'off') document.documentElement.dataset.grain = 'off'
+      } catch (e) {}
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/soft/main.tsx"></script>
+  </body>
+</html>

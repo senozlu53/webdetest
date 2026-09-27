@@ -1,4 +1,4 @@
-import { cx } from '../cx'
+import { cx } from '../../shared/cx'
 
 type Props = {
   /** Çizgi kalınlığı. Sistemde yalnızca 1px ve 2px kullanılır. */

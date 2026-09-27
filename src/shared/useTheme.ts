@@ -2,12 +2,11 @@ import { useCallback, useEffect, useState } from 'react'
 
 export type Theme = 'light' | 'dark'
 
-const STORAGE_KEY = 'swiss-theme'
 const query = '(prefers-color-scheme: dark)'
 
-function readStored(): Theme | null {
+function readStored(key: string): Theme | null {
   try {
-    const value = localStorage.getItem(STORAGE_KEY)
+    const value = localStorage.getItem(key)
     return value === 'light' || value === 'dark' ? value : null
   } catch {
     return null
@@ -21,12 +20,13 @@ function currentTheme(): Theme {
 }
 
 /**
- * Açık mod ve Invert modu. Kullanıcı seçmediyse sistem tercihi izlenir;
- * seçim `<html data-theme>` üzerine yazılır ve tarayıcıda hatırlanır.
+ * Açık / koyu mod. Kullanıcı seçmediyse sistem tercihi izlenir; seçim
+ * `<html data-theme>` üzerine yazılır ve tarayıcıda `storageKey` altında hatırlanır.
+ * Her stil kendi anahtarını kullanır, çünkü her stilin koyu modu farklıdır.
  */
-export function useTheme() {
+export function useTheme(storageKey: string) {
   const [theme, setTheme] = useState<Theme>(() => {
-    const stored = readStored()
+    const stored = readStored(storageKey)
     if (stored) document.documentElement.dataset.theme = stored
     return currentTheme()
   })
@@ -42,12 +42,12 @@ export function useTheme() {
     const next: Theme = currentTheme() === 'dark' ? 'light' : 'dark'
     document.documentElement.dataset.theme = next
     try {
-      localStorage.setItem(STORAGE_KEY, next)
+      localStorage.setItem(storageKey, next)
     } catch {
       /* depolama kapalıysa seçim yalnızca bu oturumda geçerli */
     }
     setTheme(next)
-  }, [])
+  }, [storageKey])
 
   return { theme, toggle }
 }

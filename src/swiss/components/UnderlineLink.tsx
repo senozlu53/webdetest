@@ -1,5 +1,5 @@
 import type { AnchorHTMLAttributes } from 'react'
-import { cx } from '../cx'
+import { cx } from '../../shared/cx'
 
 /** Minimalist altı çizili bağlantı. Hover'da çizgi anında kırmızıya ve 3px'e geçer. */
 export function UnderlineLink({ className, ...rest }: AnchorHTMLAttributes<HTMLAnchorElement>) {

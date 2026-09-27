@@ -3,7 +3,7 @@ import { SwissCol, SwissGrid } from '../components/SwissGrid'
 import { SwissButton } from '../components/SwissButton'
 import { GeoIcon } from '../components/GeoIcon'
 import { BREAKPOINTS, COMPOSITIONS } from '../content'
-import { cx } from '../cx'
+import { cx } from '../../shared/cx'
 
 const TONE = {
   ink: 'bg-ink text-paper',

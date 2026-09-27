@@ -1,5 +1,5 @@
 import type { ElementType, HTMLAttributes, ReactNode, Ref } from 'react'
-import { cx } from '../cx'
+import { cx } from '../../shared/cx'
 
 type Size = 'hero' | 'display' | 'h2' | 'h3'
 

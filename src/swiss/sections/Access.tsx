@@ -2,7 +2,7 @@ import { Section, SectionHeader } from '../components/Section'
 import { SwissCol, SwissGrid } from '../components/SwissGrid'
 import { SwissButton } from '../components/SwissButton'
 import { GeoIcon } from '../components/GeoIcon'
-import type { Theme } from '../useTheme'
+import type { Theme } from '../../shared/useTheme'
 
 const RESPONSIVE = [
   'Grid mobilde de 12 kolondur. Bloklar üst üste biner, başlangıç kolonları korunur.',

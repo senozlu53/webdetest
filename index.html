@@ -3,18 +3,99 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <meta name="description" content="Stil 001: Swiss Style. 12 kolonlu grid, dört renk, tek yazı ailesi. Canlı tasarım sistemi referansı." />
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%23FF2A2A'/%3E%3C/svg%3E" />
-    <title>Stil 001 · Swiss Style</title>
-    <script>
-      try {
-        var t = localStorage.getItem('swiss-theme')
-        if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t
-      } catch (e) {}
-    </script>
+    <meta name="description" content="webdetest: web tasarım stilleri için canlı referans sayfaları." />
+    <title>webdetest · Stil Kataloğu</title>
+    <style>
+      :root {
+        --bg: #f6f6f4;
+        --fg: #1c1c1c;
+        --muted: #5c5c58;
+        --line: #d9d9d4;
+        --card: #ffffff;
+        color-scheme: light;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: #161616;
+          --fg: #ededea;
+          --muted: #a3a39e;
+          --line: #33332f;
+          --card: #1f1f1e;
+          color-scheme: dark;
+        }
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--fg);
+        font: 16px/1.6 system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      }
+      main { max-width: 1040px; margin: 0 auto; padding: 72px 24px 96px; }
+      h1 { margin: 0; font-size: clamp(32px, 5vw, 48px); line-height: 1.1; letter-spacing: -0.02em; }
+      .lede { margin: 16px 0 0; max-width: 56ch; color: var(--muted); }
+      ol { list-style: none; margin: 56px 0 0; padding: 0; display: grid; gap: 24px; }
+      @media (min-width: 760px) { ol { grid-template-columns: 1fr 1fr; } }
+      a.card {
+        display: flex; flex-direction: column; gap: 20px; height: 100%;
+        padding: 28px; border: 1px solid var(--line); border-radius: 12px;
+        background: var(--card); color: inherit; text-decoration: none;
+      }
+      a.card:hover { border-color: var(--fg); }
+      a.card:focus-visible { outline: 2px solid var(--fg); outline-offset: 3px; }
+      .num { font-variant-numeric: tabular-nums; font-size: 14px; color: var(--muted); }
+      .name { margin: 4px 0 0; font-size: 24px; font-weight: 600; line-height: 1.25; }
+      .desc { margin: 0; color: var(--muted); }
+      .swatches { display: flex; gap: 0; height: 56px; border-radius: 8px; overflow: hidden; border: 1px solid var(--line); }
+      .swatches span { flex: 1; }
+      .go { margin-top: auto; font-weight: 600; }
+      .go::after { content: ' →'; }
+      /* Her kart kendi stilinin yazı ailesiyle */
+      .swiss .name { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 800; letter-spacing: -0.03em; text-transform: uppercase; }
+      .soft .name { font-family: Georgia, 'Times New Roman', serif; font-weight: 400; font-style: italic; }
+    </style>
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <main>
+      <h1>Stil kataloğu</h1>
+      <p class="lede">
+        Her stil, kendi kurallarıyla dizilmiş canlı bir referans sayfasıdır: renk ve kontrast, tipografi, tokenlar,
+        bileşenler, hareket ve erişilebilirlik.
+      </p>
+      <ol>
+        <li>
+          <a class="card swiss" href="./stil/001/">
+            <div>
+              <span class="num">Stil 001 · Modern / Minimal / Clean</span>
+              <p class="name" lang="en">Swiss Style</p>
+            </div>
+            <div class="swatches" aria-hidden="true">
+              <span style="background: #ffffff; flex: 5"></span>
+              <span style="background: #111111; flex: 4"></span>
+              <span style="background: #ff2a2a; flex: 2"></span>
+              <span style="background: #e5e5e5; flex: 1"></span>
+            </div>
+            <p class="desc">12 kolonlu grid, devasa kalın tipografi, dört renk, sıfır gölge ve 0px köşe.</p>
+            <span class="go">Sayfayı aç</span>
+          </a>
+        </li>
+        <li>
+          <a class="card soft" href="./stil/002/">
+            <div>
+              <span class="num">Stil 002 · Modern / Minimal / Clean</span>
+              <p class="name" lang="en">Soft Minimalism</p>
+            </div>
+            <div class="swatches" aria-hidden="true">
+              <span style="background: #faf9f6; flex: 4"></span>
+              <span style="background: #f2ede4; flex: 3"></span>
+              <span style="background: #c2a878; flex: 2"></span>
+              <span style="background: #4a4a4a; flex: 1"></span>
+            </div>
+            <p class="desc">Japandi sıcaklığı: kum tonları, hap formunda düğmeler, dağınık gölgeler, serif ve sans birlikte.</p>
+            <span class="go">Sayfayı aç</span>
+          </a>
+        </li>
+      </ol>
+    </main>
   </body>
 </html>

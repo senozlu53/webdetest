@@ -1,5 +1,5 @@
 import type { CSSProperties, ElementType, HTMLAttributes, ReactNode } from 'react'
-import { cx } from '../cx'
+import { cx } from '../../shared/cx'
 
 /** Tek sayı ya da [temel, md, lg] şeklinde duyarlı değer. */
 export type Responsive = number | readonly [base: number, md?: number, lg?: number]

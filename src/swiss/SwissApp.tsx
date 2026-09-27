@@ -1,27 +1,27 @@
 import { useEffect, useState } from 'react'
-import { GridOverlay } from './swiss/components/GridOverlay'
-import { SiteHeader } from './swiss/SiteHeader'
-import { useTheme } from './swiss/useTheme'
-import { Hero } from './swiss/sections/Hero'
-import { Principles } from './swiss/sections/Principles'
-import { Palette } from './swiss/sections/Palette'
-import { Typography } from './swiss/sections/Typography'
-import { Grid } from './swiss/sections/Grid'
-import { Tokens } from './swiss/sections/Tokens'
-import { Surface } from './swiss/sections/Surface'
-import { Icons } from './swiss/sections/Icons'
-import { Components } from './swiss/sections/Components'
-import { Motion } from './swiss/sections/Motion'
-import { Application } from './swiss/sections/Application'
-import { Access } from './swiss/sections/Access'
-import { Colophon } from './swiss/sections/Colophon'
+import { GridOverlay } from './components/GridOverlay'
+import { SiteHeader } from './SiteHeader'
+import { useTheme } from '../shared/useTheme'
+import { Hero } from './sections/Hero'
+import { Principles } from './sections/Principles'
+import { Palette } from './sections/Palette'
+import { Typography } from './sections/Typography'
+import { Grid } from './sections/Grid'
+import { Tokens } from './sections/Tokens'
+import { Surface } from './sections/Surface'
+import { Icons } from './sections/Icons'
+import { Components } from './sections/Components'
+import { Motion } from './sections/Motion'
+import { Application } from './sections/Application'
+import { Access } from './sections/Access'
+import { Colophon } from './sections/Colophon'
 
 function isTyping(target: EventTarget | null) {
   return target instanceof HTMLElement && (target.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(target.tagName))
 }
 
 export default function App() {
-  const { theme, toggle } = useTheme()
+  const { theme, toggle } = useTheme('swiss-theme')
   const [overlay, setOverlay] = useState(false)
   const toggleOverlay = () => setOverlay((v) => !v)
 

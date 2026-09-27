@@ -1,0 +1,75 @@
+{
+  "$description": "Stil 002: Soft Minimalism (Japandi / Warm Minimal). W3C Design Tokens (DTCG) formatı. Adlar Figma'daki koleksiyon/değişken yoluyla aynıdır: Color/WarmText, Shadow/Soft, Radius/Pill. Color.Light ve Color.Dark aynı koleksiyonun iki modudur.",
+  "Color": {
+    "Light": {
+      "Background": { "$type": "color", "$value": "#FAF9F6", "$description": "Off-white / Kirli Beyaz" },
+      "WarmText": { "$type": "color", "$value": "#4A4A4A", "$description": "Sıcak Koyu Gri. Zeminde 8.42:1" },
+      "Surface": { "$type": "color", "$value": "#F2EDE4", "$description": "Bej / Kum" },
+      "Accent": { "$type": "color", "$value": "#C2A878", "$description": "Soft Altın / Toprak. Zeminde 2.18:1: yalnızca yüzey, çizgi ve süsleme." },
+      "AccentText": { "$type": "color", "$value": "#7A6333", "$description": "Metin, bağlantı, ikon ve odak halkası için türetilmiş altın. Zeminde 5.45:1, kumda 4.92:1" },
+      "MutedText": { "$type": "color", "$value": "#6B655C", "$description": "İkincil metin. Zeminde 5.48:1, kumda 4.95:1" },
+      "FieldBorder": { "$type": "color", "$value": "#857E6E", "$description": "Form alanı kenarı. Zeminde 3.83:1 (WCAG 1.4.11)" },
+      "Line": { "$type": "color", "$value": "#E6DED1", "$description": "Dekoratif ayraç" },
+      "OnAccent": { "$type": "color", "$value": "#2A2520", "$description": "Altın zemin üstündeki metin. 6.62:1" }
+    },
+    "Dark": {
+      "Background": { "$type": "color", "$value": "#1A1814", "$description": "Derin sıcak kahverengi" },
+      "WarmText": { "$type": "color", "$value": "#EDE6DA", "$description": "Zeminde 14.29:1" },
+      "Surface": { "$type": "color", "$value": "#24261D", "$description": "Koyu zeytin yeşili" },
+      "Accent": { "$type": "color", "$value": "#C2A878", "$description": "Zeminde 7.74:1, koyu modda metin olarak da kullanılabilir" },
+      "AccentText": { "$type": "color", "$value": "#D4BE93", "$description": "Zeminde 9.78:1" },
+      "MutedText": { "$type": "color", "$value": "#ADA391", "$description": "Zeminde 7.11:1, zeytinde 6.15:1" },
+      "FieldBorder": { "$type": "color", "$value": "#8A8270", "$description": "Zeminde 4.65:1" },
+      "Line": { "$type": "color", "$value": "#34362B", "$description": "Dekoratif ayraç" },
+      "OnAccent": { "$type": "color", "$value": "#2A2520", "$description": "Altın zemin üstündeki metin. 6.62:1" }
+    }
+  },
+  "Shadow": {
+    "Soft": {
+      "$type": "shadow",
+      "$value": { "color": "#00000008", "offsetX": "0px", "offsetY": "24px", "blur": "48px", "spread": "0px" },
+      "$description": "0 24px 48px rgba(0,0,0,0.03)"
+    },
+    "Float": {
+      "$type": "shadow",
+      "$value": [
+        { "color": "#3C301E24", "offsetX": "0px", "offsetY": "32px", "blur": "64px", "spread": "-24px" },
+        { "color": "#3C301E14", "offsetX": "0px", "offsetY": "8px", "blur": "24px", "spread": "-12px" }
+      ],
+      "$description": "Yüzen kartlar ve açılır katmanlar"
+    }
+  },
+  "Radius": {
+    "Soft": { "$type": "dimension", "$value": "16px", "$description": "Form alanı içi, küçük kartlar (rounded-2xl)" },
+    "Card": { "$type": "dimension", "$value": "24px", "$description": "Kartlar ve paneller (rounded-3xl)" },
+    "Pill": { "$type": "dimension", "$value": "999px", "$description": "Düğme, input, etiket, gezinme çubuğu" }
+  },
+  "Space": {
+    "2": { "$type": "dimension", "$value": "8px" },
+    "3": { "$type": "dimension", "$value": "12px" },
+    "4": { "$type": "dimension", "$value": "16px" },
+    "6": { "$type": "dimension", "$value": "24px" },
+    "8": { "$type": "dimension", "$value": "32px" },
+    "12": { "$type": "dimension", "$value": "48px" },
+    "16": { "$type": "dimension", "$value": "64px" },
+    "24": { "$type": "dimension", "$value": "96px" },
+    "32": { "$type": "dimension", "$value": "128px" }
+  },
+  "Padding": {
+    "Card": { "$type": "dimension", "$value": "32px 48px", "$description": "Auto Layout: dikey 32, yatay 48" },
+    "CardCompact": { "$type": "dimension", "$value": "24px 28px", "$description": "768px altı" },
+    "Pill": { "$type": "dimension", "$value": "14px 28px" },
+    "Page": { "$type": "dimension", "$value": "24px / 48px / 80px", "$description": "Kenar boşluğu: mobil / tablet / masaüstü" }
+  },
+  "Font": {
+    "Serif": { "$type": "fontFamily", "$value": ["Lora Variable", "Lora", "Playfair Display", "Georgia", "serif"] },
+    "Sans": { "$type": "fontFamily", "$value": ["Plus Jakarta Sans Variable", "Plus Jakarta Sans", "Outfit", "system-ui", "sans-serif"] }
+  },
+  "Motion": {
+    "Quick": { "$type": "duration", "$value": "300ms" },
+    "Calm": { "$type": "duration", "$value": "400ms" },
+    "Slow": { "$type": "duration", "$value": "500ms" },
+    "PageLoad": { "$type": "duration", "$value": "900ms" },
+    "EaseInOut": { "$type": "cubicBezier", "$value": [0.45, 0.05, 0.55, 0.95] }
+  }
+}

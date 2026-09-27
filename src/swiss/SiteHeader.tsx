@@ -1,7 +1,7 @@
 import { GeoIcon } from './components/GeoIcon'
 import { NAV } from './content'
-import { cx } from './cx'
-import type { Theme } from './useTheme'
+import { cx } from '../shared/cx'
+import type { Theme } from '../shared/useTheme'
 
 type Props = {
   overlay: boolean

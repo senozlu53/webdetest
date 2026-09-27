@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="description" content="Stil 001: Swiss Style. 12 kolonlu grid, dört renk, tek yazı ailesi. Canlı tasarım sistemi referansı." />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%23FF2A2A'/%3E%3C/svg%3E" />
+    <title>Stil 001 · Swiss Style</title>
+    <script>
+      try {
+        var t = localStorage.getItem('swiss-theme')
+        if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t
+      } catch (e) {}
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/swiss/main.tsx"></script>
+  </body>
+</html>
