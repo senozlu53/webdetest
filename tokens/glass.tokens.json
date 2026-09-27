@@ -1,0 +1,76 @@
+{
+  "$description": "Stil 004: Glassmorphism. W3C DTCG formatı. Adlar Figma'daki değişken yoluyla aynıdır: Effects/BackdropBlur, Color/Surface/GlassWhite, Border/Glass. Light (holografik) ve Dark (derin uzay) aynı koleksiyonun iki modudur. Kontrastlar en kötü durum için ölçüldü: en açık/en koyu ışık lekesi metnin tam arkasındayken.",
+  "Effects": {
+    "BackdropBlur": {
+      "Sm": { "$type": "dimension", "$value": "8px", "mobile": "8px" },
+      "Md": { "$type": "dimension", "$value": "16px", "mobile": "10px" },
+      "Lg": { "$type": "dimension", "$value": "24px", "mobile": "14px", "$description": "Cam panel varsayılanı" },
+      "Xl": { "$type": "dimension", "$value": "40px", "mobile": "20px", "$description": "Gezinme çubuğu ve modal" },
+      "Saturate": { "$type": "number", "$value": 1.6, "mobile": 1.4 }
+    },
+    "InnerShadow": {
+      "$type": "shadow",
+      "light": "inset 0 1px 0 0 rgb(255 255 255 / 0.85)",
+      "dark": "inset 0 1px 0 0 rgb(255 255 255 / 0.22)",
+      "$description": "Camın üst kenarındaki 1px parlama; kalınlık hissi"
+    }
+  },
+  "Color": {
+    "Surface": {
+      "GlassWhite": {
+        "5": { "$type": "color", "$value": "#FFFFFF0D" },
+        "10": { "$type": "color", "$value": "#FFFFFF1A", "$description": "Tanımdaki bg-white/10: koyu canlı zeminde beyaz metinle AA geçmez" },
+        "20": { "$type": "color", "$value": "#FFFFFF33" },
+        "40": { "$type": "color", "$value": "#FFFFFF66" },
+        "60": { "$type": "color", "$value": "#FFFFFF99" }
+      },
+      "Glass": {
+        "$type": "color",
+        "light": "#FFFFFF80",
+        "dark": "#12142E8C",
+        "$description": "Metin taşıyan cam. Light %50 beyaz · Dark %55 koyu mürekkep"
+      },
+      "GlassSubtle": { "$type": "color", "light": "#FFFFFF47", "dark": "#12142E4D", "$description": "Yalnızca süsleme; metin taşımaz" },
+      "GlassStrong": { "$type": "color", "light": "#FFFFFFB8", "dark": "#12142EC7", "$description": "Gezinme çubuğu (kaydırınca), modal" }
+    },
+    "Background": {
+      "light": { "base": "#EEF0FF", "blobs": ["#A78BFA", "#F472B6", "#67E8F9", "#FCD34D"], "blobOpacity": 0.8 },
+      "dark": { "base": "#0A0820", "blobs": ["#8B5CF6", "#EC4899", "#22D3EE", "#3B82F6"], "blobOpacity": 0.75 }
+    },
+    "Text": {
+      "Default": { "$type": "color", "light": "#0B1020", "dark": "#FFFFFF", "contrast": { "light": 12.73, "dark": 8.41 } },
+      "Muted": { "$type": "color", "light": "#3D4466", "dark": "#C9CDEA", "contrast": { "light": 6.37, "dark": 5.37 } },
+      "Accent": { "$type": "color", "light": "#5B21B6", "dark": "#DDD6FE", "contrast": { "light": 6.04, "dark": 6.05 } },
+      "Up": { "$type": "color", "light": "#065F46", "dark": "#86EFAC", "contrast": { "light": 5.16, "dark": 5.99 } },
+      "Down": { "$type": "color", "light": "#9F1239", "dark": "#FECDD3", "contrast": { "light": 5.39, "dark": 5.96 } }
+    },
+    "Action": {
+      "Primary": {
+        "$type": "gradient",
+        "light": ["#6D28D9", "#0E7490"],
+        "dark": ["#A78BFA", "#22D3EE"],
+        "text": { "light": "#FFFFFF", "dark": "#0B1020" },
+        "$description": "Metinle en düşük oran: light 5.36:1, dark 6.96:1"
+      }
+    },
+    "Focus": { "$type": "color", "light": "#6D28D9", "dark": "#67E8F9" }
+  },
+  "Border": {
+    "Glass": { "$type": "border", "width": "1px", "light": "#FFFFFFB3", "dark": "#FFFFFF29" }
+  },
+  "Shadow": {
+    "Glass": { "$type": "shadow", "light": "0 24px 48px -16px rgb(76 29 149 / 0.22), 0 4px 12px -4px rgb(76 29 149 / 0.10)", "dark": "0 24px 48px -16px rgb(0 0 0 / 0.55), 0 4px 12px -4px rgb(0 0 0 / 0.35)" },
+    "GlassXl": { "$type": "shadow", "light": "0 40px 80px -24px rgb(76 29 149 / 0.32), 0 8px 24px -8px rgb(76 29 149 / 0.14)", "dark": "0 40px 80px -24px rgb(0 0 0 / 0.70), 0 8px 24px -8px rgb(0 0 0 / 0.40)" }
+  },
+  "Radius": {
+    "Glass": { "$type": "dimension", "$value": "24px" },
+    "GlassLg": { "$type": "dimension", "$value": "32px" },
+    "Pill": { "$type": "dimension", "$value": "9999px" }
+  },
+  "Motion": {
+    "TiltMax": { "$type": "number", "$value": 8, "$description": "Derece; demo kartında 14" },
+    "TiltReturn": { "$type": "duration", "$value": "400ms" },
+    "Easing": { "$type": "cubicBezier", "$value": [0.22, 1, 0.36, 1] },
+    "Float": { "$type": "duration", "$value": "9s" }
+  }
+}

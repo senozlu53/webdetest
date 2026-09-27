@@ -7,10 +7,11 @@ Web tasarım stilleri için canlı referans sayfaları. Her stil, anlattığı k
 | 001 · Swiss Style | `/stil/001/` | `src/swiss/` | `tokens/swiss.tokens.json` |
 | 002 · Soft Minimalism | `/stil/002/` | `src/soft/` | `tokens/soft.tokens.json` |
 | 003 · Corporate Modern | `/stil/003/` | `src/corporate/` | `tokens/corporate.tokens.json` |
+| 004 · Glassmorphism | `/stil/004/` | `src/glass/` | `tokens/glass.tokens.json` |
 
 ```bash
 npm install
-npm run dev        # http://localhost:5173  → katalog, /stil/001/, /stil/002/, /stil/003/
+npm run dev        # http://localhost:5173  → katalog, /stil/001/, /stil/002/, /stil/003/, /stil/004/
 npm run build      # tip denetimi + dist/
 npm run typecheck
 ```
@@ -22,10 +23,12 @@ index.html               katalog
 stil/001/index.html      Swiss Style giriş noktası
 stil/002/index.html      Soft Minimalism giriş noktası
 stil/003/index.html      Corporate Modern giriş noktası
+stil/004/index.html      Glassmorphism giriş noktası
 src/shared/              stiller arası ortak yardımcılar (cx, useTheme)
 src/swiss/               swiss.css (tema) · components/ · sections/
 src/soft/                soft.css (tema) · components/ · sections/
 src/corporate/           corporate.css (tema) · ui/ (shadcn) · views/ · charts/ · data/
+src/glass/               glass.css (tema) · components/ · sections/
 tokens/                  W3C DTCG token dosyaları (Figma / Tokens Studio)
 ```
 
@@ -92,6 +95,18 @@ Sayfa bir referans belgesi değil, çalışan bir B2B tahsilat paneli ("Cari Bul
 - **Duyarlı yapı:** 768px altında veri tablosu liste kartlarına, 1024px altında kenar menüsü alt gezinmeye ve çekmeceye dönüşür.
 - **Örnek veri:** `src/corporate/data/invoices.ts` tohumlu üretilir (24 ay; panel en çok 12 ay gösterir, önceki 12 ay karşılaştırma içindir). Hatırlatma ve iptal işlemleri yalnızca sayfa belleğinde çalışır.
 
+## Stil 004 · Glassmorphism
+
+Canlı degrade zemin üstünde buzlu cam paneller. İki tema: koyu "derin uzay" (neon ışık lekeleri) ve açık "holografik" (pastel, yanardöner kenar).
+
+- **Cam paneli (`.glass`, `<GlassCard>`):** `backdrop-filter: blur(24px) saturate(160%)`, yarı saydam dolgu, 1px yarı saydam kenar, üstte 1px iç parlama (Figma Inner Shadow) ve yayvan dış gölge. `blur` (sm 8 · md 16 · lg 24 · xl 40), `tone` (subtle · panel · strong), `holo` ve `tilt` seçenekleri.
+- **Okunurluk:** Blur ortalama rengi değiştirmez; en kötü durum, en parlak ışık lekesinin metnin tam arkasına geldiği andır. Tanımdaki `bg-white/10` koyu canlı zeminde beyaz metinle 2,75:1 verir (AA geçmez). Metin taşıyan cam koyu temada %55 koyu mürekkep (8,41:1), açık temada %50 beyazdır (12,73:1). Tüm metin renkleri en kötü durumda 4,5:1'in üstünde; değerler `tokens/glass.tokens.json` içinde.
+- **Cam laboratuvarı:** Bulanıklık, dolgu rengi ve opaklığı, kenar ve iç parlama canlı ayarlanır; en kötü durum kontrastı, CSS ve Tailwind çıktısı anında güncellenir.
+- **Zemin:** Işık lekeleri `radial-gradient` ile çizilir (`filter: blur` yok), kaydırmada farklı hızlarda kayarak camın altından geçer.
+- **Bileşenler:** `GlassCard`, `GlassNavbar` (kaydırınca yoğunlaşan şeffaf gezinme), `GlassButton`, `Icon3D` (parlak hacimli ikon), yerel `<dialog>` ile cam modal, `useTilt` (fareyle eğilme ve parlama).
+- **Mobil (Madde 17):** 768px altında blur değerleri yaklaşık yarıya iner (24 → 14, 40 → 20), doygunluk %140.
+- **Erişilebilirlik (Madde 18):** `prefers-reduced-transparency` ve sayfadaki "Saydamlığı azalt" anahtarı blur'u kaldırıp camı opaklaştırır; `backdrop-filter` desteklemeyen tarayıcılarda cam yoğunlaşır; canlı görsel üstündeki metin için opak degrade katman (`.glass-scrim`); hareket azaltmada eğilme, süzülme ve zemin kayması durur.
+
 ## Yazı tipleri
 
-Hepsi OFL lisanslı, `@fontsource-variable` paketlerinden yalnızca Latin ve Latin Genişletilmiş alt kümeleriyle yüklenir: Inter (Stil 001 ve 003), Lora ve Plus Jakarta Sans (Stil 002). Lisanslı Helvetica Now ya da Neue Haas Grotesk kullanmak için `src/swiss/swiss.css` içindeki `@font-face` bloklarını ve `--font-sans` sırasını değiştirin.
+Hepsi OFL lisanslı, `@fontsource-variable` paketlerinden yalnızca Latin ve Latin Genişletilmiş alt kümeleriyle yüklenir: Inter (Stil 001 ve 003), Lora ve Plus Jakarta Sans (Stil 002), Geist ve Geist Mono (Stil 004; `₺` glifi olmadığı için tutarlar "TL" ile yazılır). Lisanslı Helvetica Now ya da Neue Haas Grotesk kullanmak için `src/swiss/swiss.css` içindeki `@font-face` bloklarını ve `--font-sans` sırasını değiştirin.
