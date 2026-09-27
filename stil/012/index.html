@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="description" content="Stil 012: Terminal / Hacker UI. Saf siyah zemin, terminal yeşili, yalnız monospace; ASCII tablolar, komut paleti, kıyaslama aracı, BIOS/VMD paneli, sunucu konsolu ve işlem günlüğü." />
+    <meta name="theme-color" content="#000000" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23000'/%3E%3Cpath d='M6 9l7 7-7 7' fill='none' stroke='%2300FF41' stroke-width='3'/%3E%3Crect x='15' y='21' width='11' height='3' fill='%2300FF41'/%3E%3C/svg%3E" />
+    <title>Stil 012 · Terminal</title>
+    <script>
+      try {
+        var d = document.documentElement
+        var t = localStorage.getItem('term-theme')
+        d.dataset.theme = t === 'yesil' || t === 'kehribar' || t === 'beyaz' || t === 'solarized' ? t : matchMedia('(prefers-color-scheme: light)').matches ? 'solarized' : 'yesil'
+        var f = localStorage.getItem('term-font')
+        d.dataset.font = f === 'fira' || f === 'scp' ? f : 'jetbrains'
+        d.dataset.crt = localStorage.getItem('term-crt') === 'acik' ? 'acik' : 'kapali'
+        d.dataset.lig = localStorage.getItem('term-lig') === 'kapali' ? 'kapali' : 'acik'
+        d.dataset.grid = localStorage.getItem('term-grid') === 'acik' ? 'acik' : 'kapali'
+        var m = localStorage.getItem('term-motion')
+        d.dataset.motion = m === 'kapali' || (m !== 'acik' && matchMedia('(prefers-reduced-motion: reduce)').matches) ? 'off' : 'on'
+      } catch (e) {}
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/term/main.tsx"></script>
+  </body>
+</html>

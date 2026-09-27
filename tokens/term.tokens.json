@@ -1,0 +1,59 @@
+{
+  "$description": "Stil 012: Terminal / Hacker UI (Data Visualization). W3C DTCG formatı. Adlar Figma yolu ile aynıdır: Font/MonoCore, Color/ConsoleGreen, Color/ConsoleAmber. Sıfır dekorasyon: köşe yarıçapı, gölge ve parlama yoktur. Izgara karakter hücresidir (1ch × 1lh).",
+  "Font": {
+    "MonoCore": {
+      "$type": "fontFamily",
+      "$value": ["JetBrains Mono", "Fira Code", "Source Code Pro", "Consolas", "ui-monospace", "monospace"],
+      "$description": "Yalnız monospace. Üç aile sayfada seçilebilir; Consolas lisanslı olduğu için yalnız yedek. Latin alt kümelerinde kutu çizim karakteri (U+2500) yok: tablolar + - | ile çizilir. JetBrains Mono'da ₺ ve → yok: 'TL' ve '->' kullanılır."
+    },
+    "Size": { "$type": "dimension", "$value": "16px", "$description": "Tek boyut; 640px altında 14px. Başlıklar da 1em: hiyerarşi kalınlık, büyük harf ve ters video ile." },
+    "LineHeight": { "$type": "number", "$value": 1.5 },
+    "Ligatures": { "$type": "string", "$value": "calt açık (kullanıcı kapatabilir); ASCII tablo ve çizimlerde her zaman kapalı" }
+  },
+  "Color": {
+    "ConsoleGreen": { "$type": "color", "$value": "#00FF41", "$description": "Siyahta 15,38:1. Varsayılan metin" },
+    "ConsoleAmber": { "$type": "color", "$value": "#FFB000", "$description": "Siyahta 11,46:1. Vurgu, uyarı, kısayol; kehribar temada metin" },
+    "ConsoleWhite": { "$type": "color", "$value": "#FFFFFF", "$description": "Siyahta 21:1. Güçlü metin; beyaz temada metin" },
+    "ConsoleBlack": { "$type": "color", "$value": "#000000", "$description": "Saf siyah zemin" },
+    "Theme": {
+      "$description": "<html data-theme>. Her temada: zemin, metin, ikincil, vurgu, çizgi (yalnız süs, ≥ 3:1). Seçim ve odak ters video.",
+      "yesil": { "bg": "#000000", "fg": "#00FF41", "dim": "#00B32D", "em": "#FFB000", "line": "#1F7A34", "contrast": { "fg": 15.38, "dim": 7.49, "em": 11.46, "line": 3.89 } },
+      "kehribar": { "bg": "#000000", "fg": "#FFB000", "dim": "#B37B00", "em": "#FFFFFF", "line": "#7A5400", "contrast": { "fg": 11.46, "dim": 5.75, "em": 21, "line": 3.1 } },
+      "beyaz": { "bg": "#000000", "fg": "#FFFFFF", "dim": "#A0A0A0", "em": "#FFB000", "ok": "#00FF41", "line": "#5C5C5C", "contrast": { "fg": 21, "dim": 8.03, "em": 11.46, "line": 3.14 } },
+      "solarized": {
+        "$description": "Madde 18: açık terminal. Kirli beyaz zemin, koyu gri metin. Sistem açık temadaysa varsayılan.",
+        "bg": "#FDF6E3", "fg": "#073642", "dim": "#586E75", "em": "#7A5000", "ok": "#556300", "line": "#7B8B8B",
+        "contrast": { "fg": 12.05, "dim": 4.99, "em": 6.54, "ok": 6.14, "line": 3.3 }
+      }
+    }
+  },
+  "Grid": {
+    "Cell": { "$type": "string", "$value": "1ch × 1lh", "$description": "Tailwind aralık birimi 1ch: p-4 dört karakter. Dikey aralıklar lh katları." },
+    "MaxWidth": { "$type": "dimension", "$value": "120ch" }
+  },
+  "Radius": { "None": { "$type": "dimension", "$value": "0px" } },
+  "Effect": {
+    "None": { "$type": "string", "$value": "box-shadow: none; text-shadow: none", "$description": "Madde 7: tamamen düz" },
+    "CRT": {
+      "$description": "Madde 8 (isteğe bağlı, <html data-crt='acik'>): 3px'lik tarama çizgileri ve sabit arayüzün %7 opaklıkta ekran yanığı izi. Parlama yok.",
+      "Scanline": { "$type": "string", "$value": "repeating-linear-gradient(to bottom, transparent 0 2px, rgb(0 0 0 / 0.35) 2px 3px)" },
+      "BurnIn": { "$type": "number", "$value": 0.07 }
+    }
+  },
+  "Ascii": {
+    "Icons": { "$type": "string", "$value": ["[>]", "[x]", "[ ]", "[+]", "[-]", "[!]", "[?]", "[*]", "(*)", "[=]", "^ v", "#"] },
+    "Status": { "$type": "string", "$value": ["[  OK  ]", "[UYARI ]", "[ HATA ]", "[KAPALI]"], "$description": "Renk tek başına anlam taşımaz" },
+    "Bar": { "$type": "string", "$value": "[#####.....]", "$description": "# bu çalıştırma, = referans" },
+    "Ramp": { "$type": "string", "$value": " .:-=+*#%@", "$description": "Isı haritası yoğunluğu, %0 -> %100" }
+  },
+  "Motion": {
+    "Blink": { "$type": "duration", "$value": "1s", "$description": "steps(1): 1 Hz, saniyede 3'ün çok altında" },
+    "Typewriter": { "$type": "number", "$value": 38, "$description": "karakter / saniye" },
+    "Progress": { "$type": "string", "$value": "%5 adım", "$description": "Yumuşak geçiş yok; çubuk kesik kesik dolar" },
+    "Spinner": { "$type": "string", "$value": "| / - \\", "$description": "0,8 sn'de bir tur, steps(1)" },
+    "Levels": { "$description": "data-motion: on · off (hareketi azalt ya da kullanıcı; localStorage 'term-motion')", "$value": ["oto", "acik", "kapali"] }
+  },
+  "Responsive": {
+    "ScrollX": { "$type": "string", "$value": "overflow-x: auto", "$description": "Madde 17: geniş her blok kendi kaydırma alanında; role='region', tabindex=0, aria-label. Metin kırılmaz." }
+  }
+}

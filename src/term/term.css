@@ -1,0 +1,358 @@
+@import 'tailwindcss' source(none);
+@source '.';
+
+/* ─────────────────────────────────────────────────────────────
+   STİL 012 · TERMINAL / HACKER UI
+   Sıfır dekorasyon: yalnız monospace metin, katı dikdörtgenler, düz renk.
+   Gölge, parlama, köşe yuvarlama, degrade yok. İkon yerine ASCII ([>], [x], [+]).
+   Izgara karakter hücresidir: yatayda 1ch, dikeyde 1lh. Tailwind aralık birimi de 1ch'tir (p-4 = 4 karakter).
+   Tablolar saf ASCII (+ - |): yazı tiplerinin Latin alt kümelerinde kutu çizim karakterleri yoktur.
+   Değerler tokens/term.tokens.json ile aynıdır.
+   ───────────────────────────────────────────────────────────── */
+
+@font-face {
+  font-family: 'JetBrains Mono Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 800;
+  src: url('@fontsource-variable/jetbrains-mono/files/jetbrains-mono-latin-ext-wght-normal.woff2') format('woff2-variations');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329,
+    U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'JetBrains Mono Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 800;
+  src: url('@fontsource-variable/jetbrains-mono/files/jetbrains-mono-latin-wght-normal.woff2') format('woff2-variations');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Fira Code Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 300 700;
+  src: url('@fontsource-variable/fira-code/files/fira-code-latin-ext-wght-normal.woff2') format('woff2-variations');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329,
+    U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Fira Code Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 300 700;
+  src: url('@fontsource-variable/fira-code/files/fira-code-latin-wght-normal.woff2') format('woff2-variations');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Source Code Pro Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 200 900;
+  src: url('@fontsource-variable/source-code-pro/files/source-code-pro-latin-ext-wght-normal.woff2') format('woff2-variations');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329,
+    U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Source Code Pro Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 200 900;
+  src: url('@fontsource-variable/source-code-pro/files/source-code-pro-latin-wght-normal.woff2') format('woff2-variations');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* ── Temalar: <html data-theme> ya da önizleme kutusunda [data-theme] ──
+   Yeşil (varsayılan): #00FF41 siyahta 15,38:1 · ikincil #00B32D 7,49:1 · kehribar 11,46:1 · beyaz 21:1
+   Kehribar: #FFB000 11,46:1 · ikincil #B37B00 5,75:1
+   Beyaz: #FFFFFF 21:1 · ikincil #A0A0A0 8,03:1
+   Solarized (açık terminal): #FDF6E3 kirli beyaz zemin, #073642 koyu gri metin 12,05:1 · ikincil #586E75 4,99:1 ·
+   kehribar #7A5000 6,54:1 · yeşil #556300 6,14:1. Çizgiler (yalnız süs) koyu zeminde en az 3,1:1, açıkta 3,3:1. */
+:root,
+[data-theme='yesil'] {
+  --bg: #000000;
+  --fg: #00ff41;
+  --dim: #00b32d;
+  --em: #ffb000;
+  --hi: #ffffff;
+  --ok: #00ff41;
+  --line: #1f7a34;
+  --sel-bg: #00ff41;
+  --sel-fg: #000000;
+  --scan: rgb(0 0 0 / 0.35);
+  color-scheme: dark;
+}
+[data-theme='kehribar'] {
+  --bg: #000000;
+  --fg: #ffb000;
+  --dim: #b37b00;
+  --em: #ffffff;
+  --hi: #ffffff;
+  --ok: #ffb000;
+  --line: #7a5400;
+  --sel-bg: #ffb000;
+  --sel-fg: #000000;
+  --scan: rgb(0 0 0 / 0.35);
+  color-scheme: dark;
+}
+[data-theme='beyaz'] {
+  --bg: #000000;
+  --fg: #ffffff;
+  --dim: #a0a0a0;
+  --em: #ffb000;
+  --hi: #ffffff;
+  --ok: #00ff41;
+  --line: #5c5c5c;
+  --sel-bg: #ffffff;
+  --sel-fg: #000000;
+  --scan: rgb(0 0 0 / 0.35);
+  color-scheme: dark;
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme]) {
+    --bg: #fdf6e3;
+    --fg: #073642;
+    --dim: #586e75;
+    --em: #7a5000;
+    --hi: #002b36;
+    --ok: #556300;
+    --line: #7b8b8b;
+    --sel-bg: #073642;
+    --sel-fg: #fdf6e3;
+    --scan: rgb(7 54 66 / 0.07);
+    color-scheme: light;
+  }
+}
+[data-theme='solarized'] {
+  --bg: #fdf6e3;
+  --fg: #073642;
+  --dim: #586e75;
+  --em: #7a5000;
+  --hi: #002b36;
+  --ok: #556300;
+  --line: #7b8b8b;
+  --sel-bg: #073642;
+  --sel-fg: #fdf6e3;
+  --scan: rgb(7 54 66 / 0.07);
+  color-scheme: light;
+}
+
+/* ── Font/MonoCore: <html data-font> ── */
+:root,
+[data-font='jetbrains'] {
+  --mono: 'JetBrains Mono Variable', 'JetBrains Mono', Consolas, ui-monospace, monospace;
+}
+[data-font='fira'] {
+  --mono: 'Fira Code Variable', 'Fira Code', Consolas, ui-monospace, monospace;
+}
+[data-font='scp'] {
+  --mono: 'Source Code Pro Variable', 'Source Code Pro', Consolas, ui-monospace, monospace;
+}
+
+@theme {
+  --color-*: initial;
+  --font-*: initial;
+  --radius-*: initial;
+  --shadow-*: initial;
+  /* Karakter hücresi: p-4 = 4ch, gap-2 = 2ch */
+  --spacing: 1ch;
+  --color-white: #ffffff;
+  --color-transparent: transparent;
+  /* Madde 15 satırı Tailwind'in kendi adımlarıyla çalışsın diye (v4 değerleri) */
+  --color-black: #000000;
+  --color-green-400: oklch(79.2% 0.209 151.711);
+  --color-green-800: oklch(44.8% 0.119 151.328);
+}
+
+@theme inline {
+  --font-mono: var(--mono);
+  --color-bg: var(--bg);
+  --color-fg: var(--fg);
+  --color-dim: var(--dim);
+  --color-em: var(--em);
+  --color-hi: var(--hi);
+  --color-ok: var(--ok);
+  --color-line: var(--line);
+  --color-sel-bg: var(--sel-bg);
+  --color-sel-fg: var(--sel-fg);
+}
+
+@layer base {
+  html {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--mono);
+    font-size: 16px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-variant-numeric: tabular-nums;
+    scroll-padding-top: 4lh;
+  }
+  @media (max-width: 639px) {
+    html {
+      font-size: 14px;
+    }
+  }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-size: 1em;
+    font-weight: 700;
+    line-height: inherit;
+  }
+  * {
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+  ::selection {
+    background: var(--sel-bg);
+    color: var(--sel-fg);
+  }
+  :focus-visible {
+    outline: 2px solid var(--em);
+    outline-offset: 2px;
+  }
+  a {
+    color: inherit;
+  }
+  :root[data-lig='kapali'] {
+    font-variant-ligatures: none;
+    font-feature-settings: 'calt' 0, 'liga' 0;
+  }
+}
+
+@layer components {
+  /* ASCII çizimleri ve tablolar bağlaçsız: her karakter kendi hücresinde */
+  .ascii {
+    white-space: pre;
+    font-variant-ligatures: none;
+    font-feature-settings: 'calt' 0, 'liga' 0;
+  }
+  /* Madde 17: taşan metin yatay kaydırılır; alan klavyeyle odaklanabilir */
+  .scroll-x {
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scrollbar-width: thin;
+    scrollbar-color: var(--line) transparent;
+  }
+  .scroll-y {
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--line) transparent;
+  }
+  /* Ters video: seçili satır, odaklanan düğme */
+  .inv {
+    background: var(--sel-bg);
+    color: var(--sel-fg);
+  }
+  /* Uzun kesik çizgi: başlığın sağını satır sonuna kadar doldurur */
+  .rule-fill {
+    flex: 1;
+    overflow: hidden;
+    white-space: pre;
+    color: var(--line);
+  }
+
+  /* Madde 16: yanıp sönen imleç. 1 Hz (saniyede 3'ün çok altında) */
+  .cursor {
+    display: inline-block;
+    width: 1ch;
+    height: 1lh;
+    vertical-align: top;
+    background: var(--fg);
+    animation: blink 1s steps(1) infinite;
+  }
+  .cursor-line {
+    display: inline-block;
+    width: 1ch;
+    height: 2px;
+    vertical-align: baseline;
+    background: var(--fg);
+    animation: blink 1s steps(1) infinite;
+  }
+  .cursor-bar {
+    display: inline-block;
+    width: 2px;
+    height: 1lh;
+    vertical-align: top;
+    background: var(--fg);
+    animation: blink 1s steps(1) infinite;
+  }
+  /* Adım adım dönen ASCII döndürücü: | / - \ */
+  .spin::before {
+    content: '|';
+    animation: spin 0.8s steps(1) infinite;
+  }
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+@keyframes spin {
+  0% {
+    content: '|';
+  }
+  25% {
+    content: '/';
+  }
+  50% {
+    content: '-';
+  }
+  75% {
+    content: '\\';
+  }
+}
+
+/* ── Madde 8 (isteğe bağlı): CRT. Tarama çizgileri ve ekran yanığı; parlama yok ── */
+:root[data-crt='acik'] body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 70;
+  pointer-events: none;
+  background: repeating-linear-gradient(to bottom, transparent 0 2px, var(--scan) 2px 3px);
+}
+.burn-in {
+  display: none;
+}
+:root[data-crt='acik'] .burn-in {
+  display: block;
+}
+
+/* ── Madde 12: tipografik ızgara kaplaması (1ch × 1lh) ── */
+:root[data-grid='acik'] .grid-overlay {
+  background-image:
+    linear-gradient(to right, color-mix(in srgb, var(--fg) 14%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in srgb, var(--fg) 14%, transparent) 1px, transparent 1px);
+  background-size: 1ch 1lh;
+}
+
+/* ── Hareket kapalı: imleç sabit, döndürücü durur, akışlar tek seferde ── */
+:root[data-motion='off'] *,
+:root[data-motion='off'] *::before,
+:root[data-motion='off'] *::after {
+  animation: none !important;
+  transition: none !important;
+  scroll-behavior: auto !important;
+}
+
+@media (forced-colors: active) {
+  .inv {
+    forced-color-adjust: none;
+    background: Highlight;
+    color: HighlightText;
+  }
+}

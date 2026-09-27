@@ -15,10 +15,11 @@ Web tasarım stilleri için canlı referans sayfaları. Her stil, anlattığı k
 | 009 · Low Poly | `/stil/009/` | `src/lowpoly/` | `tokens/lowpoly.tokens.json` |
 | 010 · Cyberpunk | `/stil/010/` | `src/cyber/` | `tokens/cyber.tokens.json` |
 | 011 · Holographic | `/stil/011/` | `src/holo/` | `tokens/holo.tokens.json` |
+| 012 · Terminal / Hacker UI | `/stil/012/` | `src/term/` | `tokens/term.tokens.json` |
 
 ```bash
 npm install
-npm run dev        # http://localhost:5173  → katalog, /stil/001/, /stil/002/, /stil/003/, /stil/004/, /stil/005/, /stil/006/, /stil/007/, /stil/008/, /stil/009/, /stil/010/, /stil/011/
+npm run dev        # http://localhost:5173  → katalog, /stil/001/, /stil/002/, /stil/003/, /stil/004/, /stil/005/, /stil/006/, /stil/007/, /stil/008/, /stil/009/, /stil/010/, /stil/011/, /stil/012/
 npm run build      # tip denetimi + dist/
 npm run typecheck
 ```
@@ -38,6 +39,7 @@ stil/008/index.html      Isometric 3D giriş noktası
 stil/009/index.html      Low Poly giriş noktası
 stil/010/index.html      Cyberpunk giriş noktası
 stil/011/index.html      Holographic giriş noktası
+stil/012/index.html      Terminal / Hacker UI giriş noktası
 src/shared/              stiller arası ortak yardımcılar (cx, useTheme)
 src/swiss/               swiss.css (tema) · components/ · sections/
 src/soft/                soft.css (tema) · components/ · sections/
@@ -50,6 +52,7 @@ src/iso/                 iso.css (tema) · lib/ (projeksiyon) · components/ · 
 src/lowpoly/             lowpoly.css (tema) · three/ (R3F sahneleri) · assets/ (GLB, .webp) · lib/ · sections/
 src/cyber/               cyber.css (tema) · components/ (CyberCard, CyberButton, CyberNav, CyberHUD) · hooks/ · sections/
 src/holo/                holo.css (tema) · components/ (CommandCenter, HoloPanel, DataGrid, HoloCanvas) · charts/ · lib/ (3B çizici, veri) · sections/
+src/term/                term.css (tema) · components/ (TerminalShell, Kbd, LogStream, AsciiTable, CommandPalette) · lib/ (ascii, veri) · sections/
 scripts/lowpoly-glb.mjs  Stil 009'un GLB modellerini üretir
 tokens/                  W3C DTCG token dosyaları (Figma / Tokens Studio)
 ```
@@ -221,6 +224,21 @@ Cyberpunk'ın karanlık ve kirli yapısının aksine laboratuvar temizliğinde, 
 - **Mobil (Madde 17):** 768px altında "tekil katman": paneller bulanıklıksız opak yüzeye döner, iç içe cam düzleşir, dekoratif süzülen paneller gizlenir, parçacık sayısı üçte bire iner. Yalnız üst çubuk ve komut katmanı bulanıklık kullanır. Ayar elle de seçilebilir.
 - **Erişilebilirlik (Madde 18):** Hologramın önündeki metnin arkasında opak koruyucu gradyan var; panellerde bu gradyan camın kendisi. En kötü noktada (parlamanın önünde) gradyansız mavi metin 3,86:1'e düşer, gradyanla 7,25:1 olur; sayfadaki anahtar iki durumu karşılaştırır. Zeminde metin 16,32:1, ikincil 9,09:1; Laboratuvarda 14,85:1 ve 6,73:1. Durum hiçbir yerde yalnız renkle verilmez; grafiklerin tablo görünümü, 3B görüntüleyicinin metin açıklaması ve klavye kontrolü var; akan yanıt `aria-busy` ile işaretlenir, bitince kısa bir özet duyurulur.
 
+## Stil 012 · Terminal / Hacker UI
+
+Tasarımı aradan çıkarıp doğrudan veriye, koda ve saf performansa odaklanan arayüz: mühendislik araçlarının ve sistem yönetiminin en çıplak hâli. Sıfır dekorasyon, mutlak fonksiyon.
+
+- **Renk ve tema (Madde 4 · 18):** Saf siyah `#000000` zemin; terminal yeşili `#00FF41` (15,38:1), kehribar `#FFB000` (11,46:1), saf beyaz `#FFFFFF` (21:1). Dört tema: yeşil, kehribar, beyaz ve açık terminal Solarized (kirli beyaz `#FDF6E3` zemin, koyu gri `#073642` metin 12,05:1). Sistem açık temadaysa Solarized açılır.
+- **Yazı ve ızgara (Madde 5 · 12):** Yalnız monospace: JetBrains Mono, Fira Code, Source Code Pro (sayfadan seçilir), Consolas yedek. Tek boyut, tek satır yüksekliği; başlıklar da 1em, hiyerarşiyi kalınlık, büyük harf ve ters video kurar. Izgara karakter hücresidir: Tailwind aralık birimi `1ch` (`p-4` dört karakter), dikey aralıklar `lh` katları; "ızgarayı çiz" 1ch × 1lh kaplamasını gösterir. Bağlaçlar (ligature) kapatılabilir; ASCII tablo ve çizimlerde her zaman kapalı.
+- **Şekil, derinlik, doku, ikon (Madde 6 · 7 · 8 · 9):** Köşe yarıçapı, gölge ve parlama taban katmanda sıfırlanır. Üç yüzey: çerçeveli, ters video, kesik çizgili. CRT efekti isteğe bağlı: tarama çizgileri ve sabit arayüzün soluk ekran yanığı izi. İkon yok; `[>]`, `[x]`, `[+]`, `[!]`, `(*)` gibi ASCII işaretler.
+- **Saf ASCII:** Yazı tiplerinin Latin alt kümelerinde kutu çizim ve blok karakterleri (U+2500, U+2588) yok; tablolar `+ - |`, çubuklar `#` ve `=`, ısı haritası ` .:-=+*#%@` rampasıyla çizilir, böylece her karakter kendi hücresine oturur. JetBrains Mono'da `₺` ve `→` olmadığından "TL" ve `->` kullanılır.
+- **Bileşenler (Madde 11 · 14):** `<TerminalShell>` (geçmiş, Tab tamamlama, Ctrl+L), `<Kbd>` (`[Ctrl]+[K]`), `<LogStream>` (seviye süzgeci, duraklat, takip et), `AsciiTable` (anlamsal `<table>`, görünüşü ASCII; sütun genişliği karakter olarak hesaplanır, başlıklar sıralar, satırlar ↑/↓ ya da j/k ile gezilir) ve Ctrl/⌘ + K komut paleti (cmdk + Radix Dialog; tema, yazı, CRT, hareket, sunucu yeniden başlatma, kıyaslama, bölüme git).
+- **Uygulama (Madde 10):** Donanım kıyaslama aracı (altı test, %5'lik adımlarla dolan çubuklar, `#`/`=` çubuk grafik, referansa göre fark), BIOS/VMD depolama paneli (sekmeler ok tuşlarıyla, disk seçimi, RAID-0/1/5/10 doğrulaması ve kapasite, önyükleme sırası, F10 ile kaydet), sunucu yönetim konsolu (canlı ASCII ızgara, çekirdek ısı haritası, kabuk komutları ızgarayı değiştirir, işlem günlüğü) ve yazılımcı kişisel sitesi. Veriler kurgusaldır.
+- **Tailwind (Madde 13 · 15):** `Font/MonoCore`, `Color/ConsoleGreen`, `Color/ConsoleAmber` ve diğerleri `tokens/term.tokens.json` içinde. Tanımdaki `font-mono bg-black text-green-400 p-4 border border-green-800 antialiased` satırı sayfada birebir kullanılır; bunun için temaya Tailwind'in `green-400` ve `green-800` adımları eklendi.
+- **Hareket (Madde 16):** Daktilo (38 karakter/sn), kesik kesik dolan çubuklar, `| / - \` döndürücü ve 1 Hz yanıp sönen imleç (blok, alt çizgi, çubuk). Yumuşak geçiş yok. Hareket kapalıyken (ya da hareketi azalt tercihinde) metin hemen yazılır, imleç sabit durur.
+- **Mobil (Madde 17):** 640px altında yazı 14px. Metin kırılmaz; geniş her blok kendi yatay kaydırma alanında (`role="region"`, odaklanabilir, adlı).
+- **Erişilebilirlik (Madde 18):** Tüm metin AA'yı geçer (en düşük: Solarized ikincil 4,99:1). Durum ve seviye metinle yazılır (`[ HATA ]`, `[UYARI ]`); onay kutuları ve radyolar yerel girişlerle çalışır; ASCII çizimler ekran okuyucudan gizlidir ve verisi metin ya da tablo olarak da vardır; otomatik akan günlük tek tek duyurulmaz, hata ve uyarı sayısı durum satırındadır.
+
 ## Yazı tipleri
 
-Hepsi OFL lisanslı, `@fontsource-variable` paketlerinden yalnızca Latin ve Latin Genişletilmiş alt kümeleriyle yüklenir: Inter (Stil 001 ve 003), Lora ve Plus Jakarta Sans (Stil 002), Geist ve Geist Mono (Stil 004; `₺` glifi olmadığı için tutarlar "TL" ile yazılır), Nunito (Stil 005), Sora (Stil 006), Baloo 2 ve Quicksand (Stil 007; Fredoka ğ, ş ve İ içermediği için başlıkta Baloo 2 seçildi), Manrope ve IBM Plex Mono (Stil 008; Space Mono `₺` içermediği için Plex Mono seçildi), Space Grotesk ve Inter (Stil 009), Rajdhani, Orbitron, Space Grotesk ve IBM Plex Mono (Stil 010; Rajdhani ve Plex Mono sabit ağırlıklı `@fontsource` paketlerinden gelir; Orbitron ğ, ş ve İ içermediği için yalnız Latin alt kümesiyle yüklenir ve yalnız rakam, kod ve saatlerde kullanılır, başlıklar Rajdhani), Audiowide, Exo 2, Chakra Petch ve IBM Plex Mono (Stil 011; Audiowide ve Chakra Petch sabit ağırlıklı `@fontsource` paketlerinden). Lisanslı Helvetica Now ya da Neue Haas Grotesk kullanmak için `src/swiss/swiss.css` içindeki `@font-face` bloklarını ve `--font-sans` sırasını değiştirin.
+Hepsi OFL lisanslı, `@fontsource-variable` paketlerinden yalnızca Latin ve Latin Genişletilmiş alt kümeleriyle yüklenir: Inter (Stil 001 ve 003), Lora ve Plus Jakarta Sans (Stil 002), Geist ve Geist Mono (Stil 004; `₺` glifi olmadığı için tutarlar "TL" ile yazılır), Nunito (Stil 005), Sora (Stil 006), Baloo 2 ve Quicksand (Stil 007; Fredoka ğ, ş ve İ içermediği için başlıkta Baloo 2 seçildi), Manrope ve IBM Plex Mono (Stil 008; Space Mono `₺` içermediği için Plex Mono seçildi), Space Grotesk ve Inter (Stil 009), Rajdhani, Orbitron, Space Grotesk ve IBM Plex Mono (Stil 010; Rajdhani ve Plex Mono sabit ağırlıklı `@fontsource` paketlerinden gelir; Orbitron ğ, ş ve İ içermediği için yalnız Latin alt kümesiyle yüklenir ve yalnız rakam, kod ve saatlerde kullanılır, başlıklar Rajdhani), Audiowide, Exo 2, Chakra Petch ve IBM Plex Mono (Stil 011; Audiowide ve Chakra Petch sabit ağırlıklı `@fontsource` paketlerinden), JetBrains Mono, Fira Code ve Source Code Pro (Stil 012). Lisanslı Helvetica Now ya da Neue Haas Grotesk kullanmak için `src/swiss/swiss.css` içindeki `@font-face` bloklarını ve `--font-sans` sırasını değiştirin.
