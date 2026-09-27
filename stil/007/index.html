@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="description" content="Stil 007: Claymorphism. Parlak pastel renkler, üç gölgeyle şişirilmiş kil bileşenler, basınca sönen kartlar, kelime dersi, kumbara ve Dark Cyber-Clay." />
+    <meta name="theme-color" content="#f9f8fd" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' rx='6' fill='%23FF7EB3'/%3E%3Ccircle cx='8' cy='8' r='4' fill='%238E2DE2'/%3E%3C/svg%3E" />
+    <title>Stil 007 · Claymorphism</title>
+    <script>
+      try {
+        var d = document.documentElement
+        var t = localStorage.getItem('clay-theme')
+        if (t === 'light' || t === 'dark') d.dataset.theme = t
+        var n = localStorage.getItem('clay-neon')
+        if (n === 'mor' || n === 'camgobegi') d.dataset.neon = n
+        if (localStorage.getItem('clay-contrast') === 'more') d.dataset.contrast = 'more'
+      } catch (e) {}
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/clay/main.tsx"></script>
+  </body>
+</html>

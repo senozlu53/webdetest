@@ -1,0 +1,75 @@
+{
+  "$description": "Stil 007: Claymorphism (Fluffy 3D / Soft 3D). W3C DTCG formatı. Adlar Figma yolu ile aynıdır: Effects/ClayVolume, Radius/MaxRounded, Color/PastelBase. Her bileşen aynı üçlü gölge setini taşır; X, Y ve Blur tek bir hacim biriminden (d) türetilir.",
+  "Effects": {
+    "ClayVolume": {
+      "$description": "Formül — Drop Shadow: x = y = 2d, blur = 4d · Inner Shadow (koyu): x = y = −d, blur = 2d · Inner Shadow (açık): x = y = d, blur = 2d. Spread her zaman 0. d = 4px tanımdaki satırı verir.",
+      "formula": {
+        "drop": { "x": "2d", "y": "2d", "blur": "4d", "color": "{Color.Shadow.Drop}" },
+        "innerDark": { "x": "-d", "y": "-d", "blur": "2d", "color": "{Color.Shadow.Inner}" },
+        "innerLight": { "x": "d", "y": "d", "blur": "2d", "color": "{Color.Highlight}" }
+      },
+      "sm": { "$type": "shadow", "d": 2, "$value": "4px 4px 8px, inset -2px -2px 4px, inset 2px 2px 4px", "$description": "Rozet, küçük düğme, anahtar topuzu" },
+      "md": { "$type": "shadow", "d": 4, "$value": "8px 8px 16px rgba(0,0,0,0.1), inset -4px -4px 8px rgba(0,0,0,0.1), inset 4px 4px 8px rgba(255,255,255,0.8)", "$description": "Tanımdaki satır; varsayılan düğme" },
+      "lg": { "$type": "shadow", "d": 6, "$value": "12px 12px 24px, inset -6px -6px 12px, inset 6px 6px 12px", "$description": "Kart" },
+      "xl": { "$type": "shadow", "d": 8, "$value": "16px 16px 32px, inset -8px -8px 16px, inset 8px 8px 16px", "$description": "Büyük kart, sahne" },
+      "pressed": { "$type": "number", "$value": 0.35, "$description": "Basılınca (havası inmiş) d bu katsayıyla çarpılır; bileşen 1.02 × 0.94 yassılaşır" },
+      "mobileScale": { "$type": "number", "$value": 0.6, "$description": "Madde 17: 640px altında d çarpanı (xl ≈ md, md ≈ sm)" }
+    },
+    "IconVolume": {
+      "$description": "Dolu ikonlara SVG filtresiyle uygulanan aynı üç gölge (feOffset + feGaussianBlur + feComposite). İkon ≥ 64px ise d = 3, aksi hâlde 1.6.",
+      "d": { "$type": "number", "$value": [1.6, 3] }
+    }
+  },
+  "Radius": {
+    "Soft": { "$type": "dimension", "$value": "32px" },
+    "Clay": { "$type": "dimension", "$value": "56px", "$description": "50px+ abartılı köşe" },
+    "MaxRounded": { "$type": "dimension", "$value": "9999px", "$description": "Tam hap" },
+    "Blob": { "$type": "string", "$value": "64px 44px 72px 52px / 52px 68px 46px 62px", "$description": "Şişkin asimetrik kapsayıcı" }
+  },
+  "Color": {
+    "PastelBase": { "$type": "color", "light": "#F9F8FD", "dark": "#120E24", "$description": "Arka plan" },
+    "Surface": { "$type": "color", "light": "#FFFFFF", "dark": "#221B3D", "$description": "Kil" },
+    "Accent": {
+      "Pink": { "$type": "color", "light": "#FF7EB3", "dark": "#4A1F45", "neon": "#FF7EB3" },
+      "Purple": { "$type": "color", "light": "#8E2DE2", "dark": "#34206A", "neon": "#B892FF" }
+    },
+    "Pastel": {
+      "Blue": { "$type": "color", "light": "#A6D8FF", "dark": "#183257" },
+      "Mint": { "$type": "color", "light": "#A8EDD2", "dark": "#15413A" },
+      "Butter": { "$type": "color", "light": "#FFE59A", "dark": "#463A17" },
+      "Lilac": { "$type": "color", "light": "#DCCBFF", "dark": "#2E2657" }
+    },
+    "Neon": {
+      "$description": "Dark Cyber-Clay: koyu temada açık iç gölge, vurgu ve odak halkası bu renge döner",
+      "Pembe": { "$type": "color", "$value": "#FF7EB3" },
+      "Mor": { "$type": "color", "$value": "#B892FF" },
+      "Camgobegi": { "$type": "color", "$value": "#5CE1E6" }
+    },
+    "Highlight": { "$type": "color", "light": "rgba(255,255,255,0.8)", "dark": "neon %60", "$description": "Pastel tonlarda 0.55–0.75, morda 0.4" },
+    "Shadow": {
+      "Drop": { "$type": "color", "light": "rgba(0,0,0,0.1)", "dark": "rgba(0,0,0,0.5)" },
+      "Inner": { "$type": "color", "light": "rgba(0,0,0,0.1)", "dark": "rgba(0,0,0,0.45)" }
+    },
+    "Text": {
+      "Default": { "$type": "color", "light": "#2B2150", "dark": "#F6F2FF", "contrast": { "zemin": [13.84, 17.11], "kil": [14.62, 14.75], "enKoyuPastel": [6.19, 12.12] } },
+      "Muted": { "$type": "color", "light": "#5B5379", "dark": "#BCB2DE", "contrast": { "zemin": [6.72, 9.48], "kil": [7.1, 8.17] }, "$description": "Pembe dolguda kullanılmaz (3.0:1)" },
+      "OnPrimary": { "$type": "color", "light": "#FFFFFF", "dark": "#120E24", "contrast": [5.8, 7.71] }
+    }
+  },
+  "Typography": {
+    "Display": { "$type": "typography", "$value": { "fontFamily": "Baloo 2", "fontSize": "84px", "fontWeight": 800, "lineHeight": 0.98 } },
+    "Heading": { "$type": "typography", "$value": { "fontFamily": "Baloo 2", "fontSize": "36px", "fontWeight": 800, "lineHeight": 1.05 } },
+    "Body": { "$type": "typography", "$value": { "fontFamily": "Quicksand", "fontSize": "17px", "fontWeight": 500, "lineHeight": 1.6 } },
+    "Label": { "$type": "typography", "$value": { "fontFamily": "Quicksand", "fontSize": "15px", "fontWeight": 700 } }
+  },
+  "Motion": {
+    "Spring": {
+      "$type": "string",
+      "$value": "linear(0, 0.038, 0.137, 0.275, 0.434, 0.597, 0.751, 0.887, 0.999, 1.085, 1.145, 1.18, 1.194, 1.191, 1.174, 1.149, 1.119, 1.087, 1.056, 1.029, 1.006, 0.987, 0.974, 0.966, 0.963, 0.962, 0.965, 0.97, 0.975, 0.981, 0.987, 0.993, 0.998, 1.002, 1.004, 1.006, 1)",
+      "$description": "k = 300, c = 16, m = 1 · %19,4 aşma · 600ms"
+    },
+    "Pop": { "$type": "duration", "$value": "820ms", "$description": "Giriş: %40'ta 1.08 × 0.92 ezilme, %62'de 0.95 × 1.06 uzama; 90ms kademe" },
+    "Press": { "$type": "duration", "$value": "110ms" },
+    "Float": { "$type": "duration", "$value": "6s", "$description": "Süzülme: ±10px, hafif eğim; yalnızca transform" }
+  }
+}

@@ -10,10 +10,11 @@ Web tasarım stilleri için canlı referans sayfaları. Her stil, anlattığı k
 | 004 · Glassmorphism | `/stil/004/` | `src/glass/` | `tokens/glass.tokens.json` |
 | 005 · Neumorphism | `/stil/005/` | `src/neu/` | `tokens/neu.tokens.json` |
 | 006 · Ambient UI | `/stil/006/` | `src/ambient/` | `tokens/ambient.tokens.json` |
+| 007 · Claymorphism | `/stil/007/` | `src/clay/` | `tokens/clay.tokens.json` |
 
 ```bash
 npm install
-npm run dev        # http://localhost:5173  → katalog, /stil/001/, /stil/002/, /stil/003/, /stil/004/, /stil/005/, /stil/006/
+npm run dev        # http://localhost:5173  → katalog, /stil/001/, /stil/002/, /stil/003/, /stil/004/, /stil/005/, /stil/006/, /stil/007/
 npm run build      # tip denetimi + dist/
 npm run typecheck
 ```
@@ -28,6 +29,7 @@ stil/003/index.html      Corporate Modern giriş noktası
 stil/004/index.html      Glassmorphism giriş noktası
 stil/005/index.html      Neumorphism giriş noktası
 stil/006/index.html      Ambient UI giriş noktası
+stil/007/index.html      Claymorphism giriş noktası
 src/shared/              stiller arası ortak yardımcılar (cx, useTheme)
 src/swiss/               swiss.css (tema) · components/ · sections/
 src/soft/                soft.css (tema) · components/ · sections/
@@ -35,6 +37,7 @@ src/corporate/           corporate.css (tema) · ui/ (shadcn) · views/ · chart
 src/glass/               glass.css (tema) · components/ · sections/
 src/neu/                 neu.css (tema) · components/ · sections/
 src/ambient/             ambient.css (tema) · components/ · hooks/ · sections/
+src/clay/                clay.css (tema) · components/ · hooks/ · sections/
 tokens/                  W3C DTCG token dosyaları (Figma / Tokens Studio)
 ```
 
@@ -138,6 +141,18 @@ Sınırları eriyen, sürekli akan atmosferik arayüz. Varsayılan tema koyu "Ge
 - **Hareket ve pil (Madde 16·17):** `<html data-motion>` üç düzey alır: canlı (5 leke), sade (3 leke, yarı hız, dış parıltı sabit), durdur (kare donar, yükleme göstergesi döner). Otomatik seçim: hareketi azalt → durdur; veri tasarrufu, pil ≤ %20 ve şarjda değil (Battery API varsa) ya da 768px altı ekran → sade. Ekrandan çıkan mesh ve küreler `IntersectionObserver` ile durur, çünkü `@property` animasyonu her kare yeniden boyanır. Başlıktaki düğme hareketi tek dokunuşla durdurur (WCAG 2.2.2).
 - **Okunurluk (Madde 18):** En kötü durum, en parlak aurora renginin metnin tam arkasına geldiği andır. Koyu temada koruyucusuz beyaz metin 1,81:1'e düşer; metnin arkasına kenarları 40px'te eriyen %62 koyu katman (`.scrim-fade`, `<Scrim>`) konur: ana metin 8,49:1, ikincil 5,57:1. Açık temada mürekkep katmansız 9,94:1, %30 beyaz katmanla ikincil metin 5,8:1. Sayfadaki kaydırıcı katman gücünü değiştirip kontrastı canlı hesaplar. İnce yazı yalnızca büyük boyutta; gövde 300, küçük etiketler 400 ağırlıkta.
 
+## Stil 007 · Claymorphism
+
+Parlak pastel renkler ve oyun hamuru gibi şişirilmiş, mat kil bileşenler. Neumorphism'in aksine hacmi kontrast değil gölge üretir; metin her dolguda koyu mor mürekkeptir.
+
+- **Effects/ClayVolume (Madde 7 · 12 · 15):** Üç gölge tek bir hacim biriminden (d) türer: drop `(2d, 2d, 4d)`, iç koyu `(−d, −d, 2d)`, iç açık `(d, d, 2d)`. d = 4px tanımdaki satırı birebir verir (`8px 8px 16px rgba(0,0,0,.1), inset -4px -4px 8px rgba(0,0,0,.1), inset 4px 4px 8px rgba(255,255,255,.8)`); bu satır Tailwind'de `shadow-clay` olarak da durur. `.clay-sm/md/lg/xl` d = 2/4/6/8. `--d` `@property` ile kayıtlı olduğu için basılma ve geri şişme gölgede de yumuşak geçer.
+- **Hacim laboratuvarı:** d, köşe yarıçapı, ton ve basılı durum canlı ayarlanır; Figma efekt tablosu (X, Y, Blur, renk), CSS ve Tailwind çıktısı tarayıcının çözdüğü renklerle anında güncellenir.
+- **Bileşenler (Madde 11 · 14):** `ClayCard` (`tone`, `volume`, `float`), `ClayButton` (hap; basınca d %35'e iner ve yassılaşır, Enter da aynı tepkiyi verir), `ClayToggle` (gömülü iz, şişkin topuz, onay/çarpı işareti), `ClayIcon` (Phosphor dolu ikon + aynı üç gölgeyi ikonun biçimine uygulayan SVG filtresi), gömülü kuyu (`.clay-well`), kil kaydırıcı. Havada süzülen kurs kartları basınca söner, seçilen kart sönük kalır.
+- **Uygulama (Madde 10):** Çalışan bir kelime dersi (5 soru, 3 can, XP, odak yönetimi) ve hedefe para biriktiren kumbara (hedef seçimi, hızlı ekleme, geri al). İkisi de kurgusaldır.
+- **Hareket (Madde 16):** Giriş animasyonu ezilir, uzar ve yerine oturur (820ms, 90ms kademe). Yay eğrisi CSS `linear()` ile (k=300, c=16, m=1; %19,4 aşma, 600ms). Süzülme ve giriş yalnızca `transform` kullanır.
+- **Mobil (Madde 17):** 640px altında d %60'a iner (xl ≈ md, md ≈ sm): gölge taşması 48px'ten 29px'e düşer, boyanan bulanık alan yaklaşık üçte bire iner.
+- **Erişilebilirlik ve Dark Cyber-Clay (Madde 18):** Ana metin zeminde 13,84:1, en koyu pastelde (pembe) 6,19:1; mor düğmede beyaz 5,8:1. Koyu varyantta açık iç gölge neon ışığa döner (pembe, mor ya da camgöbeği seçilebilir); metin 14,75–17,11:1, neon vurgu kilde en az 6,65:1. Kil kenarının zeminle farkı yalnızca 1,06–2,24:1 olduğundan "Kenarlı mod" (ve `prefers-contrast: more`) her kile 2px mürekkep kenar ekler; zorunlu renk modunda da kenar çizilir. Hedefler en az 44px, gövde 17px/500. Hareket azaltmada giriş, süzülme ve zıplama kapanır.
+
 ## Yazı tipleri
 
-Hepsi OFL lisanslı, `@fontsource-variable` paketlerinden yalnızca Latin ve Latin Genişletilmiş alt kümeleriyle yüklenir: Inter (Stil 001 ve 003), Lora ve Plus Jakarta Sans (Stil 002), Geist ve Geist Mono (Stil 004; `₺` glifi olmadığı için tutarlar "TL" ile yazılır), Nunito (Stil 005), Sora (Stil 006). Lisanslı Helvetica Now ya da Neue Haas Grotesk kullanmak için `src/swiss/swiss.css` içindeki `@font-face` bloklarını ve `--font-sans` sırasını değiştirin.
+Hepsi OFL lisanslı, `@fontsource-variable` paketlerinden yalnızca Latin ve Latin Genişletilmiş alt kümeleriyle yüklenir: Inter (Stil 001 ve 003), Lora ve Plus Jakarta Sans (Stil 002), Geist ve Geist Mono (Stil 004; `₺` glifi olmadığı için tutarlar "TL" ile yazılır), Nunito (Stil 005), Sora (Stil 006), Baloo 2 ve Quicksand (Stil 007; Fredoka ğ, ş ve İ içermediği için başlıkta Baloo 2 seçildi). Lisanslı Helvetica Now ya da Neue Haas Grotesk kullanmak için `src/swiss/swiss.css` içindeki `@font-face` bloklarını ve `--font-sans` sırasını değiştirin.
