@@ -1,0 +1,432 @@
+@import 'tailwindcss' source(none);
+@source '.';
+
+/* ─────────────────────────────────────────────────────────────
+   STİL 003 · CORPORATE MODERN (FLAT 2.0 / ENTERPRISE UI)
+   shadcn/ui değişken adlandırması + tam renk skalaları.
+   Değerler tokens/corporate.tokens.json ile birebir aynıdır.
+   Doku yok, degrade yok: tüm yüzeyler düz ve dolu.
+   ───────────────────────────────────────────────────────────── */
+
+@font-face {
+  font-family: 'Inter Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url('@fontsource-variable/inter/files/inter-latin-ext-opsz-normal.woff2') format('woff2-variations');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329,
+    U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Inter Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url('@fontsource-variable/inter/files/inter-latin-opsz-normal.woff2') format('woff2-variations');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* ── Semantik tokenlar ────────────────────────────────────────
+   Hedef WCAG AAA: metin 7:1, büyük metin 4.5:1, kenar ve odak 3:1.
+   #2563EB (Blue 600) beyazda 5.17:1 verir; bu yüzden marka rengi
+   metin taşımayan yerlerde (odak halkası, grafik, aktif gösterge)
+   kalır, metin taşıyan eylem yüzeyleri Blue 800 kullanır (8.72:1). */
+:root {
+  --background: var(--color-slate-50);
+  --foreground: var(--color-slate-900);
+  --card: var(--color-white);
+  --card-foreground: var(--color-slate-900);
+  --popover: var(--color-white);
+  --popover-foreground: var(--color-slate-900);
+  --primary: var(--color-blue-800);
+  --primary-hover: var(--color-blue-900);
+  --primary-foreground: var(--color-white);
+  --brand: var(--color-blue-600);
+  --secondary: var(--color-slate-100);
+  --secondary-foreground: var(--color-slate-900);
+  --secondary-hover: var(--color-slate-200);
+  --row-selected: var(--color-blue-50);
+  --muted: var(--color-slate-100);
+  --muted-foreground: var(--color-slate-600);
+  --accent: var(--color-slate-100);
+  --accent-foreground: var(--color-slate-900);
+  --destructive: var(--color-red-800);
+  --destructive-hover: var(--color-red-900);
+  --destructive-foreground: var(--color-white);
+  --border: var(--color-slate-200);
+  --input: var(--color-slate-500);
+  --ring: var(--color-blue-600);
+  --link: var(--color-blue-800);
+
+  --error-border: var(--color-red-600);
+  --error-text: var(--color-red-800);
+  --success-border: var(--color-green-600);
+  --success-text: var(--color-green-800);
+
+  --sidebar: var(--color-white);
+  --sidebar-active: var(--color-blue-50);
+  --sidebar-active-foreground: var(--color-blue-800);
+
+  /* Rozetler: 50 zemin + 800/900 metin, hepsi ≥ 7:1 */
+  --badge-success-bg: var(--color-green-50);
+  --badge-success-fg: var(--color-green-900);
+  --badge-info-bg: var(--color-blue-50);
+  --badge-info-fg: var(--color-blue-800);
+  --badge-warning-bg: var(--color-amber-50);
+  --badge-warning-fg: var(--color-amber-900);
+  --badge-danger-bg: var(--color-red-50);
+  --badge-danger-fg: var(--color-red-800);
+  --badge-neutral-bg: var(--color-slate-100);
+  --badge-neutral-fg: var(--color-slate-700);
+
+  /* Grafik: doğrulanmış (CVD + normal görüş + 3:1) */
+  --chart-1: var(--color-blue-600);
+  --chart-good: var(--color-green-600);
+  --chart-info: var(--color-blue-500);
+  --chart-critical: var(--color-red-600);
+  --chart-grid: var(--color-slate-200);
+  --chart-deemphasis: var(--color-slate-400);
+
+  --shadow-sm-v: 0 1px 2px 0 rgb(15 23 42 / 0.06);
+  --shadow-md-v: 0 4px 12px -2px rgb(15 23 42 / 0.1), 0 2px 4px -2px rgb(15 23 42 / 0.06);
+  --shadow-lg-v: 0 16px 32px -8px rgb(15 23 42 / 0.18), 0 4px 8px -4px rgb(15 23 42 / 0.08);
+
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --background: var(--color-slate-950);
+    --foreground: var(--color-slate-50);
+    --card: var(--color-slate-900);
+    --card-foreground: var(--color-slate-50);
+    --popover: var(--color-slate-900);
+    --popover-foreground: var(--color-slate-50);
+    --primary: var(--color-blue-400);
+    --primary-hover: var(--color-blue-300);
+    --primary-foreground: var(--color-slate-950);
+    --brand: var(--color-blue-500);
+    --secondary: var(--color-slate-800);
+    --secondary-foreground: var(--color-slate-50);
+    --secondary-hover: var(--color-slate-700);
+    --row-selected: var(--color-blue-950);
+    --muted: var(--color-slate-800);
+    --muted-foreground: var(--color-slate-300);
+    --accent: var(--color-slate-800);
+    --accent-foreground: var(--color-slate-50);
+    --destructive: var(--color-red-400);
+    --destructive-hover: var(--color-red-300);
+    --destructive-foreground: var(--color-slate-950);
+    --border: var(--color-slate-800);
+    --input: var(--color-slate-500);
+    --ring: var(--color-blue-400);
+    --link: var(--color-blue-300);
+    --error-border: var(--color-red-500);
+    --error-text: var(--color-red-300);
+    --success-border: var(--color-green-500);
+    --success-text: var(--color-green-300);
+    --sidebar: var(--color-slate-900);
+    --sidebar-active: var(--color-blue-950);
+    --sidebar-active-foreground: var(--color-blue-300);
+    --badge-success-bg: var(--color-green-950);
+    --badge-success-fg: var(--color-green-300);
+    --badge-info-bg: var(--color-blue-950);
+    --badge-info-fg: var(--color-blue-300);
+    --badge-warning-bg: var(--color-amber-950);
+    --badge-warning-fg: var(--color-amber-300);
+    --badge-danger-bg: var(--color-red-950);
+    --badge-danger-fg: var(--color-red-300);
+    --badge-neutral-bg: var(--color-slate-800);
+    --badge-neutral-fg: var(--color-slate-300);
+    --chart-1: var(--color-blue-500);
+    --chart-good: var(--color-green-600);
+    --chart-info: var(--color-blue-500);
+    --chart-critical: var(--color-red-500);
+    --chart-grid: var(--color-slate-800);
+    --chart-deemphasis: var(--color-slate-500);
+    --shadow-sm-v: 0 1px 2px 0 rgb(0 0 0 / 0.4);
+    --shadow-md-v: 0 4px 12px -2px rgb(0 0 0 / 0.5), 0 2px 4px -2px rgb(0 0 0 / 0.4);
+    --shadow-lg-v: 0 16px 32px -8px rgb(0 0 0 / 0.6), 0 4px 8px -4px rgb(0 0 0 / 0.4);
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme='dark'] {
+  --background: var(--color-slate-950);
+  --foreground: var(--color-slate-50);
+  --card: var(--color-slate-900);
+  --card-foreground: var(--color-slate-50);
+  --popover: var(--color-slate-900);
+  --popover-foreground: var(--color-slate-50);
+  --primary: var(--color-blue-400);
+  --primary-hover: var(--color-blue-300);
+  --primary-foreground: var(--color-slate-950);
+  --brand: var(--color-blue-500);
+  --secondary: var(--color-slate-800);
+  --secondary-foreground: var(--color-slate-50);
+  --secondary-hover: var(--color-slate-700);
+  --row-selected: var(--color-blue-950);
+  --muted: var(--color-slate-800);
+  --muted-foreground: var(--color-slate-300);
+  --accent: var(--color-slate-800);
+  --accent-foreground: var(--color-slate-50);
+  --destructive: var(--color-red-400);
+  --destructive-hover: var(--color-red-300);
+  --destructive-foreground: var(--color-slate-950);
+  --border: var(--color-slate-800);
+  --input: var(--color-slate-500);
+  --ring: var(--color-blue-400);
+  --link: var(--color-blue-300);
+  --error-border: var(--color-red-500);
+  --error-text: var(--color-red-300);
+  --success-border: var(--color-green-500);
+  --success-text: var(--color-green-300);
+  --sidebar: var(--color-slate-900);
+  --sidebar-active: var(--color-blue-950);
+  --sidebar-active-foreground: var(--color-blue-300);
+  --badge-success-bg: var(--color-green-950);
+  --badge-success-fg: var(--color-green-300);
+  --badge-info-bg: var(--color-blue-950);
+  --badge-info-fg: var(--color-blue-300);
+  --badge-warning-bg: var(--color-amber-950);
+  --badge-warning-fg: var(--color-amber-300);
+  --badge-danger-bg: var(--color-red-950);
+  --badge-danger-fg: var(--color-red-300);
+  --badge-neutral-bg: var(--color-slate-800);
+  --badge-neutral-fg: var(--color-slate-300);
+  --chart-1: var(--color-blue-500);
+  --chart-good: var(--color-green-600);
+  --chart-info: var(--color-blue-500);
+  --chart-critical: var(--color-red-500);
+  --chart-grid: var(--color-slate-800);
+  --chart-deemphasis: var(--color-slate-500);
+  --shadow-sm-v: 0 1px 2px 0 rgb(0 0 0 / 0.4);
+  --shadow-md-v: 0 4px 12px -2px rgb(0 0 0 / 0.5), 0 2px 4px -2px rgb(0 0 0 / 0.4);
+  --shadow-lg-v: 0 16px 32px -8px rgb(0 0 0 / 0.6), 0 4px 8px -4px rgb(0 0 0 / 0.4);
+  color-scheme: dark;
+}
+
+@theme {
+  --color-*: initial;
+  --shadow-*: initial;
+  --radius-*: initial;
+  --ease-*: initial;
+  --animate-*: initial;
+
+  --font-sans: 'Inter Variable', 'Inter', 'SF Pro Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    system-ui, sans-serif;
+  --font-mono: ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, monospace;
+
+  /* WCAG 1.4.8 (AAA): paragraf içi satır aralığı en az 1,5 */
+  --text-xs--line-height: 1.5;
+  --text-sm--line-height: 1.5;
+
+  /* Yarıçap: 4 · 6 · 8 */
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+
+  --ease-out: cubic-bezier(0.2, 0, 0, 1);
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+}
+
+/* static: skalaların tamamı her zaman CSS değişkeni olarak yazılır
+   (semantik tokenlar ve tasarım sistemi sayfası bunlara başvurur). */
+@theme static {
+  --color-white: #ffffff;
+  --color-black: #000000;
+
+  /* Tam renk skalaları (Tailwind Slate / Blue / Green / Amber / Red) */
+  --color-slate-50: #f8fafc;
+  --color-slate-100: #f1f5f9;
+  --color-slate-200: #e2e8f0;
+  --color-slate-300: #cbd5e1;
+  --color-slate-400: #94a3b8;
+  --color-slate-500: #64748b;
+  --color-slate-600: #475569;
+  --color-slate-700: #334155;
+  --color-slate-800: #1e293b;
+  --color-slate-900: #0f172a;
+  --color-slate-950: #020617;
+
+  --color-blue-50: #eff6ff;
+  --color-blue-100: #dbeafe;
+  --color-blue-200: #bfdbfe;
+  --color-blue-300: #93c5fd;
+  --color-blue-400: #60a5fa;
+  --color-blue-500: #3b82f6;
+  --color-blue-600: #2563eb;
+  --color-blue-700: #1d4ed8;
+  --color-blue-800: #1e40af;
+  --color-blue-900: #1e3a8a;
+  --color-blue-950: #172554;
+
+  --color-green-50: #f0fdf4;
+  --color-green-100: #dcfce7;
+  --color-green-200: #bbf7d0;
+  --color-green-300: #86efac;
+  --color-green-400: #4ade80;
+  --color-green-500: #22c55e;
+  --color-green-600: #16a34a;
+  --color-green-700: #15803d;
+  --color-green-800: #166534;
+  --color-green-900: #14532d;
+  --color-green-950: #052e16;
+
+  --color-amber-50: #fffbeb;
+  --color-amber-100: #fef3c7;
+  --color-amber-200: #fde68a;
+  --color-amber-300: #fcd34d;
+  --color-amber-400: #fbbf24;
+  --color-amber-500: #f59e0b;
+  --color-amber-600: #d97706;
+  --color-amber-700: #b45309;
+  --color-amber-800: #92400e;
+  --color-amber-900: #78350f;
+  --color-amber-950: #451a03;
+
+  --color-red-50: #fef2f2;
+  --color-red-100: #fee2e2;
+  --color-red-200: #fecaca;
+  --color-red-300: #fca5a5;
+  --color-red-400: #f87171;
+  --color-red-500: #ef4444;
+  --color-red-600: #dc2626;
+  --color-red-700: #b91c1c;
+  --color-red-800: #991b1b;
+  --color-red-900: #7f1d1d;
+  --color-red-950: #450a0a;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-brand: var(--brand);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary-hover: var(--secondary-hover);
+  --color-row-selected: var(--row-selected);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-hover: var(--destructive-hover);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-link: var(--link);
+  --color-error-border: var(--error-border);
+  --color-error-text: var(--error-text);
+  --color-success-border: var(--success-border);
+  --color-success-text: var(--success-text);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-active: var(--sidebar-active);
+  --color-sidebar-active-foreground: var(--sidebar-active-foreground);
+
+  --shadow-sm: var(--shadow-sm-v);
+  --shadow-md: var(--shadow-md-v);
+  --shadow-lg: var(--shadow-lg-v);
+}
+
+@layer base {
+  *,
+  ::before,
+  ::after {
+    border-color: var(--border);
+  }
+
+  html {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    margin: 0;
+    background: var(--background);
+    color: var(--foreground);
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  /* Odak her zaman görünür: 2px mavi çerçeve, 2px boşluk (WCAG 2.4.13) */
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+
+  ::selection {
+    background: var(--color-blue-200);
+    color: var(--color-slate-900);
+  }
+}
+
+@layer components {
+  /* Radix katmanları: 150ms, gösterişsiz */
+  .corp-pop[data-state='open'] {
+    animation: corp-pop-in 150ms var(--ease-out);
+  }
+  .corp-pop[data-state='closed'] {
+    animation: corp-fade-out 100ms var(--ease-in);
+  }
+  .corp-overlay[data-state='open'] {
+    animation: corp-fade-in 150ms var(--ease-out);
+  }
+  .corp-overlay[data-state='closed'] {
+    animation: corp-fade-out 100ms var(--ease-in);
+  }
+  .corp-drawer[data-state='open'] {
+    animation: corp-drawer-in 150ms var(--ease-out);
+  }
+  .corp-drawer[data-state='closed'] {
+    animation: corp-drawer-out 100ms var(--ease-in);
+  }
+}
+
+@keyframes corp-pop-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px) scale(0.98);
+  }
+}
+@keyframes corp-fade-in {
+  from {
+    opacity: 0;
+  }
+}
+@keyframes corp-fade-out {
+  to {
+    opacity: 0;
+  }
+}
+@keyframes corp-drawer-in {
+  from {
+    transform: translateX(-100%);
+  }
+}
+@keyframes corp-drawer-out {
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 1ms !important;
+    transition-duration: 1ms !important;
+  }
+}

@@ -6,10 +6,11 @@ Web tasarım stilleri için canlı referans sayfaları. Her stil, anlattığı k
 | --- | --- | --- | --- |
 | 001 · Swiss Style | `/stil/001/` | `src/swiss/` | `tokens/swiss.tokens.json` |
 | 002 · Soft Minimalism | `/stil/002/` | `src/soft/` | `tokens/soft.tokens.json` |
+| 003 · Corporate Modern | `/stil/003/` | `src/corporate/` | `tokens/corporate.tokens.json` |
 
 ```bash
 npm install
-npm run dev        # http://localhost:5173  → katalog, /stil/001/, /stil/002/
+npm run dev        # http://localhost:5173  → katalog, /stil/001/, /stil/002/, /stil/003/
 npm run build      # tip denetimi + dist/
 npm run typecheck
 ```
@@ -20,9 +21,11 @@ npm run typecheck
 index.html               katalog
 stil/001/index.html      Swiss Style giriş noktası
 stil/002/index.html      Soft Minimalism giriş noktası
+stil/003/index.html      Corporate Modern giriş noktası
 src/shared/              stiller arası ortak yardımcılar (cx, useTheme)
 src/swiss/               swiss.css (tema) · components/ · sections/
 src/soft/                soft.css (tema) · components/ · sections/
+src/corporate/           corporate.css (tema) · ui/ (shadcn) · views/ · charts/ · data/
 tokens/                  W3C DTCG token dosyaları (Figma / Tokens Studio)
 ```
 
@@ -75,6 +78,20 @@ Japandi sıcaklığı: kirli beyaz zemin, kum yüzeyler, toprak altını, hap fo
 - **Doku:** sayfanın tamamında belli belirsiz kağıt gürültüsü (`.soft-grain`), sayfadaki anahtarla kapatılabilir.
 - **Tailwind:** tanımdaki `bg-[#FAF9F6] text-[#4A4A4A] rounded-2xl shadow-soft tracking-wide` yerine tokenlı hali `bg-canvas text-ink rounded-2xl shadow-soft tracking-wide` kullanılır; koyu mod böylece kendiliğinden çalışır.
 
+## Stil 003 · Corporate Modern
+
+Sayfa bir referans belgesi değil, çalışan bir B2B tahsilat paneli ("Cari Bulut", kurgusal): genel bakış, faturalar, müşteri ekleme sihirbazı ve tasarım sistemi. Yönlendirme düz `#çapa` ile yapılır (`#genel-bakis`, `#faturalar`, `#musteri-ekle`, `#tasarim-sistemi`).
+
+- **Altyapı:** shadcn/ui kalıbı; `src/corporate/ui/` altında Radix (`radix-ui`), `class-variance-authority`, `tailwind-merge` ve `cn()` ile yazılmış bileşenler: `Button`, `Badge`, `Card`, `Input`, `NativeSelect`, `Checkbox`, `RadioGroup`, `DropdownMenu`, `Dialog`/`Sheet`, `Table`, `DataTable` (TanStack Table v8), `FormItem` ailesi, `Sidebar`.
+- **Renk:** Slate, Blue, Green, Amber, Red için 50–950 tam skalalar ve shadcn adlandırmalı semantik tokenlar (`bg-background`, `bg-card`, `text-muted-foreground`, `border-input`, `ring` …). Figma yolları: `Color/Text/Muted`, `Color/Border/Error` vb.
+- **WCAG AAA:** `#2563EB` beyazda 5,17:1 verir (AA). Bu yüzden marka rengi metin taşımayan yerlerde (odak halkası, grafik, aktif gösterge, onay kutusu) kalır; birincil düğme ve bağlantılar Blue 800 (8,72:1), ikincil metin Slate 600 (7,58:1) kullanır. Input kenarı Slate 500 (4,76:1). Tüm hedefler en az 44 × 44px (2.5.5), satır aralığı 1,5 (1.4.8), sihirbazda kaydetmeden önce özet ve onay adımı var (3.3.6). Oranlar `tokens/corporate.tokens.json` içinde yazılıdır.
+- **Koyu mod:** Slate 950 zemin, Slate 900 yüzey; birincil Blue 400 (koyu metinle 7,93:1), ikincil metin Slate 300. Tema menüsü: Açık, Koyu, Sistem.
+- **Gölge:** `shadow-sm` durağan kart, `shadow-md` hover ve açılır menü, `shadow-lg` modal ve çekmece. Doku ve degrade yok.
+- **Hareket:** 150ms `ease-out`; açılır katmanlar 100ms'de kapanır. Sayfa açılış animasyonu yok.
+- **Grafikler:** tek seri sütun grafik (sütun ≤ 24px, üstü 4px yuvarlak, ipucu fare ve klavyeyle, tablo görünümü), parça-bütün durum çubuğu (2px yüzey boşluğu, ikon + etiketli lejant), 12 noktalı eğilim çizgili KPI kartları. Durum renkleri renk körlüğü doğrulayıcısından açık ve koyu modda geçer.
+- **Duyarlı yapı:** 768px altında veri tablosu liste kartlarına, 1024px altında kenar menüsü alt gezinmeye ve çekmeceye dönüşür.
+- **Örnek veri:** `src/corporate/data/invoices.ts` tohumlu üretilir (24 ay; panel en çok 12 ay gösterir, önceki 12 ay karşılaştırma içindir). Hatırlatma ve iptal işlemleri yalnızca sayfa belleğinde çalışır.
+
 ## Yazı tipleri
 
-Hepsi OFL lisanslı, `@fontsource-variable` paketlerinden yalnızca Latin ve Latin Genişletilmiş alt kümeleriyle yüklenir: Inter (Stil 001), Lora ve Plus Jakarta Sans (Stil 002). Lisanslı Helvetica Now ya da Neue Haas Grotesk kullanmak için `src/swiss/swiss.css` içindeki `@font-face` bloklarını ve `--font-sans` sırasını değiştirin.
+Hepsi OFL lisanslı, `@fontsource-variable` paketlerinden yalnızca Latin ve Latin Genişletilmiş alt kümeleriyle yüklenir: Inter (Stil 001 ve 003), Lora ve Plus Jakarta Sans (Stil 002). Lisanslı Helvetica Now ya da Neue Haas Grotesk kullanmak için `src/swiss/swiss.css` içindeki `@font-face` bloklarını ve `--font-sans` sırasını değiştirin.

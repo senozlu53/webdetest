@@ -31,11 +31,12 @@
         color: var(--fg);
         font: 16px/1.6 system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
       }
-      main { max-width: 1040px; margin: 0 auto; padding: 72px 24px 96px; }
+      main { max-width: 1200px; margin: 0 auto; padding: 72px 24px 96px; }
       h1 { margin: 0; font-size: clamp(32px, 5vw, 48px); line-height: 1.1; letter-spacing: -0.02em; }
       .lede { margin: 16px 0 0; max-width: 56ch; color: var(--muted); }
       ol { list-style: none; margin: 56px 0 0; padding: 0; display: grid; gap: 24px; }
       @media (min-width: 760px) { ol { grid-template-columns: 1fr 1fr; } }
+      @media (min-width: 1040px) { ol { grid-template-columns: 1fr 1fr 1fr; } }
       a.card {
         display: flex; flex-direction: column; gap: 20px; height: 100%;
         padding: 28px; border: 1px solid var(--line); border-radius: 12px;
@@ -53,6 +54,7 @@
       /* Her kart kendi stilinin yazı ailesiyle */
       .swiss .name { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 800; letter-spacing: -0.03em; text-transform: uppercase; }
       .soft .name { font-family: Georgia, 'Times New Roman', serif; font-weight: 400; font-style: italic; }
+      .corp .name { font-weight: 600; letter-spacing: -0.01em; }
     </style>
   </head>
   <body>
@@ -92,6 +94,23 @@
               <span style="background: #4a4a4a; flex: 1"></span>
             </div>
             <p class="desc">Japandi sıcaklığı: kum tonları, hap formunda düğmeler, dağınık gölgeler, serif ve sans birlikte.</p>
+            <span class="go">Sayfayı aç</span>
+          </a>
+        </li>
+        <li>
+          <a class="card corp" href="./stil/003/">
+            <div>
+              <span class="num">Stil 003 · Modern / Minimal / Clean</span>
+              <p class="name" lang="en">Corporate Modern</p>
+            </div>
+            <div class="swatches" aria-hidden="true">
+              <span style="background: #f8fafc; flex: 4"></span>
+              <span style="background: #ffffff; flex: 3"></span>
+              <span style="background: #e2e8f0; flex: 1"></span>
+              <span style="background: #2563eb; flex: 2"></span>
+              <span style="background: #0f172a; flex: 1"></span>
+            </div>
+            <p class="desc">Çalışan bir B2B tahsilat paneli: veri tablosu, KPI kartları, çok adımlı form. shadcn/ui ve WCAG AAA hedefi.</p>
             <span class="go">Sayfayı aç</span>
           </a>
         </li>

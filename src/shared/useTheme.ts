@@ -38,6 +38,29 @@ export function useTheme(storageKey: string) {
     return () => media.removeEventListener('change', sync)
   }, [])
 
+  /** Açık, koyu ya da sistem tercihi. 'system' seçimi kaydı siler ve işletim sistemini izler. */
+  const setMode = useCallback(
+    (mode: Theme | 'system') => {
+      if (mode === 'system') {
+        delete document.documentElement.dataset.theme
+        try {
+          localStorage.removeItem(storageKey)
+        } catch {
+          /* depolama kapalı */
+        }
+      } else {
+        document.documentElement.dataset.theme = mode
+        try {
+          localStorage.setItem(storageKey, mode)
+        } catch {
+          /* depolama kapalı */
+        }
+      }
+      setTheme(currentTheme())
+    },
+    [storageKey],
+  )
+
   const toggle = useCallback(() => {
     const next: Theme = currentTheme() === 'dark' ? 'light' : 'dark'
     document.documentElement.dataset.theme = next
@@ -49,5 +72,7 @@ export function useTheme(storageKey: string) {
     setTheme(next)
   }, [storageKey])
 
-  return { theme, toggle }
+  const mode: Theme | 'system' = document.documentElement.dataset.theme === 'light' || document.documentElement.dataset.theme === 'dark' ? theme : 'system'
+
+  return { theme, mode, toggle, setMode }
 }

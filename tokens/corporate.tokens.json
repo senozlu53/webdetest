@@ -1,0 +1,585 @@
+{
+  "$description": "Stil 003: Corporate Modern. W3C DTCG formatı. 'Color.Scale' 50–950 tam skalalar; 'Color.Semantic' Figma'daki semantik değişkenler (Light / Dark modları). Hedef WCAG AAA: metin 7:1, metin dışı öğe 3:1.",
+  "Color": {
+    "Scale": {
+      "Slate": {
+        "50": {
+          "$type": "color",
+          "$value": "#F8FAFC"
+        },
+        "100": {
+          "$type": "color",
+          "$value": "#F1F5F9"
+        },
+        "200": {
+          "$type": "color",
+          "$value": "#E2E8F0"
+        },
+        "300": {
+          "$type": "color",
+          "$value": "#CBD5E1"
+        },
+        "400": {
+          "$type": "color",
+          "$value": "#94A3B8"
+        },
+        "500": {
+          "$type": "color",
+          "$value": "#64748B"
+        },
+        "600": {
+          "$type": "color",
+          "$value": "#475569"
+        },
+        "700": {
+          "$type": "color",
+          "$value": "#334155"
+        },
+        "800": {
+          "$type": "color",
+          "$value": "#1E293B"
+        },
+        "900": {
+          "$type": "color",
+          "$value": "#0F172A"
+        },
+        "950": {
+          "$type": "color",
+          "$value": "#020617"
+        }
+      },
+      "Blue": {
+        "50": {
+          "$type": "color",
+          "$value": "#EFF6FF"
+        },
+        "100": {
+          "$type": "color",
+          "$value": "#DBEAFE"
+        },
+        "200": {
+          "$type": "color",
+          "$value": "#BFDBFE"
+        },
+        "300": {
+          "$type": "color",
+          "$value": "#93C5FD"
+        },
+        "400": {
+          "$type": "color",
+          "$value": "#60A5FA"
+        },
+        "500": {
+          "$type": "color",
+          "$value": "#3B82F6"
+        },
+        "600": {
+          "$type": "color",
+          "$value": "#2563EB"
+        },
+        "700": {
+          "$type": "color",
+          "$value": "#1D4ED8"
+        },
+        "800": {
+          "$type": "color",
+          "$value": "#1E40AF"
+        },
+        "900": {
+          "$type": "color",
+          "$value": "#1E3A8A"
+        },
+        "950": {
+          "$type": "color",
+          "$value": "#172554"
+        }
+      },
+      "Green": {
+        "50": {
+          "$type": "color",
+          "$value": "#F0FDF4"
+        },
+        "100": {
+          "$type": "color",
+          "$value": "#DCFCE7"
+        },
+        "200": {
+          "$type": "color",
+          "$value": "#BBF7D0"
+        },
+        "300": {
+          "$type": "color",
+          "$value": "#86EFAC"
+        },
+        "400": {
+          "$type": "color",
+          "$value": "#4ADE80"
+        },
+        "500": {
+          "$type": "color",
+          "$value": "#22C55E"
+        },
+        "600": {
+          "$type": "color",
+          "$value": "#16A34A"
+        },
+        "700": {
+          "$type": "color",
+          "$value": "#15803D"
+        },
+        "800": {
+          "$type": "color",
+          "$value": "#166534"
+        },
+        "900": {
+          "$type": "color",
+          "$value": "#14532D"
+        },
+        "950": {
+          "$type": "color",
+          "$value": "#052E16"
+        }
+      },
+      "Amber": {
+        "50": {
+          "$type": "color",
+          "$value": "#FFFBEB"
+        },
+        "100": {
+          "$type": "color",
+          "$value": "#FEF3C7"
+        },
+        "200": {
+          "$type": "color",
+          "$value": "#FDE68A"
+        },
+        "300": {
+          "$type": "color",
+          "$value": "#FCD34D"
+        },
+        "400": {
+          "$type": "color",
+          "$value": "#FBBF24"
+        },
+        "500": {
+          "$type": "color",
+          "$value": "#F59E0B"
+        },
+        "600": {
+          "$type": "color",
+          "$value": "#D97706"
+        },
+        "700": {
+          "$type": "color",
+          "$value": "#B45309"
+        },
+        "800": {
+          "$type": "color",
+          "$value": "#92400E"
+        },
+        "900": {
+          "$type": "color",
+          "$value": "#78350F"
+        },
+        "950": {
+          "$type": "color",
+          "$value": "#451A03"
+        }
+      },
+      "Red": {
+        "50": {
+          "$type": "color",
+          "$value": "#FEF2F2"
+        },
+        "100": {
+          "$type": "color",
+          "$value": "#FEE2E2"
+        },
+        "200": {
+          "$type": "color",
+          "$value": "#FECACA"
+        },
+        "300": {
+          "$type": "color",
+          "$value": "#FCA5A5"
+        },
+        "400": {
+          "$type": "color",
+          "$value": "#F87171"
+        },
+        "500": {
+          "$type": "color",
+          "$value": "#EF4444"
+        },
+        "600": {
+          "$type": "color",
+          "$value": "#DC2626"
+        },
+        "700": {
+          "$type": "color",
+          "$value": "#B91C1C"
+        },
+        "800": {
+          "$type": "color",
+          "$value": "#991B1B"
+        },
+        "900": {
+          "$type": "color",
+          "$value": "#7F1D1D"
+        },
+        "950": {
+          "$type": "color",
+          "$value": "#450A0A"
+        }
+      }
+    },
+    "Semantic": {
+      "Color/Surface/Canvas": {
+        "$type": "color",
+        "$description": "Sayfa zemini",
+        "tailwind": "bg-background",
+        "kind": "surface",
+        "light": {
+          "$value": "#F8FAFC"
+        },
+        "dark": {
+          "$value": "#020617"
+        }
+      },
+      "Color/Surface/Default": {
+        "$type": "color",
+        "$description": "Kart, tablo, panel",
+        "tailwind": "bg-card",
+        "kind": "surface",
+        "light": {
+          "$value": "#FFFFFF"
+        },
+        "dark": {
+          "$value": "#0F172A"
+        }
+      },
+      "Color/Text/Default": {
+        "$type": "color",
+        "$description": "Gövde ve başlık metni",
+        "tailwind": "text-foreground",
+        "kind": "text",
+        "light": {
+          "$value": "#0F172A",
+          "contrast": 17.85,
+          "against": "#FFFFFF"
+        },
+        "dark": {
+          "$value": "#F8FAFC",
+          "contrast": 17.06,
+          "against": "#0F172A"
+        }
+      },
+      "Color/Text/Muted": {
+        "$type": "color",
+        "$description": "İkincil metin, açıklama",
+        "tailwind": "text-muted-foreground",
+        "kind": "text",
+        "light": {
+          "$value": "#475569",
+          "contrast": 7.58,
+          "against": "#FFFFFF"
+        },
+        "dark": {
+          "$value": "#CBD5E1",
+          "contrast": 12.02,
+          "against": "#0F172A"
+        }
+      },
+      "Color/Text/Link": {
+        "$type": "color",
+        "$description": "Bağlantı",
+        "tailwind": "text-link",
+        "kind": "text",
+        "light": {
+          "$value": "#1E40AF",
+          "contrast": 8.72,
+          "against": "#FFFFFF"
+        },
+        "dark": {
+          "$value": "#93C5FD",
+          "contrast": 9.9,
+          "against": "#0F172A"
+        }
+      },
+      "Color/Text/Error": {
+        "$type": "color",
+        "$description": "Hata mesajı",
+        "tailwind": "text-error-text",
+        "kind": "text",
+        "light": {
+          "$value": "#991B1B",
+          "contrast": 8.31,
+          "against": "#FFFFFF"
+        },
+        "dark": {
+          "$value": "#FCA5A5",
+          "contrast": 9.41,
+          "against": "#0F172A"
+        }
+      },
+      "Color/Text/Success": {
+        "$type": "color",
+        "$description": "Başarı mesajı",
+        "tailwind": "text-success-text",
+        "kind": "text",
+        "light": {
+          "$value": "#166534",
+          "contrast": 7.13,
+          "against": "#FFFFFF"
+        },
+        "dark": {
+          "$value": "#86EFAC",
+          "contrast": 12.71,
+          "against": "#0F172A"
+        }
+      },
+      "Color/Action/Primary": {
+        "$type": "color",
+        "$description": "Birincil düğme; üzerindeki metinle ölçülür",
+        "tailwind": "bg-primary",
+        "kind": "fill",
+        "light": {
+          "$value": "#1E40AF",
+          "contrast": 8.72,
+          "against": "metin #FFFFFF"
+        },
+        "dark": {
+          "$value": "#60A5FA",
+          "contrast": 7.93,
+          "against": "metin #020617"
+        }
+      },
+      "Color/Brand/Primary": {
+        "$type": "color",
+        "$description": "Marka: odak, grafik, aktif gösterge",
+        "tailwind": "bg-brand · ring",
+        "kind": "nontext",
+        "light": {
+          "$value": "#2563EB",
+          "contrast": 5.17,
+          "against": "#FFFFFF"
+        },
+        "dark": {
+          "$value": "#3B82F6",
+          "contrast": 4.85,
+          "against": "#0F172A"
+        }
+      },
+      "Color/Border/Default": {
+        "$type": "color",
+        "$description": "Ayraç ve kart kenarı (dekoratif)",
+        "tailwind": "border-border",
+        "kind": "decor",
+        "light": {
+          "$value": "#E2E8F0"
+        },
+        "dark": {
+          "$value": "#1E293B"
+        }
+      },
+      "Color/Border/Input": {
+        "$type": "color",
+        "$description": "Form alanı kenarı",
+        "tailwind": "border-input",
+        "kind": "nontext",
+        "light": {
+          "$value": "#64748B",
+          "contrast": 4.76,
+          "against": "#FFFFFF"
+        },
+        "dark": {
+          "$value": "#64748B",
+          "contrast": 3.75,
+          "against": "#0F172A"
+        }
+      },
+      "Color/Border/Focus": {
+        "$type": "color",
+        "$description": "Odak çerçevesi",
+        "tailwind": "ring",
+        "kind": "nontext",
+        "light": {
+          "$value": "#2563EB",
+          "contrast": 5.17,
+          "against": "#FFFFFF"
+        },
+        "dark": {
+          "$value": "#60A5FA",
+          "contrast": 7.02,
+          "against": "#0F172A"
+        }
+      },
+      "Color/Border/Error": {
+        "$type": "color",
+        "$description": "Hatalı alan kenarı",
+        "tailwind": "border-error-border",
+        "kind": "nontext",
+        "light": {
+          "$value": "#DC2626",
+          "contrast": 4.83,
+          "against": "#FFFFFF"
+        },
+        "dark": {
+          "$value": "#EF4444",
+          "contrast": 4.74,
+          "against": "#0F172A"
+        }
+      },
+      "Color/Border/Success": {
+        "$type": "color",
+        "$description": "Doğrulanmış alan kenarı",
+        "tailwind": "border-success-border",
+        "kind": "nontext",
+        "light": {
+          "$value": "#16A34A",
+          "contrast": 3.3,
+          "against": "#FFFFFF"
+        },
+        "dark": {
+          "$value": "#22C55E",
+          "contrast": 7.83,
+          "against": "#0F172A"
+        }
+      }
+    },
+    "Chart": {
+      "Series1": {
+        "$type": "color",
+        "light": "#2563EB",
+        "dark": "#3B82F6",
+        "$description": "Tek seri grafik"
+      },
+      "Good": {
+        "$type": "color",
+        "light": "#16A34A",
+        "dark": "#16A34A"
+      },
+      "Info": {
+        "$type": "color",
+        "light": "#3B82F6",
+        "dark": "#3B82F6"
+      },
+      "Critical": {
+        "$type": "color",
+        "light": "#DC2626",
+        "dark": "#EF4444"
+      },
+      "$description": "validate_palette.js ile doğrulandı: açık ve koyu modda CVD ayrımı, normal görüş ≥ 15 ve 3:1 kontrast geçer."
+    }
+  },
+  "Radius": {
+    "Sm": {
+      "$type": "dimension",
+      "$value": "4px",
+      "tailwind": "rounded-sm"
+    },
+    "Md": {
+      "$type": "dimension",
+      "$value": "6px",
+      "tailwind": "rounded-md"
+    },
+    "Lg": {
+      "$type": "dimension",
+      "$value": "8px",
+      "tailwind": "rounded-lg"
+    }
+  },
+  "Shadow": {
+    "Sm": {
+      "$type": "shadow",
+      "$value": "0 1px 2px 0 rgb(15 23 42 / 0.06)",
+      "$description": "Durağan kart"
+    },
+    "Md": {
+      "$type": "shadow",
+      "$value": "0 4px 12px -2px rgb(15 23 42 / 0.10), 0 2px 4px -2px rgb(15 23 42 / 0.06)",
+      "$description": "Hover ve açılır menü"
+    },
+    "Lg": {
+      "$type": "shadow",
+      "$value": "0 16px 32px -8px rgb(15 23 42 / 0.18), 0 4px 8px -4px rgb(15 23 42 / 0.08)",
+      "$description": "Modal ve çekmece"
+    }
+  },
+  "Font": {
+    "Family": {
+      "$type": "fontFamily",
+      "$value": [
+        "Inter Variable",
+        "Inter",
+        "SF Pro Text",
+        "-apple-system",
+        "Segoe UI",
+        "Roboto",
+        "system-ui",
+        "sans-serif"
+      ]
+    },
+    "Size": {
+      "xs": {
+        "$type": "dimension",
+        "$value": "12px / 18px"
+      },
+      "sm": {
+        "$type": "dimension",
+        "$value": "14px / 21px"
+      },
+      "base": {
+        "$type": "dimension",
+        "$value": "16px / 24px"
+      },
+      "lg": {
+        "$type": "dimension",
+        "$value": "18px / 28px"
+      },
+      "xl": {
+        "$type": "dimension",
+        "$value": "20px / 28px"
+      },
+      "2xl": {
+        "$type": "dimension",
+        "$value": "24px / 32px"
+      },
+      "3xl": {
+        "$type": "dimension",
+        "$value": "30px / 36px"
+      }
+    },
+    "Weight": {
+      "Regular": 400,
+      "Medium": 500,
+      "Semibold": 600
+    }
+  },
+  "Size": {
+    "Target": {
+      "$type": "dimension",
+      "$value": "44px",
+      "$description": "WCAG 2.5.5 (AAA) en küçük dokunma hedefi: düğme, input, menü öğesi, tablo işlemleri"
+    }
+  },
+  "Motion": {
+    "Duration": {
+      "$type": "duration",
+      "$value": "150ms"
+    },
+    "DurationExit": {
+      "$type": "duration",
+      "$value": "100ms"
+    },
+    "Easing": {
+      "$type": "cubicBezier",
+      "$value": [
+        0.2,
+        0,
+        0,
+        1
+      ]
+    }
+  }
+}
