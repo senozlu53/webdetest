@@ -14,10 +14,11 @@ Web tasarım stilleri için canlı referans sayfaları. Her stil, anlattığı k
 | 008 · Isometric 3D | `/stil/008/` | `src/iso/` | `tokens/iso.tokens.json` |
 | 009 · Low Poly | `/stil/009/` | `src/lowpoly/` | `tokens/lowpoly.tokens.json` |
 | 010 · Cyberpunk | `/stil/010/` | `src/cyber/` | `tokens/cyber.tokens.json` |
+| 011 · Holographic | `/stil/011/` | `src/holo/` | `tokens/holo.tokens.json` |
 
 ```bash
 npm install
-npm run dev        # http://localhost:5173  → katalog, /stil/001/, /stil/002/, /stil/003/, /stil/004/, /stil/005/, /stil/006/, /stil/007/, /stil/008/, /stil/009/, /stil/010/
+npm run dev        # http://localhost:5173  → katalog, /stil/001/, /stil/002/, /stil/003/, /stil/004/, /stil/005/, /stil/006/, /stil/007/, /stil/008/, /stil/009/, /stil/010/, /stil/011/
 npm run build      # tip denetimi + dist/
 npm run typecheck
 ```
@@ -36,6 +37,7 @@ stil/007/index.html      Claymorphism giriş noktası
 stil/008/index.html      Isometric 3D giriş noktası
 stil/009/index.html      Low Poly giriş noktası
 stil/010/index.html      Cyberpunk giriş noktası
+stil/011/index.html      Holographic giriş noktası
 src/shared/              stiller arası ortak yardımcılar (cx, useTheme)
 src/swiss/               swiss.css (tema) · components/ · sections/
 src/soft/                soft.css (tema) · components/ · sections/
@@ -47,6 +49,7 @@ src/clay/                clay.css (tema) · components/ · hooks/ · sections/
 src/iso/                 iso.css (tema) · lib/ (projeksiyon) · components/ · sections/
 src/lowpoly/             lowpoly.css (tema) · three/ (R3F sahneleri) · assets/ (GLB, .webp) · lib/ · sections/
 src/cyber/               cyber.css (tema) · components/ (CyberCard, CyberButton, CyberNav, CyberHUD) · hooks/ · sections/
+src/holo/                holo.css (tema) · components/ (CommandCenter, HoloPanel, DataGrid, HoloCanvas) · charts/ · lib/ (3B çizici, veri) · sections/
 scripts/lowpoly-glb.mjs  Stil 009'un GLB modellerini üretir
 tokens/                  W3C DTCG token dosyaları (Figma / Tokens Studio)
 ```
@@ -203,6 +206,21 @@ Yüksek teknolojinin distopik, asi sokak kültürüyle birleştiği tasarım dil
 - **Mobil (Madde 17):** 768px altında efekt düzeyi kendiliğinden "Sade"ye iner: glitch ve kayan tarama durur, ızgara yavaşlar. HUD köşe parantezleri ve cetvel tek 2px neon çizgiye döner; kart köşe kesimi 26px'ten 16px'e iner; varyant tablosu satır başına bir gruba dönüşür.
 - **Erişilebilirlik (Madde 18):** En kötü yüzeyde metin 17,54:1, ikincil 8,29:1, camgöbeği 13,29:1, macenta 5,19:1. Gündüz varyantı beyaz zemine koyu mor neon: metin 17,84:1, birincil mor 11,10:1, macenta 6,35:1, yeşil 6,28:1; parlama %30–35'e iner, aşınma kapanır. Saniyede 3'ten az yanıp sönme (WCAG 2.3.1), titreşimde en düşük opaklık %55; hareketi azalt tercihinde hiçbir animasyon oynamaz; FX seçicisi süzülen taramayı her an durdurur (WCAG 2.2.2). Terminal çıktısı `role="log"`, form hataları alana bağlı ve `role="alert"`.
 
+## Stil 011 · Holographic
+
+Cyberpunk'ın karanlık ve kirli yapısının aksine laboratuvar temizliğinde, ütopik bir bilimkurgu: boşlukta süzülen yarı saydam cam paneller, uçuşan veri parçacıkları, açık mavi parlamalar. Varsayılan tema koyu "Gece" (`#090E17`); açık varyant "Laboratuvar".
+
+- **Renk ve yazı (Madde 4 · 5):** Gece mavisi zemin, camgöbeği `#06B6D4` ve elektrik mavisi `#3B82F6` vurgu. Metin yarı saydam beyaz (%92, ikincil %68). Yazılar: Audiowide (geniş görünür başlık), Exo 2 (ince başlık, gövde, sabit genişlikli rakamlar), Chakra Petch (etiket ve arayüz), IBM Plex Mono (günlük ve kod).
+- **Cam ve derinlik (Madde 3 · 6 · 7 · 12):** `HoloPanel` = arka plan bulanıklığı (16px, doygunluk %140) + opak koruyucu gradyan + cam tonu gradyanı + 1px ince kontur + üç iç gölge (üst kenar ışığı, alt kostik, iç parıltı) + geniş, hafif dış parlama. "Katman anatomisi" demosunda her katman ayrı ayrı açılıp kapanır. Yuvarlatılmış köşeler, sol üstte asimetrik bir ışık işareti, havada asılı 250°'lik yay göstergeler.
+- **Doku ve ikon (Madde 8 · 9):** Kusursuz cam, akrilik, üzerinden ışık bandı geçen hologram yansıması ve ince nokta ızgara zemin. On iki içi boş, parlayan kontur ikon (1,5px).
+- **Bileşenler (Madde 11 · 14):** `CommandCenter` shadcn/ui Command gibi cmdk ve Radix Dialog üzerine kurulu, ekranı kaplayan arama katmanı: Ctrl/⌘ + K ya da "/" ile açılır, Türkçe harfsiz yazımı da bulur ("ag" → "Ağ"), eylemler sayfanın gerçek durumunu değiştirir (model etkinleştir, çıkarımı başlat, aktarımı duraklat, tema, katman, hareket). `DataGrid` shadcn data-table düzeninde TanStack Table: sıralanabilir başlıklar (`aria-sort`), arama, durum filtresi, satır seçimi ve toplu yükle/kaldır; 1024px altında satırlar karta dönüşür. `HoloCanvas` bağımlılıksız 3B tel kafes çizici (ikosfer, yörünge halkaları, tensör kafesi, gömme bulutu).
+- **Uygulama (Madde 10):** Yerel LLM çıkarım hattı (tokenleştirici → ön doldurma → kod çözme → detokenleştirici; yanıt token token akar, hız ve ilk token süresi ölçülür), model dizini (VRAM ve disk kullanımı) ve 10GbE aktarım izleyici. Orion 70B'nin indirmesi bitince dizinde "Diskte" olur. Modeller, ölçümler ve ağ değerleri kurgusaldır.
+- **Grafikler (Madde 11):** Son 60 saniyenin aktarım hızını gösteren alan grafiği (artı imleç, ipucu, sağ uçta doğrudan etiket) ve iki modeli altı eksende karşılaştıran radar. İkisinin de lejantı ve tablo görünümü var. Seri renkleri dataviz doğrulayıcısından geçti: camgöbeği ile elektrik mavisi normal görüşte yalnızca ΔE 12,3 ayrıştığı için B serisi çivit mavisidir (`#0891B2` / `#6366F1`: renk körlüğünde ΔE 13, normal görüşte 17, iki temada da zeminde ≥ 3:1).
+- **Tailwind (Madde 13 · 15):** `Color/HoloBlue`, `Effects/GlassBlur`, `Border/ThinGlow` ve diğerleri `tokens/holo.tokens.json` içinde. Tanımdaki `bg-cyan-900/10 backdrop-blur-md border border-cyan-400/30 text-cyan-50 shadow-[0_0_15px_rgba(6,182,212,0.2)]` satırı sayfada birebir kullanılır; bunun için temaya Tailwind'in kendi `cyan-50/400/900` adımları eklendi.
+- **Hareket (Madde 16):** Yavaşça dönen 3B nesneler (0,14–0,22 rad/sn), akarak gelen veri satırları ve tokenlar, tıklamada basılan noktadan yayılan dalgalanma (klavyede ortadan), süzülen göstergeler. Ekran dışındaki kanvaslar çizilmez. "Hareket" ayarı (Oto · Açık · Kapalı) hareketi azalt tercihini izler; kapalıyken nesneler sabit açıda durur, yanıt tek seferde gelir.
+- **Mobil (Madde 17):** 768px altında "tekil katman": paneller bulanıklıksız opak yüzeye döner, iç içe cam düzleşir, dekoratif süzülen paneller gizlenir, parçacık sayısı üçte bire iner. Yalnız üst çubuk ve komut katmanı bulanıklık kullanır. Ayar elle de seçilebilir.
+- **Erişilebilirlik (Madde 18):** Hologramın önündeki metnin arkasında opak koruyucu gradyan var; panellerde bu gradyan camın kendisi. En kötü noktada (parlamanın önünde) gradyansız mavi metin 3,86:1'e düşer, gradyanla 7,25:1 olur; sayfadaki anahtar iki durumu karşılaştırır. Zeminde metin 16,32:1, ikincil 9,09:1; Laboratuvarda 14,85:1 ve 6,73:1. Durum hiçbir yerde yalnız renkle verilmez; grafiklerin tablo görünümü, 3B görüntüleyicinin metin açıklaması ve klavye kontrolü var; akan yanıt `aria-busy` ile işaretlenir, bitince kısa bir özet duyurulur.
+
 ## Yazı tipleri
 
-Hepsi OFL lisanslı, `@fontsource-variable` paketlerinden yalnızca Latin ve Latin Genişletilmiş alt kümeleriyle yüklenir: Inter (Stil 001 ve 003), Lora ve Plus Jakarta Sans (Stil 002), Geist ve Geist Mono (Stil 004; `₺` glifi olmadığı için tutarlar "TL" ile yazılır), Nunito (Stil 005), Sora (Stil 006), Baloo 2 ve Quicksand (Stil 007; Fredoka ğ, ş ve İ içermediği için başlıkta Baloo 2 seçildi), Manrope ve IBM Plex Mono (Stil 008; Space Mono `₺` içermediği için Plex Mono seçildi), Space Grotesk ve Inter (Stil 009), Rajdhani, Orbitron, Space Grotesk ve IBM Plex Mono (Stil 010; Rajdhani ve Plex Mono sabit ağırlıklı `@fontsource` paketlerinden gelir; Orbitron ğ, ş ve İ içermediği için yalnız Latin alt kümesiyle yüklenir ve yalnız rakam, kod ve saatlerde kullanılır, başlıklar Rajdhani). Lisanslı Helvetica Now ya da Neue Haas Grotesk kullanmak için `src/swiss/swiss.css` içindeki `@font-face` bloklarını ve `--font-sans` sırasını değiştirin.
+Hepsi OFL lisanslı, `@fontsource-variable` paketlerinden yalnızca Latin ve Latin Genişletilmiş alt kümeleriyle yüklenir: Inter (Stil 001 ve 003), Lora ve Plus Jakarta Sans (Stil 002), Geist ve Geist Mono (Stil 004; `₺` glifi olmadığı için tutarlar "TL" ile yazılır), Nunito (Stil 005), Sora (Stil 006), Baloo 2 ve Quicksand (Stil 007; Fredoka ğ, ş ve İ içermediği için başlıkta Baloo 2 seçildi), Manrope ve IBM Plex Mono (Stil 008; Space Mono `₺` içermediği için Plex Mono seçildi), Space Grotesk ve Inter (Stil 009), Rajdhani, Orbitron, Space Grotesk ve IBM Plex Mono (Stil 010; Rajdhani ve Plex Mono sabit ağırlıklı `@fontsource` paketlerinden gelir; Orbitron ğ, ş ve İ içermediği için yalnız Latin alt kümesiyle yüklenir ve yalnız rakam, kod ve saatlerde kullanılır, başlıklar Rajdhani), Audiowide, Exo 2, Chakra Petch ve IBM Plex Mono (Stil 011; Audiowide ve Chakra Petch sabit ağırlıklı `@fontsource` paketlerinden). Lisanslı Helvetica Now ya da Neue Haas Grotesk kullanmak için `src/swiss/swiss.css` içindeki `@font-face` bloklarını ve `--font-sans` sırasını değiştirin.

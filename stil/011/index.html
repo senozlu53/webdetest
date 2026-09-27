@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="description" content="Stil 011: Holographic (Sci-Fi Clean Tech). Gece mavisi zemin, süzülen cam paneller, ince parlayan çerçeveler, komut merkezi, yerel LLM çıkarım hattı, model dizini, 10GbE izleyici ve 3B görüntüleyici." />
+    <meta name="theme-color" content="#090E17" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23090E17'/%3E%3Cg fill='none' stroke='%2322D3EE' stroke-width='1.6'%3E%3Cellipse cx='16' cy='16' rx='12' ry='4.6'/%3E%3Cellipse cx='16' cy='16' rx='12' ry='4.6' transform='rotate(60 16 16)' stroke='%233B82F6'/%3E%3C/g%3E%3Ccircle cx='16' cy='16' r='2.4' fill='%2322D3EE'/%3E%3C/svg%3E" />
+    <title>Stil 011 · Holographic</title>
+    <script>
+      try {
+        var d = document.documentElement
+        var t = localStorage.getItem('holo-theme')
+        if (t === 'light' || t === 'dark') d.dataset.theme = t
+        var l = localStorage.getItem('holo-layers')
+        d.dataset.layers = l === 'tam' || l === 'tekil' ? l : matchMedia('(max-width: 767px)').matches ? 'tekil' : 'tam'
+        var m = localStorage.getItem('holo-motion')
+        d.dataset.motion = m === 'kapali' || (m !== 'acik' && matchMedia('(prefers-reduced-motion: reduce)').matches) ? 'off' : 'on'
+      } catch (e) {}
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/holo/main.tsx"></script>
+  </body>
+</html>

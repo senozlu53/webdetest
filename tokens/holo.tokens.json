@@ -1,0 +1,95 @@
+{
+  "$description": "Stil 011: Holographic (Sci-Fi Clean Tech). W3C DTCG formatı. Adlar Figma yolu ile aynıdır: Color/HoloBlue, Effects/GlassBlur, Border/ThinGlow. Varsayılan tema koyu 'Gece'; açık varyant 'Laboratuvar'. Madde 18: metin her zaman opak bir koruyucu gradyanın önünde durur.",
+  "Color": {
+    "HoloBlue": {
+      "Night": { "$type": "color", "$value": "#090E17", "$description": "Gece mavisi zemin; saf siyah değil" },
+      "Cyan": { "$type": "color", "$value": "#06B6D4", "$description": "Ana vurgu, parlama, ikon. Metinde #22D3EE (zeminde 10,69:1)" },
+      "Electric": { "$type": "color", "$value": "#3B82F6", "$description": "İkincil vurgu. Metinde #60A5FA (zeminde 7,6:1; parlamanın önünde gradyansız 3,86:1)" },
+      "CyanText": { "$type": "color", "$value": "#22D3EE" },
+      "ElectricText": { "$type": "color", "$value": "#60A5FA" }
+    },
+    "Text": {
+      "Primary": { "$type": "color", "dark": "rgb(255 255 255 / 0.92)", "light": "rgb(6 18 33 / 0.94)", "contrast": { "zemin": [16.32, 14.85], "camEnKotu": [12.83, 14.33] } },
+      "Secondary": { "$type": "color", "dark": "rgb(255 255 255 / 0.68)", "light": "rgb(6 18 33 / 0.70)", "contrast": { "zemin": [9.09, 6.73], "camEnKotu": [7.64, 6.58] } },
+      "OnAccent": { "$type": "color", "dark": "#04111A", "light": "#FFFFFF", "contrast": [5.19, 5.36], "$description": "Gradyan düğmenin koyu ucunda ölçüldü" }
+    },
+    "Surface": {
+      "Panel": { "$type": "color", "dark": "#0E1624", "light": "#FFFFFF" },
+      "PanelOpacity": { "$type": "number", "$value": [0.8, 0.62], "$description": "Koruyucu gradyan: üst ve alt uç (açıkta 0,78 ve 0,55)" },
+      "Tint": { "$type": "color", "$value": "linear-gradient(135deg, rgb(34 211 238 / 0.08), rgb(59 130 246 / 0.05) 50%, transparent 80%)" }
+    },
+    "Laboratory": {
+      "$description": "Açık varyant: beyaz akrilik, koyu camgöbeği",
+      "Base": { "$type": "color", "$value": "#EEF4F9" },
+      "Cyan": { "$type": "color", "$value": "#0891B2" },
+      "CyanText": { "$type": "color", "$value": "#155E75", "$description": "Zeminde 6,56:1" },
+      "Electric": { "$type": "color", "$value": "#2563EB" },
+      "ElectricText": { "$type": "color", "$value": "#1D4ED8", "$description": "Zeminde 6,05:1" },
+      "Accent": { "$type": "color", "$value": "linear-gradient(120deg, #0E7490, #1D4ED8)" }
+    },
+    "Chart": {
+      "$description": "dataviz doğrulayıcısı: iki temada da tüm kontroller geçti (renk körlüğü ΔE 13,0 · normal görüş ΔE 17,0 · zeminde ≥ 3:1). Camgöbeği–elektrik mavisi çifti normal görüşte ΔE 12,3 ile ayrışmadığı için B serisi çivit mavisidir.",
+      "SeriesA": { "$type": "color", "$value": "#0891B2" },
+      "SeriesB": { "$type": "color", "$value": "#6366F1" }
+    }
+  },
+  "Effects": {
+    "GlassBlur": {
+      "md": { "$type": "dimension", "$value": "12px", "$description": "Tailwind backdrop-blur-md (Madde 15)" },
+      "panel": { "$type": "string", "$value": "blur(16px) saturate(140%)", "$description": "HoloPanel; tekil katmanda kapalı" },
+      "overlay": { "$type": "string", "$value": "blur(12px)", "$description": "Komut merkezi örtüsü; üst çubuk 24px. İkisi tekil katmanda da açık" }
+    },
+    "InnerShadow": {
+      "$description": "Madde 12: ışık kırılması simülasyonu, üç iç gölge",
+      "TopLight": { "$type": "shadow", "$value": { "offsetX": "0", "offsetY": "1px", "blur": "0", "spread": "0", "color": "rgb(255 255 255 / 0.16)", "inset": true } },
+      "BottomCaustic": { "$type": "shadow", "$value": { "offsetX": "0", "offsetY": "-1px", "blur": "0", "spread": "0", "color": "rgb(34 211 238 / 0.24)", "inset": true } },
+      "InnerGlow": { "$type": "shadow", "$value": { "offsetX": "0", "offsetY": "0", "blur": "28px", "spread": "0", "color": "rgb(34 211 238 / 0.07)", "inset": true } }
+    },
+    "AmbientGlow": {
+      "$description": "Madde 7: çok geniş ve hafif dış parlama",
+      "near": { "$type": "shadow", "$value": { "offsetX": "0", "offsetY": "0", "blur": "15px", "spread": "0", "color": "rgb(6 182 212 / 0.2)" } },
+      "far": { "$type": "shadow", "$value": { "offsetX": "0", "offsetY": "30px", "blur": "70px", "spread": "-36px", "color": "rgb(6 182 212 / 0.42)" } }
+    },
+    "ProtectiveGradient": {
+      "$description": "Madde 18: hologramın önündeki metnin arkasına opak katman; kenarları 40px söner",
+      "opacity": { "$type": "number", "$value": 0.88, "$description": "Açık temada 0,85" }
+    }
+  },
+  "Border": {
+    "ThinGlow": {
+      "$type": "border",
+      "$value": { "width": "1px", "style": "solid", "color": "rgb(34 211 238 / 0.3)" },
+      "$description": "Tailwind border-cyan-400/30 + shadow-[0_0_15px_rgba(6,182,212,0.2)]"
+    },
+    "Soft": { "$type": "color", "$value": "rgb(34 211 238 / 0.14)", "$description": "İç içe panel ve tablo çizgisi" }
+  },
+  "Radius": {
+    "panel": { "$type": "dimension", "$value": "16px" },
+    "nested": { "$type": "dimension", "$value": "12px" },
+    "overlay": { "$type": "dimension", "$value": "24px" },
+    "control": { "$type": "dimension", "$value": "9999px" }
+  },
+  "Typography": {
+    "Display": { "$type": "typography", "$value": { "fontFamily": "Audiowide", "fontSize": "76px", "fontWeight": 400 }, "$description": "Geniş; Türkçe tam, ₺ yok" },
+    "Heading": { "$type": "typography", "$value": { "fontFamily": "Exo 2", "fontSize": "48px", "fontWeight": 250, "letterSpacing": "0.015em" } },
+    "Body": { "$type": "typography", "$value": { "fontFamily": "Exo 2", "fontSize": "16px", "fontWeight": 400, "lineHeight": 1.6, "fontVariantNumeric": "tabular-nums" } },
+    "Label": { "$type": "typography", "$value": { "fontFamily": "Chakra Petch", "fontSize": "13px", "fontWeight": 600, "letterSpacing": "0.16em", "textTransform": "uppercase" } },
+    "Log": { "$type": "typography", "$value": { "fontFamily": "IBM Plex Mono", "fontSize": "13px", "fontWeight": 400 } }
+  },
+  "Icon": {
+    "Stroke": { "$type": "dimension", "$value": "1.5px" },
+    "Glow": { "$type": "string", "$value": "drop-shadow(0 0 5px rgb(6 182 212 / 0.42))" }
+  },
+  "Motion": {
+    "Rotate": { "$type": "number", "$value": [0.14, 0.22], "$description": "radyan/sn: açılış ve küçük nesneler dakikada ~1,3 tur, görüntüleyici ~2,1 tur" },
+    "Stream": { "$type": "duration", "$value": "560ms", "$description": "Satır başına 45ms gecikme; bulanıklıktan netleşerek kayar" },
+    "Token": { "$type": "duration", "$value": "320ms" },
+    "Ripple": { "$type": "duration", "$value": "650ms" },
+    "Float": { "$type": "duration", "$value": "7s" },
+    "Levels": { "$description": "data-motion: on · off (hareketi azalt ya da kullanıcı seçimi; localStorage 'holo-motion')", "$value": ["oto", "acik", "kapali"] }
+  },
+  "Responsive": {
+    "singleLayerBelow": { "$type": "dimension", "$value": "768px", "$description": "data-layers='tekil': paneller opak, iç içe cam düz, süzülen dekor gizli, parçacıklar 1/3 (localStorage 'holo-layers')" },
+    "tableBelow": { "$type": "dimension", "$value": "1024px", "$description": "DataGrid satırları karta dönüşür" }
+  }
+}
