@@ -16,10 +16,11 @@ Web tasarım stilleri için canlı referans sayfaları. Her stil, anlattığı k
 | 010 · Cyberpunk | `/stil/010/` | `src/cyber/` | `tokens/cyber.tokens.json` |
 | 011 · Holographic | `/stil/011/` | `src/holo/` | `tokens/holo.tokens.json` |
 | 012 · Terminal / Hacker UI | `/stil/012/` | `src/term/` | `tokens/term.tokens.json` |
+| 013 · Generative UI | `/stil/013/` | `src/gen/` | `tokens/gen.tokens.json` |
 
 ```bash
 npm install
-npm run dev        # http://localhost:5173  → katalog, /stil/001/, /stil/002/, /stil/003/, /stil/004/, /stil/005/, /stil/006/, /stil/007/, /stil/008/, /stil/009/, /stil/010/, /stil/011/, /stil/012/
+npm run dev        # http://localhost:5173  → katalog, /stil/001/, /stil/002/, /stil/003/, /stil/004/, /stil/005/, /stil/006/, /stil/007/, /stil/008/, /stil/009/, /stil/010/, /stil/011/, /stil/012/, /stil/013/
 npm run build      # tip denetimi + dist/
 npm run typecheck
 ```
@@ -40,6 +41,7 @@ stil/009/index.html      Low Poly giriş noktası
 stil/010/index.html      Cyberpunk giriş noktası
 stil/011/index.html      Holographic giriş noktası
 stil/012/index.html      Terminal / Hacker UI giriş noktası
+stil/013/index.html      Generative UI giriş noktası
 src/shared/              stiller arası ortak yardımcılar (cx, useTheme)
 src/swiss/               swiss.css (tema) · components/ · sections/
 src/soft/                soft.css (tema) · components/ · sections/
@@ -53,6 +55,7 @@ src/lowpoly/             lowpoly.css (tema) · three/ (R3F sahneleri) · assets/
 src/cyber/               cyber.css (tema) · components/ (CyberCard, CyberButton, CyberNav, CyberHUD) · hooks/ · sections/
 src/holo/                holo.css (tema) · components/ (CommandCenter, HoloPanel, DataGrid, HoloCanvas) · charts/ · lib/ (3B çizici, veri) · sections/
 src/term/                term.css (tema) · components/ (TerminalShell, Kbd, LogStream, AsciiTable, CommandPalette) · lib/ (ascii, veri) · sections/
+src/gen/                 gen.css (tema) · components/ (ToolCall, ToolResult, AICitation, AISources, Markdown) · results/ · lib/ (markdown, senaryolar) · sections/
 scripts/lowpoly-glb.mjs  Stil 009'un GLB modellerini üretir
 tokens/                  W3C DTCG token dosyaları (Figma / Tokens Studio)
 ```
@@ -239,6 +242,20 @@ Tasarımı aradan çıkarıp doğrudan veriye, koda ve saf performansa odaklanan
 - **Mobil (Madde 17):** 640px altında yazı 14px. Metin kırılmaz; geniş her blok kendi yatay kaydırma alanında (`role="region"`, odaklanabilir, adlı).
 - **Erişilebilirlik (Madde 18):** Tüm metin AA'yı geçer (en düşük: Solarized ikincil 4,99:1). Durum ve seviye metinle yazılır (`[ HATA ]`, `[UYARI ]`); onay kutuları ve radyolar yerel girişlerle çalışır; ASCII çizimler ekran okuyucudan gizlidir ve verisi metin ya da tablo olarak da vardır; otomatik akan günlük tek tek duyurulmaz, hata ve uyarı sayısı durum satırındadır.
 
+## Stil 013 · Generative UI
+
+Arayüz önceden çizilmiş sabit ekranlardan değil, kullanıcının sorusundan ve yapay zekânın ürettiği sonuçtan o an kurulur. Tablo gerekiyorsa tablo, form gerekiyorsa form belirir; gerekmiyorsa hiçbir bileşen çağrılmaz. Sayfa bir tanıtımdır: model çalışmaz, akış ve araç çağrıları kurgudur.
+
+- **Asistan (Madde 2 · 10):** Dört senaryo, her biri arayüzü farklı kurar. *AI arama* kaynak kartları, tablo ve grafik; *dinamik doküman* dosya okuma ve kod bloğu; *copilot* test çıktısı ve yama; *akıllı asistan* takvim ve yanıtın içinde doldurulabilir bir form (gönderilince yeni bir araç çağrısı başlar). Arama ve doküman yanıtları bu deponun gerçek dosyalarına dayanır ve kaynak kartları GitHub'daki dosyalara bağlanır; kod ve takvim örnektir. Araç gerektirmeyen soruda yalnız metin üretilir. Üretim her an durdurulabilir.
+- **Bileşenler (Madde 11 · 14):** `<ToolCall>` (araç adı, durum: sırada, çalışıyor, tamamlandı, hata; süre ve açılır parametreler), `<ToolResult>` (tek yükseltilmiş katman), `<AICitation>` (satır içi `[n]`; üzerine gelince ya da odakta alan adı, başlık ve önizleme; tıklayınca kaynak kartına gider), `<AISources>` (alan adı, başlık, önizleme). AI Streaming Indicator (düşünüyor, yazıyor, token sayısı, üretim imleci) ve AI Generation Progress (adım çipleri, `aria-current="step"`).
+- **Markdown (Madde 3 · 18):** Akış dostu küçük bir ayrıştırıcı yarım gelen metni de bozmadan işler (kapanmamış kod bloğu açık kalır, yarım tablo satırı beklenir, eşi gelmemiş `**` kalın gösterilir). Çıktı semantik HTML'dir: yanıttaki `##` sayfa hiyerarşisine oturup h4 olur, listeler `ul/ol`, tablolar `th scope`, kod `figure > pre > code`. "Ekran okuyucunun gördüğü ağaç" kartı aynı AST'yi gösterir; sayfada başlık düzeyi atlanmaz.
+- **Renk ve yazı (Madde 4 · 5):** Nötr zinc griler, tek vurgu indigo (`#4F46E5`, koyuda `#818CF8`); indigo yalnız yapay zekânın dokunduğu yerde. Hibrit tipografi: arayüz Inter, okuma bloğu Source Serif 4, kod JetBrains Mono (kodda bağlaçlar kapalı, `>=` iki karakter kalır).
+- **Şekil, derinlik, doku, ikon (Madde 6 · 7 · 8 · 9):** 8px köşeli, içeriği saran kapsayıcılar. Üretilen bloklar aynı düzlemde; yalnız araç sonucu hafif gölgeyle öne çıkar. Doku yok. Döngüsel durum ikonları: sıralı nokta (düşünüyor), dönen yay (yükleniyor), dişli (araç çalışıyor), çizilerek beliren onay.
+- **Figma (Madde 12 · 13):** Her bileşen "Hug contents"; sabit genişlik yalnız en dış kapsayıcıda. Üst çubuktaki katman düğmesi bütün sayfadaki Auto Layout çerçevelerini adlarıyla gösterir. `Spacing/DynamicGap` içerik yoğunluğuna göre 16px'ten 8px'e iner. Tokenlar: `Spacing/DynamicGap`, `Color/AI-Accent`, `Border/ToolCard` ve diğerleri `tokens/gen.tokens.json` içinde.
+- **CSS (Madde 15 · 17):** Paragraf ve liste öğeleri `whitespace-pre-wrap`; tablolar ve kod blokları `overflow-x-auto` alanlarda (odaklanabilir, adlı), mobilde kırılmaz, kendi alanında kayar.
+- **Hareket (Madde 16):** Kelime kelime akış (22–60ms), adım ilerlemesi ve `ResizeObserver` ile ölçülen yükseklik geçişi (240ms): yeni araç sonucu geldiğinde kutu zıplamaz, kayarak uzar. Hareket kapalıyken (ya da hareketi azalt tercihinde) yanıt tek seferde gelir, döngüler durur.
+- **Erişilebilirlik (Madde 18):** Akan yanıt `aria-busy` ile işaretlenir; kelimeler tek tek duyurulmaz, bitince tek bir durum duyurusu yapılır. Takvim ve grafiklerin metin karşılığı var; durum hiçbir yerde yalnız renkle verilmez. En kötü yüzeyde metin 16,12:1 (koyu 13,55:1), ikincil 7,03:1 (5,81:1), vurgu 5,72:1 (4,99:1).
+
 ## Yazı tipleri
 
-Hepsi OFL lisanslı, `@fontsource-variable` paketlerinden yalnızca Latin ve Latin Genişletilmiş alt kümeleriyle yüklenir: Inter (Stil 001 ve 003), Lora ve Plus Jakarta Sans (Stil 002), Geist ve Geist Mono (Stil 004; `₺` glifi olmadığı için tutarlar "TL" ile yazılır), Nunito (Stil 005), Sora (Stil 006), Baloo 2 ve Quicksand (Stil 007; Fredoka ğ, ş ve İ içermediği için başlıkta Baloo 2 seçildi), Manrope ve IBM Plex Mono (Stil 008; Space Mono `₺` içermediği için Plex Mono seçildi), Space Grotesk ve Inter (Stil 009), Rajdhani, Orbitron, Space Grotesk ve IBM Plex Mono (Stil 010; Rajdhani ve Plex Mono sabit ağırlıklı `@fontsource` paketlerinden gelir; Orbitron ğ, ş ve İ içermediği için yalnız Latin alt kümesiyle yüklenir ve yalnız rakam, kod ve saatlerde kullanılır, başlıklar Rajdhani), Audiowide, Exo 2, Chakra Petch ve IBM Plex Mono (Stil 011; Audiowide ve Chakra Petch sabit ağırlıklı `@fontsource` paketlerinden), JetBrains Mono, Fira Code ve Source Code Pro (Stil 012). Lisanslı Helvetica Now ya da Neue Haas Grotesk kullanmak için `src/swiss/swiss.css` içindeki `@font-face` bloklarını ve `--font-sans` sırasını değiştirin.
+Hepsi OFL lisanslı, `@fontsource-variable` paketlerinden yalnızca Latin ve Latin Genişletilmiş alt kümeleriyle yüklenir: Inter (Stil 001 ve 003), Lora ve Plus Jakarta Sans (Stil 002), Geist ve Geist Mono (Stil 004; `₺` glifi olmadığı için tutarlar "TL" ile yazılır), Nunito (Stil 005), Sora (Stil 006), Baloo 2 ve Quicksand (Stil 007; Fredoka ğ, ş ve İ içermediği için başlıkta Baloo 2 seçildi), Manrope ve IBM Plex Mono (Stil 008; Space Mono `₺` içermediği için Plex Mono seçildi), Space Grotesk ve Inter (Stil 009), Rajdhani, Orbitron, Space Grotesk ve IBM Plex Mono (Stil 010; Rajdhani ve Plex Mono sabit ağırlıklı `@fontsource` paketlerinden gelir; Orbitron ğ, ş ve İ içermediği için yalnız Latin alt kümesiyle yüklenir ve yalnız rakam, kod ve saatlerde kullanılır, başlıklar Rajdhani), Audiowide, Exo 2, Chakra Petch ve IBM Plex Mono (Stil 011; Audiowide ve Chakra Petch sabit ağırlıklı `@fontsource` paketlerinden), JetBrains Mono, Fira Code ve Source Code Pro (Stil 012), Inter, Source Serif 4 ve JetBrains Mono (Stil 013). Lisanslı Helvetica Now ya da Neue Haas Grotesk kullanmak için `src/swiss/swiss.css` içindeki `@font-face` bloklarını ve `--font-sans` sırasını değiştirin.

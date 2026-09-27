@@ -1,0 +1,70 @@
+{
+  "$description": "Stil 013: Generative UI (Adaptive Interface). W3C DTCG formatı. Adlar Figma yolu ile aynıdır: Spacing/DynamicGap, Color/AI-Accent, Border/ToolCard. Nötr zinc griler içerik için; indigo yalnız yapay zekânın dokunduğu yerde (araç durumu, atıf, üretim imleci).",
+  "Spacing": {
+    "DynamicGap": {
+      "$type": "string",
+      "$value": "calc(16px - var(--density) * 8px)",
+      "$description": "Yoğunluk 0–1: seyrek yanıtta 16px, yoğun yanıtta 8px"
+    },
+    "Block": { "$type": "dimension", "$value": "12px", "$description": "Tur içindeki bloklar arası (plan, araç, sonuç, metin)" },
+    "Turn": { "$type": "dimension", "$value": "40px" }
+  },
+  "Color": {
+    "AI-Accent": {
+      "Default": { "$type": "color", "light": "#4F46E5", "dark": "#818CF8", "contrast": { "light": 5.72, "dark": 4.99 }, "$description": "En kötü yüzeyde (zinc-100 / zinc-800)" },
+      "Ink": { "$type": "color", "light": "#4338CA", "dark": "#A5B4FC", "contrast": { "light": 7.07, "dark": 7.47 }, "$description": "Vurgu metni; açıkta indigo-50 üstünde ölçüldü" },
+      "Soft": { "$type": "color", "light": "#EEF2FF", "dark": "rgb(99 102 241 / 0.16)" },
+      "Line": { "$type": "color", "light": "#C7D2FE", "dark": "rgb(129 140 248 / 0.4)" },
+      "On": { "$type": "color", "light": "#FFFFFF", "dark": "#09090B", "contrast": { "light": 6.29, "dark": 6.67 } }
+    },
+    "Neutral": {
+      "$description": "Tailwind zinc",
+      "Bg": { "$type": "color", "light": "#FAFAFA", "dark": "#09090B" },
+      "Surface": { "$type": "color", "light": "#FFFFFF", "dark": "#18181B" },
+      "Sunken": { "$type": "color", "light": "#F4F4F5", "dark": "#111113" },
+      "Line": { "$type": "color", "light": "#E4E4E7", "dark": "#27272A" },
+      "LineStrong": { "$type": "color", "light": "#D4D4D8", "dark": "#3F3F46" },
+      "Ink": { "$type": "color", "light": "#18181B", "dark": "#F4F4F5", "contrast": { "light": 16.12, "dark": 13.55 } },
+      "Muted": { "$type": "color", "light": "#52525B", "dark": "#A1A1AA", "contrast": { "light": 7.03, "dark": 5.81 } }
+    },
+    "Status": {
+      "$description": "Yalnız ikon ve 'tamamlandı' / 'hata' metniyle birlikte",
+      "Ok": { "$type": "color", "light": "#047857", "dark": "#34D399" },
+      "Error": { "$type": "color", "light": "#B91C1C", "dark": "#F87171" }
+    }
+  },
+  "Border": {
+    "ToolCard": { "$type": "border", "$value": { "width": "1px", "style": "solid", "color": "#E4E4E7" }, "$description": "Koyu temada #27272A. ToolCall, sonuç ve kaynak kartları" }
+  },
+  "Radius": {
+    "Container": { "$type": "dimension", "$value": "8px", "$description": "Madde 6: içerikle esneyen bütün kapsayıcılar" },
+    "Inline": { "$type": "dimension", "$value": "4px", "$description": "Satır içi kod ve atıf" }
+  },
+  "Shadow": {
+    "ToolResult": {
+      "$description": "Madde 7: tek yükseltilmiş katman; üretilen metin blokları düz",
+      "$type": "shadow",
+      "$value": [
+        { "offsetX": "0", "offsetY": "1px", "blur": "2px", "spread": "0", "color": "rgb(24 24 27 / 0.06)" },
+        { "offsetX": "0", "offsetY": "10px", "blur": "28px", "spread": "-12px", "color": "rgb(24 24 27 / 0.18)" }
+      ]
+    }
+  },
+  "Typography": {
+    "$description": "Madde 5: hibrit. Arayüz sans, okuma bloğu serif, kod mono.",
+    "UI": { "$type": "typography", "$value": { "fontFamily": "Inter", "fontSize": "14px", "fontWeight": 400, "lineHeight": 1.5 } },
+    "Reading": { "$type": "typography", "$value": { "fontFamily": "Source Serif 4", "fontSize": "17.5px", "fontWeight": 400, "lineHeight": 1.7 } },
+    "Code": { "$type": "typography", "$value": { "fontFamily": "JetBrains Mono", "fontSize": "13px", "fontWeight": 400, "lineHeight": 1.6 }, "$description": "Bağlaçlar kapalı: >= iki karakter kalır" },
+    "Heading": { "$type": "typography", "$value": { "fontFamily": "Inter", "fontWeight": 650, "letterSpacing": "-0.015em" } }
+  },
+  "Motion": {
+    "TokenStream": { "$type": "duration", "$value": "22–60ms", "$description": "Kelime başına; bazen iki kelime birden gelir" },
+    "AutoHeight": { "$type": "duration", "$value": "240ms", "$description": "cubic-bezier(0.2, 0.7, 0.2, 1); ResizeObserver ile ölçülen yüksekliğe" },
+    "Enter": { "$type": "duration", "$value": "320ms", "$description": "Yeni blok: saydamlık + 4px kayma" },
+    "Cursor": { "$type": "duration", "$value": "1s", "$description": "Üretim imleci, steps(1)" },
+    "Levels": { "$description": "data-motion: on · off (hareketi azalt ya da kullanıcı; localStorage 'gen-motion'). Kapalıyken yanıt tek seferde, araç süreleri 250ms'ye iner.", "$value": ["oto", "acik", "kapali"] }
+  },
+  "Responsive": {
+    "ScrollX": { "$type": "string", "$value": "overflow-x: auto", "$description": "Madde 17: tablolar ve kod blokları kendi kaydırma alanında (role='region', tabindex=0, aria-label)" }
+  }
+}

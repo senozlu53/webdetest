@@ -1,0 +1,453 @@
+@import 'tailwindcss' source(none);
+@source '.';
+
+/* ─────────────────────────────────────────────────────────────
+   STİL 013 · GENERATIVE UI (ADAPTIVE INTERFACE)
+   Arayüz önceden çizilmez; yanıt üretilirken bileşenler bağlama göre çağrılır.
+   Nötr zinc griler içeriğin önüne geçmez; indigo yalnız yapay zekâyı işaret eder.
+   Üretilen bloklar düzdür; yalnız araç sonucu (Tool Result) hafif bir gölgeyle öne çıkar.
+   Değerler tokens/gen.tokens.json ile aynıdır.
+   ───────────────────────────────────────────────────────────── */
+
+@font-face {
+  font-family: 'Inter Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url('@fontsource-variable/inter/files/inter-latin-ext-wght-normal.woff2') format('woff2-variations');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329,
+    U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Inter Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url('@fontsource-variable/inter/files/inter-latin-wght-normal.woff2') format('woff2-variations');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Source Serif 4 Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 200 900;
+  src: url('@fontsource-variable/source-serif-4/files/source-serif-4-latin-ext-wght-normal.woff2') format('woff2-variations');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329,
+    U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Source Serif 4 Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 200 900;
+  src: url('@fontsource-variable/source-serif-4/files/source-serif-4-latin-wght-normal.woff2') format('woff2-variations');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Source Serif 4 Variable';
+  font-style: italic;
+  font-display: swap;
+  font-weight: 200 900;
+  src: url('@fontsource-variable/source-serif-4/files/source-serif-4-latin-ext-wght-italic.woff2') format('woff2-variations');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329,
+    U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Source Serif 4 Variable';
+  font-style: italic;
+  font-display: swap;
+  font-weight: 200 900;
+  src: url('@fontsource-variable/source-serif-4/files/source-serif-4-latin-wght-italic.woff2') format('woff2-variations');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'JetBrains Mono Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 800;
+  src: url('@fontsource-variable/jetbrains-mono/files/jetbrains-mono-latin-ext-wght-normal.woff2') format('woff2-variations');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329,
+    U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'JetBrains Mono Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 800;
+  src: url('@fontsource-variable/jetbrains-mono/files/jetbrains-mono-latin-wght-normal.woff2') format('woff2-variations');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* ── Açık (varsayılan): zinc-50 zemin, beyaz yüzey ──
+   Metin #18181B en kötü yüzeyde (zinc-100) 16,12:1 · ikincil #52525B 7,03:1 ·
+   AI vurgusu #4F46E5 5,72:1, vurgu metni #4338CA 7,19:1 · indigo-50 üstünde 7,07:1. */
+:root {
+  --bg: #fafafa;
+  --surface: #ffffff;
+  --sunken: #f4f4f5;
+  --ink: #18181b;
+  --muted: #52525b;
+  --line: #e4e4e7;
+  --line-strong: #d4d4d8;
+  /* Color/AI-Accent */
+  --accent: #4f46e5;
+  --accent-ink: #4338ca;
+  --accent-soft: #eef2ff;
+  --accent-line: #c7d2fe;
+  --on-accent: #ffffff;
+  --ok: #047857;
+  --err: #b91c1c;
+  /* Tool Result: tek gölgeli katman */
+  --shadow-tool: 0 1px 2px rgb(24 24 27 / 0.06), 0 10px 28px -12px rgb(24 24 27 / 0.18);
+  color-scheme: light;
+}
+
+/* ── Koyu: zinc-950 zemin ──
+   Metin #F4F4F5 en kötü yüzeyde (zinc-800) 13,55:1 · ikincil #A1A1AA 5,81:1 ·
+   vurgu #818CF8 4,99:1, vurgu metni #A5B4FC 7,47:1. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --bg: #09090b;
+    --surface: #18181b;
+    --sunken: #111113;
+    --ink: #f4f4f5;
+    --muted: #a1a1aa;
+    --line: #27272a;
+    --line-strong: #3f3f46;
+    --accent: #818cf8;
+    --accent-ink: #a5b4fc;
+    --accent-soft: rgb(99 102 241 / 0.16);
+    --accent-line: rgb(129 140 248 / 0.4);
+    --on-accent: #09090b;
+    --ok: #34d399;
+    --err: #f87171;
+    --shadow-tool: 0 1px 2px rgb(0 0 0 / 0.5), 0 12px 30px -10px rgb(0 0 0 / 0.7), inset 0 1px 0 rgb(255 255 255 / 0.04);
+    color-scheme: dark;
+  }
+}
+:root[data-theme='dark'] {
+  --bg: #09090b;
+  --surface: #18181b;
+  --sunken: #111113;
+  --ink: #f4f4f5;
+  --muted: #a1a1aa;
+  --line: #27272a;
+  --line-strong: #3f3f46;
+  --accent: #818cf8;
+  --accent-ink: #a5b4fc;
+  --accent-soft: rgb(99 102 241 / 0.16);
+  --accent-line: rgb(129 140 248 / 0.4);
+  --on-accent: #09090b;
+  --ok: #34d399;
+  --err: #f87171;
+  --shadow-tool: 0 1px 2px rgb(0 0 0 / 0.5), 0 12px 30px -10px rgb(0 0 0 / 0.7), inset 0 1px 0 rgb(255 255 255 / 0.04);
+  color-scheme: dark;
+}
+
+@theme {
+  --color-*: initial;
+  --font-*: initial;
+  --radius-*: initial;
+  --shadow-*: initial;
+  --font-sans: 'Inter Variable', 'Inter', system-ui, sans-serif;
+  --font-serif: 'Source Serif 4 Variable', 'Source Serif 4', Georgia, serif;
+  --font-mono: 'JetBrains Mono Variable', 'JetBrains Mono', ui-monospace, monospace;
+  /* Madde 6: tek köşe değeri */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-full: 9999px;
+  --color-white: #ffffff;
+  --color-transparent: transparent;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-sunken: var(--sunken);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-accent: var(--accent);
+  --color-accent-ink: var(--accent-ink);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-line: var(--accent-line);
+  --color-on-accent: var(--on-accent);
+  --color-ok: var(--ok);
+  --color-err: var(--err);
+  --shadow-tool: var(--shadow-tool);
+}
+
+@layer base {
+  html {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-padding-top: 80px;
+    /* Madde 16: tarayıcı destekliyorsa yükseklik "auto" değerine de yumuşak geçer */
+    interpolate-size: allow-keywords;
+  }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    text-wrap: balance;
+    letter-spacing: -0.015em;
+  }
+  p {
+    text-wrap: pretty;
+  }
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+  ::selection {
+    background: var(--accent-soft);
+  }
+  /* Kodda bağlaç yok: ">=" iki karakter kalsın, yama satırları birebir okunsun */
+  code,
+  pre,
+  kbd {
+    font-variant-ligatures: none;
+    font-feature-settings: 'calt' 0, 'liga' 0;
+  }
+}
+
+@layer components {
+  /* Madde 12: "Hug contents": kapsayıcı içeriği kadar genişler, satırı doldurmaz */
+  .hug {
+    width: fit-content;
+    max-width: 100%;
+  }
+  /* Spacing/DynamicGap: içerik yoğunlaştıkça boşluk küçülür (yoğunluk 0–1) */
+  .dyn-gap {
+    gap: calc(16px - var(--density, 0) * 8px);
+  }
+
+  /* ── Üretilen yanıt: okuma bloğu serif, arayüz sans, kod mono (Madde 5 · 15) ── */
+  .prose-gen {
+    font-family: var(--font-serif);
+    font-size: 17.5px;
+    line-height: 1.7;
+    color: var(--ink);
+  }
+  .prose-gen > * + * {
+    margin-top: 0.85em;
+  }
+  .prose-gen p,
+  .prose-gen li {
+    white-space: pre-wrap;
+  }
+  .prose-gen h4,
+  .prose-gen h5 {
+    font-family: var(--font-sans);
+    font-weight: 650;
+    letter-spacing: -0.01em;
+    line-height: 1.3;
+  }
+  .prose-gen h4 {
+    font-size: 1.12em;
+    margin-top: 1.3em;
+  }
+  .prose-gen h5 {
+    font-size: 0.98em;
+    margin-top: 1.1em;
+  }
+  .prose-gen > :first-child {
+    margin-top: 0;
+  }
+  .prose-gen ul,
+  .prose-gen ol {
+    padding-left: 1.4em;
+  }
+  .prose-gen ul {
+    list-style: disc;
+  }
+  .prose-gen ol {
+    list-style: decimal;
+  }
+  .prose-gen li + li {
+    margin-top: 0.3em;
+  }
+  .prose-gen li::marker {
+    color: var(--muted);
+  }
+  .prose-gen blockquote {
+    border-left: 2px solid var(--accent-line);
+    padding-left: 1em;
+    color: var(--muted);
+    font-style: italic;
+  }
+  .prose-gen :not(pre) > code {
+    font-family: var(--font-mono);
+    font-size: 0.82em;
+    background: var(--sunken);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 0.1em 0.35em;
+    white-space: normal;
+  }
+  .prose-gen strong {
+    font-weight: 650;
+  }
+  .prose-gen a:not(.cite) {
+    color: var(--accent-ink);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  /* Madde 17: tablolar ve kod blokları kendi yatay kaydırma alanında */
+  .scroll-x {
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scrollbar-width: thin;
+    scrollbar-color: var(--line-strong) transparent;
+  }
+
+  /* Madde 11: üretim imleci */
+  .gen-cursor {
+    display: inline-block;
+    width: 0.5em;
+    height: 1.05em;
+    margin-left: 0.08em;
+    vertical-align: -0.16em;
+    border-radius: 2px;
+    background: var(--accent);
+    animation: gen-blink 1s steps(1) infinite;
+  }
+
+  /* Yeni blok girişi: saydamlık + 4px kayma (yükseklik ayrıca AutoHeight ile esner) */
+  .gen-enter {
+    animation: gen-enter 320ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  }
+  .gen-token {
+    animation: gen-token 260ms ease-out both;
+  }
+  .gen-shimmer {
+    background: linear-gradient(90deg, var(--muted) 0%, var(--muted) 40%, var(--accent) 50%, var(--muted) 60%, var(--muted) 100%);
+    background-size: 250% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: gen-shimmer 1.8s linear infinite;
+  }
+  /* Döngüsel ikonlar (Madde 9) */
+  .spin {
+    animation: gen-spin 0.9s linear infinite;
+    transform-origin: center;
+  }
+  .spin-slow {
+    animation: gen-spin 3s linear infinite;
+    transform-origin: center;
+  }
+  .dot-wave > * {
+    animation: gen-dot 1.2s ease-in-out infinite;
+  }
+  .dot-wave > :nth-child(2) {
+    animation-delay: 0.15s;
+  }
+  .dot-wave > :nth-child(3) {
+    animation-delay: 0.3s;
+  }
+  .draw {
+    stroke-dasharray: 24;
+    stroke-dashoffset: 24;
+    animation: gen-draw 380ms ease-out forwards;
+  }
+
+  /* Madde 12: iç içe Auto Layout denetçisi */
+  :root[data-inspect='acik'] [data-layout] {
+    outline: 1px dashed color-mix(in srgb, var(--accent) 70%, transparent);
+    outline-offset: -1px;
+    position: relative;
+  }
+  :root[data-inspect='acik'] [data-layout]::after {
+    content: attr(data-layout);
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 5;
+    padding: 0 4px;
+    border-radius: 0 0 0 4px;
+    background: var(--accent);
+    color: var(--on-accent);
+    font: 600 10px/16px var(--font-mono);
+    pointer-events: none;
+    white-space: nowrap;
+  }
+}
+
+@keyframes gen-blink {
+  50% {
+    opacity: 0;
+  }
+}
+@keyframes gen-enter {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+}
+@keyframes gen-token {
+  from {
+    opacity: 0.15;
+  }
+}
+@keyframes gen-shimmer {
+  from {
+    background-position: 100% 0;
+  }
+  to {
+    background-position: -150% 0;
+  }
+}
+@keyframes gen-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes gen-dot {
+  0%,
+  80%,
+  100% {
+    opacity: 0.25;
+    transform: translateY(0);
+  }
+  40% {
+    opacity: 1;
+    transform: translateY(-2px);
+  }
+}
+@keyframes gen-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Hareket kapalı (kullanıcı ya da hareketi azalt): akış yok, döngüler durur */
+:root[data-motion='off'] *,
+:root[data-motion='off'] *::before,
+:root[data-motion='off'] *::after {
+  animation: none !important;
+  transition: none !important;
+}
+:root[data-motion='off'] .draw {
+  stroke-dashoffset: 0;
+}
+:root[data-motion='off'] .gen-shimmer {
+  color: var(--muted);
+  background: none;
+}

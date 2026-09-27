@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="description" content="Stil 013: Generative UI (Adaptive Interface). Nötr gri, hafif indigo vurgu; araç çağrıları, anlık üretilen tablo, grafik ve formlar, kelime kelime akan yanıt, satır içi atıflar ve kaynak kartları." />
+    <meta name="theme-color" content="#FAFAFA" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#09090B" media="(prefers-color-scheme: dark)" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%234F46E5'/%3E%3Cpath d='M16 5c1 6.4 3.6 11 13 13-9.4 2-12 6.6-13 13-1-6.4-3.6-11-13-13 9.4-2 12-6.6 13-13z' fill='%23fff' transform='translate(0 -2) scale(1 .95)'/%3E%3C/svg%3E" />
+    <title>Stil 013 · Generative UI</title>
+    <script>
+      try {
+        var d = document.documentElement
+        var t = localStorage.getItem('gen-theme')
+        if (t === 'light' || t === 'dark') d.dataset.theme = t
+        var m = localStorage.getItem('gen-motion')
+        d.dataset.motion = m === 'kapali' || (m !== 'acik' && matchMedia('(prefers-reduced-motion: reduce)').matches) ? 'off' : 'on'
+      } catch (e) {}
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/gen/main.tsx"></script>
+  </body>
+</html>
