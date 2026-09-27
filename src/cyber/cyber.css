@@ -1,0 +1,564 @@
+@import 'tailwindcss' source(none);
+@source '.';
+
+/* ─────────────────────────────────────────────────────────────
+   STİL 010 · CYBERPUNK (NEON & GRUNGE)
+   #050509 zemin, agresif neon vurgular, tarama çizgileri, HUD, glitch.
+   Gölge yok: derinliği neon parlaması verir. Değerler tokens/cyber.tokens.json ile aynıdır.
+   Orbitron Türkçe harf (ğ, ş, İ) içermez: yalnız rakam ve Latin kodlarda kullanılır.
+   ───────────────────────────────────────────────────────────── */
+
+@font-face {
+  font-family: 'Space Grotesk Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 300 700;
+  src: url('@fontsource-variable/space-grotesk/files/space-grotesk-latin-ext-wght-normal.woff2') format('woff2-variations');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329,
+    U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Space Grotesk Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 300 700;
+  src: url('@fontsource-variable/space-grotesk/files/space-grotesk-latin-wght-normal.woff2') format('woff2-variations');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Rajdhani';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+  src: url('@fontsource/rajdhani/files/rajdhani-latin-ext-500-normal.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329,
+    U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Rajdhani';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+  src: url('@fontsource/rajdhani/files/rajdhani-latin-500-normal.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Rajdhani';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 600;
+  src: url('@fontsource/rajdhani/files/rajdhani-latin-ext-600-normal.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329,
+    U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Rajdhani';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 600;
+  src: url('@fontsource/rajdhani/files/rajdhani-latin-600-normal.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Rajdhani';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: url('@fontsource/rajdhani/files/rajdhani-latin-ext-700-normal.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329,
+    U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Rajdhani';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: url('@fontsource/rajdhani/files/rajdhani-latin-700-normal.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Orbitron Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400 900;
+  src: url('@fontsource-variable/orbitron/files/orbitron-latin-wght-normal.woff2') format('woff2-variations');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url('@fontsource/ibm-plex-mono/files/ibm-plex-mono-latin-ext-400-normal.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329,
+    U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url('@fontsource/ibm-plex-mono/files/ibm-plex-mono-latin-400-normal.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 600;
+  src: url('@fontsource/ibm-plex-mono/files/ibm-plex-mono-latin-ext-600-normal.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329,
+    U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 600;
+  src: url('@fontsource/ibm-plex-mono/files/ibm-plex-mono-latin-600-normal.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* ── Gece (varsayılan): saf siyah yerine #050509, göz yorgunluğunu azaltır ──
+   Metin #E8FBFF 19.06:1 · ikincil #9AAFC4 9.01:1 · camgöbeği 14.44:1 · macenta 5.64:1 ·
+   neon yeşil 16.76:1. En açık kartta (#11111D) en düşük değer macenta 5.19:1.
+   Mor #7A00FF 3.17:1: metin değil, yalnız parlama ve dolgu. */
+:root {
+  --wear-img: url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27240%27 height=%27240%27%3E%3Cg stroke=%27%23fff%27 fill=%27none%27%3E%3Cpath d=%27M137.1 102.9L187.3 106.9%27 stroke-opacity=%270.79%27 stroke-width=%270.5%27/%3E%3Cpath d=%27M8.3 117.6L27.5 160.2%27 stroke-opacity=%270.48%27 stroke-width=%270.8%27/%3E%3Cpath d=%27M206.4 144.8L249.2 139.7%27 stroke-opacity=%270.55%27 stroke-width=%270.6%27/%3E%3Cpath d=%27M158.8 31.9L143.4 88.2%27 stroke-opacity=%270.65%27 stroke-width=%270.4%27/%3E%3Cpath d=%27M139.9 56.6L150.7 90.8%27 stroke-opacity=%270.75%27 stroke-width=%270.5%27/%3E%3Cpath d=%27M75.4 131.8L113.8 129.3%27 stroke-opacity=%270.80%27 stroke-width=%270.5%27/%3E%3Cpath d=%27M202.1 232.7L225.0 226.6%27 stroke-opacity=%270.64%27 stroke-width=%270.4%27/%3E%3Cpath d=%27M128.0 205.2L153.8 195.8%27 stroke-opacity=%270.64%27 stroke-width=%270.4%27/%3E%3Cpath d=%27M231.3 185.6L232.4 203.5%27 stroke-opacity=%270.48%27 stroke-width=%270.8%27/%3E%3Cpath d=%27M106.9 163.4L156.6 144.9%27 stroke-opacity=%270.42%27 stroke-width=%270.6%27/%3E%3Cpath d=%27M39.6 155.7L29.2 187.0%27 stroke-opacity=%270.48%27 stroke-width=%270.8%27/%3E%3Cpath d=%27M53.7 130.8L62.8 149.3%27 stroke-opacity=%270.42%27 stroke-width=%270.8%27/%3E%3Cpath d=%27M139.9 93.7L159.0 101.2%27 stroke-opacity=%270.59%27 stroke-width=%270.6%27/%3E%3Cpath d=%27M124.8 144.5L153.8 131.0%27 stroke-opacity=%270.51%27 stroke-width=%270.8%27/%3E%3Cpath d=%27M129.9 83.8L134.1 120.6%27 stroke-opacity=%270.31%27 stroke-width=%270.8%27/%3E%3Cpath d=%27M199.0 209.3L225.1 207.7%27 stroke-opacity=%270.35%27 stroke-width=%270.8%27/%3E%3Cpath d=%27M200.0 191.9L217.1 237.1%27 stroke-opacity=%270.85%27 stroke-width=%270.6%27/%3E%3Cpath d=%27M174.3 215.5L215.3 223.7%27 stroke-opacity=%270.84%27 stroke-width=%270.5%27/%3E%3Cpath d=%27M177.5 77.5L226.7 52.7%27 stroke-opacity=%270.62%27 stroke-width=%270.8%27/%3E%3Cpath d=%27M6.0 27.9L10.2 48.3%27 stroke-opacity=%270.44%27 stroke-width=%270.4%27/%3E%3Cpath d=%27M11.1 219.1L-4.5 276.1%27 stroke-opacity=%270.44%27 stroke-width=%270.8%27/%3E%3Cpath d=%27M33.9 142.8L57.8 153.5%27 stroke-opacity=%270.30%27 stroke-width=%270.5%27/%3E%3Cpath d=%27M102.4 236.7L159.5 247.3%27 stroke-opacity=%270.81%27 stroke-width=%270.8%27/%3E%3Cpath d=%27M107.4 178.4L120.9 174.4%27 stroke-opacity=%270.76%27 stroke-width=%270.4%27/%3E%3Cpath d=%27M50.3 146.3L35.0 185.4%27 stroke-opacity=%270.30%27 stroke-width=%270.8%27/%3E%3Cpath d=%27M191.3 197.7L221.0 193.2%27 stroke-opacity=%270.38%27 stroke-width=%270.6%27/%3E%3Cpath d=%27M112.0 70.6L112.0 99.6%27 stroke-opacity=%270.67%27 stroke-width=%270.6%27/%3E%3Cpath d=%27M174.4 115.8L207.3 114.1%27 stroke-opacity=%270.70%27 stroke-width=%270.6%27/%3E%3Cpath d=%27M192.3 97.3L175.0 154.3%27 stroke-opacity=%270.72%27 stroke-width=%270.4%27/%3E%3Cpath d=%27M142.9 176.1L184.0 168.0%27 stroke-opacity=%270.30%27 stroke-width=%270.8%27/%3E%3Cpath d=%27M146.5 67.8L158.8 63.8%27 stroke-opacity=%270.76%27 stroke-width=%270.4%27/%3E%3Cpath d=%27M52.8 178.8L86.7 195.2%27 stroke-opacity=%270.54%27 stroke-width=%270.4%27/%3E%3Cpath d=%27M94.2 81.4L146.5 102.8%27 stroke-opacity=%270.62%27 stroke-width=%270.6%27/%3E%3Cpath d=%27M208.9 157.8L235.8 159.9%27 stroke-opacity=%270.86%27 stroke-width=%270.6%27/%3E%3Cpath d=%27M144.3 41.1L194.2 23.4%27 stroke-opacity=%270.90%27 stroke-width=%270.4%27/%3E%3Cpath d=%27M173.5 128.8L202.9 138.1%27 stroke-opacity=%270.82%27 stroke-width=%270.4%27/%3E%3Cpath d=%27M34.9 207.7L79.5 217.1%27 stroke-opacity=%270.89%27 stroke-width=%270.5%27/%3E%3Cpath d=%27M84.9 101.7L73.8 134.5%27 stroke-opacity=%270.50%27 stroke-width=%270.4%27/%3E%3Cpath d=%27M103.9 36.6L141.1 53.8%27 stroke-opacity=%270.62%27 stroke-width=%270.6%27/%3E%3Cpath d=%27M134.2 230.5L191.6 236.5%27 stroke-opacity=%270.40%27 stroke-width=%270.5%27/%3E%3Cpath d=%27M23.9 135.5L73.2 152.7%27 stroke-opacity=%270.51%27 stroke-width=%270.8%27/%3E%3Cpath d=%27M18.7 182.3L68.7 181.9%27 stroke-opacity=%270.88%27 stroke-width=%270.6%27/%3E%3Cpath d=%27M210.9 41.5L238.6 52.6%27 stroke-opacity=%270.58%27 stroke-width=%270.8%27/%3E%3Cpath d=%27M232.6 95.2L261.1 104.4%27 stroke-opacity=%270.67%27 stroke-width=%270.6%27/%3E%3Cpath d=%27M128.1 203.9L141.8 236.2%27 stroke-opacity=%270.56%27 stroke-width=%270.5%27/%3E%3Cpath d=%27M127.8 2.9L169.3 -11.8%27 stroke-opacity=%270.31%27 stroke-width=%270.8%27/%3E%3C/g%3E%3C/svg%3E");
+}
+
+:root,
+[data-theme='dark'] {
+  --bg: #050509;
+  --surface: #0b0b14;
+  --surface-2: #11111d;
+  --ink: #e8fbff;
+  --muted: #9aafc4;
+  --cyan: #00f0ff;
+  --magenta: #ff00a8;
+  --mor: #7a00ff;
+  --mor-text: #b98cff;
+  --yesil: #b6ff00;
+  --line: rgb(0 240 255 / 0.22);
+  --on-cyan: #050509;
+  --on-magenta: #050509;
+  --scan: rgb(255 255 255 / 0.035);
+  --noise-opacity: 0.07;
+  --wear-opacity: 0.1;
+  /* Effects/NeonGlow */
+  --glow-cyan: rgb(0 240 255 / 0.8);
+  --glow-magenta: rgb(255 0 168 / 0.75);
+  --glow-mor: rgb(122 0 255 / 0.85);
+  --glow-yesil: rgb(182 255 0 / 0.7);
+  color-scheme: dark;
+}
+
+/* ── Gündüz (nadir varyant, Madde 18): beyaz zemin, koyu mor neonlar ──
+   En kötü yüzey #F7F6FB: mürekkep #120A24 17.84:1 · ikincil #4A4560 8.45:1 · birincil mor #4B0099 11.10:1 ·
+   macenta #B0006F 6.35:1 · yeşil #3F6600 6.28:1. Beyaz kartta değerler biraz daha yüksek. */
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme='dark']) {
+    --bg: #f7f6fb;
+    --surface: #ffffff;
+    --surface-2: #efedf7;
+    --ink: #120a24;
+    --muted: #4a4560;
+    --cyan: #4b0099;
+    --magenta: #b0006f;
+    --mor: #5b00c8;
+    --mor-text: #4b0099;
+    --yesil: #3f6600;
+    --line: rgb(75 0 153 / 0.24);
+    --on-cyan: #ffffff;
+    --on-magenta: #ffffff;
+    --scan: rgb(18 10 36 / 0.04);
+    --noise-opacity: 0.05;
+    --wear-opacity: 0;
+    --glow-cyan: rgb(91 0 200 / 0.35);
+    --glow-magenta: rgb(176 0 111 / 0.3);
+    --glow-mor: rgb(91 0 200 / 0.35);
+    --glow-yesil: rgb(63 102 0 / 0.3);
+    color-scheme: light;
+  }
+}
+[data-theme='light'] {
+  --bg: #f7f6fb;
+  --surface: #ffffff;
+  --surface-2: #efedf7;
+  --ink: #120a24;
+  --muted: #4a4560;
+  --cyan: #4b0099;
+  --magenta: #b0006f;
+  --mor: #5b00c8;
+  --mor-text: #4b0099;
+  --yesil: #3f6600;
+  --line: rgb(75 0 153 / 0.24);
+  --on-cyan: #ffffff;
+  --on-magenta: #ffffff;
+  --scan: rgb(18 10 36 / 0.04);
+  --noise-opacity: 0.05;
+  --wear-opacity: 0;
+  --glow-cyan: rgb(91 0 200 / 0.35);
+  --glow-magenta: rgb(176 0 111 / 0.3);
+  --glow-mor: rgb(91 0 200 / 0.35);
+  --glow-yesil: rgb(63 102 0 / 0.3);
+  color-scheme: light;
+}
+
+@theme {
+  --color-*: initial;
+  --font-*: initial;
+  --font-sans: 'Space Grotesk Variable', 'Space Grotesk', system-ui, sans-serif;
+  --font-display: 'Rajdhani', 'Space Grotesk Variable', system-ui, sans-serif;
+  --font-hud: 'Orbitron Variable', 'Orbitron', 'Rajdhani', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-transparent: transparent;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-cyan: var(--cyan);
+  --color-magenta: var(--magenta);
+  --color-mor: var(--mor);
+  --color-mor-text: var(--mor-text);
+  --color-yesil: var(--yesil);
+  --color-line: var(--line);
+  --color-on-cyan: var(--on-cyan);
+}
+
+@layer base {
+  html {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-padding-top: 88px;
+  }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    text-wrap: balance;
+    letter-spacing: 0.01em;
+  }
+  p {
+    text-wrap: pretty;
+  }
+  :focus-visible {
+    outline: 2px solid var(--cyan);
+    outline-offset: 3px;
+  }
+  ::selection {
+    background: var(--magenta);
+    color: var(--bg);
+  }
+}
+
+@layer components {
+  /* ── Madde 6: asimetrik kesik köşe. Çerçeve ::before, dolgu ::after; içerik kırpılmaz ── */
+  .chamfer {
+    --cut: 16px;
+    --shape: polygon(var(--cut) 0, 100% 0, 100% calc(100% - var(--cut)), calc(100% - var(--cut)) 100%, 0 100%, 0 var(--cut));
+    --shape-in: polygon(calc(var(--cut) - 0.6px) 0, 100% 0, 100% calc(100% - var(--cut) + 0.6px), calc(100% - var(--cut) + 0.6px) 100%, 0 100%, 0 calc(var(--cut) - 0.6px));
+    position: relative;
+    isolation: isolate;
+  }
+  .chamfer::before,
+  .chamfer::after {
+    content: '';
+    position: absolute;
+    pointer-events: none;
+  }
+  .chamfer::before {
+    inset: 0;
+    z-index: -2;
+    background: var(--frame, var(--line));
+    clip-path: var(--shape);
+  }
+  .chamfer::after {
+    inset: var(--frame-w, 1px);
+    z-index: -1;
+    background: var(--fill, var(--surface));
+    clip-path: var(--shape-in);
+  }
+  .chamfer-sm {
+    --cut: 10px;
+  }
+  .chamfer-lg {
+    --cut: 26px;
+  }
+
+  /* ── Madde 7: gölge yok, neon parlaması ── */
+  .glow-cyan {
+    filter: drop-shadow(0 0 6px var(--glow-cyan));
+  }
+  .glow-magenta {
+    filter: drop-shadow(0 0 6px var(--glow-magenta));
+  }
+  .glow-mor {
+    filter: drop-shadow(0 0 8px var(--glow-mor));
+  }
+  .glow-yesil {
+    filter: drop-shadow(0 0 6px var(--glow-yesil));
+  }
+  .text-glow {
+    text-shadow:
+      0 0 6px var(--glow-cyan),
+      0 0 18px var(--glow-cyan);
+  }
+
+  /* ── Madde 8: tarama çizgileri, dijital gürültü, metal aşınması ── */
+  .scanlines {
+    background: repeating-linear-gradient(to bottom, var(--scan) 0 1px, transparent 1px 3px);
+  }
+  .noise {
+    opacity: var(--noise-opacity);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.95' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    mix-blend-mode: overlay;
+  }
+  .wear {
+    position: relative;
+  }
+  .wear > .wear-layer {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: var(--wear-opacity);
+    background-image: var(--wear-img);
+    mix-blend-mode: screen;
+  }
+  .scan-beam {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: -20vh;
+    height: 20vh;
+    pointer-events: none;
+    background: linear-gradient(to bottom, transparent, color-mix(in srgb, var(--cyan) 7%, transparent) 60%, color-mix(in srgb, var(--cyan) 12%, transparent) 62%, transparent);
+    animation: scan-drift 9s linear infinite;
+  }
+
+  /* ── Madde 9 · 17: HUD çerçevesi. Masaüstünde köşe parantezleri ve cetvel; mobilde tek neon çizgi ── */
+  .hud {
+    position: relative;
+    --c: var(--cyan);
+    background:
+      linear-gradient(var(--c), var(--c)) top left / 18px 2px no-repeat,
+      linear-gradient(var(--c), var(--c)) top left / 2px 18px no-repeat,
+      linear-gradient(var(--c), var(--c)) top right / 18px 2px no-repeat,
+      linear-gradient(var(--c), var(--c)) top right / 2px 18px no-repeat,
+      linear-gradient(var(--c), var(--c)) bottom left / 18px 2px no-repeat,
+      linear-gradient(var(--c), var(--c)) bottom left / 2px 18px no-repeat,
+      linear-gradient(var(--c), var(--c)) bottom right / 18px 2px no-repeat,
+      linear-gradient(var(--c), var(--c)) bottom right / 2px 18px no-repeat,
+      repeating-linear-gradient(to right, var(--line) 0 1px, transparent 1px 12px) bottom 6px left 28px / calc(100% - 56px) 6px no-repeat;
+  }
+
+  /* ── Madde 16: glitch (üzerine gelince / odakta / bir kez) ── */
+  .glitch {
+    position: relative;
+    display: inline-block;
+  }
+  .glitch::before,
+  .glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0;
+  }
+  .glitch::before {
+    color: var(--magenta);
+  }
+  .glitch::after {
+    color: var(--cyan);
+  }
+  .glitch:hover::before,
+  .glitch:focus-visible::before,
+  .group:hover .glitch::before,
+  .group:focus-visible .glitch::before,
+  .glitch[data-active]::before {
+    animation: glitch-a 900ms steps(1) both;
+  }
+  .glitch:hover::after,
+  .glitch:focus-visible::after,
+  .group:hover .glitch::after,
+  .group:focus-visible .glitch::after,
+  .glitch[data-active]::after {
+    animation: glitch-b 900ms steps(1) both;
+  }
+
+  .flicker {
+    animation: flicker 4s linear infinite;
+  }
+  .neon-pulse {
+    animation: neon-pulse 2.6s ease-in-out infinite;
+  }
+}
+
+@keyframes scan-drift {
+  to {
+    transform: translateY(140vh);
+  }
+}
+/* Dilimler kısa aralıklarla kayar; parlaklık ani değişmez (WCAG 2.3.1: saniyede 3'ten az) */
+@keyframes glitch-a {
+  0% { opacity: 0.9; clip-path: inset(10% 0 70% 0); transform: translate(-3px, 0); }
+  20% { clip-path: inset(55% 0 20% 0); transform: translate(3px, 0); }
+  40% { clip-path: inset(30% 0 50% 0); transform: translate(-2px, 1px); }
+  60% { clip-path: inset(80% 0 5% 0); transform: translate(2px, 0); }
+  80% { clip-path: inset(0 0 85% 0); transform: translate(-1px, 0); }
+  100% { opacity: 0; }
+}
+@keyframes glitch-b {
+  0% { opacity: 0.9; clip-path: inset(65% 0 15% 0); transform: translate(3px, 0); }
+  25% { clip-path: inset(15% 0 60% 0); transform: translate(-3px, 0); }
+  50% { clip-path: inset(40% 0 40% 0); transform: translate(2px, -1px); }
+  75% { clip-path: inset(5% 0 80% 0); transform: translate(-2px, 0); }
+  100% { opacity: 0; }
+}
+/* 4 saniyede iki kısa sönme: tam karartma yok (en düşük %55) */
+@keyframes flicker {
+  0%, 41%, 43%, 76%, 79%, 100% { opacity: 1; }
+  42% { opacity: 0.55; }
+  77.5% { opacity: 0.7; }
+}
+@keyframes neon-pulse {
+  0%, 100% { filter: drop-shadow(0 0 4px var(--glow-cyan)); }
+  50% { filter: drop-shadow(0 0 14px var(--glow-cyan)) drop-shadow(0 0 2px var(--glow-cyan)); }
+}
+
+/* ── Madde 17 · efekt düzeyi: tam · sade (mobil, glitch yok) · kapalı (hareketi azalt) ── */
+:root[data-fx='sade'] .glitch::before,
+:root[data-fx='sade'] .glitch::after,
+:root[data-fx='kapali'] .glitch::before,
+:root[data-fx='kapali'] .glitch::after {
+  display: none;
+}
+:root[data-fx='sade'] .flicker,
+:root[data-fx='sade'] .scan-beam {
+  animation: none;
+}
+:root[data-fx='sade'] .scan-beam {
+  display: none;
+}
+:root[data-fx='kapali'] *,
+:root[data-fx='kapali'] *::before,
+:root[data-fx='kapali'] *::after {
+  animation: none !important;
+}
+:root[data-fx='kapali'] .scan-beam {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  /* Karmaşık HUD kenarı sade bir neon çizgiye döner */
+  .hud {
+    background: linear-gradient(var(--c), var(--c)) left top / 2px 100% no-repeat;
+    padding-left: 1rem;
+  }
+  .chamfer-lg {
+    --cut: 16px;
+  }
+}
+
+.glitch-shake {
+  animation: glitch-shake 320ms steps(2) both;
+}
+@keyframes glitch-shake {
+  0% { transform: translate(0, 0) skewX(0); }
+  25% { transform: translate(-4px, 0) skewX(-6deg); }
+  50% { transform: translate(3px, 0) skewX(4deg); }
+  75% { transform: translate(-2px, 0) skewX(-2deg); }
+  100% { transform: none; }
+}
+
+/* Radar taraması ve perspektif ızgara zemin (Madde 3: Grid) */
+.radar-sweep {
+  animation: radar 4s linear infinite;
+}
+@keyframes radar {
+  to {
+    transform: rotate(-360deg);
+  }
+}
+.grid-floor {
+  background-image:
+    linear-gradient(to right, color-mix(in srgb, var(--mor) 70%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in srgb, var(--mor) 70%, transparent) 1px, transparent 1px);
+  background-size: 56px 56px;
+  transform: perspective(520px) rotateX(64deg);
+  transform-origin: 50% 0;
+  animation: grid-run 3.2s linear infinite;
+  mask-image: linear-gradient(to bottom, transparent, #000 30%, #000 70%, transparent);
+}
+@keyframes grid-run {
+  to {
+    background-position: 0 56px;
+  }
+}
+:root[data-fx='sade'] .grid-floor,
+:root[data-fx='sade'] .radar-sweep {
+  animation-duration: 12s;
+}
+
+/* Hareket vitrini: üzerine gelince ya da odakta çalışan efektler */
+.demo-scan {
+  position: relative;
+  overflow: hidden;
+}
+.demo-scan::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -30%;
+  height: 30%;
+  background: linear-gradient(to bottom, transparent, color-mix(in srgb, var(--cyan) 45%, transparent), transparent);
+  opacity: 0;
+}
+.group:hover .demo-scan::after,
+.group:focus-visible .demo-scan::after {
+  opacity: 1;
+  animation: demo-scan 1.4s linear infinite;
+}
+@keyframes demo-scan {
+  to {
+    top: 100%;
+  }
+}
+.group:hover .demo-flicker,
+.group:focus-visible .demo-flicker {
+  animation: flicker 2s linear infinite;
+}
+:root[data-fx='sade'] .group:hover .demo-flicker,
+:root[data-fx='sade'] .group:focus-visible .demo-flicker {
+  animation: none;
+}
+
+/* Mobil HUD önizlemesi (Madde 17): karmaşık kenar yerine tek neon çizgi */
+.hud.hud-simple {
+  background: linear-gradient(var(--c), var(--c)) left top / 2px 100% no-repeat;
+  padding-left: 1rem;
+}

@@ -1,0 +1,91 @@
+{
+  "$description": "Stil 010: Cyberpunk (Neon & Grunge). W3C DTCG formatı. Adlar Figma yolu ile aynıdır: Style/Cyberpunk/Colors/*, Effects/NeonGlow/*. Varsayılan tema koyu 'Gece'; nadir açık varyant 'Gündüz' (beyaz zemin, koyu mor neon).",
+  "Style": {
+    "Cyberpunk": {
+      "Colors": {
+        "Base": { "$type": "color", "$value": "#050509", "$description": "Saf siyah değil: neonun etrafındaki ışık taşmasını ve göz yorgunluğunu azaltır" },
+        "Cyan": { "$type": "color", "$value": "#00F0FF", "$description": "Ana vurgu, bağlantı, odak. Zeminde 14,44:1" },
+        "Magenta": { "$type": "color", "$value": "#FF00A8", "$description": "Uyarı, hata, ikincil eylem. Zeminde 5,64:1, en açık kartta 5,19:1" },
+        "Purple": { "$type": "color", "$value": "#7A00FF", "$description": "Zeminde 3,17:1: metin değil, yalnız parlama, ızgara ve dolgu. Metin gerekirse #B98CFF" },
+        "Green": { "$type": "color", "$value": "#B6FF00", "$description": "Çevrimiçi, başarı. Zeminde 16,76:1" }
+      },
+      "Surface": {
+        "Card": { "$type": "color", "$value": "#0B0B14" },
+        "Raised": { "$type": "color", "$value": "#11111D" },
+        "Line": { "$type": "color", "$value": "rgb(0 240 255 / 0.22)" }
+      },
+      "Text": {
+        "Default": { "$type": "color", "dark": "#E8FBFF", "light": "#120A24", "contrast": { "enKotu": [17.54, 17.84] } },
+        "Muted": { "$type": "color", "dark": "#9AAFC4", "light": "#4A4560", "contrast": { "enKotu": [8.29, 8.45] } },
+        "OnCyan": { "$type": "color", "dark": "#050509", "light": "#FFFFFF", "contrast": [14.44, 11.94] }
+      },
+      "Light": {
+        "$description": "Madde 18: nadir açık varyant. Neonlar koyu mora döner; parlama %30–35'e iner, metal aşınması kapanır.",
+        "Base": { "$type": "color", "$value": "#F7F6FB" },
+        "Card": { "$type": "color", "$value": "#FFFFFF" },
+        "Cyan": { "$type": "color", "$value": "#4B0099", "$description": "Gri zeminde 11,10:1" },
+        "Magenta": { "$type": "color", "$value": "#B0006F", "$description": "Gri zeminde 6,35:1" },
+        "Purple": { "$type": "color", "$value": "#5B00C8", "$description": "Gri zeminde 8,57:1" },
+        "Green": { "$type": "color", "$value": "#3F6600", "$description": "Gri zeminde 6,28:1" }
+      }
+    }
+  },
+  "Effects": {
+    "NeonGlow": {
+      "$description": "Madde 7: geleneksel gölge yok; derinlik neon parlamasıdır. CSS filter: drop-shadow (şekli izler, kesik köşede de doğru çalışır).",
+      "sm": { "$type": "shadow", "$value": { "offsetX": "0", "offsetY": "0", "blur": "4px", "spread": "0", "color": "rgb(0 240 255 / 0.8)" } },
+      "md": { "$type": "shadow", "$value": { "offsetX": "0", "offsetY": "0", "blur": "8px", "spread": "0", "color": "rgb(0 240 255 / 0.8)" }, "$description": "Tanımdaki drop-shadow-[0_0_8px_rgba(0,240,255,0.8)]" },
+      "lg": { "$type": "shadow", "$value": [
+        { "offsetX": "0", "offsetY": "0", "blur": "14px", "spread": "0", "color": "rgb(0 240 255 / 0.8)" },
+        { "offsetX": "0", "offsetY": "0", "blur": "2px", "spread": "0", "color": "rgb(0 240 255 / 0.8)" }
+      ], "$description": "Nabız animasyonunun tepe noktası" },
+      "Tones": {
+        "cyan": { "$type": "color", "$value": "rgb(0 240 255 / 0.8)" },
+        "magenta": { "$type": "color", "$value": "rgb(255 0 168 / 0.75)" },
+        "purple": { "$type": "color", "$value": "rgb(122 0 255 / 0.85)" },
+        "green": { "$type": "color", "$value": "rgb(182 255 0 / 0.7)" }
+      }
+    },
+    "Texture": {
+      "$description": "Madde 8: hepsi metnin arkasında, pointer-events yok.",
+      "Scanlines": { "$type": "string", "$value": "repeating-linear-gradient(to bottom, rgb(255 255 255 / 0.035) 0 1px, transparent 1px 3px)" },
+      "NoiseOpacity": { "$type": "number", "$value": 0.07 },
+      "WearOpacity": { "$type": "number", "$value": 0.1, "$description": "Metal aşınması (çizik SVG). Gündüzde 0" }
+    }
+  },
+  "Shape": {
+    "$description": "Madde 6: kesik köşeler. Şekil ::before (çerçeve) ve ::after (dolgu) katmanlarında; öğe kırpılmaz, odak halkası görünür.",
+    "Chamfer": {
+      "sm": { "$type": "dimension", "$value": "10px", "$description": "Düğme, form alanı" },
+      "md": { "$type": "dimension", "$value": "16px" },
+      "lg": { "$type": "dimension", "$value": "26px", "$description": "Kart; 768px altında 16px" },
+      "Polygon": { "$type": "string", "$value": "polygon(var(--cut) 0, 100% 0, 100% calc(100% - var(--cut)), calc(100% - var(--cut)) 100%, 0 100%, 0 var(--cut))" }
+    },
+    "BorderWidth": { "$type": "dimension", "$value": "1px" }
+  },
+  "Typography": {
+    "Display": { "$type": "typography", "$value": { "fontFamily": "Rajdhani", "fontSize": "80px", "fontWeight": 700, "lineHeight": 0.95, "textTransform": "uppercase" }, "$description": "Türkçe glifleri tam" },
+    "Label": { "$type": "typography", "$value": { "fontFamily": "Rajdhani", "fontSize": "13px", "fontWeight": 700, "letterSpacing": "0.18em", "textTransform": "uppercase" } },
+    "Hud": { "$type": "typography", "$value": { "fontFamily": "Orbitron", "fontSize": "12px", "fontWeight": 700 }, "$description": "Yalnız rakam, kod, saat, koordinat: ğ, ş ve İ glifi yok" },
+    "Body": { "$type": "typography", "$value": { "fontFamily": "Space Grotesk", "fontSize": "16px", "fontWeight": 400, "lineHeight": 1.6 } },
+    "Terminal": { "$type": "typography", "$value": { "fontFamily": "IBM Plex Mono", "fontSize": "14px", "fontWeight": 400, "lineHeight": 1.6 } }
+  },
+  "Icon": {
+    "Stroke": { "$type": "dimension", "$value": "1.25px" },
+    "Grid": { "$type": "dimension", "$value": "24px", "$description": "Köşe işaretli HUD çerçevesi içinde" }
+  },
+  "Motion": {
+    "Glitch": { "$type": "duration", "$value": "900ms", "$description": "Üzerine gelince ya da odakta bir kez; renkli dilimler steps(1)" },
+    "Shake": { "$type": "duration", "$value": "320ms", "$description": "Form hatasında" },
+    "Flicker": { "$type": "duration", "$value": "4s", "$description": "İki kısa sönme, en düşük opaklık %55 (WCAG 2.3.1)" },
+    "Pulse": { "$type": "duration", "$value": "2.6s" },
+    "ScanDrift": { "$type": "duration", "$value": "9s", "$description": "Ekrandan yavaşça süzülen tarama çizgisi" },
+    "Levels": {
+      "$description": "data-fx: tam (masaüstü) · sade (768px altı: glitch ve kayan tarama yok) · kapali (prefers-reduced-motion: hiçbir animasyon yok). Kullanıcı seçimi localStorage 'cyber-fx'.",
+      "$value": ["oto", "tam", "sade", "kapali"]
+    }
+  },
+  "Responsive": {
+    "simpleBelow": { "$type": "dimension", "$value": "768px", "$description": "HUD köşe parantezleri ve cetvel tek 2px neon çizgiye iner; glitch durur" }
+  }
+}

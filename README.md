@@ -13,10 +13,11 @@ Web tasarım stilleri için canlı referans sayfaları. Her stil, anlattığı k
 | 007 · Claymorphism | `/stil/007/` | `src/clay/` | `tokens/clay.tokens.json` |
 | 008 · Isometric 3D | `/stil/008/` | `src/iso/` | `tokens/iso.tokens.json` |
 | 009 · Low Poly | `/stil/009/` | `src/lowpoly/` | `tokens/lowpoly.tokens.json` |
+| 010 · Cyberpunk | `/stil/010/` | `src/cyber/` | `tokens/cyber.tokens.json` |
 
 ```bash
 npm install
-npm run dev        # http://localhost:5173  → katalog, /stil/001/, /stil/002/, /stil/003/, /stil/004/, /stil/005/, /stil/006/, /stil/007/, /stil/008/, /stil/009/
+npm run dev        # http://localhost:5173  → katalog, /stil/001/, /stil/002/, /stil/003/, /stil/004/, /stil/005/, /stil/006/, /stil/007/, /stil/008/, /stil/009/, /stil/010/
 npm run build      # tip denetimi + dist/
 npm run typecheck
 ```
@@ -34,6 +35,7 @@ stil/006/index.html      Ambient UI giriş noktası
 stil/007/index.html      Claymorphism giriş noktası
 stil/008/index.html      Isometric 3D giriş noktası
 stil/009/index.html      Low Poly giriş noktası
+stil/010/index.html      Cyberpunk giriş noktası
 src/shared/              stiller arası ortak yardımcılar (cx, useTheme)
 src/swiss/               swiss.css (tema) · components/ · sections/
 src/soft/                soft.css (tema) · components/ · sections/
@@ -44,6 +46,7 @@ src/ambient/             ambient.css (tema) · components/ · hooks/ · sections
 src/clay/                clay.css (tema) · components/ · hooks/ · sections/
 src/iso/                 iso.css (tema) · lib/ (projeksiyon) · components/ · sections/
 src/lowpoly/             lowpoly.css (tema) · three/ (R3F sahneleri) · assets/ (GLB, .webp) · lib/ · sections/
+src/cyber/               cyber.css (tema) · components/ (CyberCard, CyberButton, CyberNav, CyberHUD) · hooks/ · sections/
 scripts/lowpoly-glb.mjs  Stil 009'un GLB modellerini üretir
 tokens/                  W3C DTCG token dosyaları (Figma / Tokens Studio)
 ```
@@ -186,6 +189,20 @@ Yüzey detayı en aza indirilmiş, düz gölgeli üçgenlerle kurulan nesneler: 
 - **Mobil ve performans (Madde 17):** 768px altında, veri tasarrufunda ya da WebGL yoksa sahne yüklenmez; yerine sahneden alınmış `.webp` kare gelir (hero 13 KB). three.js parçası (960 KB, gzip 256 KB) tembel yüklenir: bu durumda hiç indirilmez; kullanıcı "3B sahneyi yükle" ile açabilir. Ekran dışındaki sahne çizilmez (`frameloop="never"`).
 - **Erişilebilirlik (Madde 18):** Metin çokgen zeminin doğrudan üstünde durmaz; cam panelde (koyu %78, açık %82 opaklık, 14px bulanıklık). Doğrudan zeminde en kötü durum 2,43:1, cam panelde 11,05:1; sayfadaki kaydırıcı panel opaklığıyla en kötü durum kontrastını gerçek yüz renkleri üzerinden hesaplar. Canvas ekran okuyucudan gizlidir, vitrinin açıklaması ve her etkileşimin düğmesi vardır; sahne durdurulabilir (WCAG 2.2.2), hareketi azaltta model dönmez ve imleci izlemez.
 
+## Stil 010 · Cyberpunk
+
+Yüksek teknolojinin distopik, asi sokak kültürüyle birleştiği tasarım dili: karanlık zemin, agresif neon vurgular, tarama çizgileri, HUD panelleri ve glitch. Varsayılan tema koyu "Gece" (`#050509`); nadir açık varyant "Gündüz".
+
+- **Renk (Madde 4):** `#050509` zemin (saf siyah değil), camgöbeği `#00F0FF` ana vurgu, macenta `#FF00A8` uyarı ve ikincil eylem, mor `#7A00FF` yalnız parlama ve ızgara (zeminde 3,17:1, metin değil), neon yeşil `#B6FF00` çevrimiçi/başarı.
+- **Şekil ve derinlik (Madde 6 · 7):** Kesik köşeler `clip-path` ile `::before` (çerçeve) ve `::after` (dolgu) katmanlarında; öğenin kendisi kırpılmaz, odak halkası tam görünür. Geleneksel gölge yok: derinlik `drop-shadow` neon parlaması ve zemine düşen yansımadır.
+- **Doku (Madde 8):** CRT tarama çizgileri, SVG gürültü ve çizik deseniyle metal aşınması; üçü de metnin arkasında ve sayfada tek tek kapatılabilir. Ekrandan yavaşça süzülen tarama çizgisi (9 sn).
+- **Bileşenler (Madde 11 · 12 · 14):** `CyberCard` (etiket Auto Layout'un dışında, çerçevenin üstünde sekme), `CyberButton` (primary · magenta · ghost × Default · Glitch · Hover), `CyberInput` (hata anında macenta çerçeve ve kısa sarsıntı, odak kaybolmaz), `NeonProgress` (24 bölümlü neon çubuk), `CyberNav`, `CyberHUD` (köşe parantezli panel, canlı saat), `Radar` ve sekiz HUD ikonu (1,25px çizgi, köşe işaretli).
+- **Uygulama (Madde 10):** Komut alan terminal (`yardım`, `tara`, `durum`, `kilitle T-0x`, `temizle`; ok tuşlarıyla geçmiş) ve ona bağlı radar ile hedef listesi; erişim kodu formu (`NEON-2077`). Veriler kurgusaldır.
+- **Figma ve Tailwind (Madde 13 · 15):** `Style/Cyberpunk/Colors/{Base, Cyan, Magenta, Purple, Green}`, `Effects/NeonGlow/{sm, md, lg}`. Tanımdaki `bg-[#050509] text-[#00F0FF] border-[#FF00A8] drop-shadow-[0_0_8px_rgba(0,240,255,0.8)]` satırı sayfada birebir kullanılır; tema uyumlu bileşenler değişkenlerle çalışır.
+- **Hareket (Madde 16):** Glitch (900 ms, üzerine gelince ya da odakta bir kez), tarama, arızalı neon titreşimi (4 sn'de iki kısa sönme), nabız (2,6 sn), radar taraması ve akan perspektif ızgara. Efekt düzeyi: Otomatik · Tam · Sade · Kapalı (`data-fx`, `localStorage`).
+- **Mobil (Madde 17):** 768px altında efekt düzeyi kendiliğinden "Sade"ye iner: glitch ve kayan tarama durur, ızgara yavaşlar. HUD köşe parantezleri ve cetvel tek 2px neon çizgiye döner; kart köşe kesimi 26px'ten 16px'e iner; varyant tablosu satır başına bir gruba dönüşür.
+- **Erişilebilirlik (Madde 18):** En kötü yüzeyde metin 17,54:1, ikincil 8,29:1, camgöbeği 13,29:1, macenta 5,19:1. Gündüz varyantı beyaz zemine koyu mor neon: metin 17,84:1, birincil mor 11,10:1, macenta 6,35:1, yeşil 6,28:1; parlama %30–35'e iner, aşınma kapanır. Saniyede 3'ten az yanıp sönme (WCAG 2.3.1), titreşimde en düşük opaklık %55; hareketi azalt tercihinde hiçbir animasyon oynamaz; FX seçicisi süzülen taramayı her an durdurur (WCAG 2.2.2). Terminal çıktısı `role="log"`, form hataları alana bağlı ve `role="alert"`.
+
 ## Yazı tipleri
 
-Hepsi OFL lisanslı, `@fontsource-variable` paketlerinden yalnızca Latin ve Latin Genişletilmiş alt kümeleriyle yüklenir: Inter (Stil 001 ve 003), Lora ve Plus Jakarta Sans (Stil 002), Geist ve Geist Mono (Stil 004; `₺` glifi olmadığı için tutarlar "TL" ile yazılır), Nunito (Stil 005), Sora (Stil 006), Baloo 2 ve Quicksand (Stil 007; Fredoka ğ, ş ve İ içermediği için başlıkta Baloo 2 seçildi), Manrope ve IBM Plex Mono (Stil 008; Space Mono `₺` içermediği için Plex Mono seçildi), Space Grotesk ve Inter (Stil 009). Lisanslı Helvetica Now ya da Neue Haas Grotesk kullanmak için `src/swiss/swiss.css` içindeki `@font-face` bloklarını ve `--font-sans` sırasını değiştirin.
+Hepsi OFL lisanslı, `@fontsource-variable` paketlerinden yalnızca Latin ve Latin Genişletilmiş alt kümeleriyle yüklenir: Inter (Stil 001 ve 003), Lora ve Plus Jakarta Sans (Stil 002), Geist ve Geist Mono (Stil 004; `₺` glifi olmadığı için tutarlar "TL" ile yazılır), Nunito (Stil 005), Sora (Stil 006), Baloo 2 ve Quicksand (Stil 007; Fredoka ğ, ş ve İ içermediği için başlıkta Baloo 2 seçildi), Manrope ve IBM Plex Mono (Stil 008; Space Mono `₺` içermediği için Plex Mono seçildi), Space Grotesk ve Inter (Stil 009), Rajdhani, Orbitron, Space Grotesk ve IBM Plex Mono (Stil 010; Rajdhani ve Plex Mono sabit ağırlıklı `@fontsource` paketlerinden gelir; Orbitron ğ, ş ve İ içermediği için yalnız Latin alt kümesiyle yüklenir ve yalnız rakam, kod ve saatlerde kullanılır, başlıklar Rajdhani). Lisanslı Helvetica Now ya da Neue Haas Grotesk kullanmak için `src/swiss/swiss.css` içindeki `@font-face` bloklarını ve `--font-sans` sırasını değiştirin.
