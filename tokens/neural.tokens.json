@@ -1,0 +1,100 @@
+{
+  "$description": "Stil 015: Neural Aesthetic (AI Futurism). W3C DTCG formatı. Adlar Figma yolu ile aynıdır: Color/NodeActive, Color/EdgeLine, Effects/NeuralGlow. Salt koyu mod: açık tema yok. Kontrast değerleri en kötü yüzeyde (#1E1E29) ölçüldü, aksi belirtilmedikçe.",
+  "Color": {
+    "SpaceBlack": { "$type": "color", "$value": "#0A0A0A", "$description": "Madde 4: derin uzay siyahı; sayfa zemini" },
+    "Surface": {
+      "Panel": { "$type": "color", "$value": "#111118", "$description": "Panel, %88 örtücülükle ızgaranın üstünde" },
+      "Raised": { "$type": "color", "$value": "#17171F" },
+      "Hover": { "$type": "color", "$value": "#1E1E29" }
+    },
+    "Line": {
+      "Default": { "$type": "color", "$value": "rgb(255 255 255 / 0.08)", "$description": "Madde 6: kapsayıcı ince çizgi" },
+      "Strong": { "$type": "color", "$value": "rgb(255 255 255 / 0.16)" }
+    },
+    "Text": {
+      "Ink": { "$type": "color", "$value": "#EDEDF3", "contrast": 14.15 },
+      "Muted": { "$type": "color", "$value": "#A3A3B8", "contrast": 6.67 },
+      "Faint": { "$type": "color", "$value": "#8B8BA1", "contrast": 4.95, "$description": "Etiketler; en düşük metin kontrastı" }
+    },
+    "Brand": {
+      "$description": "Gradient/Brand: yapay zekâ. Bağlantı, vurgu, birincil düğme. Düğme metni #0A0A0A (en az 7,27:1).",
+      "Blue": { "$type": "color", "$value": "#60A5FA", "contrast": 6.49 },
+      "Violet": { "$type": "color", "$value": "#A78BFA", "contrast": 6.06 },
+      "BlueDeep": { "$type": "color", "$value": "#3B82F6" },
+      "VioletDeep": { "$type": "color", "$value": "#8B5CF6" }
+    },
+    "NodeActive": { "$type": "color", "$value": "#FACC15", "contrast": 10.77, "$description": "Madde 4: işlemde — sarı parlama. Seçili yol, çalışan adım, sıcak GPU" },
+    "NodeDone": { "$type": "color", "$value": "#4ADE80", "contrast": 9.47, "$description": "Tamamlandı — yeşil parlama" },
+    "NodeIdle": { "$type": "color", "$value": "#71717A", "contrast": 3.89, "$description": "Boşta; grafik öğesi (en az 3:1), durum ayrıca metinle yazılır. Panel üstünde ölçüldü" },
+    "Error": { "$type": "color", "$value": "#F87171", "contrast": 5.96, "$description": "Yalnız ikon ve metinle" },
+    "EdgeLine": { "$type": "color", "$value": "rgb(139 92 246 / 0.35)", "$description": "Madde 13: bağlantı çizgisi; bilgi taşımaz. Yüksek kontrastta rgb(167 139 250 / 0.75)" },
+    "EdgeStrong": { "$type": "color", "$value": "rgb(167 139 250 / 0.7)" },
+    "Focus": { "$type": "color", "$value": "#C7D2FE", "contrast": 13.27, "$description": "Odak halkası 2px, #0A0A0A üstünde" }
+  },
+  "Gradient": {
+    "Brand": { "$type": "gradient", "$value": [{ "color": "#60A5FA", "position": 0 }, { "color": "#A78BFA", "position": 1 }], "$description": "120°. SVG'de yatay yollarda gradientUnits=userSpaceOnUse (sıfır yükseklikli sınır kutusunda objectBoundingBox çizilmez)" }
+  },
+  "Effects": {
+    "NeuralGlow": {
+      "$type": "shadow",
+      "$description": "Madde 13: CSS filter drop-shadow; düğüm ve ikon. Sade efekt ve yüksek kontrastta none.",
+      "$value": [
+        { "offsetX": "0", "offsetY": "0", "blur": "4px", "spread": "0", "color": "rgb(167 139 250 / 0.9)" },
+        { "offsetX": "0", "offsetY": "0", "blur": "16px", "spread": "0", "color": "rgb(96 165 250 / 0.45)" }
+      ]
+    },
+    "ActiveGlow": {
+      "$type": "shadow",
+      "$value": [
+        { "offsetX": "0", "offsetY": "0", "blur": "4px", "spread": "0", "color": "rgb(250 204 21 / 0.9)" },
+        { "offsetX": "0", "offsetY": "0", "blur": "14px", "spread": "0", "color": "rgb(250 204 21 / 0.4)" }
+      ]
+    },
+    "DepthOfField": {
+      "$description": "Madde 7: dört Z katmanı. Odak dışı katmanlar bulanık; imleçle farklı hızda kayar (paralaks px).",
+      "Far": { "$type": "string", "$value": "blur(3px) · opacity 0.35 · paralaks 6" },
+      "Mid": { "$type": "string", "$value": "blur(1.2px) · opacity 0.3 · paralaks 12" },
+      "Focus": { "$type": "string", "$value": "keskin · paralaks 18" },
+      "Near": { "$type": "string", "$value": "blur(5px) · opacity 0.12–0.32 · paralaks 34" }
+    }
+  },
+  "Chart": {
+    "$description": "Dataviz doğrulayıcısından geçti (koyu, yüzey #111118): açıklık bandı, kroma, CVD ΔE 14,4, normal görüş ΔE 27,2, kontrast.",
+    "Series1": { "$type": "color", "$value": "#3B82F6", "contrast": 5.11, "$description": "Eğitim kaybı; düz çizgi" },
+    "Series2": { "$type": "color", "$value": "#E0569A", "contrast": 5.34, "$description": "Doğrulama kaybı; kesik çizgi + 8px işaretçi" },
+    "LearningRate": { "$type": "color", "$value": "#8B5CF6", "contrast": 4.44 },
+    "QualityRamp": { "$type": "color", "$value": ["#6366F1", "#818CF8", "#A5B4FC", "#C7D2FE"], "$description": "Tek tonlu sıra; en koyusu 4,21:1. Eşikler 0,40 · 0,60 · 0,80" }
+  },
+  "Typography": {
+    "$description": "Madde 5: minimalist fütüristik sans + mono.",
+    "Display": { "$type": "typography", "$value": { "fontFamily": "Outfit", "fontSize": "68px", "fontWeight": 250, "lineHeight": 1.05, "letterSpacing": "-0.02em" } },
+    "Section": { "$type": "typography", "$value": { "fontFamily": "Outfit", "fontSize": "40px", "fontWeight": 300, "lineHeight": 1.15 } },
+    "Body": { "$type": "typography", "$value": { "fontFamily": "Outfit", "fontSize": "16px", "fontWeight": 350, "lineHeight": 1.6 } },
+    "Data": { "$type": "typography", "$value": { "fontFamily": "Martian Mono", "fontSize": "12px", "fontWeight": 400, "fontStretch": "87.5%" } },
+    "Label": { "$type": "typography", "$value": { "fontFamily": "Martian Mono", "fontSize": "11px", "fontStretch": "87.5%", "letterSpacing": "0.06em", "textCase": "uppercase" } }
+  },
+  "Shape": {
+    "Node": { "$type": "dimension", "$value": "44px", "$description": "Madde 6: düğüm daire; kenar 1,5px" },
+    "Edge": { "$type": "string", "$value": "cubic Bezier, kontrol noktaları akış yönünde %50", "$description": "M x1 y1 C x1+dx/2 y1, x2-dx/2 y2, x2 y2" },
+    "RadiusContainer": { "$type": "dimension", "$value": "14px" },
+    "Stroke": { "$type": "dimension", "$value": "1px", "$description": "Kapsayıcı; köşelerde 10px işaret" }
+  },
+  "Motion": {
+    "Draw": { "$type": "duration", "$value": "900ms", "$description": "Madde 15: pathLength=1, stroke-dasharray 1, stroke-dashoffset 1'den 0'a; cubic-bezier(0.3, 0.7, 0.3, 1)" },
+    "Flow": { "$type": "duration", "$value": "2.4s", "$description": "stroke-dasharray 0.07 0.93, dashoffset 1'den 0'a, linear, sonsuz" },
+    "ConnectorFill": { "$type": "duration", "$value": "420ms", "$description": "Zaman çizelgesi bağlantısı: dashoffset calc(1 - var(--p))" },
+    "Pulse": { "$type": "duration", "$value": "1.6s", "$description": "Çalışan düğüm halkası 2,3 katına büyüyüp söner" },
+    "Wave": { "$type": "duration", "$value": "3.2s", "$description": "İleri geçiş: katman başına 0,36 sn gecikme" },
+    "Dust": { "$type": "string", "$value": "0.02–0.12 px/kare", "$description": "Madde 8: üç derinlikte toz; en çok 150 parçacık" },
+    "Grid": { "$type": "duration", "$value": "40s", "$description": "56px ızgara kayması" },
+    "Levels": { "$description": "data-motion: on · off (hareketi azalt ya da kullanıcı; localStorage 'neural-motion'). Kapalıyken çizgiler son hâlinde, akış gizli, toz durur.", "$value": ["oto", "acik", "kapali"] }
+  },
+  "Responsive": {
+    "PanZoom": { "$type": "string", "$value": "touch-action: none · tek parmak kaydırır · iki parmak / Ctrl+tekerlek yakınlaştırır · klavye oklar, +, −, 0", "$description": "Madde 17: veri seti haritası her ekranda, işlemci ağacı 768px altında kaydırılabilir alan; ağaç %210 okunur ölçekte başlar" },
+    "Timeline": { "$type": "string", "$value": "768px ve üstü yatay, altı dikey" }
+  },
+  "Variants": {
+    "Fx": { "$value": ["tam", "sade"], "$description": "data-fx; sade: toz, parıltı ve odak bulanıklığı yok" },
+    "Contrast": { "$value": ["normal", "yuksek"], "$description": "data-contrast; yüksek: ikincil metin #D4D4DE, soluk #C2C2CF, çizgiler %24/%45, parıltı yok" }
+  }
+}

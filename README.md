@@ -18,10 +18,11 @@ Web tasarım stilleri için canlı referans sayfaları. Her stil, anlattığı k
 | 012 · Terminal / Hacker UI | `/stil/012/` | `src/term/` | `tokens/term.tokens.json` |
 | 013 · Generative UI | `/stil/013/` | `src/gen/` | `tokens/gen.tokens.json` |
 | 014 · Conversational UI | `/stil/014/` | `src/chat/` | `tokens/chat.tokens.json` |
+| 015 · Neural Aesthetic | `/stil/015/` | `src/neural/` | `tokens/neural.tokens.json` |
 
 ```bash
 npm install
-npm run dev        # http://localhost:5173  → katalog, /stil/001/, /stil/002/, /stil/003/, /stil/004/, /stil/005/, /stil/006/, /stil/007/, /stil/008/, /stil/009/, /stil/010/, /stil/011/, /stil/012/, /stil/013/, /stil/014/
+npm run dev        # http://localhost:5173  → katalog, /stil/001/, /stil/002/, /stil/003/, /stil/004/, /stil/005/, /stil/006/, /stil/007/, /stil/008/, /stil/009/, /stil/010/, /stil/011/, /stil/012/, /stil/013/, /stil/014/, /stil/015/
 npm run build      # tip denetimi + dist/
 npm run typecheck
 ```
@@ -44,6 +45,7 @@ stil/011/index.html      Holographic giriş noktası
 stil/012/index.html      Terminal / Hacker UI giriş noktası
 stil/013/index.html      Generative UI giriş noktası
 stil/014/index.html      Conversational UI giriş noktası
+stil/015/index.html      Neural Aesthetic giriş noktası
 src/shared/              stiller arası ortak yardımcılar (cx, useTheme)
 src/swiss/               swiss.css (tema) · components/ · sections/
 src/soft/                soft.css (tema) · components/ · sections/
@@ -59,6 +61,7 @@ src/holo/                holo.css (tema) · components/ (CommandCenter, HoloPane
 src/term/                term.css (tema) · components/ (TerminalShell, Kbd, LogStream, AsciiTable, CommandPalette) · lib/ (ascii, veri) · sections/
 src/gen/                 gen.css (tema) · components/ (ToolCall, ToolResult, AICitation, AISources, Markdown) · results/ · lib/ (markdown, senaryolar) · sections/
 src/chat/                chat.css (tema) · components/ (AIChat, AIPromptBox, AIMessage, AIVoiceInput) · widgets/ (yanıt içi örnekler) · lib/ (konular, dosya analizi) · hooks/ · host/
+src/neural/              neural.css (tema) · components/ (AIAgentTimeline, AIModelSelector, NeuralGraph, PanZoom, ProcessorTree) · charts/ · lib/ (ajan planı, modeller, eğitim, veri seti) · sections/
 scripts/lowpoly-glb.mjs  Stil 009'un GLB modellerini üretir
 tokens/                  W3C DTCG token dosyaları (Figma / Tokens Studio)
 ```
@@ -273,6 +276,21 @@ Gezinme menüsü yok: bütün ekran bir mesaj akışı ve altta sabit duran bir 
 - **Mobil (Madde 17):** Görünür alanın yüksekliği `visualViewport` ile `--app-h` değişkenine yazılır ve sohbet bu yükseklikle konumlanır; klavye açılınca komut kutusu klavyenin üstünde kalır (`interactive-widget=resizes-content` ile birlikte). Destek penceresi mobilde tam ekran açılır.
 - **Erişilebilirlik (Madde 18):** İki gizli `aria-live` bölgesi: "Asistan düşünüyor", yanıt bitince tamamı tek duyuru (kelimeler tek tek okunmaz, akan balon `aria-busy`), durdurma, eklenen ve kaldırılan dosyalar; hatalar `assertive`. Her balonda ekran okuyucu için "Siz" ya da "Asistan" başlığı, eklenen görsellerde dosya adıyla alt metin. En kötü yüzeyde metin 15,37:1 (koyu 12,92:1), ikincil 5,70:1 (6,05:1), vurgu metni en az 4,78:1 (5,56:1).
 
+## Stil 015 · Neural Aesthetic
+
+Verinin işlenişini, sinir ağlarını ve yapay zekânın "zihnini" derin uzay siyahında parlayan düğümler, Bezier bağlantılar ve zaman çizelgeleriyle gösteren teknik ve mistik bir estetik. Sayfa bir tanıtımdır: modeller, görevler ve eğitim verisi kurgudur, veri tohumlu üreteçle her açılışta aynı çizilir.
+
+- **Ağ ve derinlik (Madde 2 · 3 · 7 · 8):** Kahraman ağı dört Z katmanından oluşur: uzak ve orta katman bulanık soluk ağlar, odak katmanı keskin asıl ağ, yakın katman odak dışı partiküller. İmleç hareketinde katmanlar farklı hızda kayar. Çıktı düğmelerinden biri seçilince ona en güçlü ağırlıklarla ulaşan yol sarı çizgiyle, çizilerek belirir. Arka planda üç derinlikte yavaşça kayan dijital toz (tuval) ve 40 saniyede kayan ızgara.
+- **Ajan takibi (Madde 10 · 11 · 14):** `<AIAgentTimeline>` görevi Anla, Ara, Analiz Et, Üret aşamalarında gösterir; her düşünce, araç çağrısı ve bulgu günlüğe düşer, sonuç Üret adımında kelime kelime akar. Duraklatılır, olay olay ilerletilir; Ara adımında zaman aşımı oluşturulup yeniden deneme izlenebilir. `<AIModelSelector>` bulut ve yerel modelleri aranabilir bir listede yetenek rozetleriyle (Akıl yürütme, Araç, Görsel, Kod, Uzun bağlam) sunar; yer ve yetenek süzgeci vardır, bu makinenin 24 GB VRAM'ine sığmayan model nedeniyle birlikte seçilemez. Seçim davranışı değiştirir: yerel model web araması yapmaz, araç çağıramayan model Ara adımını atlar.
+- **LLM eğitim paneli (Madde 10):** Canlı akan (duraklatılabilir) adım, kayıp, perpleksite, görülen token ve kalan süre. Kayıp grafiği tek eksenli (eğitim düz mavi, doğrulama kesik pembe ve işaretçili), öğrenme oranı kendi grafiğinde; artı imleçli ipucu fareyle, dokunarak ya da ok tuşlarıyla okunur, tablo görünümü açılır. İşlemci ağacı küme, iki düğüm ve sekiz GPU'yu kullanım halkası ve sıcaklık uyarısıyla gösterir.
+- **Veri seti analizi (Madde 10 · 17):** Gömme uzayından 194 örneklik kesit. Analitik katmanlar (benzerlik kenarları, küme sınırları, aykırılar, kopyalar, odak derinliği) açılıp kapanır; noktaya dokununca örnek, kalite, metin ve en yakın komşular açılır. Aykırılar sarı üçgen, kopyalar kırmızı kare: renk tek başına bilgi taşımaz.
+- **Renk ve yazı (Madde 4 · 5):** Zemin `#0A0A0A`; Gradient/Brand `#60A5FA` ile `#A78BFA` arası; işlemde sarı `#FACC15`, tamam yeşil `#4ADE80`. Grafik renkleri dataviz doğrulayıcısından geçti (CVD ΔE 14,4). Başlık ve metin Outfit (ince ağırlıklar), veri ve etiket Martian Mono (genişlik ekseniyle etiketlerde %87,5).
+- **Şekil, ikon (Madde 6 · 9):** Düğüm daire, bağlantı Bezier eğrisi, kapsayıcı 1px çizgi ve köşe işaretleri. İkonlar: beyin, sinir ağı, kıvılcım, işlemci ağacı.
+- **Figma (Madde 12 · 13):** Otomatik bağlayıcı örneği (Arrow Auto gibi): düğümler sürüklenince ya da ok tuşlarıyla taşınınca bağlantı çıkış ve giriş kenarını kendisi seçer. Step bileşeni State (Bekliyor, Çalışıyor, Tamamlandı, Hata, Atlandı) ve Orientation varyantlarıyla, Connector Progress varyantlarıyla. Tokenlar: `Color/NodeActive`, `Color/EdgeLine`, `Effects/NeuralGlow` ve diğerleri `tokens/neural.tokens.json` içinde.
+- **CSS ve hareket (Madde 15 · 16):** SVG yolları `pathLength="1"` ile normalleşir; çizerek belirme `stroke-dashoffset` 1'den 0'a, veri akışı `stroke-dasharray: 0.07 0.93` ile yol boyunca ilerleyen parça, zaman çizelgesi bağlantısı `calc(1 - var(--p))` ile dolar. Çalışan düğüm nabız atar ve titrer. Hareket kapalıyken (ya da hareketi azalt tercihinde) çizgiler son hâlinde durur, akış ve toz durur.
+- **Mobil (Madde 17):** Veri seti haritası her ekranda, işlemci ağacı 768px altında kaydırılıp yakınlaştırılan bir alan: tek parmak kaydırır, iki parmak ya da Ctrl + tekerlek yakınlaştırır (düz tekerlek sayfayı kaydırmaya devam eder), odaktayken oklar, + − ve 0 çalışır. Ağaç mobilde okunur ölçekte başlar. Zaman çizelgesi dar ekranda dikey.
+- **Erişilebilirlik (Madde 18):** Salt koyu mod (`color-scheme: dark`, açık tema yok). Görsel gösterinin arkasındaki veri ölçüldü: metin en kötü yüzeyde 14,15:1, ikincil 6,67:1, en soluk etiket 4,95:1, birincil düğme metni en az 7,27:1; grafik öğeleri en az 3:1. Her görselin okunabilir karşılığı var (tablolar, durum metinleri, `aria-current="step"`, canlı duyurular). Varyantlar: Sade efekt (toz, parıltı ve bulanıklık yok) ve Yüksek kontrast.
+
 ## Yazı tipleri
 
-Hepsi OFL lisanslı, `@fontsource-variable` paketlerinden yalnızca Latin ve Latin Genişletilmiş alt kümeleriyle yüklenir: Inter (Stil 001 ve 003), Lora ve Plus Jakarta Sans (Stil 002), Geist ve Geist Mono (Stil 004; `₺` glifi olmadığı için tutarlar "TL" ile yazılır), Nunito (Stil 005), Sora (Stil 006), Baloo 2 ve Quicksand (Stil 007; Fredoka ğ, ş ve İ içermediği için başlıkta Baloo 2 seçildi), Manrope ve IBM Plex Mono (Stil 008; Space Mono `₺` içermediği için Plex Mono seçildi), Space Grotesk ve Inter (Stil 009), Rajdhani, Orbitron, Space Grotesk ve IBM Plex Mono (Stil 010; Rajdhani ve Plex Mono sabit ağırlıklı `@fontsource` paketlerinden gelir; Orbitron ğ, ş ve İ içermediği için yalnız Latin alt kümesiyle yüklenir ve yalnız rakam, kod ve saatlerde kullanılır, başlıklar Rajdhani), Audiowide, Exo 2, Chakra Petch ve IBM Plex Mono (Stil 011; Audiowide ve Chakra Petch sabit ağırlıklı `@fontsource` paketlerinden), JetBrains Mono, Fira Code ve Source Code Pro (Stil 012), Inter, Source Serif 4 ve JetBrains Mono (Stil 013), Inter ve JetBrains Mono (Stil 014). Lisanslı Helvetica Now ya da Neue Haas Grotesk kullanmak için `src/swiss/swiss.css` içindeki `@font-face` bloklarını ve `--font-sans` sırasını değiştirin.
+Hepsi OFL lisanslı, `@fontsource-variable` paketlerinden yalnızca Latin ve Latin Genişletilmiş alt kümeleriyle yüklenir: Inter (Stil 001 ve 003), Lora ve Plus Jakarta Sans (Stil 002), Geist ve Geist Mono (Stil 004; `₺` glifi olmadığı için tutarlar "TL" ile yazılır), Nunito (Stil 005), Sora (Stil 006), Baloo 2 ve Quicksand (Stil 007; Fredoka ğ, ş ve İ içermediği için başlıkta Baloo 2 seçildi), Manrope ve IBM Plex Mono (Stil 008; Space Mono `₺` içermediği için Plex Mono seçildi), Space Grotesk ve Inter (Stil 009), Rajdhani, Orbitron, Space Grotesk ve IBM Plex Mono (Stil 010; Rajdhani ve Plex Mono sabit ağırlıklı `@fontsource` paketlerinden gelir; Orbitron ğ, ş ve İ içermediği için yalnız Latin alt kümesiyle yüklenir ve yalnız rakam, kod ve saatlerde kullanılır, başlıklar Rajdhani), Audiowide, Exo 2, Chakra Petch ve IBM Plex Mono (Stil 011; Audiowide ve Chakra Petch sabit ağırlıklı `@fontsource` paketlerinden), JetBrains Mono, Fira Code ve Source Code Pro (Stil 012), Inter, Source Serif 4 ve JetBrains Mono (Stil 013), Inter ve JetBrains Mono (Stil 014), Outfit ve Martian Mono (Stil 015; ikisinde de `→`, `✓`, `≥` ve `₺` glifi yok, arayüzde kullanılmaz). Lisanslı Helvetica Now ya da Neue Haas Grotesk kullanmak için `src/swiss/swiss.css` içindeki `@font-face` bloklarını ve `--font-sans` sırasını değiştirin.
