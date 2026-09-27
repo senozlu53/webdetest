@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="description" content="Stil 008: Isometric 3D. Ortografik projeksiyon, 30° izometrik ızgara, üç tonlu bloklar, katmanlı mimari çizimleri, izometrik veri merkezi paneli ve düz kalan arayüz." />
+    <meta name="theme-color" content="#f8fafc" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpolygon points='12,2 22,7.5 12,13 2,7.5' fill='%2360A5FA'/%3E%3Cpolygon points='2,7.5 12,13 12,23 2,17.5' fill='%233B82F6'/%3E%3Cpolygon points='12,13 22,7.5 22,17.5 12,23' fill='%231D4ED8'/%3E%3C/svg%3E" />
+    <title>Stil 008 · Isometric 3D</title>
+    <script>
+      try {
+        var d = document.documentElement
+        var t = localStorage.getItem('iso-theme')
+        if (t === 'light' || t === 'dark') d.dataset.theme = t
+        if (localStorage.getItem('iso-projection') === 'oyun') d.dataset.projection = 'oyun'
+      } catch (e) {}
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/iso/main.tsx"></script>
+  </body>
+</html>

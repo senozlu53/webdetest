@@ -11,10 +11,11 @@ Web tasarım stilleri için canlı referans sayfaları. Her stil, anlattığı k
 | 005 · Neumorphism | `/stil/005/` | `src/neu/` | `tokens/neu.tokens.json` |
 | 006 · Ambient UI | `/stil/006/` | `src/ambient/` | `tokens/ambient.tokens.json` |
 | 007 · Claymorphism | `/stil/007/` | `src/clay/` | `tokens/clay.tokens.json` |
+| 008 · Isometric 3D | `/stil/008/` | `src/iso/` | `tokens/iso.tokens.json` |
 
 ```bash
 npm install
-npm run dev        # http://localhost:5173  → katalog, /stil/001/, /stil/002/, /stil/003/, /stil/004/, /stil/005/, /stil/006/, /stil/007/
+npm run dev        # http://localhost:5173  → katalog, /stil/001/, /stil/002/, /stil/003/, /stil/004/, /stil/005/, /stil/006/, /stil/007/, /stil/008/
 npm run build      # tip denetimi + dist/
 npm run typecheck
 ```
@@ -30,6 +31,7 @@ stil/004/index.html      Glassmorphism giriş noktası
 stil/005/index.html      Neumorphism giriş noktası
 stil/006/index.html      Ambient UI giriş noktası
 stil/007/index.html      Claymorphism giriş noktası
+stil/008/index.html      Isometric 3D giriş noktası
 src/shared/              stiller arası ortak yardımcılar (cx, useTheme)
 src/swiss/               swiss.css (tema) · components/ · sections/
 src/soft/                soft.css (tema) · components/ · sections/
@@ -38,6 +40,7 @@ src/glass/               glass.css (tema) · components/ · sections/
 src/neu/                 neu.css (tema) · components/ · sections/
 src/ambient/             ambient.css (tema) · components/ · hooks/ · sections/
 src/clay/                clay.css (tema) · components/ · hooks/ · sections/
+src/iso/                 iso.css (tema) · lib/ (projeksiyon) · components/ · sections/
 tokens/                  W3C DTCG token dosyaları (Figma / Tokens Studio)
 ```
 
@@ -153,6 +156,20 @@ Parlak pastel renkler ve oyun hamuru gibi şişirilmiş, mat kil bileşenler. Ne
 - **Mobil (Madde 17):** 640px altında d %60'a iner (xl ≈ md, md ≈ sm): gölge taşması 48px'ten 29px'e düşer, boyanan bulanık alan yaklaşık üçte bire iner.
 - **Erişilebilirlik ve Dark Cyber-Clay (Madde 18):** Ana metin zeminde 13,84:1, en koyu pastelde (pembe) 6,19:1; mor düğmede beyaz 5,8:1. Koyu varyantta açık iç gölge neon ışığa döner (pembe, mor ya da camgöbeği seçilebilir); metin 14,75–17,11:1, neon vurgu kilde en az 6,65:1. Kil kenarının zeminle farkı yalnızca 1,06–2,24:1 olduğundan "Kenarlı mod" (ve `prefers-contrast: more`) her kile 2px mürekkep kenar ekler; zorunlu renk modunda da kenar çizilir. Hedefler en az 44px, gövde 17px/500. Hareket azaltmada giriş, süzülme ve zıplama kapanır.
 
+## Stil 008 · Isometric 3D
+
+Ortografik projeksiyon: kaçış noktası yok, çizgiler paralel, nesneler 30° izometrik ızgaraya oturur. Her nesnenin üç tonu var: üst aydınlık, sol orta, sağ karanlık. Arayüz düzdür; izometri yalnızca illüstrasyon ve veri görselindedir.
+
+- **Projeksiyon (Madde 3 · 12 · 15):** CSS'te `rotateX(θ) rotateZ(-45deg)` ve `transform-style: preserve-3d`; SVG çizimlerde aynı matrisin izdüşümü (`src/iso/lib/iso.ts`): x' = (x + y)·√½, y' = (y − x)·√½·cos θ − z·sin θ. Varsayılan θ = 54,7356° (arctan √2) gerçek izometridir: çizgiler 30°, üç eksen 0,816 oranında kısalır. Tanımdaki `rotateX(60deg)` satırı 2:1 oyun izometrisini verir (çizgiler 26,57°); sayfadaki seçiciyle bütün sahneler, sayfa arka planındaki ızgara ve CSS 3D kaplar birlikte değişir.
+- **Figma (Madde 12 · 13):** 30° ızgara şeması, Auto Layout'u bozmadan düzlemi yatıran CSS dönüşümü (kaydırıcıyla) ve Skew yöntemi: üst `rotate(-30deg) skewX(30deg) scaleY(0.86603)`, sol `skewY(30deg) scaleX(0.86603)`, sağ `skewY(-30deg) scaleX(0.86603)`; yüzlerin içindeki grafik, tablo ve kartlar düz yerleşimde kalır. Tokenlar: `Grid/Isometric`, `Color/SurfaceTop`, `Color/SurfaceLeft`, `Color/SurfaceRight`, `Shadow/Directional`.
+- **Renk (Madde 4):** Beş renk × üç ton (mavi `#60A5FA / #3B82F6 / #1D4ED8` tanımdaki gibi) ve nötr arduvaz plakalar. Etiket kuralı: üst yüzde koyu mürekkep (en az 6,56:1), sağ yüzde beyaz (en az 5,02:1), sol yüzde yazı yok.
+- **Gölge ve doku (Madde 7 · 8):** Sert, bulanıksız, tek yönlü uzun gölgeler: ışık (−x, −y) yönünden gelir, gölge taban ile kaydırılmış tavanın dışbükey zarfıdır ve üzerinde durduğu plakaya kırpılır. Z ekseninde süzülen saydam cam katmanlar. Doku yalnızca 1px izometrik ızgara.
+- **Bileşenler (Madde 11 · 14):** `IsometricContainer` (CSS 3D düzlem; izdüşümün kapladığı s·√2 × s·√2·cos θ alanı yerleşimde ayırır), `LayeredCard` (translateZ ile süzülen katman ve zemine düşen sert gölge), SVG tarafında `IsoScene`, `IsoBlock`, `IsoShadow`, `IsoGround`. Parçalara ayrılmış (exploded) mimari görünümü ayrışma kaydırıcısıyla; izometrik sütun grafiği ve tablo görünümü; projeksiyonla çizilmiş ikonlar (sunucu, veritabanı, paket, kripto, lojistik, analitik).
+- **Uygulama (Madde 10):** Veri merkezi paneli: bölge ve ölçüt filtreleri, izometrik dolap haritası (yükseklik yük, renk durum), KPI kartları ve düz tablo. Veriler kurgusaldır.
+- **Hareket (Madde 16):** Sıralı inşa: bloklar alttan üste, aynı katta uzaktan yakına, 90ms arayla düşer ya da yükselir (640ms); sütunlar sırayla yükselir.
+- **Mobil (Madde 17):** 768px altında izometrik sahneler ve CSS 3D katmanlar gizlenir, aynı katmanlar düz liste ya da dikey yığın olarak gösterilir.
+- **Erişilebilirlik (Madde 18):** Form öğeleri hiçbir zaman dönüşüm almaz; izometrik form yalnızca "yapmayın" örneğidir (`inert`, `aria-hidden`). Düz form izometrik sahneyi yönetir. Her veri sahnesinin kısa açıklaması ve düz tablosu var; durum renkleri ikon ve etiketle birlikte. Metin 17,06:1 (açık) · 17,19:1 (koyu), form kenarı 4,76:1 · 3,73:1.
+
 ## Yazı tipleri
 
-Hepsi OFL lisanslı, `@fontsource-variable` paketlerinden yalnızca Latin ve Latin Genişletilmiş alt kümeleriyle yüklenir: Inter (Stil 001 ve 003), Lora ve Plus Jakarta Sans (Stil 002), Geist ve Geist Mono (Stil 004; `₺` glifi olmadığı için tutarlar "TL" ile yazılır), Nunito (Stil 005), Sora (Stil 006), Baloo 2 ve Quicksand (Stil 007; Fredoka ğ, ş ve İ içermediği için başlıkta Baloo 2 seçildi). Lisanslı Helvetica Now ya da Neue Haas Grotesk kullanmak için `src/swiss/swiss.css` içindeki `@font-face` bloklarını ve `--font-sans` sırasını değiştirin.
+Hepsi OFL lisanslı, `@fontsource-variable` paketlerinden yalnızca Latin ve Latin Genişletilmiş alt kümeleriyle yüklenir: Inter (Stil 001 ve 003), Lora ve Plus Jakarta Sans (Stil 002), Geist ve Geist Mono (Stil 004; `₺` glifi olmadığı için tutarlar "TL" ile yazılır), Nunito (Stil 005), Sora (Stil 006), Baloo 2 ve Quicksand (Stil 007; Fredoka ğ, ş ve İ içermediği için başlıkta Baloo 2 seçildi), Manrope ve IBM Plex Mono (Stil 008; Space Mono `₺` içermediği için Plex Mono seçildi). Lisanslı Helvetica Now ya da Neue Haas Grotesk kullanmak için `src/swiss/swiss.css` içindeki `@font-face` bloklarını ve `--font-sans` sırasını değiştirin.

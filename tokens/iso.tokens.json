@@ -1,0 +1,83 @@
+{
+  "$description": "Stil 008: Isometric 3D. W3C DTCG formatı. Adlar Figma yolu ile aynıdır: Grid/Isometric, Color/SurfaceTop, Color/SurfaceLeft, Color/SurfaceRight. Projeksiyon ortografiktir; CSS'te rotateX(θ) rotateZ(-45deg), SVG'de aynı matrisin izdüşümü kullanılır.",
+  "Grid": {
+    "Isometric": {
+      "angle": { "$type": "number", "$value": 30, "$description": "Zemin çizgilerinin yatayla açısı (derece)" },
+      "unit": { "$type": "dimension", "$value": "24px", "$description": "Ekrandaki ızgara aralığı; desen 48 × 27,7128 px" },
+      "rotateX": { "$type": "number", "$value": 54.7356, "$description": "arctan √2; cos θ = tan 30°, üç eksen 0,8165 oranında kısalır" },
+      "rotateZ": { "$type": "number", "$value": -45 },
+      "projection": { "$type": "string", "$value": "x' = (x + y)·√½ · y' = (y − x)·√½·cos θ − z·sin θ" },
+      "gameVariant": {
+        "$description": "Tanımdaki CSS satırı: rotateX(60deg) rotateZ(-45deg). 2:1 oyun izometrisi; çizgiler 26,57°, x/y 0,79 · z 0,87.",
+        "rotateX": { "$type": "number", "$value": 60 },
+        "angle": { "$type": "number", "$value": 26.565 }
+      }
+    },
+    "Skew": {
+      "$description": "Figma Skew / Isometric eklentisi yöntemi (gerçek izometri). Yüzler düz çerçevedir, Auto Layout korunur.",
+      "top": { "$type": "string", "$value": "rotate(-30deg) skewX(30deg) scaleY(0.86603)" },
+      "left": { "$type": "string", "$value": "skewY(30deg) scaleX(0.86603)" },
+      "right": { "$type": "string", "$value": "skewY(-30deg) scaleX(0.86603)" }
+    }
+  },
+  "Color": {
+    "SurfaceTop": {
+      "$description": "Aydınlık, ışığa bakan yüz. Etiket gerekirse koyu mürekkep #0F172A (en az 6,56:1).",
+      "Blue": { "$type": "color", "$value": "#60A5FA" },
+      "Emerald": { "$type": "color", "$value": "#34D399" },
+      "Amber": { "$type": "color", "$value": "#FCD34D" },
+      "Violet": { "$type": "color", "$value": "#A78BFA" },
+      "Rose": { "$type": "color", "$value": "#FB7185" },
+      "Slate": { "$type": "color", "light": "#F1F5F9", "dark": "#334155" }
+    },
+    "SurfaceLeft": {
+      "$description": "Orta ton (x = min yüzü). Metin yazılmaz: mürekkep ve beyaz ikisi de her renkte 4,5:1 vermez.",
+      "Blue": { "$type": "color", "$value": "#3B82F6" },
+      "Emerald": { "$type": "color", "$value": "#10B981" },
+      "Amber": { "$type": "color", "$value": "#F59E0B" },
+      "Violet": { "$type": "color", "$value": "#8B5CF6" },
+      "Rose": { "$type": "color", "$value": "#F43F5E" },
+      "Slate": { "$type": "color", "light": "#CBD5E1", "dark": "#1E293B" }
+    },
+    "SurfaceRight": {
+      "$description": "Karanlık ton (y = max yüzü). Etiket gerekirse beyaz (en az 5,02:1).",
+      "Blue": { "$type": "color", "$value": "#1D4ED8" },
+      "Emerald": { "$type": "color", "$value": "#047857" },
+      "Amber": { "$type": "color", "$value": "#B45309" },
+      "Violet": { "$type": "color", "$value": "#6D28D9" },
+      "Rose": { "$type": "color", "$value": "#BE123C" },
+      "Slate": { "$type": "color", "light": "#94A3B8", "dark": "#0F172A" }
+    },
+    "Page": {
+      "Background": { "$type": "color", "light": "#F8FAFC", "dark": "#0B1120" },
+      "Surface": { "$type": "color", "light": "#FFFFFF", "dark": "#111827" },
+      "Text": { "$type": "color", "light": "#0F172A", "dark": "#F1F5F9", "contrast": [17.06, 17.19] },
+      "Muted": { "$type": "color", "light": "#475569", "dark": "#94A3B8", "contrast": [7.24, 7.34] },
+      "Accent": { "$type": "color", "light": "#1D4ED8", "dark": "#60A5FA", "contrast": [6.41, 7.41] },
+      "FieldBorder": { "$type": "color", "$value": "#64748B", "contrast": [4.76, 3.73] },
+      "GridLine": { "$type": "color", "light": "rgb(148 163 184 / 0.32)", "dark": "rgb(100 116 139 / 0.2)" },
+      "Glass": { "$type": "color", "light": "rgb(255 255 255 / 0.62)", "dark": "rgb(30 41 59 / 0.6)" }
+    }
+  },
+  "Shadow": {
+    "Directional": {
+      "$description": "Sert, tek yönlü, uzun. Işık (−x, −y) yönünden gelir; gölge zemine (+x, +y) boyunca düşer, uzunluk 0,8 × yükseklik. Bulanıklık yok.",
+      "color": { "$type": "color", "light": "rgb(15 23 42 / 0.16)", "dark": "rgb(0 0 0 / 0.42)" },
+      "direction": { "$type": "string", "$value": "(+0.8, +0.8) düzlem birimi / yükseklik birimi" }
+    }
+  },
+  "Typography": {
+    "Display": { "$type": "typography", "$value": { "fontFamily": "Manrope", "fontSize": "68px", "fontWeight": 800, "letterSpacing": "-0.02em" } },
+    "Heading": { "$type": "typography", "$value": { "fontFamily": "Manrope", "fontSize": "48px", "fontWeight": 700 } },
+    "Body": { "$type": "typography", "$value": { "fontFamily": "Manrope", "fontSize": "16px", "fontWeight": 400, "lineHeight": 1.6 } },
+    "Technical": { "$type": "typography", "$value": { "fontFamily": "IBM Plex Mono", "fontSize": "13px", "fontWeight": [400, 600] } }
+  },
+  "Motion": {
+    "Build": { "$type": "duration", "$value": "640ms", "$description": "Sıralı inşa: blok 60px yukarıdan düşer ya da aşağıdan yükselir; hafif aşmalı eğri cubic-bezier(0.2, 0.9, 0.3, 1.15)" },
+    "Stagger": { "$type": "duration", "$value": "90ms" },
+    "Columns": { "$type": "duration", "$value": "900ms", "$description": "Sütunlar kübik yavaşlamayla sırayla yükselir" }
+  },
+  "Responsive": {
+    "flatBelow": { "$type": "dimension", "$value": "768px", "$description": "Bu genişliğin altında izometrik katmanlar düz liste ya da dikey yığın olur" }
+  }
+}
