@@ -1,0 +1,100 @@
+{
+  "$description": "Stil 006: Ambient UI (Liquid & Gradient Mesh). W3C DTCG formatı. Adlar Figma yolu ile aynıdır: Gradient/Aurora1, Gradient/Aurora2, Effects/GlowBorder. Varsayılan tema koyu 'Gece'; açık varyant 'Şafak'. Kontrastlar en kötü durumdur: aurora renklerinin her biri tam metnin arkasındayken, koruyucu katmanla birlikte ölçülür.",
+  "Gradient": {
+    "Aurora1": {
+      "$type": "gradient",
+      "$description": "Radyal mesh; dört merkez @keyframes mesh-flow ile 18 sn'de yer değiştirir. Figma: Layer Blur uygulanmış dört asimetrik vektör.",
+      "dark": [
+        { "color": "#7C3AED", "position": "18% 22%" },
+        { "color": "#22D3EE", "position": "82% 18%" },
+        { "color": "#F472B6", "position": "70% 86%" },
+        { "color": "#34D399", "position": "22% 78%" }
+      ],
+      "light": [
+        { "color": "#C4B5FD", "position": "18% 22%" },
+        { "color": "#A5F3FC", "position": "82% 18%" },
+        { "color": "#FBCFE8", "position": "70% 86%" },
+        { "color": "#A7F3D0", "position": "22% 78%" }
+      ],
+      "falloff": { "$type": "dimension", "$value": "55%", "$description": "Her radyal gradyanın saydama indiği yarıçap" }
+    },
+    "Aurora2": {
+      "$type": "gradient",
+      "dark": [
+        { "color": "#6366F1", "position": "18% 22%" },
+        { "color": "#EC4899", "position": "82% 18%" },
+        { "color": "#F59E0B", "position": "70% 86%" },
+        { "color": "#10B981", "position": "22% 78%" }
+      ],
+      "light": [
+        { "color": "#C7D2FE", "position": "18% 22%" },
+        { "color": "#F9A8D4", "position": "82% 18%" },
+        { "color": "#FDE68A", "position": "70% 86%" },
+        { "color": "#6EE7B7", "position": "22% 78%" }
+      ]
+    }
+  },
+  "Effects": {
+    "GlowBorder": {
+      "$description": "Gölge yerine parıltı. Kenar: dönen konik degrade, maske ile 1,5px halkaya indirilir. Parıltı: aynı degradenin bulanık kopyası, bileşenin arkasında.",
+      "ring": {
+        "width": { "$type": "dimension", "$value": "1.5px" },
+        "gradient": { "$type": "string", "$value": "conic-gradient(from var(--angle), Aurora1[0], Aurora1[1], Aurora1[3], Aurora1[2], Aurora1[0])" },
+        "rotation": { "$type": "duration", "$value": "6s", "$description": "Bir tam tur; @property --angle ile" }
+      },
+      "glow": {
+        "blur": { "$type": "dimension", "$value": "14px" },
+        "opacity": { "rest": 0.6, "hover": 1, "$description": "Tema çarpanıyla çarpılır: Gece 0.65, Şafak 0.5" }
+      },
+      "card": {
+        "radius": { "$type": "dimension", "$value": "260px", "$description": "İmleci izleyen kenar ışığı; kart gövdesinde 420px iç parıltı" }
+      }
+    },
+    "Goo": {
+      "$description": "Birleşen damlalar için SVG filtresi: feGaussianBlur ardından alfa eşiği.",
+      "stdDeviation": { "$type": "number", "$value": 7 },
+      "alphaMatrix": { "$type": "string", "$value": "0 0 0 22 -9" }
+    }
+  },
+  "Color": {
+    "Canvas": { "$type": "color", "dark": "#05040D", "light": "#F7F5FF" },
+    "Scrim": {
+      "$type": "color",
+      "dark": "rgb(7 6 15 / 0.62)",
+      "light": "rgb(255 255 255 / 0.30)",
+      "$description": "Madde 18: değişen zeminde metnin arkasındaki koruyucu gradyan. Kenarları 40px'te erir. Koyu temada %62 altı AA'yı sağlamaz."
+    },
+    "Line": { "$type": "color", "dark": "rgb(255 255 255 / 0.12)", "light": "rgb(20 17 43 / 0.12)" },
+    "Text": {
+      "Default": { "$type": "color", "dark": "#FFFFFF", "light": "#14112B", "contrast": { "dark-scrim": 8.49, "dark-noScrim": 1.81, "light-scrim": 12.08, "light-noScrim": 9.94 } },
+      "Muted": { "$type": "color", "dark": "#CDD0E6", "light": "#4A4766", "contrast": { "dark-scrim": 5.57, "light-scrim": 5.8, "light-noScrim": 4.77 } },
+      "Accent": { "$type": "color", "dark": "#C4B5FD", "light": "#5B21B6", "contrast": { "dark-scrim": 4.59, "light-scrim": 5.92 } }
+    },
+    "Focus": { "$type": "color", "dark": "#67E8F9", "light": "#6D28D9", "contrast": { "dark-scrim": 5.85, "light-scrim": 4.68 }, "$description": "2px dış çizgi, 3px boşluk" }
+  },
+  "Typography": {
+    "Family": { "$type": "fontFamily", "$value": ["Sora", "Inter", "system-ui", "sans-serif"] },
+    "Display": { "$type": "typography", "$value": { "fontSize": "72px", "fontWeight": 200, "lineHeight": 1.02, "letterSpacing": "-0.02em" } },
+    "Heading": { "$type": "typography", "$value": { "fontSize": "36px", "fontWeight": 300, "lineHeight": 1.1 } },
+    "Body": { "$type": "typography", "$value": { "fontSize": "18px", "fontWeight": 300, "lineHeight": 1.7 } },
+    "Label": { "$type": "typography", "$value": { "fontSize": "14px", "fontWeight": 400, "letterSpacing": "0.12em" }, "$description": "Küçük metin 400 ağırlığın altına inmez" }
+  },
+  "Radius": {
+    "Card": { "$type": "dimension", "$value": "28px" },
+    "Pill": { "$type": "dimension", "$value": "9999px" },
+    "Blob": { "$type": "string", "$value": "42% 58% 70% 30% / 45% 45% 55% 55%", "$description": "@keyframes morph ile 12 sn'de dört biçim arasında akar" }
+  },
+  "Motion": {
+    "Background": { "$type": "duration", "$value": ["38s", "44s", "48s", "52s", "60s"], "$description": "Beş leke, sonsuz ve yön değiştiren döngü; yalnızca transform" },
+    "Mesh": { "$type": "duration", "$value": "18s" },
+    "Morph": { "idle": "12s", "listening": "6s", "thinking": "3s" },
+    "Spinner": { "$type": "duration", "$value": "1.6s" },
+    "Easing": { "$type": "cubicBezier", "$value": [0.22, 1, 0.36, 1] },
+    "Modes": {
+      "$description": "Madde 17. <html data-motion>. Otomatik seçim sırası: hareketi azalt → durdur; veri tasarrufu, pil ≤ %20 ve şarjda değil ya da 768px altı ekran → sade; aksi hâlde canlı.",
+      "live": { "blobs": 5, "speed": 1, "glow": "animasyonlu" },
+      "lite": { "blobs": 3, "speed": 0.5, "glow": "sabit" },
+      "paused": { "blobs": 5, "speed": 0, "glow": "sabit", "note": "Yükleme göstergesi döner" }
+    }
+  }
+}

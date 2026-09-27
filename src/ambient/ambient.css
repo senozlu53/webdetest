@@ -1,0 +1,460 @@
+@import 'tailwindcss' source(none);
+@source '.';
+
+/* ─────────────────────────────────────────────────────────────
+   STİL 006 · AMBIENT UI (LIQUID & GRADIENT MESH)
+   Değerler tokens/ambient.tokens.json ile birebir aynıdır.
+   Varsayılan koyu "Gece" teması; açık varyant "Şafak".
+   ───────────────────────────────────────────────────────────── */
+
+@font-face {
+  font-family: 'Sora Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 800;
+  src: url('@fontsource-variable/sora/files/sora-latin-ext-wght-normal.woff2') format('woff2-variations');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329,
+    U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Sora Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 800;
+  src: url('@fontsource-variable/sora/files/sora-latin-wght-normal.woff2') format('woff2-variations');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* Animasyonla değişebilen özel değişkenler (@property): mesh konumları ve parlama açısı */
+@property --mx1 { syntax: '<percentage>'; inherits: false; initial-value: 18%; }
+@property --my1 { syntax: '<percentage>'; inherits: false; initial-value: 22%; }
+@property --mx2 { syntax: '<percentage>'; inherits: false; initial-value: 82%; }
+@property --my2 { syntax: '<percentage>'; inherits: false; initial-value: 18%; }
+@property --mx3 { syntax: '<percentage>'; inherits: false; initial-value: 70%; }
+@property --my3 { syntax: '<percentage>'; inherits: false; initial-value: 86%; }
+@property --mx4 { syntax: '<percentage>'; inherits: false; initial-value: 22%; }
+@property --my4 { syntax: '<percentage>'; inherits: false; initial-value: 78%; }
+@property --angle { syntax: '<angle>'; inherits: false; initial-value: 0deg; }
+
+/* ── Gece (koyu, varsayılan) ──────────────────────────────────
+   Metin arkasındaki koruyucu gradyan %62: beyaz en kötü durumda 8.49:1,
+   ikincil metin 5.57:1 (neon lekenin tam merkezinde bile). */
+:root {
+  --canvas: #05040d;
+  --ink: #ffffff;
+  --muted: #cdd0e6;
+  --accent: #c4b5fd;
+  --ring: #67e8f9;
+  --scrim: rgb(7 6 15 / 0.62);
+  --scrim-soft: rgb(7 6 15 / 0.35);
+  --line: rgb(255 255 255 / 0.12);
+
+  /* Gradient/Aurora1 ve Gradient/Aurora2 */
+  --a1-1: #7c3aed;
+  --a1-2: #22d3ee;
+  --a1-3: #f472b6;
+  --a1-4: #34d399;
+  --a2-1: #6366f1;
+  --a2-2: #ec4899;
+  --a2-3: #f59e0b;
+  --a2-4: #10b981;
+  --blob-opacity: 0.55;
+  --glow-strength: 0.65;
+  --icon-blend: screen;
+
+  color-scheme: dark;
+}
+
+/* ── Şafak (açık varyant): pastel aurora, beyaz koruyucu, koyu mürekkep ──
+   Mürekkep katmansız bile 9.94:1; %30 beyaz koruyucuyla ikincil metin 5.8:1. */
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme='dark']) {
+    --canvas: #f7f5ff;
+    --ink: #14112b;
+    --muted: #4a4766;
+    --accent: #5b21b6;
+    --ring: #6d28d9;
+    --scrim: rgb(255 255 255 / 0.3);
+    --scrim-soft: rgb(255 255 255 / 0.18);
+    --line: rgb(20 17 43 / 0.12);
+    --a1-1: #c4b5fd;
+    --a1-2: #a5f3fc;
+    --a1-3: #fbcfe8;
+    --a1-4: #a7f3d0;
+    --a2-1: #c7d2fe;
+    --a2-2: #f9a8d4;
+    --a2-3: #fde68a;
+    --a2-4: #6ee7b7;
+    --blob-opacity: 0.85;
+    --glow-strength: 0.5;
+    --icon-blend: multiply;
+    color-scheme: light;
+  }
+}
+:root[data-theme='light'] {
+  --canvas: #f7f5ff;
+  --ink: #14112b;
+  --muted: #4a4766;
+  --accent: #5b21b6;
+  --ring: #6d28d9;
+  --scrim: rgb(255 255 255 / 0.3);
+  --scrim-soft: rgb(255 255 255 / 0.18);
+  --line: rgb(20 17 43 / 0.12);
+  --a1-1: #c4b5fd;
+  --a1-2: #a5f3fc;
+  --a1-3: #fbcfe8;
+  --a1-4: #a7f3d0;
+  --a2-1: #c7d2fe;
+  --a2-2: #f9a8d4;
+  --a2-3: #fde68a;
+  --a2-4: #6ee7b7;
+  --blob-opacity: 0.85;
+  --glow-strength: 0.5;
+  --icon-blend: multiply;
+  color-scheme: light;
+}
+
+@theme {
+  --color-*: initial;
+  --font-*: initial;
+  --font-sans: 'Sora Variable', 'Sora', 'Inter', system-ui, sans-serif;
+  --font-mono: ui-monospace, 'SF Mono', Menlo, monospace;
+  --color-white: #ffffff;
+  --color-black: #000000;
+}
+
+@theme inline {
+  --color-canvas: var(--canvas);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-ring: var(--ring);
+  --color-line: var(--line);
+  --color-scrim: var(--scrim);
+}
+
+@layer base {
+  html {
+    background: var(--canvas);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-padding-top: 96px;
+  }
+  body {
+    margin: 0;
+    background: var(--canvas);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.7;
+  }
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+    letter-spacing: -0.02em;
+  }
+  p {
+    text-wrap: pretty;
+  }
+  strong {
+    font-weight: 500;
+  }
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 3px;
+  }
+  ::selection {
+    background: color-mix(in srgb, var(--a1-1) 60%, transparent);
+    color: var(--ink);
+  }
+}
+
+@layer components {
+  /* ── Ortam zemini: radial-gradient lekeler, yalnızca transform ile hareket (GPU dostu) ── */
+  .ambient-blob {
+    position: absolute;
+    border-radius: 9999px;
+    opacity: var(--blob-opacity);
+    will-change: transform;
+    animation-duration: calc(var(--dur, 36s) * var(--speed, 1));
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+  }
+
+  /* ── GradientMesh: @keyframes ile konum değiştiren radyal gradyanlar ── */
+  .gradient-mesh {
+    --m1: var(--a1-1);
+    --m2: var(--a1-2);
+    --m3: var(--a1-3);
+    --m4: var(--a1-4);
+    background:
+      radial-gradient(at var(--mx1) var(--my1), var(--m1) 0, transparent 55%),
+      radial-gradient(at var(--mx2) var(--my2), var(--m2) 0, transparent 55%),
+      radial-gradient(at var(--mx3) var(--my3), var(--m3) 0, transparent 55%),
+      radial-gradient(at var(--mx4) var(--my4), var(--m4) 0, transparent 55%),
+      var(--canvas);
+    animation: mesh-flow calc(18s * var(--speed, 1)) ease-in-out infinite alternate;
+  }
+  .gradient-mesh[data-palette='aurora2'] {
+    --m1: var(--a2-1);
+    --m2: var(--a2-2);
+    --m3: var(--a2-3);
+    --m4: var(--a2-4);
+  }
+
+  /* ── Effects/GlowBorder: dönen konik degrade kenar + yayılan parlama ── */
+  .glow-border {
+    position: relative;
+    isolation: isolate;
+  }
+  .glow-border::before,
+  .glow-border::after {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    background: conic-gradient(from var(--angle), var(--a1-1), var(--a1-2), var(--a1-4), var(--a1-3), var(--a1-1));
+    animation: glow-spin calc(6s * var(--speed, 1)) linear infinite;
+    pointer-events: none;
+  }
+  .glow-border::before {
+    padding: 1.5px;
+    -webkit-mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+  }
+  .glow-border::after {
+    z-index: -1;
+    filter: blur(14px);
+    opacity: calc(var(--glow-strength) * var(--glow-on, 0.6));
+    transition: opacity 400ms ease;
+  }
+  .glow-border:hover::after,
+  .glow-border:focus-within::after {
+    --glow-on: 1;
+  }
+
+  /* ── GlowCard: imleci izleyen kenar ışığı (--px, --py) ── */
+  .glow-card {
+    position: relative;
+    isolation: isolate;
+    background: var(--scrim);
+    border: 1px solid var(--line);
+  }
+  .glow-card::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    padding: 1px;
+    background: radial-gradient(260px circle at var(--px, 50%) var(--py, 0%), var(--a1-2), var(--a1-1) 40%, transparent 70%);
+    -webkit-mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: var(--glow, 0.35);
+    transition: opacity 400ms ease;
+    pointer-events: none;
+  }
+  .glow-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: inherit;
+    background: radial-gradient(420px circle at var(--px, 50%) var(--py, 0%), color-mix(in srgb, var(--a1-1) 22%, transparent), transparent 60%);
+    opacity: var(--glow, 0.35);
+    transition: opacity 400ms ease;
+    pointer-events: none;
+  }
+  .glow-card:hover {
+    --glow: 1;
+  }
+
+  /* ── Koruyucu gradyan (Madde 18): metnin arkasına koyu/açık katman ── */
+  .scrim {
+    background: radial-gradient(120% 140% at 30% 50%, var(--scrim), transparent 75%);
+  }
+  .scrim-panel {
+    background: linear-gradient(180deg, var(--scrim), var(--scrim));
+  }
+
+  /* ── Sıvı gibi form değiştiren kapsayıcı ── */
+  .morph {
+    animation: morph calc(var(--morph-dur, 12s) * var(--speed, 1)) ease-in-out infinite;
+  }
+
+  /* ── Holografik ikon: dolgu, sayfadaki animasyonlu degradeden gelir ── */
+  .holo-icon {
+    fill: url(#holo-gradient);
+  }
+  .blend-icon {
+    mix-blend-mode: var(--icon-blend);
+    opacity: 0.9;
+  }
+
+  .ambient-rise {
+    animation: ambient-rise 1200ms cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-delay: calc(var(--i, 0) * 140ms);
+  }
+}
+
+@keyframes mesh-flow {
+  0% {
+    --mx1: 18%; --my1: 22%; --mx2: 82%; --my2: 18%; --mx3: 70%; --my3: 86%; --mx4: 22%; --my4: 78%;
+  }
+  33% {
+    --mx1: 40%; --my1: 12%; --mx2: 88%; --my2: 52%; --mx3: 38%; --my3: 90%; --mx4: 8%; --my4: 46%;
+  }
+  66% {
+    --mx1: 68%; --my1: 30%; --mx2: 60%; --my2: 10%; --mx3: 16%; --my3: 70%; --mx4: 44%; --my4: 92%;
+  }
+  100% {
+    --mx1: 30%; --my1: 58%; --mx2: 90%; --my2: 30%; --mx3: 62%; --my3: 64%; --mx4: 10%; --my4: 20%;
+  }
+}
+
+@keyframes glow-spin {
+  to {
+    --angle: 360deg;
+  }
+}
+
+@keyframes morph {
+  0%,
+  100% {
+    border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
+  }
+  25% {
+    border-radius: 70% 30% 46% 54% / 30% 29% 71% 70%;
+  }
+  50% {
+    border-radius: 50% 50% 34% 66% / 56% 68% 32% 44%;
+  }
+  75% {
+    border-radius: 46% 54% 50% 50% / 35% 61% 39% 65%;
+  }
+}
+
+@keyframes drift-a {
+  from { transform: translate3d(-8vw, -6vh, 0) rotate(0deg) scale(1); }
+  to { transform: translate3d(10vw, 8vh, 0) rotate(40deg) scale(1.15); }
+}
+@keyframes drift-b {
+  from { transform: translate3d(6vw, 4vh, 0) rotate(0deg) scale(1.1); }
+  to { transform: translate3d(-12vw, -6vh, 0) rotate(-35deg) scale(0.9); }
+}
+@keyframes drift-c {
+  from { transform: translate3d(0, 10vh, 0) scale(0.95); }
+  to { transform: translate3d(8vw, -10vh, 0) scale(1.2); }
+}
+
+@keyframes holo-shift {
+  0%, 100% { stop-color: var(--a1-1); }
+  33% { stop-color: var(--a1-2); }
+  66% { stop-color: var(--a1-3); }
+}
+@keyframes holo-shift-2 {
+  0%, 100% { stop-color: var(--a1-2); }
+  33% { stop-color: var(--a1-4); }
+  66% { stop-color: var(--a1-1); }
+}
+
+@keyframes ambient-rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+    filter: blur(6px);
+  }
+}
+
+/* ── Madde 17: hareket modları ────────────────────────────────
+   canlı: tüm katmanlar · sade: 3 leke, yarı hız, parlama sabit · durdur: kare donar */
+:root[data-motion='lite'] {
+  --speed: 2;
+}
+:root[data-motion='lite'] .ambient-blob:nth-child(n + 4) {
+  display: none;
+}
+:root[data-motion='lite'] .glow-border::after {
+  animation: none;
+}
+:root[data-motion='paused'] *,
+:root[data-motion='paused'] *::before,
+:root[data-motion='paused'] *::after {
+  animation-play-state: paused !important;
+}
+/* Giriş animasyonu donarsa içerik görünmez kalır; durdurma modunda hiç oynatılmaz */
+:root[data-motion='paused'] .ambient-rise {
+  animation: none;
+}
+/* Yükleme göstergesi geri bildirimdir; durdurma modunda da döner */
+:root[data-motion='paused'] .liquid-spinner,
+:root[data-motion='paused'] .liquid-spinner * {
+  animation-play-state: running !important;
+}
+
+/* Ekran dışındaki mesh ve kürelerin yeniden boyanmasını durdur (useIdleOffscreen) */
+[data-idle].gradient-mesh,
+[data-idle] .gradient-mesh,
+[data-idle] .morph {
+  animation-play-state: paused;
+}
+
+@keyframes goo-travel {
+  from {
+    transform: translateX(-6rem);
+  }
+  to {
+    transform: translateX(6rem);
+  }
+}
+@keyframes goo-breathe {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.14);
+  }
+}
+
+@keyframes liquid-orbit {
+  0% {
+    transform: rotate(0deg) translateX(0) rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg) translateX(var(--orbit, 18px)) rotate(-180deg);
+  }
+  100% {
+    transform: rotate(360deg) translateX(0) rotate(-360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ambient-rise {
+    animation: none;
+  }
+}
+
+/* Kenarları eriyen koruyucu katman: metin opak orta bölgede kalır, sınır görünmez */
+.scrim-fade {
+  background: var(--scrim);
+  --fade: 40px;
+  -webkit-mask:
+    linear-gradient(90deg, transparent, #000 var(--fade), #000 calc(100% - var(--fade)), transparent),
+    linear-gradient(180deg, transparent, #000 var(--fade), #000 calc(100% - var(--fade)), transparent);
+  -webkit-mask-composite: source-in;
+  mask:
+    linear-gradient(90deg, transparent, #000 var(--fade), #000 calc(100% - var(--fade)), transparent),
+    linear-gradient(180deg, transparent, #000 var(--fade), #000 calc(100% - var(--fade)), transparent);
+  mask-composite: intersect;
+}

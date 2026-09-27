@@ -9,10 +9,11 @@ Web tasarım stilleri için canlı referans sayfaları. Her stil, anlattığı k
 | 003 · Corporate Modern | `/stil/003/` | `src/corporate/` | `tokens/corporate.tokens.json` |
 | 004 · Glassmorphism | `/stil/004/` | `src/glass/` | `tokens/glass.tokens.json` |
 | 005 · Neumorphism | `/stil/005/` | `src/neu/` | `tokens/neu.tokens.json` |
+| 006 · Ambient UI | `/stil/006/` | `src/ambient/` | `tokens/ambient.tokens.json` |
 
 ```bash
 npm install
-npm run dev        # http://localhost:5173  → katalog, /stil/001/, /stil/002/, /stil/003/, /stil/004/, /stil/005/
+npm run dev        # http://localhost:5173  → katalog, /stil/001/, /stil/002/, /stil/003/, /stil/004/, /stil/005/, /stil/006/
 npm run build      # tip denetimi + dist/
 npm run typecheck
 ```
@@ -26,12 +27,14 @@ stil/002/index.html      Soft Minimalism giriş noktası
 stil/003/index.html      Corporate Modern giriş noktası
 stil/004/index.html      Glassmorphism giriş noktası
 stil/005/index.html      Neumorphism giriş noktası
+stil/006/index.html      Ambient UI giriş noktası
 src/shared/              stiller arası ortak yardımcılar (cx, useTheme)
 src/swiss/               swiss.css (tema) · components/ · sections/
 src/soft/                soft.css (tema) · components/ · sections/
 src/corporate/           corporate.css (tema) · ui/ (shadcn) · views/ · charts/ · data/
 src/glass/               glass.css (tema) · components/ · sections/
 src/neu/                 neu.css (tema) · components/ · sections/
+src/ambient/             ambient.css (tema) · components/ · hooks/ · sections/
 tokens/                  W3C DTCG token dosyaları (Figma / Tokens Studio)
 ```
 
@@ -123,6 +126,18 @@ Zeminle aynı renkte bileşenler; biçimi yalnızca iki gölge verir: sol üstte
 - **Mobil (Madde 17):** Gölge taşması mesafe + yayılma kadardır (9 + 16 = 25px); bu yüzden kabarık bileşenler arası en az 24px. 640px altında gölgeler 6/12px'e, aralık 16px'e iner.
 - **Erişilebilirlik (Madde 18):** Metin her tabanda AA'yı geçer (ana 9,63:1, ikincil 5,13:1, vurgu 4,97:1). Bileşeni yalnızca gölge tanımladığı için sınır kontrastı 1,29:1 kalır (WCAG 1.4.11 için 3:1 gerekir). Erişilebilir mod her bileşene 1px kenar ekler (`#737D91`, 3,27:1); işletim sisteminde yüksek kontrast açıksa kendiliğinden devreye girer. Odakta 2px vurgu renkli çerçeve.
 
+## Stil 006 · Ambient UI
+
+Sınırları eriyen, sürekli akan atmosferik arayüz. Varsayılan tema koyu "Gece" (neon aurora); açık varyant "Şafak" (doygun pastel).
+
+- **Zemin (`<AmbientBackground>`):** Beş radyal leke, 38–60 sn'lik sonsuz ve yön değiştiren döngülerle yalnızca `transform` ile kayar; tarayıcı katmanı bir kez çizip GPU'da taşır.
+- **Mesh (`<GradientMesh>`, Madde 15):** Dört `radial-gradient`; merkezleri `@property` ile kayıtlı değişkenlerdir ve `@keyframes mesh-flow` ile yer değiştirir. `palette="aurora1" | "aurora2"` (Figma: `Gradient/Aurora1`, `Gradient/Aurora2`). Figma karşılığı, Layer Blur uygulanmış dört asimetrik vektör; sayfada blur açılıp kapatılabilir ve katmanlar ayrılabilir.
+- **Gölge yerine parıltı (`Effects/GlowBorder`):** `.glow-border` dönen konik degradeyi maskeyle 1,5px halkaya indirir, bulanık kopyası arkada parlar. `<GlowCard>` kenar ışığı imleci izler.
+- **Sıvı bileşenler:** `LiquidSpinner` (SVG gooey filtresi: bulanıklık + alfa eşiği), `MorphOrb` (bekliyor / dinliyor / düşünüyor durumlarına göre hızlanan `border-radius` döngüsü), holografik ikonlar (dolgu sayfadaki animasyonlu degradeden) ve zemine uyan ikonlar (`mix-blend-mode`).
+- **Uygulama:** Akış hâlinde yanıt yazan örnek asistan sohbeti ve istemden tohum türetip aurora kompozisyonu dizen üretici. İkisi de kurgusaldır; model çağrılmaz.
+- **Hareket ve pil (Madde 16·17):** `<html data-motion>` üç düzey alır: canlı (5 leke), sade (3 leke, yarı hız, dış parıltı sabit), durdur (kare donar, yükleme göstergesi döner). Otomatik seçim: hareketi azalt → durdur; veri tasarrufu, pil ≤ %20 ve şarjda değil (Battery API varsa) ya da 768px altı ekran → sade. Ekrandan çıkan mesh ve küreler `IntersectionObserver` ile durur, çünkü `@property` animasyonu her kare yeniden boyanır. Başlıktaki düğme hareketi tek dokunuşla durdurur (WCAG 2.2.2).
+- **Okunurluk (Madde 18):** En kötü durum, en parlak aurora renginin metnin tam arkasına geldiği andır. Koyu temada koruyucusuz beyaz metin 1,81:1'e düşer; metnin arkasına kenarları 40px'te eriyen %62 koyu katman (`.scrim-fade`, `<Scrim>`) konur: ana metin 8,49:1, ikincil 5,57:1. Açık temada mürekkep katmansız 9,94:1, %30 beyaz katmanla ikincil metin 5,8:1. Sayfadaki kaydırıcı katman gücünü değiştirip kontrastı canlı hesaplar. İnce yazı yalnızca büyük boyutta; gövde 300, küçük etiketler 400 ağırlıkta.
+
 ## Yazı tipleri
 
-Hepsi OFL lisanslı, `@fontsource-variable` paketlerinden yalnızca Latin ve Latin Genişletilmiş alt kümeleriyle yüklenir: Inter (Stil 001 ve 003), Lora ve Plus Jakarta Sans (Stil 002), Geist ve Geist Mono (Stil 004; `₺` glifi olmadığı için tutarlar "TL" ile yazılır), Nunito (Stil 005). Lisanslı Helvetica Now ya da Neue Haas Grotesk kullanmak için `src/swiss/swiss.css` içindeki `@font-face` bloklarını ve `--font-sans` sırasını değiştirin.
+Hepsi OFL lisanslı, `@fontsource-variable` paketlerinden yalnızca Latin ve Latin Genişletilmiş alt kümeleriyle yüklenir: Inter (Stil 001 ve 003), Lora ve Plus Jakarta Sans (Stil 002), Geist ve Geist Mono (Stil 004; `₺` glifi olmadığı için tutarlar "TL" ile yazılır), Nunito (Stil 005), Sora (Stil 006). Lisanslı Helvetica Now ya da Neue Haas Grotesk kullanmak için `src/swiss/swiss.css` içindeki `@font-face` bloklarını ve `--font-sans` sırasını değiştirin.

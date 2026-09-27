@@ -17,6 +17,7 @@ export default defineConfig({
         'stil-003': resolve(import.meta.dirname, 'stil/003/index.html'),
         'stil-004': resolve(import.meta.dirname, 'stil/004/index.html'),
         'stil-005': resolve(import.meta.dirname, 'stil/005/index.html'),
+        'stil-006': resolve(import.meta.dirname, 'stil/006/index.html'),
       },
     },
   },
