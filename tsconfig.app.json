@@ -19,5 +19,5 @@
     "noFallthroughCasesInSwitch": true
   },
   "include": ["src", "tokens"],
-  "exclude": ["src/lowpoly"]
+  "exclude": ["src/lowpoly", "src/maxi"]
 }

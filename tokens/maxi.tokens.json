@@ -1,0 +1,122 @@
+{
+  "$description": "Stil 017: Maximalism. W3C DTCG formatı. Madde 13 gereği sabit bir token sistemi yok: tasarımın ayarları 'Variables' altında aralığı ve hazır ayarları olan serbest değişkenlerdir; :root üzerindeki CSS değişkenlerine canlı yazılır ve kullanıcı her birini sınırına kadar oynatabilir. Sabit olan tek şey kurallardır: okunacak metin düz zeminde ve üstte (z-40), AA kontrastında; kasıtlı kontrast ihlali yalnız aria-hidden süs katmanında. Renkler bir 'palet' değil hammaddedir.",
+  "Variables": {
+    "$description": "Madde 13: serbest değişkenler. min/max/step kaydırıcı sınırı; presets kaos düzeyleri (Sakin · Normal · Tam kaos). Herhangi biri elle değişince düzey 'özel' olur. Saklama: localStorage maxi-vars, maxi-kaos",
+    "RotMax": { "$type": "dimension", "$value": "12deg", "cssVar": "--rot-max", "min": 0, "max": 30, "step": 1, "unit": "deg", "presets": { "sakin": 0, "normal": 12, "tam": 28 }, "$description": "Dönme aralığı. Her eğik öğe rotate: calc(var(--r) * var(--rot-max)); --r öğeye özel −1…1" },
+    "Overlap": { "$type": "number", "$value": 0.5, "cssVar": "--overlap", "min": 0, "max": 1, "step": 0.05, "presets": { "sakin": 0, "normal": 0.5, "tam": 1 }, "$description": "Üst üste binme: negatif kenar boşlukları bununla çarpılır (ör. -ml-[calc(var(--overlap)*30px)]); binen kartın iç boşluğu aynı miktarda büyür, metin komşunun altında kalmaz" },
+    "Saturation": { "$type": "number", "$value": "115%", "cssVar": "--sat", "min": "60%", "max": "160%", "step": "5%", "presets": { "sakin": "90%", "normal": "115%", "tam": "150%" }, "$description": "Süs katmanındaki filter: saturate(); okunur metin renkleri sabit kalır" },
+    "Grain": { "$type": "number", "$value": 0.35, "cssVar": "--grain", "min": 0, "max": 1, "step": 0.05, "presets": { "sakin": 0, "normal": 0.35, "tam": 0.7 }, "$description": "Gren: sayfa katmanı opacity = --grain × 0,22, kutu katmanı --grain × 0,55" },
+    "FlyingBadges": { "$type": "number", "$value": 5, "min": 0, "max": 9, "step": 1, "presets": { "sakin": 0, "normal": 5, "tam": 9 }, "$description": "Ekran kenarında uçuşan rozet sayısı (yalnız ≥768px). Mobilde albümde satıra dizilir" },
+    "FontMix": { "$type": "number", "$value": 4, "htmlAttr": "data-fontmix", "min": 1, "max": 4, "step": 1, "presets": { "sakin": 2, "normal": 4, "tam": 4 }, "$description": "Aynı cümlede kaç aile: 1 yalnız sans, 2 sans + serif, 3 + mono, 4 + el yazısı" },
+    "Speed": { "$type": "number", "$value": 1, "cssVar": "--speed", "min": 0.25, "max": 2, "step": 0.25, "presets": { "sakin": 0.5, "normal": 1, "tam": 1.6 }, "$description": "Bütün döngüsel animasyon süreleri bununla bölünür" }
+  },
+  "Color": {
+    "$description": "Madde 4: çatışan neonlar, derin pasteller ve siyah. Metin kuralı: neon ve pastel zeminde koyu mürekkep, mavi ve mor zeminde krem. Oranlar WCAG 2.x",
+    "Neon": {
+      "Pink": { "$type": "color", "$value": "#FF2E93", "text": "#111014", "contrast": 5.47, "onNight": 5.7 },
+      "Lime": { "$type": "color", "$value": "#C8FF00", "text": "#111014", "contrast": 16.03, "$description": "Odak halkasının dış rengi" },
+      "Blue": { "$type": "color", "$value": "#2F3CFF", "text": "#FFF7EE", "contrast": 6.16 },
+      "Orange": { "$type": "color", "$value": "#FF6A00", "text": "#111014", "contrast": 6.6 },
+      "Cyan": { "$type": "color", "$value": "#00E5FF", "text": "#111014", "contrast": 12.32 },
+      "Violet": { "$type": "color", "$value": "#8A2BFF", "text": "#FFF7EE", "contrast": 5.11 },
+      "Red": { "$type": "color", "$value": "#FF1F3D", "$description": "Yalnız süs" }
+    },
+    "Pastel": {
+      "Lilac": { "$type": "color", "$value": "#C9B5FF", "text": "#111014", "contrast": 10.41 },
+      "Peach": { "$type": "color", "$value": "#FFB59E", "text": "#111014", "contrast": 11.15 },
+      "Mint": { "$type": "color", "$value": "#9EF0C8", "text": "#111014", "contrast": 14.22 },
+      "Butter": { "$type": "color", "$value": "#FFE680", "text": "#111014", "contrast": 15.24 },
+      "Sky": { "$type": "color", "$value": "#9FD4FF", "text": "#111014", "contrast": 12.04 },
+      "Rose": { "$type": "color", "$value": "#FFB8D9", "text": "#111014", "contrast": 11.83 }
+    },
+    "Surface": {
+      "Background": { "$type": "color", "$value": "#FFF3E3", "dark": "#0B0A0F", "cssVar": "--bg" },
+      "Paper": { "$type": "color", "$value": "#FFFDF7", "dark": "#17141F", "cssVar": "--paper" },
+      "Black": { "$type": "color", "$value": "#0B0A0F", "cssVar": "--black" },
+      "Cream": { "$type": "color", "$value": "#FFF7EE", "cssVar": "--cream" }
+    },
+    "Text": {
+      "Ink": { "$type": "color", "$value": "#111014", "dark": "#FFF7EE", "cssVar": "--ink", "contrast": { "light": 17.31, "dark": 18.59 } },
+      "Muted": { "$type": "color", "$value": "#3D3846", "dark": "#CFC6D9", "cssVar": "--muted", "contrast": { "light": 10.35, "dark": 11.96 } },
+      "Line": { "$type": "color", "$value": "#111014", "dark": "#FFF7EE", "cssVar": "--line", "$description": "Kalın kontur ve sert gölge" },
+      "Warning": { "$type": "color", "$value": "#B3004F", "contrast": 6.93, "$description": "Beyaz zeminde 'kasıtlı ihlal' notu" }
+    },
+    "ClashDecorOnly": {
+      "$description": "Madde 18: kasıtlı kontrast ihlali. Yalnız aria-hidden süs yazı ve çıkartmalarda; bilgi taşıyan hiçbir metin bu çiftlere yazılmaz",
+      "PinkOnOrange": { "$type": "string", "$value": "#FF2E93 / #FF6A00", "contrast": 1.21 },
+      "LimeOnButter": { "$type": "string", "$value": "#C8FF00 / #FFE680", "contrast": 1.05 },
+      "BlueOnViolet": { "$type": "string", "$value": "#2F3CFF / #8A2BFF", "contrast": 1.21 },
+      "CyanOnMint": { "$type": "string", "$value": "#00E5FF / #9EF0C8", "contrast": 1.15 },
+      "OutlineText": { "$type": "string", "$value": "-webkit-text-stroke: 3px var(--ink); color: transparent", "$description": "Dev kontur yazı (Boşluk, Daha!): süs" }
+    },
+    "Holo": { "$type": "gradient", "$value": [{ "color": "#FF9AD5", "position": 0 }, { "color": "#9FE8FF", "position": 0.2 }, { "color": "#FFF59A", "position": 0.4 }, { "color": "#C6A8FF", "position": 0.6 }, { "color": "#9EFFC6", "position": 0.8 }, { "color": "#FF9AD5", "position": 1 }], "$description": "Madde 8: holografik folyo. conic-gradient from var(--holo-a) (@property), 7 sn / --speed döner; üstünde imleci izleyen radyal parlama (--mx, --my). Üstündeki metin #111014" }
+  },
+  "Typography": {
+    "$description": "Madde 5: değişken yazı; serif, sans ve mono aynı cümlede. Dört aile, hepsi Türkçe karakterli (latin + latin-ext)",
+    "Family": {
+      "Sans": { "$type": "fontFamily", "$value": ["Anybody Variable", "system-ui", "sans-serif"], "axes": { "wght": [100, 900], "wdth": [50, 150] }, "$description": "Manşet: 900, genişlik %150, büyük harf" },
+      "Serif": { "$type": "fontFamily", "$value": ["Fraunces Variable", "Georgia", "serif"], "axes": { "wght": [100, 900], "opsz": [9, 144], "SOFT": [0, 100], "WONK": [0, 1] }, "$description": "İtalik vurgu: 900, 'SOFT' 100, 'WONK' 1" },
+      "Mono": { "$type": "fontFamily", "$value": ["Martian Mono Variable", "ui-monospace", "monospace"], "axes": { "wght": [100, 800], "wdth": [75, 112.5] }, "$description": "Etiket, veri, kod" },
+      "Hand": { "$type": "fontFamily", "$value": ["Caveat Variable", "cursive"], "axes": { "wght": [400, 700] }, "$description": "Kenar notu, el yazısı etiket" }
+    },
+    "Hero": { "$type": "typography", "$value": { "fontFamily": "{Typography.Family.Sans}", "fontWeight": 900, "fontStretch": "150%", "fontSize": "clamp(96px, 14vw, 212px)", "lineHeight": 0.8, "letterSpacing": "-0.03em", "textCase": "uppercase" }, "mobile": { "fontStretch": "112%", "fontSize": "16vw" }, "$description": "Horror (sans) + vacui (Fraunces italik, clamp(110px, 16.5vw, 250px)) üst üste; binme --overlap × 0,22em" },
+    "Section": { "$type": "typography", "$value": { "fontSize": "clamp(40px, 7vw, 104px)", "lineHeight": 0.9, "fontWeight": 900, "letterSpacing": "-0.02em" }, "$description": "Her bölüm başlığı dört aileyi karıştırır: sans büyük harf %150, serif italik, mono 0,6em" },
+    "Body": { "$type": "typography", "$value": { "fontFamily": "{Typography.Family.Sans}", "fontSize": "19px", "lineHeight": 1.375, "fontWeight": 500 }, "mobile": { "fontSize": "17px" } },
+    "Kicker": { "$type": "typography", "$value": { "fontFamily": "{Typography.Family.Mono}", "fontSize": "12px", "fontWeight": 600, "fontStretch": "87.5%", "textCase": "uppercase", "letterSpacing": "0.02em" } }
+  },
+  "Layer": {
+    "$description": "Madde 7: z-endeksi rastgele görünür ama sıra kurguludur. Okunur içerik süslerin üstünde; çıkartma okunur metne binmez (test edilir)",
+    "Texture": { "$type": "number", "$value": 0, "$description": "Gren, halftone, damlalar" },
+    "GiantType": { "$type": "number", "$value": 10, "$description": "Dev süs yazı, kontur kelime" },
+    "Collage": { "$type": "number", "$value": 20, "$description": "Kâğıt, bant, üçgen, esnetilmiş vektör" },
+    "Object3D": { "$type": "number", "$value": 30 },
+    "Readable": { "$type": "number", "$value": 40, "$description": "Metin kartları, düğmeler, alt başlık" },
+    "Sticker": { "$type": "number", "$value": 50, "$description": "absolute -rotate-12 z-50 mix-blend-difference" },
+    "FlyingBadge": { "$type": "number", "$value": 60 },
+    "Header": { "$type": "number", "$value": 70 },
+    "CursorFollower": { "$type": "number", "$value": 80 },
+    "Toast": { "$type": "number", "$value": 85 },
+    "GrainPage": { "$type": "number", "$value": 90, "$description": "pointer-events: none" },
+    "Dialog": { "$type": "number", "$value": 95 }
+  },
+  "Shape": {
+    "$description": "Madde 6 · 9: keskin üçgen, yıldız patlaması, organik damla, esnetilmiş vektör; ikon yerine büyük çıkartma",
+    "Stroke": { "$type": "dimension", "$value": "4px", "color": "{Color.Text.Line}" },
+    "HardShadow": { "$type": "shadow", "$value": { "offsetX": "8px", "offsetY": "9px", "blur": "0", "spread": "0", "color": "#111014" }, "$description": "Renkli gölge varyantları: var(--pink), var(--lime), var(--orange)" },
+    "Sticker": { "$type": "border", "$value": { "width": "4px", "style": "solid", "color": "#FFFDF7" }, "shadow": { "offsetX": "3px", "offsetY": "4px", "blur": "0", "color": "rgb(17 16 20 / 0.9)" }, "$description": "Kesilmiş çıkartma: kalın beyaz kenar + sert gölge" },
+    "Starburst": { "$type": "string", "$value": "12–18 köşe, iç yarıçap 0,78" },
+    "Blob": { "$type": "string", "$value": "8 noktalı Catmull-Rom, tohumlu; basınca yeniden şekillenir" },
+    "Radius": { "$type": "dimension", "$value": "30px", "$description": "Kart; düğme ve çip tam yuvarlak" }
+  },
+  "Texture": {
+    "Grain": { "$type": "string", "$value": "feTurbulence fractalNoise; sayfa katmanı 0.9 / 2 oktav, multiply (gece: invert + screen); kutu katmanı 0.85 / 3 oktav, multiply" },
+    "Halftone": { "$type": "string", "$value": "radial-gradient(circle, var(--dot) 0 32%, transparent 34%) / var(--dot-size, 9px)", "$description": "Maske ile solan halftone-fade" },
+    "Collage": { "$type": "string", "$value": "Yırtık kenar clip-path, yarı saydam bant, eğik kesik kelime" }
+  },
+  "Motion": {
+    "$description": "Madde 16. Hepsi hareket kapalıyken, hareketi azalt tercihinde ve sakin modda durur",
+    "CursorFollower": { "$type": "string", "$value": "rAF, %20 yaklaşma; 22px, düğme üstünde 54px, data-cursor etiketiyle 92px; mix-blend-difference", "$description": "Yalnız ince işaretçide; asıl imleç gizlenmez" },
+    "Magnetic": { "$type": "string", "$value": "yarıçap 130–150px, çekim %30–40, CSS translate", "$description": "rotate ve transform ile çakışmaz" },
+    "Parallax": { "$type": "string", "$value": "--p −1…1 (JS); .fx: translateY(--p × --fx-y) rotate(--p × --fx-rot) scale(1 + --p × --fx-scale) hue-rotate(--p × --fx-hue)" },
+    "FlyingBadge": { "$type": "string", "$value": "Lissajous yolu, tek rAF; üstüne gelince ve odakta durur" },
+    "Holo": { "$type": "duration", "$value": "7s", "$description": "7 sn / --speed, linear, sonsuz" },
+    "Grain": { "$type": "duration", "$value": "0.5s", "$description": "steps(1) titreşim" },
+    "PopIn": { "$type": "transition", "$value": { "duration": "380ms", "timingFunction": [0.2, 1.6, 0.4, 1] } },
+    "Wobble": { "$type": "duration", "$value": "420ms" },
+    "Object3D": { "$type": "string", "$value": "React Three Fiber: dönme, süzülme, imlece eğilme, tıklayınca yay; görünmüyorken ve hareket kapalıyken kare çizmez (frameloop demand)" }
+  },
+  "Responsive": {
+    "$description": "Madde 17: masaüstü kaos mobilde çalışmaz",
+    "ChaosFrom": { "$type": "dimension", "$value": "768px", "$description": "Mutlak konum, eğim, üst üste binme; altında normal akış" },
+    "ContainerQuery": { "$type": "dimension", "$value": "700px", "$description": "@container ile aynı kolaj: ≥700 kaos, altı blok kart" },
+    "MobileCard": { "$type": "string", "$value": "Tam genişlik, 4px kontur, blok renk, 28px köşe, sert gölge; her kart tek bir şey söyler" },
+    "Removed": { "$type": "string", "$value": "Uçan rozet (albümde satır olur), imleç takipçisi, manyetik çekim, süs yazılar" }
+  },
+  "Accessibility": {
+    "Focus": { "$type": "string", "$value": "outline: 4px solid #C8FF00; outline-offset: 2px; box-shadow: 0 0 0 2px #111014", "$description": "İki renkli halka: her zeminde görünür" },
+    "Calm": { "$type": "string", "$value": "data-kaos=sakin: dönme 0, binme 0, gren 0; rozet, takipçi, süs kalabalığı yok; 3D, paralaks ve folyo durur" },
+    "Motion": { "$type": "string", "$value": "data-motion=off: bütün animasyon ve geçiş kapalı; prefers-reduced-motion otomatik" },
+    "CognitiveLoad": { "$type": "string", "$value": "Aynı anda hareket eden öğeler canlı sayılır: 0 durgun · 1–11 orta · 12–21 yüksek · 22+ aşırı" },
+    "Decor": { "$type": "string", "$value": "Süs şekil, kontur yazı ve 3D tuval aria-hidden; 3D için metin açıklama; kesik harfli başlıklar düz metin okunur" }
+  }
+}

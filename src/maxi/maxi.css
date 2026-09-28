@@ -1,0 +1,495 @@
+@import 'tailwindcss' source(none);
+@source '.';
+
+/* ─────────────────────────────────────────────────────────────
+   STİL 017 · MAXIMALISM
+   Boşluk korkusu (horror vacui): renk, doku ve bilgi ekranı bilinçli bir kaosla doldurur.
+   Sabit token yok (Madde 13): aşağıdaki serbest değişkenler sayfadaki kaydırıcılarla canlı değişir.
+   Kural: süs katmanı kontrastı bilerek çiğneyebilir; okunacak her metin AA'yı geçer.
+   ───────────────────────────────────────────────────────────── */
+
+@custom-variant dark {
+  &:where([data-theme='dark'], [data-theme='dark'] *) {
+    @slot;
+  }
+  @media (prefers-color-scheme: dark) {
+    &:where(:root:not([data-theme='light']), :root:not([data-theme='light']) *) {
+      @slot;
+    }
+  }
+}
+
+@property --holo-a {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@font-face {
+  font-family: 'Fraunces Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url('@fontsource-variable/fraunces/files/fraunces-latin-ext-full-normal.woff2') format('woff2-variations');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329,
+    U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Fraunces Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url('@fontsource-variable/fraunces/files/fraunces-latin-full-normal.woff2') format('woff2-variations');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Fraunces Variable';
+  font-style: italic;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url('@fontsource-variable/fraunces/files/fraunces-latin-ext-full-italic.woff2') format('woff2-variations');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329,
+    U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Fraunces Variable';
+  font-style: italic;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url('@fontsource-variable/fraunces/files/fraunces-latin-full-italic.woff2') format('woff2-variations');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Anybody Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  font-stretch: 50% 150%;
+  src: url('@fontsource-variable/anybody/files/anybody-latin-ext-standard-normal.woff2') format('woff2-variations');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329,
+    U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Anybody Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  font-stretch: 50% 150%;
+  src: url('@fontsource-variable/anybody/files/anybody-latin-standard-normal.woff2') format('woff2-variations');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Anybody Variable';
+  font-style: italic;
+  font-display: swap;
+  font-weight: 100 900;
+  font-stretch: 50% 150%;
+  src: url('@fontsource-variable/anybody/files/anybody-latin-ext-standard-italic.woff2') format('woff2-variations');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329,
+    U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Anybody Variable';
+  font-style: italic;
+  font-display: swap;
+  font-weight: 100 900;
+  font-stretch: 50% 150%;
+  src: url('@fontsource-variable/anybody/files/anybody-latin-standard-italic.woff2') format('woff2-variations');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Martian Mono Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 800;
+  font-stretch: 75% 112.5%;
+  src: url('@fontsource-variable/martian-mono/files/martian-mono-latin-ext-standard-normal.woff2') format('woff2-variations');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329,
+    U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Martian Mono Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 800;
+  font-stretch: 75% 112.5%;
+  src: url('@fontsource-variable/martian-mono/files/martian-mono-latin-standard-normal.woff2') format('woff2-variations');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Caveat Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400 700;
+  src: url('@fontsource-variable/caveat/files/caveat-latin-ext-wght-normal.woff2') format('woff2-variations');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329,
+    U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Caveat Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400 700;
+  src: url('@fontsource-variable/caveat/files/caveat-latin-wght-normal.woff2') format('woff2-variations');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* ── Madde 4: çatışan neonlar, derin pasteller, siyah. Metin kuralı: pembe/turuncu/limon/camgöbeği/pastel üstünde koyu mürekkep, mavi/mor üstünde krem ── */
+:root {
+  --bg: #fff3e3;
+  --paper: #fffdf7;
+  --ink: #111014;
+  --muted: #3d3846;
+  --line: #111014;
+  --black: #0b0a0f;
+  --cream: #fff7ee;
+  --pink: #ff2e93;
+  --lime: #c8ff00;
+  --blue: #2f3cff;
+  --orange: #ff6a00;
+  --cyan: #00e5ff;
+  --violet: #8a2bff;
+  --red: #ff1f3d;
+  --lilac: #c9b5ff;
+  --peach: #ffb59e;
+  --mint: #9ef0c8;
+  --butter: #ffe680;
+  --sky: #9fd4ff;
+  --rose: #ffb8d9;
+  /* Serbest değişkenler (Madde 13): varsayılan "normal" kaos */
+  --rot-max: 12deg;
+  --overlap: 0.5;
+  --sat: 115%;
+  --grain: 0.35;
+  --speed: 1;
+  --ff-sans: 'Anybody Variable', 'Anybody', system-ui, sans-serif;
+  --ff-serif: 'Fraunces Variable', 'Fraunces', Georgia, serif;
+  --ff-mono: 'Martian Mono Variable', 'Martian Mono', ui-monospace, monospace;
+  --ff-hand: 'Caveat Variable', 'Caveat', 'Comic Sans MS', cursive;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --bg: #0b0a0f;
+    --paper: #17141f;
+    --ink: #fff7ee;
+    --muted: #cfc6d9;
+    --line: #fff7ee;
+    color-scheme: dark;
+  }
+}
+:root[data-theme='dark'] {
+  --bg: #0b0a0f;
+  --paper: #17141f;
+  --ink: #fff7ee;
+  --muted: #cfc6d9;
+  --line: #fff7ee;
+  color-scheme: dark;
+}
+/* Font karışımı (serbest değişken): 1 yalnız sans, 2 + serif, 3 + mono, 4 + el yazısı */
+:root[data-fontmix='1'] {
+  --ff-serif: var(--ff-sans);
+  --ff-mono: var(--ff-sans);
+  --ff-hand: var(--ff-sans);
+}
+:root[data-fontmix='2'] {
+  --ff-mono: var(--ff-sans);
+  --ff-hand: var(--ff-serif);
+}
+:root[data-fontmix='3'] {
+  --ff-hand: var(--ff-serif);
+}
+
+@theme {
+  --color-*: initial;
+  --font-*: initial;
+  --font-code: 'Martian Mono Variable', 'Martian Mono', ui-monospace, monospace;
+  --color-white: #ffffff;
+  --color-transparent: transparent;
+}
+@theme inline {
+  --font-sans: var(--ff-sans);
+  --font-serif: var(--ff-serif);
+  --font-mono: var(--ff-mono);
+  --font-hand: var(--ff-hand);
+  --color-bg: var(--bg);
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-black: var(--black);
+  --color-cream: var(--cream);
+  --color-pink: var(--pink);
+  --color-lime: var(--lime);
+  --color-blue: var(--blue);
+  --color-orange: var(--orange);
+  --color-cyan: var(--cyan);
+  --color-violet: var(--violet);
+  --color-red: var(--red);
+  --color-lilac: var(--lilac);
+  --color-peach: var(--peach);
+  --color-mint: var(--mint);
+  --color-butter: var(--butter);
+  --color-sky: var(--sky);
+  --color-rose: var(--rose);
+}
+
+@layer base {
+  html {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--ff-sans);
+    font-stretch: 100%;
+    -webkit-font-smoothing: antialiased;
+    scroll-padding-top: 84px;
+  }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-size: 17px;
+    line-height: 1.5;
+    font-weight: 450;
+    overflow-x: clip;
+  }
+  /* Odak: her zeminde görünsün diye iki renkli halka (koyu iç, limon dış) */
+  :focus-visible {
+    outline: 4px solid #c8ff00;
+    outline-offset: 2px;
+    box-shadow: 0 0 0 2px #111014 !important;
+  }
+  ::selection {
+    background: var(--lime);
+    color: #111014;
+  }
+  code,
+  pre,
+  kbd {
+    font-family: var(--font-code);
+    font-variant-ligatures: none;
+  }
+}
+
+@layer components {
+  /* ── Madde 5: değişken yazı; eksenler sınırına kadar ── */
+  .wonk {
+    font-variation-settings:
+      'SOFT' var(--soft, 100),
+      'WONK' 1;
+  }
+  .soft0 {
+    --soft: 0;
+  }
+  .ultra-wide {
+    font-stretch: 150%;
+  }
+  .ultra-narrow {
+    font-stretch: 50%;
+  }
+  .giant {
+    font-family: var(--ff-sans);
+    font-weight: 900;
+    line-height: 0.82;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+  }
+  .kicker {
+    font-family: var(--font-code);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    font-stretch: 87.5%;
+  }
+  /* ── Madde 7 · 13: rastgele görünen eğim; her öğenin --r değeri (−1…1) × serbest değişken ── */
+  .tilt {
+    rotate: calc(var(--r, 0) * var(--rot-max));
+  }
+  .sat {
+    filter: saturate(var(--sat));
+  }
+  /* ── Madde 8: dokular ── */
+  .halftone {
+    background-image: radial-gradient(circle at center, var(--dot, #111014) 0 32%, transparent 34%);
+    background-size: var(--dot-size, 9px) var(--dot-size, 9px);
+  }
+  .halftone-fade {
+    mask-image: linear-gradient(var(--fade-dir, 135deg), #000 10%, transparent 90%);
+  }
+  .grain-box {
+    position: relative;
+    isolation: isolate;
+  }
+  .grain-box::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+    opacity: calc(var(--grain) * 0.55);
+    mix-blend-mode: multiply;
+    border-radius: inherit;
+  }
+  .holo {
+    background:
+      radial-gradient(circle at var(--mx, 30%) var(--my, 30%), rgb(255 255 255 / 0.85), transparent 40%),
+      conic-gradient(from var(--holo-a), #ff9ad5, #9fe8ff, #fff59a, #c6a8ff, #9effc6, #ff9ad5);
+    animation: holo-spin calc(7s / var(--speed)) linear infinite;
+    color: #111014;
+  }
+  .tape::before {
+    content: '';
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    width: 86px;
+    height: 26px;
+    translate: -50% 0;
+    rotate: -4deg;
+    background: rgb(255 246 200 / 0.72);
+    box-shadow: 0 1px 0 rgb(0 0 0 / 0.08);
+    mask-image: linear-gradient(90deg, transparent 0 3px, #000 3px calc(100% - 3px), transparent calc(100% - 3px));
+  }
+  /* Kesilmiş çıkartma: kalın beyaz kenar ve sert gölge */
+  .sticker {
+    border: 4px solid #fffdf7;
+    box-shadow: 3px 4px 0 rgb(17 16 20 / 0.9);
+  }
+  /* ── Madde 16: kaydırmaya bağlı paralaks (--p: −1…1, JS yazar) ── */
+  .fx {
+    transform: translateY(calc(var(--p, 0) * var(--fx-y, 0px))) rotate(calc(var(--p, 0) * var(--fx-rot, 0deg))) scale(calc(1 + var(--p, 0) * var(--fx-scale, 0)));
+    filter: hue-rotate(calc(var(--p, 0) * var(--fx-hue, 0deg))) saturate(var(--sat));
+    will-change: transform;
+  }
+  .wobble:hover {
+    animation: wobble 420ms ease-in-out;
+  }
+  .spin-slow {
+    animation: spin calc(24s / var(--speed)) linear infinite;
+  }
+  .float {
+    animation: float calc(5s / var(--speed)) ease-in-out infinite alternate;
+  }
+  .pop-in {
+    animation: pop-in 380ms cubic-bezier(0.2, 1.6, 0.4, 1) both;
+  }
+  .scroll-x {
+    overflow-x: auto;
+    scrollbar-width: thin;
+  }
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@keyframes holo-spin {
+  to {
+    --holo-a: 360deg;
+  }
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes float {
+  from {
+    translate: 0 -6px;
+  }
+  to {
+    translate: 0 8px;
+  }
+}
+@keyframes wobble {
+  25% {
+    rotate: calc(var(--r, 0) * var(--rot-max) - 6deg);
+  }
+  75% {
+    rotate: calc(var(--r, 0) * var(--rot-max) + 6deg);
+  }
+}
+@keyframes pop-in {
+  from {
+    scale: 0.4;
+    opacity: 0;
+  }
+}
+@keyframes grain-jitter {
+  0% {
+    background-position: 0 0;
+  }
+  25% {
+    background-position: -40px 30px;
+  }
+  50% {
+    background-position: 30px -50px;
+  }
+  75% {
+    background-position: -20px -20px;
+  }
+}
+.grain-page {
+  position: fixed;
+  inset: -60px;
+  z-index: 90;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  opacity: calc(var(--grain) * 0.22);
+  mix-blend-mode: multiply;
+  animation: grain-jitter 0.5s steps(1) infinite;
+}
+:root[data-theme='dark'] .grain-page {
+  mix-blend-mode: screen;
+  filter: invert(1);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) .grain-page {
+    mix-blend-mode: screen;
+    filter: invert(1);
+  }
+}
+
+/* Sakin (Madde 18 varyantı): süs kalabalığı, uçan rozet ve imleç takipçisi kalkar */
+:root[data-kaos='sakin'] .clutter {
+  display: none !important;
+}
+/* Sakin mod: paralaks ve folyo da durur (Madde 18 kaçış yolu) */
+:root[data-kaos='sakin'] .fx {
+  transform: none;
+  filter: saturate(var(--sat));
+}
+:root[data-kaos='sakin'] .holo {
+  animation: none;
+}
+/* Hareket kapalı: animasyon ve geçiş yok, paralaks sıfırda */
+:root[data-motion='off'] *,
+:root[data-motion='off'] *::before,
+:root[data-motion='off'] *::after {
+  animation: none !important;
+  transition: none !important;
+  scroll-behavior: auto !important;
+}
+:root[data-motion='off'] .fx {
+  transform: none;
+}
+
+@media (forced-colors: active) {
+  .holo,
+  .halftone {
+    background: Canvas;
+    color: CanvasText;
+  }
+  .grain-page,
+  .grain-box::after {
+    display: none;
+  }
+}

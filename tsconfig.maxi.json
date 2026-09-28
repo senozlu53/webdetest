@@ -1,0 +1,10 @@
+{
+  // Stil 017 ayrı derlenir: @react-three/fiber, JSX'e global three.js öğeleri ekler;
+  // bu tipler diğer stillerin çok biçimli (as=…) bileşenlerini bozmasın diye yalıtılır (Stil 009 ile aynı yöntem).
+  "extends": "./tsconfig.app.json",
+  "compilerOptions": {
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.maxi.tsbuildinfo"
+  },
+  "include": ["src/maxi", "src/shared", "src/vite-env.d.ts"],
+  "exclude": []
+}
