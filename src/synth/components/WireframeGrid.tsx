@@ -8,7 +8,7 @@ const KESIK = (() => {
   for (let i = 0; i < 7 && y < 100; i++) {
     y += 10 - i * 1.2
     const bosluk = 1.6 + i * 1.3
-    d.push(`M0 ${y.toFixed(1)}h200v${bosluk.toFixed(1)}h-200z`)
+    d.push(`M-30 ${y.toFixed(1)}h260v${bosluk.toFixed(1)}h-260z`)
     y += bosluk
   }
   return d.join('')
@@ -26,7 +26,7 @@ export function WireframeGrid({ renk = 'pink', hucre = 60, hiz = 1.2, egim = 76,
   return (
     <div className={cx('wf', className)} style={{ ...v, ...style }} data-wf="">
       {gunes ? (
-        <svg className="absolute w-[min(46%,420px)] -translate-x-1/2" style={{ bottom: `${100 - ufuk}%`, left: `${gunesX}%` }} viewBox="0 0 200 100" aria-hidden="true">
+        <svg className="absolute w-[min(59.8%,546px)] -translate-x-1/2" style={{ bottom: `${100 - ufuk}%`, left: `${gunesX}%` }} viewBox="-30 -30 260 130" aria-hidden="true">
           <defs>
             <linearGradient id={`${uid}g`} x1="0" y1="0" x2="0" y2="1">
               <stop offset="0" stopColor="#ffe08a" />
@@ -34,7 +34,7 @@ export function WireframeGrid({ renk = 'pink', hucre = 60, hiz = 1.2, egim = 76,
               <stop offset="1" stopColor="#ff00ff" />
             </linearGradient>
             <mask id={`${uid}k`}>
-              <rect width="200" height="100" fill="#fff" />
+              <rect x="-30" y="-30" width="260" height="130" fill="#fff" />
               <path d={KESIK} fill="#000" />
             </mask>
           </defs>
