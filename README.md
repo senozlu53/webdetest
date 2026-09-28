@@ -19,10 +19,11 @@ Web tasarım stilleri için canlı referans sayfaları. Her stil, anlattığı k
 | 013 · Generative UI | `/stil/013/` | `src/gen/` | `tokens/gen.tokens.json` |
 | 014 · Conversational UI | `/stil/014/` | `src/chat/` | `tokens/chat.tokens.json` |
 | 015 · Neural Aesthetic | `/stil/015/` | `src/neural/` | `tokens/neural.tokens.json` |
+| 016 · Neo-Brutalism | `/stil/016/` | `src/brut/` | `tokens/brut.tokens.json` |
 
 ```bash
 npm install
-npm run dev        # http://localhost:5173  → katalog, /stil/001/, /stil/002/, /stil/003/, /stil/004/, /stil/005/, /stil/006/, /stil/007/, /stil/008/, /stil/009/, /stil/010/, /stil/011/, /stil/012/, /stil/013/, /stil/014/, /stil/015/
+npm run dev        # http://localhost:5173  → katalog, /stil/001/, /stil/002/, /stil/003/, /stil/004/, /stil/005/, /stil/006/, /stil/007/, /stil/008/, /stil/009/, /stil/010/, /stil/011/, /stil/012/, /stil/013/, /stil/014/, /stil/015/, /stil/016/
 npm run build      # tip denetimi + dist/
 npm run typecheck
 ```
@@ -46,6 +47,7 @@ stil/012/index.html      Terminal / Hacker UI giriş noktası
 stil/013/index.html      Generative UI giriş noktası
 stil/014/index.html      Conversational UI giriş noktası
 stil/015/index.html      Neural Aesthetic giriş noktası
+stil/016/index.html      Neo-Brutalism giriş noktası
 src/shared/              stiller arası ortak yardımcılar (cx, useTheme)
 src/swiss/               swiss.css (tema) · components/ · sections/
 src/soft/                soft.css (tema) · components/ · sections/
@@ -62,6 +64,7 @@ src/term/                term.css (tema) · components/ (TerminalShell, Kbd, Log
 src/gen/                 gen.css (tema) · components/ (ToolCall, ToolResult, AICitation, AISources, Markdown) · results/ · lib/ (markdown, senaryolar) · sections/
 src/chat/                chat.css (tema) · components/ (AIChat, AIPromptBox, AIMessage, AIVoiceInput) · widgets/ (yanıt içi örnekler) · lib/ (konular, dosya analizi) · hooks/ · host/
 src/neural/              neural.css (tema) · components/ (AIAgentTimeline, AIModelSelector, NeuralGraph, PanZoom, ProcessorTree) · charts/ · lib/ (ajan planı, modeller, eğitim, veri seti) · sections/
+src/brut/                brut.css (tema) · components/ (SolidButton, BrutalistCard, Marquee, Tag) · sections/ · sections/uses/ (mağaza, geliştirici, ajans, Web3) · lib/
 scripts/lowpoly-glb.mjs  Stil 009'un GLB modellerini üretir
 tokens/                  W3C DTCG token dosyaları (Figma / Tokens Studio)
 ```
@@ -291,6 +294,19 @@ Verinin işlenişini, sinir ağlarını ve yapay zekânın "zihnini" derin uzay 
 - **Mobil (Madde 17):** Veri seti haritası her ekranda, işlemci ağacı 768px altında kaydırılıp yakınlaştırılan bir alan: tek parmak kaydırır, iki parmak ya da Ctrl + tekerlek yakınlaştırır (düz tekerlek sayfayı kaydırmaya devam eder), odaktayken oklar, + − ve 0 çalışır. Ağaç mobilde okunur ölçekte başlar. Zaman çizelgesi dar ekranda dikey.
 - **Erişilebilirlik (Madde 18):** Salt koyu mod (`color-scheme: dark`, açık tema yok). Görsel gösterinin arkasındaki veri ölçüldü: metin en kötü yüzeyde 14,15:1, ikincil 6,67:1, en soluk etiket 4,95:1, birincil düğme metni en az 7,27:1; grafik öğeleri en az 3:1. Her görselin okunabilir karşılığı var (tablolar, durum metinleri, `aria-current="step"`, canlı duyurular). Varyantlar: Sade efekt (toz, parıltı ve bulanıklık yok) ve Yüksek kontrast.
 
+## Stil 016 · Neo-Brutalism
+
+Yumuşak gölgeyi ve ince çizgiyi reddeden, saf renk ve kalın siyah çerçeveyle kurulan, kasıtlı olarak ham bir stil. Sayfa bir tanıtımdır: ürünler, anahtarlar ve veriler kurgudur; sepet, form ve dağıtım paneli tarayıcıda gerçekten çalışır.
+
+- **Bileşenler (Madde 11 · 14 · 15):** `<SolidButton>` tanımdaki Tailwind satırını birebir kullanır (`border-4 border-black shadow-[6px_6px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0px_rgba(0,0,0,1)]`); basınca 6px çöker ve gölge kaybolur. "Tam çöküş" varyantında bu, üstüne gelince olur. Koyu tema için `dark:` varyantı sitenin tema sözleşmesine (sistem tercihi + `data-theme`) bağlandı. `<BrutalistCard>` 3px çerçeve, 6/6/0 gölge; etkileşimli kart üstüne gelince 3px seker. `<Marquee>` iki kopyayı linear olarak kaydırır, hız px/sn olarak sabittir (50, 110, 220); üstüne gelince, odakta, kendi düğmesiyle ya da genel "şeritleri durdur" ayarıyla durur (WCAG 2.2.2), metin ekran okuyucuya bir kez okunur. Büyük etiketler, düzenlenebilir etiket alanı, form (hata kutusu, anahtar, onay kutusu, radyo çipleri) ve damga gibi beliren bildirimler.
+- **Kullanım alanları (Madde 10):** Dört sekme. Gen-Z mağaza: süzgeç, sepete ekleme, adet, 1.000 TL eşikli kargo, başlıkta seken sepet sayacı. Geliştirici aracı: blok blok dolan dağıtım adımları, günlük, API anahtarlarını göster, kopyala, iptal et. Ajans ve portfolyo: açılır proje listesi ve doğrulamalı teklif formu. Web3: tanıtım cüzdanı ve rozet basma (zincir yok).
+- **Renk ve yazı (Madde 4 · 5):** Zemin kirli beyaz `#F4F4F0` ya da sarı `#FFD500` (ayar), metin ve çerçeve saf siyah; vurgu CMYK kırmızı `#FF4D3D`, mavi `#3D7BFF`, yeşil `#00C16A` ve pembe. Renk yalnız düz dolgu, üstündeki metin hep siyah (en düşük 5,48:1). Başlık Archivo 900, genişlik ekseni %125; gövde Space Grotesk; kod JetBrains Mono. `₺` Archivo'nun Latin Genişletilmiş alt kümesinde olduğu için fiyatlar başlık yazısıyla.
+- **Şekil, gölge, ikon (Madde 6 · 7 · 8 · 9):** Köşeli (varsayılan) ya da 14px yuvarlak (ayar); çizgi ve gölge aynı kalır. Gölge hep x 6, y 6, blur 0. Doku ve degrade yok. İkonlar 2,5px, kare uç, sivri birleşim.
+- **Figma (Madde 12 · 13):** Her bileşende Stroke 3px, Black, Inside (buton Madde 15'e uyarak 4px). Kart iç boşluğu bilerek asimetrik (20, 28, 24, 20), bölüm aralıkları çok geniş. Tokenlar: `Border/ThickBlack`, `Shadow/SolidOffset`, `Typography/Oversized` ve diğerleri `tokens/brut.tokens.json` içinde.
+- **Hareket (Madde 16):** Ease yok: basış ve kart sekmesi 80ms linear, damga 240ms `steps(3)`, sepet sayacı 200ms `steps(2)`, ilerleme blok blok. Bölümde ease, linear ve `steps(5)` yan yana karşılaştırılır. Hareket kapalıyken (ya da hareketi azalt tercihinde) şerit, damga ve sekme durur; basınca yer değiştirme anında olur.
+- **Mobil (Madde 17):** Ölçek doğrusal değil: mega başlık 1280px'te 141px, 390px'te 52px; gövde 18px'ten 16px'e. 640px altında Archivo'nun genişlik ekseni %125'ten %100'e iner. Bölümdeki çerçeve genişliği seçilebilen canlı örnek, aynı başlığın küçültülmeyen sürümünün taştığını gösterir. Izgara tek sütuna iner, asimetrik kaydırmalar masaüstüne özel, gezinme ikinci satırda yatay kayar, dokunma hedefleri en az 44px. 320px'ten 1920px'e taşma yok.
+- **Erişilebilirlik (Madde 18):** Açık temada en düşük metin çifti 5,48:1, koyu temada 5,99:1. Koyu varyant: siyah zemin, kalın beyaz çerçeve, beyaz gölge, neon dolgu (üstünde siyah metin). Odak halkası 3px kesik çizgi. Renk tek başına bilgi taşımaz: hata kutusu ikon ve metinle, durum rozetleri yazılı, seçili çip dolu, gölgesiz ve onay işaretli. İngilizce bileşen adları `lang="en"` taşır; böylece büyük harfe çevrilince "İ" olmaz.
+
 ## Yazı tipleri
 
-Hepsi OFL lisanslı, `@fontsource-variable` paketlerinden yalnızca Latin ve Latin Genişletilmiş alt kümeleriyle yüklenir: Inter (Stil 001 ve 003), Lora ve Plus Jakarta Sans (Stil 002), Geist ve Geist Mono (Stil 004; `₺` glifi olmadığı için tutarlar "TL" ile yazılır), Nunito (Stil 005), Sora (Stil 006), Baloo 2 ve Quicksand (Stil 007; Fredoka ğ, ş ve İ içermediği için başlıkta Baloo 2 seçildi), Manrope ve IBM Plex Mono (Stil 008; Space Mono `₺` içermediği için Plex Mono seçildi), Space Grotesk ve Inter (Stil 009), Rajdhani, Orbitron, Space Grotesk ve IBM Plex Mono (Stil 010; Rajdhani ve Plex Mono sabit ağırlıklı `@fontsource` paketlerinden gelir; Orbitron ğ, ş ve İ içermediği için yalnız Latin alt kümesiyle yüklenir ve yalnız rakam, kod ve saatlerde kullanılır, başlıklar Rajdhani), Audiowide, Exo 2, Chakra Petch ve IBM Plex Mono (Stil 011; Audiowide ve Chakra Petch sabit ağırlıklı `@fontsource` paketlerinden), JetBrains Mono, Fira Code ve Source Code Pro (Stil 012), Inter, Source Serif 4 ve JetBrains Mono (Stil 013), Inter ve JetBrains Mono (Stil 014), Outfit ve Martian Mono (Stil 015; ikisinde de `→`, `✓`, `≥` ve `₺` glifi yok, arayüzde kullanılmaz). Lisanslı Helvetica Now ya da Neue Haas Grotesk kullanmak için `src/swiss/swiss.css` içindeki `@font-face` bloklarını ve `--font-sans` sırasını değiştirin.
+Hepsi OFL lisanslı, `@fontsource-variable` paketlerinden yalnızca Latin ve Latin Genişletilmiş alt kümeleriyle yüklenir: Inter (Stil 001 ve 003), Lora ve Plus Jakarta Sans (Stil 002), Geist ve Geist Mono (Stil 004; `₺` glifi olmadığı için tutarlar "TL" ile yazılır), Nunito (Stil 005), Sora (Stil 006), Baloo 2 ve Quicksand (Stil 007; Fredoka ğ, ş ve İ içermediği için başlıkta Baloo 2 seçildi), Manrope ve IBM Plex Mono (Stil 008; Space Mono `₺` içermediği için Plex Mono seçildi), Space Grotesk ve Inter (Stil 009), Rajdhani, Orbitron, Space Grotesk ve IBM Plex Mono (Stil 010; Rajdhani ve Plex Mono sabit ağırlıklı `@fontsource` paketlerinden gelir; Orbitron ğ, ş ve İ içermediği için yalnız Latin alt kümesiyle yüklenir ve yalnız rakam, kod ve saatlerde kullanılır, başlıklar Rajdhani), Audiowide, Exo 2, Chakra Petch ve IBM Plex Mono (Stil 011; Audiowide ve Chakra Petch sabit ağırlıklı `@fontsource` paketlerinden), JetBrains Mono, Fira Code ve Source Code Pro (Stil 012), Inter, Source Serif 4 ve JetBrains Mono (Stil 013), Inter ve JetBrains Mono (Stil 014), Outfit ve Martian Mono (Stil 015; ikisinde de `→`, `✓`, `≥` ve `₺` glifi yok, arayüzde kullanılmaz), Archivo (genişlik ve ağırlık eksenli), Space Grotesk ve JetBrains Mono (Stil 016). Lisanslı Helvetica Now ya da Neue Haas Grotesk kullanmak için `src/swiss/swiss.css` içindeki `@font-face` bloklarını ve `--font-sans` sırasını değiştirin.

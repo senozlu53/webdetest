@@ -1,0 +1,77 @@
+{
+  "$description": "Stil 016: Neo-Brutalism. W3C DTCG formatı. Adlar Figma yolu ile aynıdır: Border/ThickBlack, Shadow/SolidOffset, Typography/Oversized. Metin ve çerçeve saf siyah; renk yalnız düz dolgu, üstünde hep siyah metin. Koyu varyant: siyah zemin, kalın beyaz çerçeve, neon dolgu.",
+  "Border": {
+    "ThickBlack": { "$type": "border", "$value": { "width": "3px", "style": "solid", "color": "#000000" }, "dark": "#FFFFFF", "$description": "Madde 12: bütün bileşenlerde Stroke 3px, Black, Inside" },
+    "Button": { "$type": "border", "$value": { "width": "4px", "style": "solid", "color": "#000000" }, "$description": "Madde 15: SolidButton border-4" }
+  },
+  "Shadow": {
+    "SolidOffset": {
+      "$type": "shadow",
+      "$value": { "offsetX": "6px", "offsetY": "6px", "blur": "0", "spread": "0", "color": "#000000" },
+      "dark": "#FFFFFF",
+      "$description": "Madde 7: bulanıklık kesinlikle 0"
+    },
+    "Hover": { "$type": "shadow", "$value": { "offsetX": "4px", "offsetY": "4px", "blur": "0", "spread": "0", "color": "#000000" }, "$description": "Buton 2px iner" },
+    "Pressed": { "$type": "string", "$value": "none", "$description": "Basılıyken buton 6px iner, gölgenin yerine çöker. 'Tam çöküş' varyantında hover'da da" },
+    "Small": { "$type": "shadow", "$value": { "offsetX": "3px", "offsetY": "3px", "blur": "0", "spread": "0", "color": "#000000" } },
+    "Lift": { "$type": "shadow", "$value": { "offsetX": "9px", "offsetY": "9px", "blur": "0", "spread": "0", "color": "#000000" }, "$description": "Etkileşimli kart üstüne gelince 3px yukarı seker" },
+    "Large": { "$type": "shadow", "$value": { "offsetX": "10px", "offsetY": "10px", "blur": "0", "spread": "0", "color": "#000000" } }
+  },
+  "Typography": {
+    "Oversized": {
+      "$type": "typography",
+      "$value": { "fontFamily": "Archivo", "fontWeight": 900, "fontStretch": "125%", "fontSize": "clamp(40px, 11vw, 148px)", "lineHeight": 0.92, "letterSpacing": "-0.02em", "textCase": "uppercase" },
+      "mobile": { "fontStretch": "100%", "fontSize": "clamp(40px, 13.4vw, 64px)", "breakpoint": "640px" },
+      "$description": "Madde 5 · 17: masaüstünde 141px (1280), telefonda 52px (390). Satır aralığı Türkçe büyük harf aksanları (Ü, Ş, İ) üst satıra değmesin diye 0,92"
+    },
+    "Display": { "$type": "typography", "$value": { "fontFamily": "Archivo", "fontWeight": 900, "fontStretch": "125%", "fontSize": "clamp(34px, 7.2vw, 104px)", "lineHeight": 1 } },
+    "Headline": { "$type": "typography", "$value": { "fontFamily": "Archivo", "fontWeight": 900, "fontStretch": "125%", "fontSize": "clamp(22px, 2.6vw, 34px)", "lineHeight": 1 } },
+    "Body": { "$type": "typography", "$value": { "fontFamily": "Space Grotesk", "fontWeight": 450, "fontSize": "18px", "lineHeight": 1.55 }, "mobile": { "fontSize": "16px" } },
+    "Code": { "$type": "typography", "$value": { "fontFamily": "JetBrains Mono", "fontWeight": 700, "fontSize": "13px" } }
+  },
+  "Color": {
+    "Paper": { "$type": "color", "$value": "#F4F4F0", "contrast": 19.05, "$description": "Kirli beyaz zemin (varsayılan)" },
+    "Yellow": { "$type": "color", "$value": "#FFD500", "contrast": 14.77, "$description": "Sarı zemin (data-zemin='sari') ya da dolgu. Sarı zeminde sarı dolgu #FFF3A3 olur" },
+    "Ink": { "$type": "color", "$value": "#000000", "$description": "Metin, çerçeve, gölge" },
+    "Muted": { "$type": "color", "$value": "#3A3A3A", "contrast": 10.32 },
+    "Surface": { "$type": "color", "$value": "#FFFFFF" },
+    "CMYK": {
+      "$description": "Vurgu dolguları; kontrast üstündeki siyah metin için",
+      "Red": { "$type": "color", "$value": "#FF4D3D", "contrast": 6.38 },
+      "Blue": { "$type": "color", "$value": "#3D7BFF", "contrast": 5.48 },
+      "Green": { "$type": "color", "$value": "#00C16A", "contrast": 8.84 }
+    },
+    "Pink": { "$type": "color", "$value": "#FF90E8", "contrast": 10.41, "$description": "Çıkartma, ikincil dolgu" },
+    "Dark": {
+      "$description": "Madde 18: koyu varyant. Zemin siyah, çerçeve ve gölge beyaz, dolgular neon; üstündeki metin siyah",
+      "Bg": { "$type": "color", "$value": "#000000" },
+      "Surface": { "$type": "color", "$value": "#121212" },
+      "Ink": { "$type": "color", "$value": "#FFFFFF", "contrast": 21 },
+      "Muted": { "$type": "color", "$value": "#C8C8C8", "contrast": 11.01 },
+      "Yellow": { "$type": "color", "$value": "#FFF000", "contrast": 17.72 },
+      "Red": { "$type": "color", "$value": "#FF3860", "contrast": 5.99 },
+      "Blue": { "$type": "color", "$value": "#4D9DFF", "contrast": 7.58 },
+      "Green": { "$type": "color", "$value": "#39FF14", "contrast": 15.49 },
+      "Pink": { "$type": "color", "$value": "#FF3EA5", "contrast": 6.48 }
+    }
+  },
+  "Radius": {
+    "Sharp": { "$type": "dimension", "$value": "0px", "$description": "Varsayılan (data-kose='keskin')" },
+    "Soft": { "$type": "dimension", "$value": "14px", "$description": "data-kose='yuvarlak'; çizgi ve gölge aynı kalır" }
+  },
+  "Spacing": {
+    "$description": "Madde 12: asimetrik ya da çok geniş Auto Layout",
+    "CardPadding": { "$type": "string", "$value": "20px 28px 24px 20px", "$description": "üst, sağ, alt, sol" },
+    "Section": { "$type": "dimension", "$value": "112px", "$description": "Masaüstünde 128px" },
+    "Grid": { "$type": "string", "$value": "32–40px", "$description": "Bazı kartlar bilerek 16–48px kaydırılır; mobilde kaydırma yok" }
+  },
+  "Icon": { "Stroke": { "$type": "dimension", "$value": "2.5px", "$description": "Madde 9: kare uç, sivri birleşim; dolgusuz ya da düz dolgulu" } },
+  "Motion": {
+    "$description": "Madde 16: ease yok. Anında, linear ya da adım adım",
+    "Press": { "$type": "duration", "$value": "80ms", "$description": "linear; transform ve box-shadow" },
+    "Stamp": { "$type": "duration", "$value": "240ms", "$description": "steps(3): bildirim ve onay damgası" },
+    "Bump": { "$type": "duration", "$value": "200ms", "$description": "steps(2): sepet sayacı" },
+    "Marquee": { "$type": "string", "$value": "50 · 110 · 220 px/sn", "$description": "Süre = kopya genişliği / hız; linear, sonsuz. Üstüne gelince, odakta, düğmeyle ya da genel ayarla durur (WCAG 2.2.2)" },
+    "Levels": { "$description": "data-motion: on · off (hareketi azalt ya da kullanıcı; localStorage 'brut-motion')", "$value": ["oto", "acik", "kapali"] }
+  }
+}
