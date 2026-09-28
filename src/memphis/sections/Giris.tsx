@@ -9,10 +9,10 @@ const git = (id: string) => document.getElementById(id)?.scrollIntoView()
 /** Madde 1 · 2: renk ve şekil patlaması. Izgara 1,618 : 1 (altın oran) */
 export function Hero() {
   return (
-    <section id="ust" aria-labelledby="baslik" className="relative overflow-x-clip">
+    <section id="ust" aria-labelledby="baslik" className="relative overflow-hidden">
       <div className="pointer-events-none absolute inset-0" aria-hidden="true">
         <div className="halftone absolute -top-10 right-[4%] h-[260px] w-[42%] [--dot-color:var(--teal)] max-md:hidden" />
-        <div className="polka absolute bottom-6 left-[-40px] size-[180px] rounded-full [--dot-color:var(--yellow)]" />
+        <div className="polka absolute -bottom-28 -left-28 size-[180px] rounded-full [--dot-color:var(--yellow)]" />
         <Sekil tur="dalga" ton="pembe" boyut={120} className="suzul absolute top-[16%] left-[50%] max-lg:hidden" />
         <Sekil tur="zikzak" ton="camgobegi" boyut={110} className="suzul absolute right-[2%] bottom-[6%] [animation-delay:-2s]" />
         <Konfeti tur="cubuk" ton="pembe" className="suzul absolute top-[60%] left-[48%] rotate-45" />
