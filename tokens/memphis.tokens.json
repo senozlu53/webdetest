@@ -1,0 +1,73 @@
+{
+  "$description": "Stil 022: Memphis Design. W3C DTCG formatı. Adlar Figma yolu ile aynıdır: Color/MemphisYellow, Border/MemphisThick, Pattern/Halftone. Tek tema: açık (Madde 18). Gölge katı, bulanıklık 0. Ölçüler altın orana (1,618) bağlıdır.",
+  "Color": {
+    "MemphisYellow": { "$type": "color", "$value": "#FFD166", "text": "#073B4C", "contrast": 8.38, "$description": "Madde 4: Hardal Sarısı. Ana dolgu, düğme, vurgu bloğu; Tailwind bg-yellow-400" },
+    "MemphisTeal": { "$type": "color", "$value": "#06D6A0", "text": "#073B4C", "contrast": 6.4, "$description": "Madde 4: Cam Göbeği" },
+    "MemphisPink": { "$type": "color", "$value": "#EF476F", "text": "#000000", "contrast": 5.8, "inkContrast": 3.34, "$description": "Madde 4 · 18: Sakız Pembesi. Üstünde lacivert 3,34:1 yetmez; yazı saf siyah" },
+    "MemphisInk": { "$type": "color", "$value": "#073B4C", "onWhite": 12.08, "$description": "Madde 4: 'Siyah'. Kontur, gölge ve bütün metin; Tailwind border-black" },
+    "Paper": { "$type": "color", "$value": "#FFFFFF" },
+    "PureBlack": { "$type": "color", "$value": "#000000", "$description": "Pembe üstündeki yazı ve yüksek kontrast varyantının mürekkebi" },
+    "Tint": {
+      "Yellow": { "$type": "color", "$value": "#FFF3D1" },
+      "Teal": { "$type": "color", "$value": "#D9F7EE" },
+      "Pink": { "$type": "color", "$value": "#FDE1E8" }
+    },
+    "TextOnWhite": {
+      "$description": "Renk yazı olarak kullanılırsa beyazda 4,5:1'i geçecek kadar koyulaşır",
+      "Pink": { "$type": "color", "$value": "#B3163F", "contrast": 6.77 },
+      "Teal": { "$type": "color", "$value": "#03795A", "contrast": 5.4 },
+      "Yellow": { "$type": "color", "$value": "#7A5200", "contrast": 6.92 }
+    }
+  },
+  "Border": {
+    "MemphisThick": { "$type": "border", "$value": { "color": "{Color.MemphisInk}", "width": "4px", "style": "solid" }, "$description": "Madde 13 · 15: border-4 border-black" },
+    "Chip": { "$type": "border", "$value": { "color": "{Color.MemphisInk}", "width": "3px", "style": "solid" } }
+  },
+  "Shadow": {
+    "Solid": { "$type": "shadow", "$value": { "color": "{Color.MemphisInk}", "offsetX": "8px", "offsetY": "8px", "blur": "0px", "spread": "0px" }, "mobile": "5px 5px", "$description": "Madde 7 · 15: shadow-[8px_8px_0px_#000]" },
+    "Colored": { "$type": "shadow", "$value": { "color": "{Color.MemphisPink}", "offsetX": "8px", "offsetY": "8px", "blur": "0px", "spread": "0px" } },
+    "Button": { "$type": "shadow", "$value": { "color": "{Color.MemphisInk}", "offsetX": "5px", "offsetY": "5px", "blur": "0px", "spread": "0px" }, "pressed": "1px 1px + translate 4px 4px" }
+  },
+  "Pattern": {
+    "Halftone": { "$type": "string", "$value": "radial-gradient(circle, #073B4C 2px, transparent 2.6px) 0 0 / 14px 14px", "mobile": "12px", "$description": "Madde 8 · 13: nokta vuruşlu zemin. Yazının arkasına girmez" },
+    "Polka": { "$type": "string", "$value": "iki radial-gradient, 28px, 14px kaydırma" },
+    "Stripe": { "$type": "string", "$value": "repeating-linear-gradient(-45deg, #073B4C 0 3px, transparent 3px 11px)" },
+    "Squiggle": { "$type": "string", "$value": "SVG data URI: el çizimi → Ramer–Douglas–Peucker → Catmull-Rom Bézier; 6px lacivert kontur altında renkli çizgi", "$description": "Madde 12" }
+  },
+  "Radius": {
+    "Pill": { "$type": "dimension", "$value": "999px", "$description": "Madde 11: hap düğme" },
+    "Card": { "$type": "dimension", "$value": "18px" },
+    "Asymmetric": { "$type": "string", "$value": "4px 48px 4px 48px", "$description": "Madde 3: kural tanımayan asimetri" }
+  },
+  "Typography": {
+    "Display": { "$type": "typography", "$value": { "fontFamily": ["Syne", "Arial Black", "sans-serif"], "fontWeight": 800, "lineHeight": 0.88, "letterSpacing": "-0.035em" }, "$description": "Madde 5: siyah, dev, kalın" },
+    "Body": { "$type": "typography", "$value": { "fontFamily": ["Epilogue", "system-ui", "sans-serif"], "fontWeight": 400, "fontSize": "18px", "lineHeight": 1.55 } },
+    "Scale": { "$type": "string", "$value": "18 · 29 · 47 · 76 · 123 px (18 × 1,618ⁿ)" }
+  },
+  "Geometry": {
+    "$description": "Madde 6: kaos görünür, oran altındır",
+    "GoldenRatio": { "$type": "number", "$value": 1.618 },
+    "GoldenAngle": { "$type": "number", "$value": 137.508, "$description": "Şekiller Vogel sarmalıyla dağılır" },
+    "ShapeSizes": { "$type": "string", "$value": "26 · 42 · 68 px" },
+    "Layout": { "$type": "string", "$value": "iki sütun 1,618fr : 1fr" }
+  },
+  "Rotation": {
+    "$description": "Madde 14: useRandomRotation. Açı = f(anahtar, sayfa tohumu); mulberry32 + FNV-1a",
+    "Card": { "$type": "string", "$value": "±1,2° – ±4°" },
+    "Sticker": { "$type": "string", "$value": "±6° – ±8°" }
+  },
+  "Motion": {
+    "$description": "Madde 16: yay (spring), CSS linear() ile",
+    "Spring": { "$type": "string", "$value": "k 500, c 16 → 670ms, %30 aşım", "use": "üstüne gelince büyüme (scale 1.07)" },
+    "Bounce": { "$type": "string", "$value": "k 260, c 14 → 760ms", "use": "kart dönüşü" },
+    "Press": { "$type": "string", "$value": "scale 0.94, translate 4px 4px, 90ms" },
+    "Reduced": { "$type": "string", "$value": "prefers-reduced-motion ya da ayar: yay, süzülme ve konfeti kapalı; çark anında sonuç verir" }
+  },
+  "Responsive": {
+    "Stack": { "$type": "dimension", "$value": "640px", "$description": "Madde 17: container query. Altında kartlar alt alta, eğiklik korunur" }
+  },
+  "Accessibility": {
+    "Theme": { "$type": "string", "$value": "yalnız açık", "$description": "Madde 18: koyu zeminde kontur ve katı gölge kaybolur" },
+    "Variants": { "$type": "string", "$value": "yüksek kontrast (mürekkep #000000) · desen (sarı nokta, camgöbeği çizgi, pembe kafes) · renk körlüğü simülasyonu (protan, döteran, tritan, renksiz)" }
+  }
+}

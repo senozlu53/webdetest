@@ -1,0 +1,384 @@
+@import 'tailwindcss' source(none);
+@source '.';
+
+/* ─────────────────────────────────────────────────────────────
+   STİL 022 · MEMPHIS DESIGN
+   1980'lerin Milano'su: zıt renkler, kalın siyah kontur, geometrik primitifler, noktalı zeminler, uçuşan dalgalar.
+   Kaos görünür ama ölçüler altın orana (φ = 1,618) bağlıdır. Gölge katı ve keskin; bulanıklık 0.
+   Madde 18: yalnız açık tema. Metin hep en yüksek kontrastlı çiftte: lacivert-siyah (#073B4C) beyazda ve sarıda;
+   pembe zeminde lacivert 3,34:1 kalır, orada saf siyah (#000000, 5,80:1).
+   Değerler tokens/memphis.tokens.json ile aynıdır.
+   ───────────────────────────────────────────────────────────── */
+
+@custom-variant motion (&:where([data-motion='on'], [data-motion='on'] *));
+
+@font-face {
+  font-family: 'Syne Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400 800;
+  src: url('@fontsource-variable/syne/files/syne-latin-ext-wght-normal.woff2') format('woff2-variations');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329,
+    U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Syne Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400 800;
+  src: url('@fontsource-variable/syne/files/syne-latin-wght-normal.woff2') format('woff2-variations');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Epilogue Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url('@fontsource-variable/epilogue/files/epilogue-latin-ext-wght-normal.woff2') format('woff2-variations');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329,
+    U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Epilogue Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url('@fontsource-variable/epilogue/files/epilogue-latin-wght-normal.woff2') format('woff2-variations');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* ── Madde 4: renkler. Tek tema: açık (Madde 18) ── */
+:root {
+  --paper: #ffffff;
+  --ink: #073b4c;
+  --black: #000000;
+  --yellow: #ffd166;
+  --teal: #06d6a0;
+  --pink: #ef476f;
+  --yellow-50: #fff3d1;
+  --teal-50: #d9f7ee;
+  --pink-50: #fde1e8;
+  /* Yazı olarak kullanılan renkler beyazda 4,5:1'i geçecek kadar koyulaştırılır */
+  --t-pink: #b3163f;
+  --t-teal: #03795a;
+  --t-yellow: #7a5200;
+  /* Pembe dolgunun üstündeki yazı: saf siyah */
+  --on-pink: #000000;
+  --muted: #2c5566;
+  /* Madde 13: Border/MemphisThick ve katı gölge */
+  --bw: 4px;
+  --sh: 8px;
+  --shadow: var(--ink);
+  /* Madde 8 · 13: Pattern/Halftone */
+  --dot: 2px;
+  --dot-gap: 14px;
+  --dot-color: var(--ink);
+  /* Madde 16: yay eğrileri. CSS linear() ile örneklenmiş sönümlü yay (k 500 c 16 · k 260 c 14) */
+  --yay: linear(0, 0.064, 0.226, 0.444, 0.679, 0.898, 1.077, 1.205, 1.278, 1.3, 1.28, 1.231, 1.165, 1.095, 1.03, 0.976, 0.938, 0.916, 0.91, 0.916, 0.931, 0.951, 0.972, 0.991, 1.007, 1.019, 1.025, 1.027, 1.025, 1.021, 1.015, 1.008, 1.002, 0.998, 0.994, 0.992, 0.992, 0.992, 0.994, 0.996, 1);
+  --yay-sure: 670ms;
+  --zipla: linear(0, 0.043, 0.154, 0.308, 0.483, 0.659, 0.822, 0.962, 1.072, 1.15, 1.198, 1.218, 1.216, 1.197, 1.166, 1.129, 1.09, 1.052, 1.019, 0.993, 0.973, 0.96, 0.953, 0.952, 0.955, 0.961, 0.968, 0.977, 0.985, 0.993, 1, 1.004, 1.008, 1.01, 1.011, 1.01, 1.009, 1.008, 1.006, 1.004, 1);
+  --zipla-sure: 760ms;
+  --focus: #000000;
+  color-scheme: light;
+}
+@media (max-width: 767px) {
+  :root {
+    --sh: 5px;
+    --dot-gap: 12px;
+  }
+}
+/* Madde 18 varyantı: yüksek kontrast. Mürekkep saf siyah, yazı renkleri siyah, desenler metnin arkasından çekilir */
+:root[data-kontrast='yuksek'] {
+  --ink: #000000;
+  --t-pink: #000000;
+  --t-teal: #000000;
+  --t-yellow: #000000;
+  --muted: #000000;
+}
+
+@theme {
+  --color-*: initial;
+  --font-*: initial;
+  --font-display: 'Syne Variable', 'Syne', 'Arial Black', system-ui, sans-serif;
+  --font-sans: 'Epilogue Variable', 'Epilogue', system-ui, sans-serif;
+  --font-mono: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+  --color-white: #ffffff;
+  --color-transparent: transparent;
+  --ease-yay: var(--yay);
+}
+/* Madde 15: tanımdaki sınıflar (border-black, bg-yellow-400) bu paletin değerlerine bağlanır */
+@theme inline {
+  --color-black: var(--ink);
+  --color-ink: var(--ink);
+  --color-paper: var(--paper);
+  --color-yellow: var(--yellow);
+  --color-yellow-400: var(--yellow);
+  --color-teal: var(--teal);
+  --color-pink: var(--pink);
+  --color-yellow-50: var(--yellow-50);
+  --color-teal-50: var(--teal-50);
+  --color-pink-50: var(--pink-50);
+  --color-t-pink: var(--t-pink);
+  --color-t-teal: var(--t-teal);
+  --color-t-yellow: var(--t-yellow);
+  --color-muted: var(--muted);
+  --color-saf: var(--black);
+}
+
+@layer base {
+  html {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    scroll-padding-top: 96px;
+  }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background: var(--paper);
+    color: var(--ink);
+    font-size: 18px;
+    line-height: 1.55;
+    overflow-x: clip;
+  }
+  @media (max-width: 767px) {
+    body {
+      font-size: 17px;
+    }
+  }
+  :focus-visible {
+    outline: 4px solid var(--focus);
+    outline-offset: 4px;
+  }
+  ::selection {
+    background: var(--yellow);
+    color: var(--ink);
+  }
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    font-weight: 800;
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+    margin: 0;
+  }
+  p {
+    margin: 0;
+  }
+  a {
+    color: var(--ink);
+    text-decoration-thickness: 3px;
+    text-underline-offset: 4px;
+  }
+  button {
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+  }
+}
+
+/* Pembe dolgu: yazı saf siyah (Madde 18) */
+@utility on-pink {
+  background-color: var(--pink);
+  color: var(--on-pink);
+}
+
+@layer components {
+  /* ── Madde 7 · 13 · 15: kalın kontur + katı gölge ── */
+  .kontur {
+    border: var(--bw) solid var(--ink);
+  }
+  .golge {
+    box-shadow: var(--sh) var(--sh) 0 0 var(--shadow);
+  }
+  /* Madde 8: Pattern/Halftone. Tek radial-gradient, döşenir */
+  .halftone {
+    background-image: radial-gradient(circle at center, var(--dot-color) var(--dot), transparent calc(var(--dot) + 0.6px));
+    background-size: var(--dot-gap) var(--dot-gap);
+  }
+  .polka {
+    background-image:
+      radial-gradient(circle, var(--dot-color) 22%, transparent 23%),
+      radial-gradient(circle, var(--dot-color) 22%, transparent 23%);
+    background-size: 28px 28px;
+    background-position:
+      0 0,
+      14px 14px;
+  }
+  .cizgili {
+    background-image: repeating-linear-gradient(-45deg, var(--dot-color) 0 3px, transparent 3px 11px);
+  }
+
+  .kicker {
+    font-family: var(--font-sans);
+    font-weight: 800;
+    font-size: 14px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+  .dev {
+    font-family: var(--font-display);
+    font-weight: 800;
+    letter-spacing: -0.035em;
+    line-height: 0.88;
+  }
+
+  /* ── Madde 11 · 14: <PopButton>. Hap formu, kalın kontur, katı gölge; üstüne gelince yayla büyür, basınca gölgeye iner ── */
+  .pop {
+    --bg: var(--yellow);
+    --fg: var(--ink);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 52px;
+    padding: 10px 26px;
+    border: var(--bw) solid var(--ink);
+    border-radius: 999px;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--font-sans);
+    font-weight: 800;
+    font-size: 17px;
+    line-height: 1.1;
+    text-decoration: none;
+    white-space: nowrap;
+    box-shadow: 5px 5px 0 0 var(--shadow);
+    transition:
+      scale var(--yay-sure) var(--yay),
+      translate 90ms ease-out,
+      box-shadow 90ms ease-out;
+  }
+  .pop[data-ton='pembe'] {
+    --bg: var(--pink);
+    --fg: var(--on-pink);
+  }
+  .pop[data-ton='camgobegi'] {
+    --bg: var(--teal);
+  }
+  .pop[data-ton='beyaz'] {
+    --bg: var(--paper);
+  }
+  .pop[data-ton='lacivert'] {
+    --bg: var(--ink);
+    --fg: var(--paper);
+  }
+  .pop[data-boy='k'] {
+    min-height: 44px;
+    padding: 6px 18px;
+    font-size: 15px;
+    box-shadow: 4px 4px 0 0 var(--shadow);
+  }
+  .pop[data-boy='b'] {
+    min-height: 64px;
+    padding: 12px 34px;
+    font-size: 21px;
+    box-shadow: 7px 7px 0 0 var(--shadow);
+  }
+  :root[data-motion='on'] .pop:hover:not(:disabled) {
+    scale: 1.07;
+  }
+  .pop:active:not(:disabled),
+  .pop[aria-pressed='true'] {
+    translate: 4px 4px;
+    box-shadow: 1px 1px 0 0 var(--shadow);
+  }
+  :root[data-motion='on'] .pop:active:not(:disabled) {
+    scale: 0.94;
+    transition-duration: 90ms;
+  }
+  .pop:disabled {
+    --bg: var(--paper);
+    --fg: var(--muted);
+    border-style: dashed;
+    box-shadow: none;
+    cursor: not-allowed;
+  }
+
+  /* ── <MemphisCard>: dönüş açısı --r (hook'tan), üstüne gelince yayla düzelir ve büyür ── */
+  .mcard {
+    rotate: var(--r, 0deg);
+    border: var(--bw) solid var(--ink);
+    box-shadow: var(--sh) var(--sh) 0 0 var(--cs, var(--shadow));
+    transition: rotate var(--zipla-sure) var(--zipla), scale var(--yay-sure) var(--yay);
+  }
+  :root[data-motion='on'] .mcard[data-oyuncak]:hover,
+  :root[data-motion='on'] .mcard[data-oyuncak]:focus-within {
+    rotate: 0deg;
+    scale: 1.03;
+  }
+
+  /* Madde 16: oyuncak mikro etkileşimleri */
+  :root[data-motion='on'] .kipir:hover {
+    animation: kipir 420ms var(--yay);
+  }
+  @keyframes kipir {
+    25% {
+      rotate: -8deg;
+    }
+    60% {
+      rotate: 6deg;
+    }
+  }
+  :root[data-motion='on'] .suzul {
+    animation: suzul 6s ease-in-out infinite alternate;
+  }
+  @keyframes suzul {
+    to {
+      translate: 0 -14px;
+      rotate: 8deg;
+    }
+  }
+  :root[data-motion='on'] .don {
+    animation: don 14s linear infinite;
+  }
+  @keyframes don {
+    to {
+      rotate: 360deg;
+    }
+  }
+}
+
+/* Madde 18 · renk körlüğü: renk kodlu öğeler desen de taşır (sarı nokta, camgöbeği çizgi, pembe zikzak) */
+:root[data-desen='1'] [data-kod='sari'] {
+  background-image: radial-gradient(circle, rgb(7 59 76 / 0.55) 2px, transparent 2.6px);
+  background-size: 10px 10px;
+}
+:root[data-desen='1'] [data-kod='camgobegi'] {
+  background-image: repeating-linear-gradient(90deg, rgb(7 59 76 / 0.5) 0 3px, transparent 3px 10px);
+}
+:root[data-desen='1'] [data-kod='pembe'] {
+  background-image: repeating-linear-gradient(45deg, rgb(0 0 0 / 0.45) 0 3px, transparent 3px 9px), repeating-linear-gradient(-45deg, rgb(0 0 0 / 0.45) 0 3px, transparent 3px 9px);
+}
+/* Desenli zeminde yazı: kendi düz etiketinde durur */
+:root[data-desen='1'] [data-kod] > .etiket {
+  background: var(--paper);
+  padding: 0 6px;
+}
+
+/* Madde 18 · renk körlüğü simülasyonu: sayfa içeriği seçilen görme tipine göre süzülür (Machado 2009 matrisleri) */
+:root[data-cvd='protan'] main {
+  filter: url(#cvd-protan);
+}
+:root[data-cvd='deutan'] main {
+  filter: url(#cvd-deutan);
+}
+:root[data-cvd='tritan'] main {
+  filter: url(#cvd-tritan);
+}
+:root[data-cvd='akromat'] main {
+  filter: url(#cvd-akromat);
+}
+
+/* Hareket kapalı: sürekli hareketler durur, geçişler anlık */
+:root[data-motion='off'] *,
+:root[data-motion='off'] *::before,
+:root[data-motion='off'] *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+}

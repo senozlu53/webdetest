@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Stil 022: Memphis Design. Hardal sarısı, cam göbeği, sakız pembesi ve lacivert; kalın siyah konturlar, geometrik primitifler, noktalı zeminler, katı gölgeler, eğik kartlar ve hap düğmeler: ajans, festival, eğitim ve eğlence örnekleri." />
+    <meta name="theme-color" content="#FFD166" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='12' cy='13' r='9' fill='%23FFD166' stroke='%23073B4C' stroke-width='3'/%3E%3Cpath d='M18 27 L24 14 L30 27 Z' fill='%23EF476F' stroke='%23073B4C' stroke-width='3' stroke-linejoin='round'/%3E%3Cpath d='M3 28 L7 23 L11 28 L15 23' fill='none' stroke='%2306D6A0' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E" />
+    <title>Stil 022 · Memphis Design</title>
+    <script>
+      try {
+        var d = document.documentElement
+        var m = localStorage.getItem('mem-hareket')
+        d.dataset.motion = m === 'kapali' || (m !== 'acik' && matchMedia('(prefers-reduced-motion: reduce)').matches) ? 'off' : 'on'
+        d.dataset.kontrast = localStorage.getItem('mem-kontrast') === 'yuksek' ? 'yuksek' : 'standart'
+        d.dataset.desen = localStorage.getItem('mem-desen') === '1' ? '1' : '0'
+        var c = localStorage.getItem('mem-cvd')
+        d.dataset.cvd = c === 'protan' || c === 'deutan' || c === 'tritan' || c === 'akromat' ? c : 'yok'
+      } catch (e) {}
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/memphis/main.tsx"></script>
+  </body>
+</html>
