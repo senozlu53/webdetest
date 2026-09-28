@@ -1,0 +1,549 @@
+@import 'tailwindcss' source(none);
+@source '.';
+
+/* ─────────────────────────────────────────────────────────────
+   STİL 020 · 90s OLD WEB (WEB 1.0)
+   Windows 95 estetiği: sistem grisi, 2px kabartma çerçeve, lacivert başlık, turkuaz masaüstü, mavi link.
+   Gölge yok, yuvarlatma yok, animasyon yok. Bütün ölçüler rem (Madde 18).
+   Değerler tokens/win.tokens.json ile aynıdır.
+   ───────────────────────────────────────────────────────────── */
+
+@custom-variant dark {
+  &:where([data-theme='dark'], [data-theme='dark'] *) {
+    @slot;
+  }
+  @media (prefers-color-scheme: dark) {
+    &:where(:root:not([data-theme='light']), :root:not([data-theme='light']) *) {
+      @slot;
+    }
+  }
+}
+
+/* Madde 5: piksel yazı (Pixelify Sans, OFL). Türkçe karakterli */
+@font-face {
+  font-family: 'Pixelify Sans';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400 700;
+  src: url('@fontsource-variable/pixelify-sans/files/pixelify-sans-latin-ext-wght-normal.woff2') format('woff2-variations');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329,
+    U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Pixelify Sans';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400 700;
+  src: url('@fontsource-variable/pixelify-sans/files/pixelify-sans-latin-wght-normal.woff2') format('woff2-variations');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* ── Madde 4: renkler ──
+   Windows Standart: yüz #C0C0C0, başlık lacivert #000080, masaüstü turkuaz #008080, belge beyaz #FFFFFF.
+   Siyah metin gri yüzde 11,54:1 · beyaz başlık metni lacivertte 16,01:1 · link #0000FF gride 4,72:1, beyaza 8,59:1.
+   Gece varyantı Win95'in "Yüksek Kontrast Siyah" düzeninden: siyah yüz, beyaz kenar, sarı link. */
+:root {
+  --desk: #008080;
+  --face: #c0c0c0;
+  --face-text: #000000;
+  --hi: #ffffff;
+  --sh: #808080;
+  --dk: #000000;
+  --title: #000080;
+  --title-text: #ffffff;
+  --title-off: #808080;
+  --title-off-text: #c0c0c0;
+  --win: #ffffff;
+  --win-text: #000000;
+  --sel: #000080;
+  --sel-text: #ffffff;
+  --link: #0000ff;
+  --visited: #800080;
+  --desk-text: #ffffff;
+  --muted: #404040;
+  --vurgu: #000080;
+  --kum: wait;
+  --dama-a: #008080;
+  --dama-b: #000080;
+  --desen: #000000;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --desk: #000000;
+    --face: #000000;
+    --face-text: #ffffff;
+    --hi: #ffffff;
+    --sh: #808080;
+    --dk: #ffffff;
+    --title: #800080;
+    --title-text: #ffffff;
+    --title-off: #008080;
+    --title-off-text: #ffffff;
+    --win: #000000;
+    --win-text: #ffffff;
+    --sel: #800080;
+    --sel-text: #ffffff;
+    --link: #ffff00;
+    --visited: #00ff00;
+    --desk-text: #ffffff;
+    --muted: #c0c0c0;
+    --vurgu: #00ffff;
+    --dama-a: #000000;
+    --dama-b: #000080;
+    --desen: #808080;
+    color-scheme: dark;
+  }
+}
+:root[data-theme='dark'] {
+  --desk: #000000;
+  --face: #000000;
+  --face-text: #ffffff;
+  --hi: #ffffff;
+  --sh: #808080;
+  --dk: #ffffff;
+  --title: #800080;
+  --title-text: #ffffff;
+  --title-off: #008080;
+  --title-off-text: #ffffff;
+  --win: #000000;
+  --win-text: #ffffff;
+  --sel: #800080;
+  --sel-text: #ffffff;
+  --link: #ffff00;
+  --visited: #00ff00;
+  --desk-text: #ffffff;
+  --muted: #c0c0c0;
+  --vurgu: #00ffff;
+  --dama-a: #000000;
+  --dama-b: #000080;
+  --desen: #808080;
+  color-scheme: dark;
+}
+
+/* Madde 18: rem tabanlı ölçek. Kök yazı boyu tarayıcının ayarından başlar (100%); büyük yazı 125, çok büyük 150 */
+:root[data-olcek='2'] {
+  font-size: 125%;
+}
+:root[data-olcek='3'] {
+  font-size: 150%;
+}
+
+@theme {
+  --color-*: initial;
+  --font-*: initial;
+  --radius-*: initial;
+  --shadow-*: initial;
+  --inset-shadow-*: initial;
+  --drop-shadow-*: initial;
+  /* Madde 15'in sınıfları Win95 değerlerine bağlanır: gray-300 = #C0C0C0, gray-600 = #808080 */
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-gray-300: #c0c0c0;
+  --color-gray-600: #808080;
+  --color-navy: #000080;
+  --color-teal: #008080;
+  --color-blue: #0000ff;
+  --color-purple: #800080;
+  --color-transparent: transparent;
+  --font-ui: var(--ui);
+  --font-doc: 'Times New Roman', Times, 'Liberation Serif', 'Nimbus Roman', serif;
+  --font-fun: 'Comic Sans MS', 'Comic Neue', 'Chalkboard SE', cursive;
+  --font-pix: 'Pixelify Sans', 'Courier New', monospace;
+  --font-mono: 'Courier New', Courier, 'Liberation Mono', monospace;
+  --radius-none: 0px;
+}
+@theme inline {
+  --color-desk: var(--desk);
+  --color-face: var(--face);
+  --color-face-text: var(--face-text);
+  --color-hi: var(--hi);
+  --color-sh: var(--sh);
+  --color-dk: var(--dk);
+  --color-title: var(--title);
+  --color-title-text: var(--title-text);
+  --color-win: var(--win);
+  --color-win-text: var(--win-text);
+  --color-sel: var(--sel);
+  --color-sel-text: var(--sel-text);
+  --color-muted: var(--muted);
+  --color-desk-text: var(--desk-text);
+  --color-vurgu: var(--vurgu);
+}
+
+/* Madde 5: arayüz yazısı. Sistem: Tahoma / MS Sans Serif; piksel: kenar yumuşatmasız bitmap yazı */
+:root {
+  --ui: Tahoma, 'MS Sans Serif', 'Microsoft Sans Serif', Geneva, Verdana, 'DejaVu Sans', sans-serif;
+}
+:root[data-yazi='piksel'] {
+  --ui: 'Pixelify Sans', Tahoma, 'MS Sans Serif', sans-serif;
+}
+
+@layer base {
+  html {
+    background: var(--desk);
+    color: var(--face-text);
+    font-family: var(--ui);
+  }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    padding-bottom: 3.25rem;
+    background-color: var(--desk);
+    color: var(--face-text);
+    font-family: var(--ui);
+    font-size: 0.875rem;
+    line-height: 1.4;
+    /* Madde 5: yumuşatma kapalı (destekleyen sistemlerde) */
+    -webkit-font-smoothing: none;
+    font-smooth: never;
+    image-rendering: pixelated;
+    overflow-x: clip;
+  }
+  a:link {
+    color: var(--link);
+  }
+  a:visited {
+    color: var(--visited);
+  }
+  a {
+    text-decoration: underline;
+  }
+  a:focus-visible {
+    outline: 0.125rem dotted currentColor;
+    outline-offset: 0.125rem;
+  }
+  :focus-visible {
+    outline: 0.125rem dotted var(--face-text);
+    outline-offset: 0.125rem;
+  }
+  ::selection {
+    background: var(--sel);
+    color: var(--sel-text);
+  }
+  button,
+  input,
+  select,
+  textarea {
+    font: inherit;
+    color: inherit;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    margin: 0;
+  }
+}
+
+/* ── Masaüstü duvar kağıdı (Madde 8). Aynı kurallar önizleme monitörüne de uygulanır ── */
+[data-duvar-ornek] {
+  background-color: var(--desk);
+  image-rendering: pixelated;
+}
+:root[data-duvar='dama'] body,
+[data-duvar-ornek='dama'] {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='2' height='2' shape-rendering='crispEdges'%3E%3Crect width='1' height='1' fill='%23000080'/%3E%3Crect x='1' y='1' width='1' height='1' fill='%23000080'/%3E%3C/svg%3E");
+  background-size: 2px 2px;
+}
+:root[data-duvar='tugla'] body,
+[data-duvar-ornek='tugla'] {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' shape-rendering='crispEdges' fill='%23000000'%3E%3Crect width='8' height='1'/%3E%3Crect x='0' y='1' width='1' height='3'/%3E%3Crect y='4' width='8' height='1'/%3E%3Crect x='4' y='5' width='1' height='3'/%3E%3C/svg%3E");
+  background-size: 1rem 1rem;
+}
+:root[data-duvar='bulut'] body,
+[data-duvar-ornek='bulut'] {
+  background-image: var(--bulut, none);
+  background-size: cover;
+  background-position: center;
+}
+:root[data-duvar='bulut'] body {
+  background-attachment: fixed;
+}
+[data-duvar-ornek='tugla'] {
+  background-size: 0.5rem 0.5rem;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light'])[data-duvar='tugla'] body,
+  :root:not([data-theme='light']) [data-duvar-ornek='tugla'] {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' shape-rendering='crispEdges' fill='%23808080'%3E%3Crect width='8' height='1'/%3E%3Crect x='0' y='1' width='1' height='3'/%3E%3Crect y='4' width='8' height='1'/%3E%3Crect x='4' y='5' width='1' height='3'/%3E%3C/svg%3E");
+  }
+  :root:not([data-theme='light']) .c95:checked {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 7 7' shape-rendering='crispEdges' fill='%23fff'%3E%3Cpath d='M6 0h1v2H6zM5 1h1v2H5zM4 2h1v2H4zM0 2h1v3H0zM1 3h1v3H1zM2 4h1v3H2zM3 3h1v3H3z'/%3E%3C/svg%3E");
+  }
+}
+:root[data-theme='dark'][data-duvar='tugla'] body,
+:root[data-theme='dark'] [data-duvar-ornek='tugla'] {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' shape-rendering='crispEdges' fill='%23808080'%3E%3Crect width='8' height='1'/%3E%3Crect x='0' y='1' width='1' height='3'/%3E%3Crect y='4' width='8' height='1'/%3E%3Crect x='4' y='5' width='1' height='3'/%3E%3C/svg%3E");
+}
+:root[data-theme='dark'] .c95:checked {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 7 7' shape-rendering='crispEdges' fill='%23fff'%3E%3Cpath d='M6 0h1v2H6zM5 1h1v2H5zM4 2h1v2H4zM0 2h1v3H0zM1 3h1v3H1zM2 4h1v3H2zM3 3h1v3H3z'/%3E%3C/svg%3E");
+}
+
+@layer components {
+  /* ── Madde 7 · 12 · 15: kabartma yalnız kenar çizgisiyle; gölge yok ── */
+  .outset {
+    border: 2px solid;
+    border-color: var(--hi) var(--sh) var(--sh) var(--hi);
+    background-color: var(--face);
+    color: var(--face-text);
+  }
+  .inset {
+    border: 2px solid;
+    border-color: var(--sh) var(--hi) var(--hi) var(--sh);
+  }
+  .field {
+    border: 2px solid;
+    border-color: var(--sh) var(--hi) var(--hi) var(--sh);
+    background-color: var(--win);
+    color: var(--win-text);
+  }
+  .panel {
+    border: 1px solid;
+    border-color: var(--sh) var(--hi) var(--hi) var(--sh);
+  }
+  .groove {
+    border: 2px groove var(--hi);
+  }
+
+  /* Düğme: basınca kenar renkleri yer değiştirir, yazı 1px aşağı-sağa kayar. Anında, geçiş yok (Madde 16) */
+  .btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.375rem;
+    min-height: 1.875rem;
+    min-width: 5rem;
+    padding: 0.125rem 0.875rem;
+    border: 2px solid;
+    border-color: var(--hi) var(--sh) var(--sh) var(--hi);
+    background-color: var(--face);
+    color: var(--face-text);
+    font-size: 0.875rem;
+    line-height: 1.1;
+    cursor: default;
+    user-select: none;
+  }
+  .btn:active:not(:disabled),
+  .btn[aria-pressed='true'],
+  .btn[data-basili='1'] {
+    border-color: var(--sh) var(--hi) var(--hi) var(--sh);
+    padding: 0.1875rem 0.8125rem 0.0625rem 0.9375rem;
+  }
+  .btn:focus-visible {
+    outline: none;
+  }
+  .btn:focus-visible::after {
+    content: '';
+    position: absolute;
+    inset: 0.1875rem;
+    border: 0.0625rem dotted var(--face-text);
+    pointer-events: none;
+  }
+  /* Varsayılan düğme: fazladan 1px koyu çerçeve */
+  .btn.varsayilan {
+    outline: 1px solid var(--dk);
+  }
+  .btn:disabled {
+    color: var(--sh);
+  }
+  .btn.ikonlu {
+    min-width: 0;
+    padding: 0.125rem 0.375rem;
+  }
+
+  /* Pencere başlık çubuğu */
+  .baslik {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    min-height: 1.375rem;
+    padding: 0.125rem 0.1875rem 0.125rem 0.25rem;
+    background: var(--title);
+    color: var(--title-text);
+    font-weight: 700;
+    font-size: 0.8125rem;
+  }
+  .pasif > .baslik {
+    background: var(--title-off);
+    color: var(--title-off-text);
+  }
+  /* Başlık düğmeleri: küçük kabartmalı kare */
+  .tb {
+    display: inline-grid;
+    place-items: center;
+    width: 1.125rem;
+    height: 1rem;
+    padding: 0;
+    border: 2px solid;
+    border-color: var(--hi) var(--sh) var(--sh) var(--hi);
+    background: var(--face);
+    color: var(--face-text);
+  }
+  .tb:active {
+    border-color: var(--sh) var(--hi) var(--hi) var(--sh);
+  }
+  .tb:focus-visible {
+    outline: 0.125rem dotted var(--title-text);
+    outline-offset: 0.0625rem;
+  }
+
+  /* Madde 6: köşeler hep 0 */
+  .kare {
+    border-radius: 0;
+  }
+
+  /* Win95 onay kutusu ve radyo: piksel çizim, yuvarlatma yok */
+  .c95 {
+    appearance: none;
+    width: 0.8125rem;
+    height: 0.8125rem;
+    margin: 0;
+    flex-shrink: 0;
+    border: 2px solid;
+    border-color: var(--sh) var(--hi) var(--hi) var(--sh);
+    background-color: var(--win);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+    vertical-align: -0.125rem;
+  }
+  .c95:checked {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 7 7' shape-rendering='crispEdges' fill='%23000'%3E%3Cpath d='M6 0h1v2H6zM5 1h1v2H5zM4 2h1v2H4zM0 2h1v3H0zM1 3h1v3H1zM2 4h1v3H2zM3 3h1v3H3z'/%3E%3C/svg%3E");
+    background-size: 70% 70%;
+  }
+  .r95 {
+    appearance: none;
+    width: 0.8125rem;
+    height: 0.8125rem;
+    margin: 0;
+    flex-shrink: 0;
+    border: 0;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' shape-rendering='crispEdges'%3E%3Cpath fill='%23808080' d='M4 0h4v1H4zM2 1h2v1H2zM8 1h2v1H8zM1 2h1v2H1zM0 4h1v4H0zM1 8h1v1H1z'/%3E%3Cpath fill='%23fff' d='M10 2h1v2h-1zM11 4h1v4h-1zM10 8h1v2h-1zM2 10h2v1H2zM8 10h2v1H8zM4 11h4v1H4z'/%3E%3Cpath fill='%23fff' d='M4 1h4v1H4zM2 2h8v8H2zM1 4h10v4H1zM4 10h4v1H4z'/%3E%3C/svg%3E") center / 100% 100% no-repeat;
+    vertical-align: -0.125rem;
+  }
+  .r95:checked {
+    background:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' shape-rendering='crispEdges'%3E%3Cpath fill='%23000' d='M5 4h2v1H5zM4 5h4v2H4zM5 7h2v1H5z'/%3E%3C/svg%3E") center / 100% 100% no-repeat,
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' shape-rendering='crispEdges'%3E%3Cpath fill='%23808080' d='M4 0h4v1H4zM2 1h2v1H2zM8 1h2v1H8zM1 2h1v2H1zM0 4h1v4H0zM1 8h1v1H1z'/%3E%3Cpath fill='%23fff' d='M10 2h1v2h-1zM11 4h1v4h-1zM10 8h1v2h-1zM2 10h2v1H2zM8 10h2v1H8zM4 11h4v1H4z'/%3E%3Cpath fill='%23fff' d='M4 1h4v1H4zM2 2h8v8H2zM1 4h10v4H1zM4 10h4v1H4z'/%3E%3C/svg%3E") center / 100% 100% no-repeat;
+  }
+  .c95:focus-visible,
+  .r95:focus-visible {
+    outline: 0.0625rem dotted var(--face-text);
+    outline-offset: 0.125rem;
+  }
+
+  /* Açılır liste: alan + sağda kabartmalı ok düğmesi */
+  .s95 {
+    appearance: none;
+    min-height: 1.5rem;
+    padding: 0.125rem 1.375rem 0.125rem 0.25rem;
+    border: 2px solid;
+    border-color: var(--sh) var(--hi) var(--hi) var(--sh);
+    background:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' shape-rendering='crispEdges'%3E%3Crect width='16' height='16' fill='%23c0c0c0'/%3E%3Cpath fill='%23fff' d='M0 0h15v1H0zM0 1h1v14H0z'/%3E%3Cpath fill='%23808080' d='M15 0h1v16h-1zM0 15h16v1H0z'/%3E%3Cpath fill='%23000' d='M4 6h7v1H4zM5 7h5v1H5zM6 8h3v1H6zM7 9h1v1H7z'/%3E%3C/svg%3E") right 0 center / 1.125rem 100% no-repeat,
+      var(--win);
+    color: var(--win-text);
+  }
+  .s95:focus-visible {
+    outline: 0.0625rem dotted var(--face-text);
+    outline-offset: 0.125rem;
+  }
+
+  /* Kaydırıcı (trackbar) */
+  .t95 {
+    appearance: none;
+    height: 1.5rem;
+    background: transparent;
+  }
+  .t95::-webkit-slider-runnable-track {
+    height: 0.25rem;
+    border: 2px solid;
+    border-color: var(--sh) var(--hi) var(--hi) var(--sh);
+    background: var(--face);
+  }
+  .t95::-webkit-slider-thumb {
+    appearance: none;
+    width: 0.6875rem;
+    height: 1.3125rem;
+    margin-top: -0.6875rem;
+    border: 2px solid;
+    border-color: var(--hi) var(--dk) var(--dk) var(--hi);
+    background: var(--face);
+  }
+  .t95::-moz-range-track {
+    height: 0.25rem;
+    border: 2px solid;
+    border-color: var(--sh) var(--hi) var(--hi) var(--sh);
+    background: var(--face);
+  }
+  .t95::-moz-range-thumb {
+    width: 0.6875rem;
+    height: 1.3125rem;
+    border-radius: 0;
+    border: 2px solid;
+    border-color: var(--hi) var(--dk) var(--dk) var(--hi);
+    background: var(--face);
+  }
+
+  /* Seçili öğe (dosya listesi, masaüstü simgesi) */
+  .secili {
+    background: var(--sel);
+    color: var(--sel-text);
+  }
+
+  /* Klasik kaydırma çubuğu */
+  .k95 {
+    scrollbar-color: var(--face) var(--hi);
+  }
+  .k95::-webkit-scrollbar {
+    width: 1rem;
+    height: 1rem;
+    background: repeating-conic-gradient(var(--face) 0 25%, var(--hi) 0 50%) 0 0 / 2px 2px;
+  }
+  .k95::-webkit-scrollbar-thumb {
+    border: 2px solid;
+    border-color: var(--hi) var(--dk) var(--dk) var(--hi);
+    background: var(--face);
+  }
+  .k95::-webkit-scrollbar-corner {
+    background: var(--face);
+  }
+
+  /* Piksel yazı: yalnız tam katlarda büyür */
+  .pix {
+    font-family: var(--font-pix);
+    font-synthesis: none;
+  }
+}
+
+/* ── Madde 16: animasyon ve geçiş yok; her şey anında ── */
+*,
+*::before,
+*::after {
+  animation: none !important;
+  transition: none !important;
+  scroll-behavior: auto !important;
+}
+/* Yükleme sırasında yalnız kum saati imleci */
+:root[data-bekle='1'],
+:root[data-bekle='1'] * {
+  cursor: var(--kum) !important;
+}
+
+@media (forced-colors: active) {
+  .outset,
+  .btn,
+  .field,
+  .inset,
+  .tb {
+    border-color: ButtonText;
+  }
+  .baslik {
+    forced-color-adjust: none;
+    background: Highlight;
+    color: HighlightText;
+  }
+}

@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Stil 020: 90s Old Web (Web 1.0). Windows 95 estetiği: gri pencereler, 2 piksellik kabartma, lacivert başlık, turkuaz masaüstü, mavi linkler, piksel ikonlar, görev çubuğu ve diyaloglar; animasyonsuz ve rem ölçekli." />
+    <meta name="theme-color" content="#008080" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' shape-rendering='crispEdges'%3E%3Crect width='16' height='16' fill='%23008080'/%3E%3Crect x='1' y='2' width='14' height='11' fill='%23C0C0C0'/%3E%3Crect x='1' y='2' width='14' height='1' fill='%23fff'/%3E%3Crect x='1' y='2' width='1' height='11' fill='%23fff'/%3E%3Crect x='2' y='3' width='12' height='2' fill='%23000080'/%3E%3Crect x='3' y='6' width='10' height='5' fill='%23fff'/%3E%3Crect x='1' y='12' width='14' height='1' fill='%23808080'/%3E%3Crect x='14' y='2' width='1' height='11' fill='%23808080'/%3E%3C/svg%3E" />
+    <title>Stil 020 · 90s Old Web</title>
+    <script>
+      try {
+        var d = document.documentElement
+        var t = localStorage.getItem('win-theme')
+        if (t === 'light' || t === 'dark') d.dataset.theme = t
+        var o = localStorage.getItem('win-olcek')
+        d.dataset.olcek = o === '2' || o === '3' ? o : '1'
+        var v = localStorage.getItem('win-duvar')
+        d.dataset.duvar = v === 'dama' || v === 'tugla' || v === 'bulut' ? v : 'turkuaz'
+        d.dataset.yazi = localStorage.getItem('win-yazi') === 'piksel' ? 'piksel' : 'sistem'
+      } catch (e) {}
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/win/main.tsx"></script>
+  </body>
+</html>

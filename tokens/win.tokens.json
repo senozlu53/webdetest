@@ -1,0 +1,92 @@
+{
+  "$description": "Stil 020: 90s Old Web (Web 1.0). W3C DTCG formatı. Adlar Figma yolu ile aynıdır: Color/Win95Grey, Border/ClassicOutset, Border/ClassicInset. Gölge yok, yuvarlatma yok, animasyon yok; kabartma yalnız kenar rengiyle. Ölçüler rem (1rem = 16px, %100 ölçek). Gece varyantı Win95'in Yüksek Kontrast Siyah düzeni.",
+  "Color": {
+    "Win95Grey": { "$type": "color", "$value": "#C0C0C0", "dark": "#000000", "text": "#000000", "contrast": 11.54, "$description": "Madde 4: pencere yüzü, düğme, görev çubuğu" },
+    "Navy": { "$type": "color", "$value": "#000080", "dark": "#800080", "text": "#FFFFFF", "contrast": 16.01, "$description": "Madde 4: etkin başlık çubuğu, seçim" },
+    "Teal": { "$type": "color", "$value": "#008080", "dark": "#000000", "text": "#FFFFFF", "contrast": 4.77, "$description": "Madde 4: masaüstü" },
+    "White": { "$type": "color", "$value": "#FFFFFF", "dark": "#000000", "text": "#000000", "contrast": 21, "$description": "Madde 4: belge alanı ve kabartmanın ışıklı kenarı" },
+    "BevelShadow": { "$type": "color", "$value": "#808080", "$description": "Kabartmanın gölgeli kenarı, pasif başlık" },
+    "BevelDark": { "$type": "color", "$value": "#000000", "dark": "#FFFFFF", "$description": "Varsayılan düğme çerçevesi, kaydırıcı tutamacı" },
+    "InactiveTitle": { "$type": "color", "$value": "#808080", "text": "#C0C0C0", "dark": "#008080", "$description": "Pasif pencere başlığı (süs sayılır; etkin pencere hep lacivert)" },
+    "Link": { "$type": "color", "$value": "#0000FF", "dark": "#FFFF00", "contrast": { "onGrey": 4.72, "onWhite": 8.59, "darkOnBlack": 19.56 } },
+    "Visited": { "$type": "color", "$value": "#800080", "dark": "#00FF00", "contrast": { "onGrey": 5.17, "onWhite": 9.42, "darkOnBlack": 15.3 } },
+    "VGA16": {
+      "$description": "Madde 8 · 9: ikonlar ve duvar kağıtları yalnız bu 16 rengi kullanır",
+      "Black": { "$type": "color", "$value": "#000000" },
+      "White": { "$type": "color", "$value": "#FFFFFF" },
+      "Silver": { "$type": "color", "$value": "#C0C0C0" },
+      "Gray": { "$type": "color", "$value": "#808080" },
+      "Navy": { "$type": "color", "$value": "#000080" },
+      "Blue": { "$type": "color", "$value": "#0000FF" },
+      "Teal": { "$type": "color", "$value": "#008080" },
+      "Aqua": { "$type": "color", "$value": "#00FFFF" },
+      "Yellow": { "$type": "color", "$value": "#FFFF00" },
+      "Olive": { "$type": "color", "$value": "#808000" },
+      "Red": { "$type": "color", "$value": "#FF0000" },
+      "Maroon": { "$type": "color", "$value": "#800000" },
+      "Green": { "$type": "color", "$value": "#008000" },
+      "Lime": { "$type": "color", "$value": "#00FF00" },
+      "Purple": { "$type": "color", "$value": "#800080" },
+      "Fuchsia": { "$type": "color", "$value": "#FF00FF" }
+    }
+  },
+  "Border": {
+    "ClassicOutset": {
+      "$type": "string",
+      "$value": "2px solid; top #FFFFFF, left #FFFFFF, bottom #808080, right #808080",
+      "figma": "Stroke · Inside · 2 · üst ve sol #FFFFFF; ayrı Stroke · Inside · 2 · alt ve sağ #808080 (Inner Shadow değil)",
+      "css": ".outset { border: 2px solid; border-color: #FFF #808080 #808080 #FFF; }",
+      "$description": "Madde 7 · 12: çıkıntı. Pencere, düğme, görev çubuğu"
+    },
+    "ClassicInset": {
+      "$type": "string",
+      "$value": "2px solid; top #808080, left #808080, bottom #FFFFFF, right #FFFFFF",
+      "css": ".inset { border: 2px solid; border-color: #808080 #FFF #FFF #808080; }",
+      "$description": "Çukur: metin alanı, liste, basılı düğme, saat"
+    },
+    "DefaultButton": { "$type": "string", "$value": "ClassicOutset + 1px dış #000000", "$description": "Enter'la seçilen varsayılan düğme" },
+    "Focus": { "$type": "string", "$value": "0.0625rem dotted; düğmede 0.1875rem içeride", "$description": "Klasik noktalı odak dikdörtgeni" }
+  },
+  "Radius": {
+    "None": { "$type": "dimension", "$value": "0px", "$description": "Madde 6: bütün köşeler" }
+  },
+  "Shadow": {
+    "None": { "$type": "string", "$value": "none", "$description": "Madde 7: gölge yok" }
+  },
+  "Typography": {
+    "UI": { "$type": "typography", "$value": { "fontFamily": ["Tahoma", "MS Sans Serif", "Microsoft Sans Serif", "sans-serif"], "fontSize": "0.875rem", "lineHeight": 1.4 }, "$description": "Madde 5: menü, düğme, başlık çubuğu (başlık kalın, 0.8125rem)" },
+    "Document": { "$type": "typography", "$value": { "fontFamily": ["Times New Roman", "Times", "serif"], "fontSize": "1rem" }, "$description": "Belgeler ve web sayfaları" },
+    "Fun": { "$type": "typography", "$value": { "fontFamily": ["Comic Sans MS", "cursive"], "fontSize": "1.5rem", "fontWeight": 700 }, "$description": "Kampanya ve pazarlama başlıkları" },
+    "Pixel": { "$type": "typography", "$value": { "fontFamily": ["Pixelify Sans", "monospace"] }, "$description": "Kenar yumuşatmasız piksel yazı; ayarlardan bütün arayüz" },
+    "Mono": { "$type": "typography", "$value": { "fontFamily": ["Courier New", "Courier", "monospace"], "fontSize": "0.8125rem" } }
+  },
+  "Size": {
+    "ButtonHeight": { "$type": "dimension", "$value": "1.875rem" },
+    "ButtonMinWidth": { "$type": "dimension", "$value": "5rem" },
+    "TitleBar": { "$type": "dimension", "$value": "1.375rem" },
+    "TitleButton": { "$type": "dimension", "$value": "1.125rem × 1rem" },
+    "Taskbar": { "$type": "dimension", "$value": "2.75rem" },
+    "IconSmall": { "$type": "dimension", "$value": "1rem", "$description": "16×16" },
+    "IconLarge": { "$type": "dimension", "$value": "2rem", "$description": "32×32: aynı 16×16 çizim, 2 kat" }
+  },
+  "Scale": {
+    "$description": "Madde 18: kök yazı boyu; bütün ölçüler rem olduğu için arayüz birlikte büyür",
+    "Small": { "$type": "number", "$value": 1, "$description": "%100 (tarayıcı ayarı)" },
+    "Large": { "$type": "number", "$value": 1.25 },
+    "ExtraLarge": { "$type": "number", "$value": 1.5 }
+  },
+  "Texture": {
+    "Dither": { "$type": "string", "$value": "2×2 dama: #008080 + #000080", "$description": "Madde 8: iki rengi serpiştirip üçüncüyü taklit etmek" },
+    "Pattern": { "$type": "string", "$value": "8×8 1 bit tuğla, siyah" },
+    "Wallpaper": { "$type": "string", "$value": "320×200, 16 renk, 4×4 Bayer sıralı dither, en yakın komşu büyütme" }
+  },
+  "Motion": {
+    "$description": "Madde 16: animasyon yok",
+    "Duration": { "$type": "duration", "$value": "0ms" },
+    "Busy": { "$type": "string", "$value": "cursor: kum saati (16×16 piksel, 2 kat) yalnız yüklemede" },
+    "Progress": { "$type": "string", "$value": "kesikli bloklar, ara kare yok" }
+  },
+  "Responsive": {
+    "Breakpoint": { "$type": "dimension", "$value": "768px", "$description": "Madde 17: altında pencereler ve diyaloglar tam ekran (görev çubuğunun üstü), sürükleme yok, form aynı" }
+  }
+}
