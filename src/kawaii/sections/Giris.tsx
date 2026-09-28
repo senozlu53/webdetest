@@ -40,7 +40,7 @@ export function Hero() {
         <div className="relative min-w-0">
           <CloudCard renk="paper" className="mx-auto max-w-[460px] px-6 pt-8 pb-7 md:px-8" data-giris="1" style={{ ['--gecik' as string]: '200ms' }}>
             <div className="flex flex-wrap items-center gap-x-4">
-              <LottieMascot ruh="mutlu" renk="peach" boyut={132} etiket="Mutlu maskot Mochi zıplıyor" className="-my-4 -ml-3" />
+              <LottieMascot ruh="mutlu" renk="peach" boyut={116} etiket="Mutlu maskot Mochi zıplıyor" className="-my-3 -ml-3" />
               <div className="min-w-0">
                 <p className="font-display text-[26px] font-extrabold">Günaydın Ada!</p>
                 <p className="text-[16px] text-muted">Mochi seni bekliyordu.</p>
