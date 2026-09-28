@@ -80,9 +80,10 @@ export function Hareket() {
 
 /** Madde 17: tarayıcının doğal akışı; tasarımcı karışmaz */
 export function Akis() {
-  const [w, setW] = useState(() => window.innerWidth)
+  // clientWidth: telefonda sayfa taşınca innerWidth taşan genişliği döndürür; görünen alan bu
+  const [w, setW] = useState(() => document.documentElement.clientWidth)
   useEffect(() => {
-    const f = () => setW(window.innerWidth)
+    const f = () => setW(document.documentElement.clientWidth)
     window.addEventListener('resize', f)
     return () => window.removeEventListener('resize', f)
   }, [])
