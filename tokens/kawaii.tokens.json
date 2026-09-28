@@ -1,0 +1,66 @@
+{
+  "$description": "Stil 024: Kawaii (Playful / Cute). W3C DTCG formatı. Adlar Figma yolu ile aynıdır: Radius/Bubble, Color/PastelMint, Shadow/ColoredSoft. Tek tema: açık. Siyah yok; metin koyu kahverengi, lavantada lacivert.",
+  "Color": {
+    "PastelMint": { "$type": "color", "$value": "#A8E6CF", "$description": "Madde 4 · 13: Nane Yeşili. Başarı, ilerleme, seçili durum", "contrast": { "brownOnIt": 6.6 } },
+    "PastelPeach": { "$type": "color", "$value": "#FFD3B6", "$description": "Tanımdaki ad: Bebek Pembesi. Ana düğme, maskot gövdesi", "contrast": { "brownOnIt": 6.76, "whiteOnIt": 1.38 } },
+    "PastelSalmon": { "$type": "color", "$value": "#FFAAA5", "$description": "Tanımdaki ad: Şeftali. Can, kalp, sıcak vurgu", "contrast": { "brownOnIt": 5.12 } },
+    "PastelRose": { "$type": "color", "$value": "#D4A5A5", "$description": "Tanımdaki ad: Lavanta. Kahverengi 4,31:1 ile AA'nın altında: bu yüzeyde metin Navy", "contrast": { "brownOnIt": 4.31, "navyOnIt": 5.21 } },
+    "Brown": { "$type": "color", "$value": "#5D4037", "$description": "Madde 18: bütün metin ve çizgiler", "contrast": { "onCream": 8.86 } },
+    "Navy": { "$type": "color", "$value": "#2E3A59", "$description": "Lavanta üstünde metin, odak halkası" },
+    "Muted": { "$type": "color", "$value": "#735448", "$description": "İkincil metin", "contrast": { "onCream": 6.46, "onPeach": 4.93 } },
+    "Cream": { "$type": "color", "$value": "#FFF8F3", "$description": "Sayfa zemini" },
+    "Paper": { "$type": "color", "$value": "#FFFFFF", "$description": "Kart ve kabarcık yüzeyi" },
+    "Depth": {
+      "$description": "3B kalınlık: rengin koyu tonu (düğmenin alt kenarı)",
+      "Mint": { "$type": "color", "$value": "#6FC7A5" },
+      "Peach": { "$type": "color", "$value": "#F2AD85" },
+      "Salmon": { "$type": "color", "$value": "#E9827C" },
+      "Rose": { "$type": "color", "$value": "#B38282" }
+    },
+    "HighContrast": {
+      "$description": "Madde 18 varyantı",
+      "Brown": { "$type": "color", "$value": "#3E2723", "contrast": { "onRose": 6.4 } },
+      "Muted": { "$type": "color", "$value": "#4E342E" },
+      "Line": { "$type": "dimension", "$value": "2px", "$description": "Pastel yüzeylere kahverengi çerçeve" }
+    }
+  },
+  "Radius": {
+    "Bubble": { "$type": "dimension", "$value": "9999px", "$description": "Madde 12 · 13: %100 köşe, hap biçimi" },
+    "Cloud": { "$type": "dimension", "$value": "40px", "$description": "Bulut kartın gövdesi; tepeler 50% daireler" },
+    "Blob": { "$type": "string", "$value": "58% 42% 55% 45% / 52% 48% 52% 48%", "$description": "Madde 6: sekiz değerli organik damla" }
+  },
+  "Shadow": {
+    "ColoredSoft": { "$type": "shadow", "$value": { "color": "#FFAAA566", "offsetX": "0px", "offsetY": "8px", "blur": "16px", "spread": "0px" }, "$description": "Madde 7 · 13 · 15: rgba(255,170,165,0.4). Pembe nesnenin gölgesi koyu pembe" },
+    "Mint": { "$type": "shadow", "$value": { "color": "#4CAF8859", "offsetX": "0px", "offsetY": "8px", "blur": "16px", "spread": "0px" } },
+    "Peach": { "$type": "shadow", "$value": { "color": "#FFA06E66", "offsetX": "0px", "offsetY": "8px", "blur": "16px", "spread": "0px" } },
+    "Rose": { "$type": "shadow", "$value": { "color": "#B4787861", "offsetX": "0px", "offsetY": "8px", "blur": "16px", "spread": "0px" } },
+    "Marshmallow": { "$type": "string", "$value": "inset 0 3px 0 rgb(255 255 255 / .7), 0 6px 0 {Color.Depth.*}, {Shadow.ColoredSoft}", "$description": "Madde 2 · 8: hatmi düğme; üstte ışık gradyanı, altta 6px kalınlık" },
+    "Cloud": { "$type": "string", "$value": "filter: drop-shadow(0 10px 14px <kartın gölge rengi>)", "$description": "Tepeler dahil bütün silüete düşer" }
+  },
+  "Typography": {
+    "Display": { "$type": "typography", "$value": { "fontFamily": ["Grandstander", "Nunito", "ui-rounded", "sans-serif"], "fontWeight": 800, "lineHeight": 1.05 }, "$description": "Madde 5: yuvarlak, hafif el yazısı hissi. Sniglet ve Mochiy Pop One'da ğ, ş, İ yok" },
+    "Body": { "$type": "typography", "$value": { "fontFamily": ["Nunito", "ui-rounded", "sans-serif"], "fontWeight": 600, "fontSize": "18px", "lineHeight": 1.6 } },
+    "Button": { "$type": "typography", "$value": { "fontFamily": ["Grandstander", "Nunito", "sans-serif"], "fontWeight": 800, "fontSize": "16px · 19px · 23px" } }
+  },
+  "Component": {
+    "KawaiiButton": { "height": { "$type": "dimension", "$value": "48px · 56px · 68px" }, "radius": "{Radius.Bubble}", "pressed": { "$type": "string", "$value": "translate 0 4px, scale 1.04 0.92" }, "lottie": "kalp · yıldız ikon" },
+    "CloudCard": { "radius": "{Radius.Cloud}", "puffs": { "$type": "string", "$value": "3 daire: %38 / %24 / %30 genişlik, üst kenardan 26–40px taşar" }, "slot": "Maskot instance, sağ üst" },
+    "MascotTooltip": { "$type": "string", "$value": "Radix Tooltip; 28px yarıçaplı baloncuk, 56px Lottie maskot, nane gölge" },
+    "ProgressBar": { "height": { "$type": "dimension", "$value": "30px" }, "stripe": { "$type": "string", "$value": "-45°, 10px şerit, 1.2s akış" }, "mascot": "uçta 46px; boşken uykulu, dolunca heyecanlı" },
+    "Mascot": { "variants": { "Ruh": ["Mutlu", "Heyecanlı", "Şaşkın", "Uykulu", "Üzgün"], "Renk": ["PastelPeach", "PastelMint", "PastelSalmon", "PastelRose", "Paper"] }, "$description": "Madde 12: 25 varyantlı bileşen seti" }
+  },
+  "Icon": {
+    "Grid": { "$type": "dimension", "$value": "48px" },
+    "Stroke": { "$type": "dimension", "$value": "3.5px", "$description": "Madde 9: kahverengi, yuvarlak uç ve birleşim; nesne ikonlarında ^‿^ yüzü" }
+  },
+  "Motion": {
+    "Jelly": { "$type": "cubicBezier", "$value": [0.34, 1.8, 0.5, 1], "$description": "Madde 16: hedefi %18 aşar, geri oturur" },
+    "Wobble": { "$type": "string", "$value": "620ms: scale 1.1×0.9 → 0.94×1.07 → 1.04×0.97 → 1" },
+    "BounceIn": { "$type": "string", "$value": "700ms: scale 0.6 → 1.08 → 0.97 → 1, 80ms arayla" },
+    "Lottie": { "$type": "string", "$value": "60 fps, 2 sn döngü; gövde jöle, göz kırpma 78–86. kare" },
+    "Reduced": { "$type": "string", "$value": "prefers-reduced-motion ya da ayar: bütün animasyonlar ve Lottie durur, ilk kare çizilir" }
+  },
+  "Responsive": {
+    "TouchTarget": { "$type": "dimension", "$value": "48px", "$description": "Madde 17: en küçük denetim; bileşenler telefonda küçülmez" }
+  }
+}
