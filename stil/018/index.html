@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Stil 018: Anti-Design / Deconstructed Design. Biçimlendirilmemiş HTML, mavi altı çizili linkler, ekrandan taşan tablolar, üst üste binen yazılar, marquee ve native form elemanları; saf anlamsal HTML ile yazılmış React." />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23C0C0C0'/%3E%3Crect x='3' y='3' width='26' height='26' fill='%23FFFFFF' stroke='%23000000' stroke-width='2'/%3E%3Cpath d='M8 8l16 16M24 8L8 24' stroke='%23FF0000' stroke-width='3'/%3E%3C/svg%3E" />
+    <title>Stil 018 · Anti-Design</title>
+    <script>
+      try {
+        var d = document.documentElement
+        // Renk düzenini tarayıcı seçer; bozuk CSS yüklenmeden önce de geçerli (derleyiciden geçmesin diye betikle)
+        var s = document.createElement('style')
+        s.id = 'renk-duzeni'
+        s.textContent = ":root{color-scheme:light dark}:root[data-theme='light']{color-scheme:light}:root[data-theme='dark']{color-scheme:dark}"
+        document.head.appendChild(s)
+        var t = localStorage.getItem('anti-theme')
+        if (t === 'light' || t === 'dark') d.dataset.theme = t
+        var m = localStorage.getItem('anti-hareket')
+        d.dataset.hareket = m === 'kapali' || (m !== 'acik' && matchMedia('(prefers-reduced-motion: reduce)').matches) ? 'kapali' : 'acik'
+        d.dataset.css = localStorage.getItem('anti-css') === 'kapali' ? 'kapali' : 'acik'
+        if (d.dataset.css === 'kapali') s.sheet.disabled = true
+      } catch (e) {}
+    </script>
+  </head>
+  <body link="#0000FF" vlink="#800080" alink="#FF0000">
+    <noscript>JavaScript kapalı. Bu sayfa React ile çizilir; ama yine de yalnız HTML etiketleri üretir.</noscript>
+    <div id="root"></div>
+    <script type="module" src="/src/anti/main.tsx"></script>
+  </body>
+</html>

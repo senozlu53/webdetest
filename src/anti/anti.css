@@ -1,0 +1,149 @@
+/* anti.css · Stil 018 · bilerek bozuk yazıldı.
+   Derleyiciden geçmez: yazıldığı gibi sayfaya girer.
+   Tarayıcı geçersiz satırları sessizce atlar; sayfa yine de çalışır. */
+
+/* 0. Kabuk ne derse desin: tarayıcının kendi belgesi */
+:root { color-scheme: light dark; }
+:root[data-theme="light"] { color-scheme: light; }
+:root[data-theme="dark"] { color-scheme: dark; }
+body {
+  margin: 8px;
+  padding: 0;
+  font: 16px "Times New Roman", Times, serif;
+  background: Canvas;
+  color: CanvasText;
+  overflow: visible;
+}
+a:link { color: light-dark(#0000FF, #9999FF); }
+a:visited { color: light-dark(#800080, #CC99CC); }
+a:active { color: light-dark(#FF0000, #FF3333); }
+
+/* 1. Madde 15'in kendisi: başlık sol kenardan dışarı taşar */
+h1 {
+  position: relative;
+  font-size: 17vw;
+  line-height: .78;
+  margin: .32em 0 0 -50px;                   /* üstteki linklere değmesin: İ noktası satırdan taşar */
+  overflow: visible;
+  word-break: break-all;
+}
+h1 + p {
+  position: relative;
+  margin-top: -.8em;                         /* alt başlık başlığın üstüne biner */
+  font: bold 26px Arial, Helvetica, sans-serif;
+  color: light-dark(#FF0000, #FF3333);
+}
+
+/* 2. Kaba hover: yazı kalınlaşır, satır kayar */
+a:hover {
+  background: #FFFF00;
+  color: #000000;
+  font-weight: bold;
+  text-decoration: underline overline;
+}
+button:hover,
+input[type="submit"]:hover,
+input[type="reset"]:hover { cursor: crosshair; }
+
+/* 3. Grid yok: başlıklar gelişigüzel içeri itilir */
+h2 {
+  display: inline-block;
+  margin: 1.6em 0 .4em;
+  padding: 0 4px;
+  border: 3px solid #000000;
+  background: #FFFF00;
+  color: #000000;
+  font: bold 1.5em Arial, Helvetica, sans-serif;
+}
+section:nth-of-type(3n+2) > h2 { margin-left: 23%; }
+section:nth-of-type(3n) > h2 { margin-left: 47%; }
+nav li:nth-child(even) { margin-left: 3em; }
+hr {
+  width: 64%;
+  height: 6px;
+  margin-left: 29%;
+  border: 0;
+  background: light-dark(#FF0000, #FF3333);
+}
+
+/* 4. Bozuk satırlar: tarayıcı bunları görmezden gelir */
+p { colour: red; }                          /* yazım hatası */
+table { display: flexbox; }                 /* böyle bir değer yok */
+header { float: centre; }                   /* bu da yok */
+h2 { z-index: 9999; }                       /* position olmadan etkisiz */
+blockquote { margin-left: -50px px; }       /* fazladan birim: geçersiz */
+
+/* 5. !important savaşı: son yazan kazanır */
+address { font-style: normal !important; }
+address { font-style: italic !important; }
+
+/* 6. Hizasız tablo: her üçüncü satır sağa kayar, sütunlar tutmaz */
+#etkinlikler tbody tr:nth-child(3n+1) td { position: relative; left: 19px; }
+#etkinlikler td:nth-child(4) { white-space: nowrap; }
+caption { text-align: left; font: italic 13px "Courier New", Courier, monospace; }
+
+/* 7. Üst üste binen, okunmayan yazılar (Madde 7) */
+#ust-uste p { margin: 0; font: bold 2.2em Arial, Helvetica, sans-serif; }
+#ust-uste p + p { margin: -1.05em 0 0 .6em; color: light-dark(#FF0000, #FF3333); }
+#ust-uste p + p + p { margin-left: 1.3em; color: light-dark(#0000FF, #9999FF); }
+
+/* 8. Grid dışına itilmiş bileşen (Madde 12) */
+#grid-disi {
+  position: relative;
+  width: 17em;
+  margin: -4.2em 0 0 41%;
+  padding: 6px;
+  border: 3px solid;
+  background: Canvas;
+}
+
+/* 9. Yazı tipleri: yalnız tarayıcının üç ailesi */
+#yazi tbody tr:nth-child(2) td:last-child { font-family: Arial, Helvetica, sans-serif; }
+#yazi tbody tr:nth-child(3) td:last-child { font-family: "Courier New", Courier, monospace; }
+
+/* 10. Kayan yazı: siyah üstüne terminal yeşili */
+marquee {
+  background: #000000;
+  color: #00FF00;
+  font: bold 16px "Courier New", Courier, monospace;
+}
+
+/* 11. Ekran yırtığı: aynı metnin bir şeridi yana kayar (Madde 8) */
+[data-hareket="acik"] h1::before,
+[data-hareket="acik"] h1::after {
+  content: attr(data-metin) / "";
+  position: absolute;
+  inset: 0;
+  background: Canvas;
+  clip-path: inset(100% 0 0 0);
+  animation: yirt 3.2s steps(1) infinite;
+}
+[data-hareket="acik"] h1::after {
+  color: light-dark(#0000FF, #9999FF);
+  animation-delay: -1.7s;
+}
+#yirtik-sahne { position: relative; margin: 0; }
+#yirtik-sahne blockquote { margin: 0; font: bold 2em "Courier New", Courier, monospace; }
+#yirtik-sahne blockquote + blockquote {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  background: Canvas;
+  clip-path: inset(100% 0 0 0);
+}
+[data-hareket="acik"] #yirtik-sahne[data-yirtik="acik"] blockquote + blockquote {
+  animation: yirt 1.3s steps(1) infinite;
+}
+@keyframes yirt {
+  0% { clip-path: inset(100% 0 0 0); transform: none; }
+  7% { clip-path: inset(18% 0 64% 0); transform: translateX(-14px); }
+  10% { clip-path: inset(52% 0 31% 0); transform: translateX(23px); }
+  13% { clip-path: inset(100% 0 0 0); transform: none; }
+  61% { clip-path: inset(71% 0 11% 0); transform: translateX(9px); }
+  64% { clip-path: inset(100% 0 0 0); transform: none; }
+}
+
+/* 12. Yanıp sönen "YENİ!" (saniyede bir; hareket kapalıyken durur) */
+[data-hareket="acik"] h2 strong { animation: yanip 1s steps(1) infinite; }
+@keyframes yanip { 50% { opacity: 0; } }
