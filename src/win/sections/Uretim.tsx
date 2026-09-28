@@ -93,7 +93,7 @@ export function Bilesenler() {
           <div className="grid gap-2 pt-1">
             <label className="grid gap-0.5">
               Metin kutusu
-              <input className="field px-1.5 py-0.5" defaultValue="C:\\OYUNLAR" />
+              <input className="field px-1.5 py-0.5" defaultValue={'C:\\OYUNLAR'} />
             </label>
             <Check label="Onay kutusu" checked={c1} onChange={setC1} />
             <Radios
