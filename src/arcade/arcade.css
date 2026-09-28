@@ -1,0 +1,678 @@
+@import 'tailwindcss' source(none);
+@source '.';
+
+/* ─────────────────────────────────────────────────────────────
+   STİL 021 · PIXEL ART & CRT (ARCADE AESTHETIC)
+   Saf siyah zemin, doygun arcade renkleri, kenar yumuşatmasız pikseller, tarama çizgileri.
+   Bütün ölçüler tek bir sanal piksele (--u) bağlıdır: --u = k CSS pikseli, k tam sayı (2x, 3x, 4x).
+   Gölge katı bloktur: bulanıklık yok, saydamlık yok. Yarı saydamlık yalnız ekran dokusunda (tarama çizgisi, gren).
+   Değerler tokens/arcade.tokens.json ile aynıdır.
+   ───────────────────────────────────────────────────────────── */
+
+/* Tailwind dark: varyantı. Bu stil siyah zeminle doğar; açık "Kılavuz" yalnız seçilince gelir (sistem tercihine bakılmaz) */
+@custom-variant dark (&:where(:root:not([data-theme='light']), :root:not([data-theme='light']) *));
+@custom-variant light (&:where([data-theme='light'], [data-theme='light'] *));
+@custom-variant motion (&:where([data-motion='on'], [data-motion='on'] *));
+
+@font-face {
+  font-family: 'Press Start 2P';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url('@fontsource/press-start-2p/files/press-start-2p-latin-ext-400-normal.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329,
+    U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Press Start 2P';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url('@fontsource/press-start-2p/files/press-start-2p-latin-400-normal.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'VT323';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url('@fontsource/vt323/files/vt323-latin-ext-400-normal.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329,
+    U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'VT323';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url('@fontsource/vt323/files/vt323-latin-400-normal.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Silkscreen';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url('@fontsource/silkscreen/files/silkscreen-latin-400-normal.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Silkscreen';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: url('@fontsource/silkscreen/files/silkscreen-latin-700-normal.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* ── Madde 17: tam sayı ölçek ──
+   k: 2 (<768px), 3 (<1440px), 4. --u, cihaz piksel oranına göre en yakın tam aygıt pikseline yuvarlanır (betik yazar).
+   Betik çalışmazsa aşağıdaki yedek değerler geçerlidir. */
+:root {
+  --k: 2;
+  --u: 2px;
+}
+@media (min-width: 768px) {
+  :root {
+    --k: 3;
+    --u: 3px;
+  }
+}
+@media (min-width: 1440px) {
+  :root {
+    --k: 4;
+    --u: 4px;
+  }
+}
+
+/* Press Start 2P 8 piksellik ızgarada çizilir: boyutlar 8'in katı, glif pikseli tam sayı kalır.
+   En küçük boy 16px: 8px'lik özgün boy telefonda okunmaz (Madde 18) */
+:root,
+:root[data-k='2'] {
+  --ps-xs: 16px;
+  --ps-s: 16px;
+  --ps-m: 16px;
+  --ps-l: 24px;
+  --ps-xl: 32px;
+  --body: 20px;
+  --body-l: 24px;
+}
+:root[data-k='3'] {
+  --ps-xs: 16px;
+  --ps-s: 16px;
+  --ps-m: 24px;
+  --ps-l: 32px;
+  --ps-xl: 48px;
+  --body: 24px;
+  --body-l: 28px;
+}
+:root[data-k='4'] {
+  --ps-xs: 16px;
+  --ps-s: 24px;
+  --ps-m: 32px;
+  --ps-l: 40px;
+  --ps-xl: 64px;
+  --body: 28px;
+  --body-l: 32px;
+}
+
+/* ── Madde 4: renkler ──
+   Salon (varsayılan): saf siyah zemin. Siyah üstünde kırmızı 5,25 · sarı 17,02 · yeşil 15,30 · camgöbeği 16,75 · eflatun 6,70.
+   Renkli dolgunun üstünde metin hep siyah (aynı oranlar). */
+:root {
+  --bg: #000000;
+  --ink: #ffffff;
+  --muted: #bdbdbd;
+  --fill: #000000;
+  --edge: #ffffff;
+  --lo: #5f5f5f;
+  --hl: #ffffff;
+  --focus: #00ffff;
+  --off: #3f3f3f;
+  --off-ink: #bdbdbd;
+  --red: #ff0000;
+  --yellow: #ffea00;
+  --green: #00ff00;
+  --cyan: #00ffff;
+  --magenta: #ff00ff;
+  --t-red: #ff0000;
+  --t-yellow: #ffea00;
+  --t-green: #00ff00;
+  --t-cyan: #00ffff;
+  --t-magenta: #ff00ff;
+  --lo-red: #7f0000;
+  --lo-yellow: #7f7500;
+  --lo-green: #007f00;
+  --lo-cyan: #007f7f;
+  --lo-magenta: #7f007f;
+  --lo-white: #5f5f5f;
+  /* Madde 8 · 13: Effects/CRTScanline */
+  --scan: rgb(0 0 0 / 0.34);
+  --scan-on: 1;
+  color-scheme: dark;
+}
+/* Kılavuz: oyun kutusundan çıkan basılı kullanım kılavuzu. Beyaz kâğıt, siyah mürekkep, siyah blok gölge.
+   Renkler dolgu olarak kalır (üstünde siyah metin); metin olarak koyulaştırılır: kırmızı 6,48 · sarı 6,30 · yeşil 6,50. */
+:root[data-theme='light'] {
+  --bg: #ffffff;
+  --ink: #000000;
+  --muted: #3a3a3a;
+  --fill: #ffffff;
+  --edge: #000000;
+  --lo: #000000;
+  --hl: #ffffff;
+  --focus: #0000ff;
+  --off: #d4d4d4;
+  --off-ink: #3a3a3a;
+  --t-red: #c00000;
+  --t-yellow: #6b6100;
+  --t-green: #006e00;
+  --t-cyan: #006b6b;
+  --t-magenta: #a000a0;
+  --lo-red: #000000;
+  --lo-yellow: #000000;
+  --lo-green: #000000;
+  --lo-cyan: #000000;
+  --lo-magenta: #000000;
+  --lo-white: #000000;
+  --scan-on: 0;
+  color-scheme: light;
+}
+
+/* Ton: bileşenler data-ton ile renk alır. --hi dolgu/kenar, --lo blok gölge, --tx zeminde metin.
+   base katmanında: Tailwind yardımcı sınıfı ([--hi:…]) gerektiğinde ezebilsin */
+@layer base {
+  [data-ton] {
+    --on: #000000;
+  }
+  [data-ton='kirmizi'] {
+    --hi: var(--red);
+    --lo: var(--lo-red);
+    --tx: var(--t-red);
+  }
+  [data-ton='sari'] {
+    --hi: var(--yellow);
+    --lo: var(--lo-yellow);
+    --tx: var(--t-yellow);
+  }
+  [data-ton='yesil'] {
+    --hi: var(--green);
+    --lo: var(--lo-green);
+    --tx: var(--t-green);
+  }
+  [data-ton='camgobegi'] {
+    --hi: var(--cyan);
+    --lo: var(--lo-cyan);
+    --tx: var(--t-cyan);
+  }
+  [data-ton='eflatun'] {
+    --hi: var(--magenta);
+    --lo: var(--lo-magenta);
+    --tx: var(--t-magenta);
+  }
+  [data-ton='beyaz'] {
+    --hi: var(--edge);
+    --lo: var(--lo-white);
+    --tx: var(--ink);
+    --on: var(--bg);
+  }
+}
+
+@theme {
+  --color-*: initial;
+  --font-*: initial;
+  --font-ps: 'Press Start 2P', ui-monospace, monospace;
+  --font-vt: 'VT323', ui-monospace, monospace;
+  --font-hud: 'Silkscreen', 'Press Start 2P', ui-monospace, monospace;
+  --color-black: #000000;
+  --color-white: #ffffff;
+  --color-transparent: transparent;
+  --radius-*: initial;
+}
+/* Madde 12 · 17: Tailwind'in boşluk birimi bir sanal piksel. p-4 = 4 piksel = 4 × k CSS pikseli; ızgara dışına çıkmak mümkün değil */
+@theme inline {
+  --spacing: var(--u);
+  --color-bg: var(--bg);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-edge: var(--edge);
+  --color-red: var(--red);
+  --color-yellow: var(--yellow);
+  --color-green: var(--green);
+  --color-cyan: var(--cyan);
+  --color-magenta: var(--magenta);
+  --color-t-red: var(--t-red);
+  --color-t-yellow: var(--t-yellow);
+  --color-t-green: var(--t-green);
+  --color-t-cyan: var(--t-cyan);
+  --color-t-magenta: var(--t-magenta);
+  --color-tx: var(--tx);
+  --color-hi: var(--hi);
+  --text-xs: var(--ps-xs);
+  --text-s: var(--ps-s);
+  --text-m: var(--ps-m);
+  --text-l: var(--ps-l);
+  --text-xl: var(--ps-xl);
+  --text-body: var(--body);
+  --text-body-l: var(--body-l);
+}
+
+/* Madde 15: pikseller bulanıklaşmasın. Görsel, tuval ve arka plan görseli en yakın komşu ile büyür */
+@utility pixelated {
+  image-rendering: pixelated;
+}
+@utility crisp {
+  image-rendering: crisp-edges;
+}
+
+@layer base {
+  html {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-vt);
+    scroll-padding-top: calc(var(--u) * 40);
+    /* Madde 3 · 12: kenar yumuşatma kapalı (destekleyen sistemlerde) */
+    -webkit-font-smoothing: none;
+    -moz-osx-font-smoothing: unset;
+    font-smooth: never;
+    text-rendering: optimizeSpeed;
+  }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-vt);
+    font-size: var(--body);
+    line-height: 1.2;
+    overflow-x: clip;
+  }
+  img,
+  canvas,
+  svg {
+    image-rendering: pixelated;
+    shape-rendering: crispEdges;
+  }
+  a {
+    color: var(--t-cyan);
+    text-decoration: underline;
+    text-decoration-thickness: max(1px, calc(var(--u) / 2));
+    text-underline-offset: calc(var(--u) * 1.5);
+  }
+  a:visited {
+    color: var(--t-magenta);
+  }
+  :focus-visible {
+    outline: var(--u) dashed var(--focus);
+    outline-offset: calc(var(--u) * 2);
+  }
+  ::selection {
+    background: var(--yellow);
+    color: #000000;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-ps);
+    font-weight: 400;
+    line-height: 1.5;
+    margin: 0;
+    text-wrap: balance;
+    /* Eş aralıklı iri yazıda uzun tek sözcük dar ekrana sığmayabilir: son çare olarak harf arasından kırılır */
+    overflow-wrap: anywhere;
+  }
+  p {
+    margin: 0;
+  }
+  table {
+    border-collapse: collapse;
+  }
+  button {
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+  }
+  code,
+  pre,
+  kbd,
+  samp {
+    font-family: var(--font-vt);
+  }
+}
+
+@layer components {
+  /* ── Madde 6 · 7 · 14: <PixelContainer> ──
+     Merdiven köşe ve blok gölge box-shadow bantlarıyla çizilir: dört bant 1 piksel kenar (köşe pikseli boş kalır),
+     dört bant aynı silüeti (--s, --s) kaydırıp gölge rengine boyar. Bulanıklık 0, saydamlık yok, çocuk kırpılmaz. */
+  .px {
+    --e: var(--edge);
+    --f: var(--fill);
+    --s: calc(var(--u) * var(--g, 2));
+    background: var(--f);
+    margin: var(--u);
+    box-shadow:
+      0 calc(var(--u) * -1) 0 0 var(--e),
+      0 var(--u) 0 0 var(--e),
+      calc(var(--u) * -1) 0 0 0 var(--e),
+      var(--u) 0 0 0 var(--e),
+      var(--s) calc(var(--s) - var(--u)) 0 0 var(--lo),
+      var(--s) calc(var(--s) + var(--u)) 0 0 var(--lo),
+      calc(var(--s) - var(--u)) var(--s) 0 0 var(--lo),
+      calc(var(--s) + var(--u)) var(--s) 0 0 var(--lo);
+  }
+  .px[data-ton] {
+    --e: var(--hi);
+  }
+  .px[data-dolu] {
+    --f: var(--hi);
+    color: var(--on);
+  }
+  :root[data-theme='light'] .px[data-ton]:not([data-dolu]) {
+    --e: #000000;
+  }
+  :root[data-theme='light'] .px[data-dolu] {
+    --e: #000000;
+  }
+  /* Basamaklı kenar ikinci halka: köşede iki basamak (büyük paneller) */
+  .px[data-basamak='2'] {
+    margin: calc(var(--u) * 2);
+    box-shadow:
+      0 calc(var(--u) * -1) 0 0 var(--e),
+      0 var(--u) 0 0 var(--e),
+      calc(var(--u) * -1) 0 0 0 var(--e),
+      var(--u) 0 0 0 var(--e),
+      0 calc(var(--u) * -3) 0 calc(var(--u) * -1) var(--e),
+      0 calc(var(--u) * 3) 0 calc(var(--u) * -1) var(--e),
+      calc(var(--u) * -3) 0 0 calc(var(--u) * -1) var(--e),
+      calc(var(--u) * 3) 0 0 calc(var(--u) * -1) var(--e),
+      var(--s) calc(var(--s) - var(--u)) 0 0 var(--lo),
+      var(--s) calc(var(--s) + var(--u)) 0 0 var(--lo),
+      calc(var(--s) - var(--u)) var(--s) 0 0 var(--lo),
+      calc(var(--s) + var(--u)) var(--s) 0 0 var(--lo),
+      var(--s) calc(var(--s) - var(--u) * 3) 0 calc(var(--u) * -1) var(--lo),
+      var(--s) calc(var(--s) + var(--u) * 3) 0 calc(var(--u) * -1) var(--lo),
+      calc(var(--s) - var(--u) * 3) var(--s) 0 calc(var(--u) * -1) var(--lo),
+      calc(var(--s) + var(--u) * 3) var(--s) 0 calc(var(--u) * -1) var(--lo);
+  }
+  .px[data-golge='0'] {
+    --g: 0;
+  }
+  .px[data-golge='1'] {
+    --g: 1;
+  }
+  .px[data-golge='3'] {
+    --g: 3;
+  }
+  .px[data-golge='4'] {
+    --g: 4;
+  }
+
+  /* ── Arcade düğmesi: dolgu ton rengi, siyah yazı, iç kabartma, basılınca gölgeye iner ── */
+  .pbtn {
+    --e: var(--edge);
+    --s: calc(var(--u) * 2);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: calc(var(--u) * 3);
+    min-height: calc(var(--u) * 16);
+    padding: calc(var(--u) * 3) calc(var(--u) * 5);
+    margin: var(--u);
+    border: 0;
+    background: var(--hi, var(--yellow));
+    color: var(--on, #000000);
+    font-family: var(--font-ps);
+    font-size: var(--ps-s);
+    line-height: 1.5;
+    text-transform: uppercase;
+    text-decoration: none;
+    white-space: nowrap;
+    box-shadow:
+      inset var(--u) var(--u) 0 0 var(--hl),
+      inset calc(var(--u) * -1) calc(var(--u) * -1) 0 0 var(--lo),
+      0 calc(var(--u) * -1) 0 0 var(--e),
+      0 var(--u) 0 0 var(--e),
+      calc(var(--u) * -1) 0 0 0 var(--e),
+      var(--u) 0 0 0 var(--e),
+      var(--s) calc(var(--s) - var(--u)) 0 0 var(--lo),
+      var(--s) calc(var(--s) + var(--u)) 0 0 var(--lo),
+      calc(var(--s) - var(--u)) var(--s) 0 0 var(--lo),
+      calc(var(--s) + var(--u)) var(--s) 0 0 var(--lo);
+  }
+  :root[data-theme='light'] .pbtn {
+    --e: #000000;
+    --hl: var(--hi);
+  }
+  .pbtn:hover {
+    --hl: var(--hi);
+  }
+  .pbtn:active:not(:disabled),
+  .pbtn[aria-pressed='true'] {
+    translate: var(--u) var(--u);
+    --s: var(--u);
+  }
+  .pbtn:disabled {
+    --hi: var(--off);
+    --on: var(--off-ink);
+    --hl: var(--off);
+    cursor: not-allowed;
+  }
+  .pbtn[data-boy='k'] {
+    min-height: calc(var(--u) * 12);
+    padding: calc(var(--u) * 2) calc(var(--u) * 3);
+    font-size: var(--ps-xs);
+  }
+  .pbtn[data-boy='b'] {
+    min-height: calc(var(--u) * 20);
+    padding: calc(var(--u) * 4) calc(var(--u) * 8);
+    font-size: var(--ps-m);
+  }
+
+  /* ── Madde 11 · 14: <HealthBar> segmentleri ── */
+  .hp {
+    display: grid;
+    grid-template-columns: repeat(var(--n), minmax(0, 1fr));
+    gap: var(--u);
+    padding: var(--u);
+    height: calc(var(--u) * var(--h, 6));
+    background: var(--bg);
+    margin: var(--u);
+    box-shadow:
+      0 calc(var(--u) * -1) 0 0 var(--edge),
+      0 var(--u) 0 0 var(--edge),
+      calc(var(--u) * -1) 0 0 0 var(--edge),
+      var(--u) 0 0 0 var(--edge);
+  }
+  .hp > i {
+    display: block;
+    background: var(--off);
+  }
+  .hp > i[data-dolu] {
+    background: var(--hi);
+    box-shadow: inset 0 calc(var(--u) * -1) 0 0 var(--lo);
+  }
+  :root[data-theme='light'] .hp > i[data-dolu] {
+    box-shadow: none;
+  }
+  .hp > i[data-iz] {
+    background: var(--ink);
+  }
+
+  /* Madde 16: sürekli yanıp sönen çağrı. 1 Hz, iki kare (steps); hareket kapalıyken sabit */
+  .blink {
+    animation: blink 1s steps(1, end) infinite;
+  }
+  .blink[data-hz='2'] {
+    animation-duration: 0.5s;
+  }
+  @keyframes blink {
+    50% {
+      opacity: 0;
+    }
+  }
+
+  /* Kare kare sprite: şerit arka plan görseli, steps() ile kare atlar, ara kare yok */
+  .sprite {
+    background-repeat: no-repeat;
+    background-size: calc(var(--kare) * 100%) 100%;
+    background-position: calc(var(--i, 0) * 100% / max(1, var(--kare) - 1)) 0;
+    image-rendering: pixelated;
+  }
+  .sprite[data-oynat] {
+    animation: kare calc(var(--kare) * var(--sure, 150ms)) steps(var(--kare)) infinite;
+    background-position: 0 0;
+  }
+  @keyframes kare {
+    to {
+      background-position: calc(var(--kare) * 100% / max(1, var(--kare) - 1)) 0;
+    }
+  }
+
+  /* Madde 3 · 8: renk sapması (chromatic aberration): kırmızı sola, camgöbeği sağa, bulanıklık yok */
+  .sapma {
+    text-shadow:
+      calc(var(--u) * -1) 0 0 var(--ab-a, #ff0000),
+      var(--u) 0 0 var(--ab-b, #00ffff);
+  }
+  :root[data-crt='0'] .sapma,
+  :root[data-theme='light'] .sapma {
+    text-shadow: none;
+  }
+  /* Neon: bulanık hale yerine iki halkalı basamaklı çerçeve */
+  .neon {
+    text-shadow:
+      var(--u) 0 0 var(--lo),
+      calc(var(--u) * -1) 0 0 var(--lo),
+      0 var(--u) 0 var(--lo),
+      0 calc(var(--u) * -1) 0 var(--lo),
+      var(--u) var(--u) 0 var(--lo),
+      calc(var(--u) * -1) calc(var(--u) * -1) 0 var(--lo),
+      var(--u) calc(var(--u) * -1) 0 var(--lo),
+      calc(var(--u) * -1) var(--u) 0 var(--lo),
+      calc(var(--u) * 2) calc(var(--u) * 2) 0 var(--lo);
+  }
+  .neon.sapma {
+    text-shadow:
+      calc(var(--u) * -1) 0 0 var(--ab-a, #ff0000),
+      var(--u) 0 0 var(--ab-b, #00ffff),
+      var(--u) var(--u) 0 var(--lo),
+      calc(var(--u) * -1) calc(var(--u) * -1) 0 var(--lo),
+      var(--u) calc(var(--u) * -1) 0 var(--lo),
+      calc(var(--u) * -1) var(--u) 0 var(--lo),
+      calc(var(--u) * 2) calc(var(--u) * 2) 0 var(--lo);
+  }
+  :root[data-crt='0'] .neon.sapma,
+  :root[data-theme='light'] .neon.sapma {
+    text-shadow:
+      var(--u) var(--u) 0 var(--lo),
+      calc(var(--u) * 2) calc(var(--u) * 2) 0 var(--lo);
+  }
+
+  .kicker {
+    font-family: var(--font-ps);
+    font-size: var(--ps-xs);
+    line-height: 2;
+    text-transform: uppercase;
+    letter-spacing: 0;
+    overflow-wrap: anywhere;
+  }
+  .hud {
+    font-family: var(--font-hud);
+    text-transform: uppercase;
+    font-variant-numeric: tabular-nums;
+  }
+  .tabnum {
+    font-variant-numeric: tabular-nums;
+  }
+  .kod {
+    font-family: var(--font-vt);
+    font-size: var(--body);
+    line-height: 1.15;
+    white-space: pre;
+    overflow-x: auto;
+    padding: calc(var(--u) * 4);
+    tab-size: 2;
+  }
+
+  /* Dama zemin: saydam piksel gösterimi (editör, sprite sayfası) */
+  .dama {
+    background-color: var(--bg);
+    background-image: conic-gradient(var(--off) 25%, transparent 0 50%, var(--off) 0 75%, transparent 0);
+    background-size: calc(var(--u) * 4) calc(var(--u) * 4);
+  }
+}
+
+/* ── Madde 8: CRT katmanı. Ekranın tamamını kaplar, tıklamayı geçirir, ekran okuyucudan gizlidir ── */
+.crt {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  pointer-events: none;
+  opacity: var(--scan-on);
+}
+/* Tarama çizgileri: her sanal pikselin son 1 CSS pikseli karartılır */
+.crt::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(to bottom, transparent 0, transparent calc(var(--u) - 1px), var(--scan) calc(var(--u) - 1px), var(--scan) var(--u));
+}
+/* Yukarıdan aşağı kayan parlak bant (tüplü ekranın yenileme çizgisi) */
+.crt::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 18vh;
+  background: linear-gradient(to bottom, transparent, rgb(255 255 255 / 0.045) 50%, transparent);
+  translate: 0 -20vh;
+}
+:root[data-motion='on'] .crt::after {
+  animation: tarama 7s linear infinite;
+}
+@keyframes tarama {
+  to {
+    translate: 0 102vh;
+  }
+}
+/* Gren (noise layer): 4 karelik gürültü şeridi, kare kare */
+.crt > i {
+  position: absolute;
+  inset: 0;
+  background-image: var(--gren);
+  background-size: calc(var(--u) * 64 * 4) calc(var(--u) * 64);
+  image-rendering: pixelated;
+  opacity: 0.5;
+}
+:root[data-motion='on'] .crt > i {
+  animation: gren 0.4s steps(4) infinite;
+}
+@keyframes gren {
+  to {
+    background-position: calc(var(--u) * 64 * -4) 0;
+  }
+}
+:root[data-crt='0'] .crt {
+  display: none;
+}
+
+/* Madde 18: hareket kapalı. Yanıp sönme, sprite ve kayan bant durur; ilk kare görünür kalır */
+:root[data-motion='off'] .blink,
+:root[data-motion='off'] .sprite[data-oynat] {
+  animation: none;
+  opacity: 1;
+}
+@media (prefers-reduced-motion: reduce) {
+  :root:not([data-motion='on']) .blink,
+  :root:not([data-motion='on']) .sprite[data-oynat],
+  :root:not([data-motion='on']) .crt::after,
+  :root:not([data-motion='on']) .crt > i {
+    animation: none;
+  }
+}

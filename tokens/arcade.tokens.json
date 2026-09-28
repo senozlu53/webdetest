@@ -1,0 +1,89 @@
+{
+  "$description": "Stil 021: Pixel Art & CRT (Arcade Aesthetic). W3C DTCG formatı. Adlar Figma yolu ile aynıdır: Effects/CRTScanline, Typography/PixelBody. Bütün ölçüler sanal piksel (u) cinsindendir: 1u = k CSS pikseli, k tam sayı (2, 3, 4). Gölge katı blok, yuvarlatma yok. Varsayılan tema Salon (saf siyah); Kılavuz (beyaz kâğıt) yalnız seçilince.",
+  "Color": {
+    "Black": { "$type": "color", "$value": "#000000", "$description": "Madde 4: zemin. Ekran kapalıyken tüp de siyah" },
+    "ArcadeRed": { "$type": "color", "$value": "#FF0000", "shadow": "#7F0000", "textOnPaper": "#C00000", "contrast": { "onBlack": 5.25, "blackOnIt": 5.25, "whiteOnIt": 4.0, "paperText": 6.48 }, "$description": "Madde 4: tehlike, can azaldı, 1UP. Üstündeki yazı siyah" },
+    "AtariYellow": { "$type": "color", "$value": "#FFEA00", "shadow": "#7F7500", "textOnPaper": "#6B6100", "contrast": { "onBlack": 17.02, "blackOnIt": 17.02, "paperText": 6.3 }, "$description": "Madde 4: başlık, jeton, ana düğme, yüksek skor" },
+    "PureGreen": { "$type": "color", "$value": "#00FF00", "shadow": "#007F00", "textOnPaper": "#006E00", "contrast": { "onBlack": 15.3, "blackOnIt": 15.3, "paperText": 6.5 }, "$description": "Madde 4: can dolu, kazanan, hazır" },
+    "Cyan": { "$type": "color", "$value": "#00FFFF", "shadow": "#007F7F", "textOnPaper": "#006B6B", "contrast": { "onBlack": 16.75 }, "$description": "Bağlantı, mana, odak halkası (Salon)" },
+    "Magenta": { "$type": "color", "$value": "#FF00FF", "shadow": "#7F007F", "textOnPaper": "#A000A0", "contrast": { "onBlack": 6.7 }, "$description": "Deneyim, destansı eşya" },
+    "White": { "$type": "color", "$value": "#FFFFFF", "shadow": "#5F5F5F", "contrast": { "onBlack": 21 }, "$description": "Gövde metni ve kenar" },
+    "Muted": { "$type": "color", "$value": "#BDBDBD", "paper": "#3A3A3A", "contrast": { "onBlack": 11.18, "paperOnWhite": 11.37 } },
+    "Disabled": { "$type": "color", "$value": "#3F3F3F", "text": "#BDBDBD", "contrast": 5.61 },
+    "Palette16": {
+      "$description": "Madde 3 · 9: sprite paleti. Bütün ikon ve karakterler yalnız bu 16 renkle çizilir",
+      "k": { "$type": "color", "$value": "#000000", "name": "Siyah" },
+      "w": { "$type": "color", "$value": "#FFFFFF", "name": "Beyaz" },
+      "a": { "$type": "color", "$value": "#7F7F7F", "name": "Gri" },
+      "d": { "$type": "color", "$value": "#3F3F3F", "name": "Koyu gri" },
+      "r": { "$type": "color", "$value": "#FF0000", "name": "Kırmızı" },
+      "R": { "$type": "color", "$value": "#7F0000", "name": "Bordo" },
+      "o": { "$type": "color", "$value": "#FF8000", "name": "Turuncu" },
+      "y": { "$type": "color", "$value": "#FFEA00", "name": "Atari sarısı" },
+      "Y": { "$type": "color", "$value": "#7F7500", "name": "Zeytin" },
+      "g": { "$type": "color", "$value": "#00FF00", "name": "Saf yeşil" },
+      "G": { "$type": "color", "$value": "#007F00", "name": "Koyu yeşil" },
+      "c": { "$type": "color", "$value": "#00FFFF", "name": "Camgöbeği" },
+      "C": { "$type": "color", "$value": "#007F7F", "name": "Petrol" },
+      "b": { "$type": "color", "$value": "#2040FF", "name": "Mavi" },
+      "m": { "$type": "color", "$value": "#FF00FF", "name": "Eflatun" },
+      "s": { "$type": "color", "$value": "#FFBF80", "name": "Ten" }
+    }
+  },
+  "Effects": {
+    "CRTScanline": {
+      "$type": "string",
+      "$value": "repeating-linear-gradient(to bottom, transparent 0 calc(1u - 1px), rgb(0 0 0 / 0.34) calc(1u - 1px) 1u)",
+      "period": "1u",
+      "line": "1px",
+      "opacity": 0.34,
+      "$description": "Madde 8 · 13: her sanal pikselin son satırı karanlık. Sabit, tıklamayı geçiren, ekran okuyucudan gizli katman. Kılavuz temasında yok"
+    },
+    "ScanRoll": { "$type": "string", "$value": "linear-gradient(transparent, rgb(255 255 255 / 0.045), transparent)", "height": "18vh", "duration": "7s linear infinite", "$description": "Yukarıdan aşağı kayan yenileme bandı" },
+    "Grain": { "$type": "string", "$value": "4 kare × 64×64 gürültü şeridi; %5 beyaz, %1,5 kırmızı/camgöbeği kırıntı; steps(4) 400ms", "$description": "Madde 8: Noise Layer" },
+    "ChromaticAberration": { "$type": "shadow", "$value": [{ "color": "#FF0000", "offsetX": "-1u", "offsetY": "0", "blur": "0" }, { "color": "#00FFFF", "offsetX": "1u", "offsetY": "0", "blur": "0" }], "$description": "Madde 3: yalnız başlıkta; gövde metninde yok" },
+    "NeonStep": { "$type": "string", "$value": "8 yönde 1u katı halka + 2u 2u blok gölge, renk tonun koyu yarısı", "$description": "Parlayan yazı: bulanık hale yerine basamaklı çerçeve" }
+  },
+  "Shadow": {
+    "Block": { "$type": "shadow", "$value": { "color": "{Color.AtariYellow.shadow}", "offsetX": "2u", "offsetY": "2u", "blur": "0", "spread": "0" }, "steps": [0, 1, 2, 3, 4], "pressed": "1u", "$description": "Madde 7: silüetin kaydırılmış opak kopyası. Kâğıtta #000000" }
+  },
+  "Border": {
+    "Pixel": { "$type": "string", "$value": "1u; köşe pikseli boş (1 basamak)", "css": "box-shadow: 0 -1u 0 0 edge, 0 1u 0 0 edge, -1u 0 0 0 edge, 1u 0 0 0 edge", "$description": "Madde 6: çentikli köşe; border-radius değil" },
+    "PixelLarge": { "$type": "string", "$value": "2u; köşe iki basamak", "$description": "Büyük panel ve ekran çerçevesi" },
+    "Focus": { "$type": "string", "$value": "1u dashed Cyan, offset 2u (Kılavuz: #0000FF)" }
+  },
+  "Radius": {
+    "None": { "$type": "dimension", "$value": "0px", "$description": "Madde 6: bütün köşeler" }
+  },
+  "Typography": {
+    "PixelDisplay": { "$type": "typography", "$value": { "fontFamily": ["Press Start 2P", "monospace"], "fontSize": "16 / 24 / 32 / 48 / 64px (8'in katı)", "lineHeight": 1.5, "textTransform": "uppercase" }, "$description": "Madde 5: başlık ve düğme. 8×8 ızgara; Ö, Ü, İ büyük harfleri hücreye sığmak için küçük çizilir" },
+    "PixelBody": { "$type": "typography", "$value": { "fontFamily": ["VT323", "monospace"], "fontSize": { "2x": "20px", "3x": "24px", "4x": "28px" }, "lineHeight": 1.2 }, "$description": "Madde 5 · 13: gövde metni" },
+    "HUD": { "$type": "typography", "$value": { "fontFamily": ["Silkscreen", "Press Start 2P", "monospace"], "textTransform": "uppercase", "fontVariantNumeric": "tabular-nums" }, "$description": "Yalnız İngilizce etiketler (1UP, HI-SCORE, CREDIT): Silkscreen'de ğ ş ı İ yok" },
+    "MinimumSize": { "$type": "dimension", "$value": "16px", "$description": "Madde 18: Press Start 2P'nin özgün 8px boyu kullanılmaz" }
+  },
+  "Scale": {
+    "$description": "Madde 17: tam sayı ölçek. Yazı, boşluk, kenar, gölge ve sprite aynı birimden büyür. Tailwind --spacing = 1u",
+    "Unit": { "$type": "dimension", "$value": "round(k × dpr) / dpr px", "$description": "Kesirli piksel oranında en yakın tam aygıt pikseli" },
+    "Phone": { "$type": "number", "$value": 2, "breakpoint": "< 768px" },
+    "Laptop": { "$type": "number", "$value": 3, "breakpoint": "768–1439px" },
+    "Desktop": { "$type": "number", "$value": 4, "breakpoint": "≥ 1440px" },
+    "ManualCap": { "$type": "string", "$value": "sabit ölçek ≤ max(2, floor(genişlik / 110))" },
+    "Canvas": { "$type": "string", "$value": "160×144; kat = floor(kap genişliği × dpr / 160)" }
+  },
+  "Grid": {
+    "Figma": { "$type": "string", "$value": "Pixel grid açık, Snap to pixel grid açık, layout grid 1×1, nudge 1 / big nudge 8", "$description": "Madde 12" },
+    "Sprite": { "$type": "dimension", "$value": "16×16", "$description": "Madde 9: 1x PNG, büyütme en yakın komşu" }
+  },
+  "Motion": {
+    "$description": "Madde 16: kare kare. Ara kare ve yumuşatma eğrisi yok",
+    "SpriteFrame": { "$type": "string", "$value": "steps(n); 140–320ms/kare" },
+    "Blink": { "$type": "string", "$value": "1s steps(1, end); en çok 2 Hz", "$description": "Insert Coin çağrısı. Hareket kapalıysa sabit ve görünür" },
+    "Press": { "$type": "string", "$value": "translate 1u 1u, gölge 2u → 1u; animasyonsuz" },
+    "Reduced": { "$type": "string", "$value": "prefers-reduced-motion ya da ayar: yanıp sönme, sprite, kayan bant ve gren durur", "$description": "Madde 18" }
+  },
+  "Rendering": {
+    "Image": { "$type": "string", "$value": "image-rendering: pixelated", "$description": "Madde 15: img, canvas, sprite şeridi" },
+    "Canvas": { "$type": "string", "$value": "ctx.imageSmoothingEnabled = false" },
+    "Font": { "$type": "string", "$value": "-webkit-font-smoothing: none" }
+  }
+}
