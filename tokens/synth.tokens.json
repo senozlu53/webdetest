@@ -1,0 +1,63 @@
+{
+  "$description": "Stil 023: Synthwave (Retrowave / Outrun). W3C DTCG formatı. Adlar Figma yolu ile aynıdır: Effects/NeonPinkGlow, Color/SynthPurple, Typography/ChromeHeader. Tek tema: karanlık (Madde 18). Arayüz yazıları en az 500, bileşenler 700.",
+  "Color": {
+    "SynthPurple": { "$type": "color", "$value": "#1A0B2E", "$description": "Madde 4 · 13: Gece Moru zemin" },
+    "SynthPurple2": { "$type": "color", "$value": "#241042", "$description": "Kart yüzeyi" },
+    "SynthPurple3": { "$type": "color", "$value": "#2E1554" },
+    "Line": { "$type": "color", "$value": "#5B3A8C" },
+    "NeonPink": { "$type": "color", "$value": "#FF00FF", "contrast": { "onPurple": 5.92, "purpleOnIt": 5.92, "whiteOnIt": 3.14 } },
+    "NeonCyan": { "$type": "color", "$value": "#00FFFF", "contrast": { "onPurple": 14.8, "whiteOnIt": 1.25 } },
+    "SunsetOrange": { "$type": "color", "$value": "#FF8C00", "contrast": { "onPurple": 7.96 } },
+    "Text": { "$type": "color", "$value": "#F3E9FF", "contrast": 15.83 },
+    "Muted": { "$type": "color", "$value": "#C7B4E8", "contrast": 9.83 }
+  },
+  "Effects": {
+    "NeonPinkGlow": {
+      "$type": "shadow",
+      "$value": [
+        { "color": "#FF00FF", "offsetX": "0px", "offsetY": "0px", "blur": "2px", "spread": "0px" },
+        { "color": "#FF00FF", "offsetX": "0px", "offsetY": "0px", "blur": "4px", "spread": "0px" },
+        { "color": "#FF00FF", "offsetX": "0px", "offsetY": "0px", "blur": "12px", "spread": "0px" }
+      ],
+      "$description": "Madde 12 · 13: üst üste üç Drop Shadow. Az parlama varyantında yalnız 1px"
+    },
+    "NeonCyanGlow": { "$type": "shadow", "$value": "aynı üç katman, #00FFFF" },
+    "NeonOrangeGlow": { "$type": "shadow", "$value": "aynı üç katman, #FF8C00" },
+    "ChromeInner": { "$type": "string", "$value": "text-shadow: 0 1px 0 rgb(255 255 255 / .55), 0 -2px 1px rgb(26 11 46 / .55)", "$description": "Madde 7: arka plan yazıya kırpılı; gölge onun üstünde kalır ve harfin içinde görünür" },
+    "Scanline": { "$type": "string", "$value": "repeating-linear-gradient(to bottom, transparent 0 2px, rgb(0 0 0 / .16) 2px 3px)", "$description": "Madde 8" },
+    "Tracking": { "$type": "string", "$value": "7px yatay gürültü bandı, 7s steps(70) aşağıdan yukarı" },
+    "ChromaticAberration": { "$type": "shadow", "$value": [{ "color": "rgb(255 0 80 / .75)", "offsetX": "-2px", "offsetY": "0", "blur": "0" }, { "color": "rgb(0 255 255 / .75)", "offsetX": "2px", "offsetY": "0", "blur": "0" }] }
+  },
+  "Gradient": {
+    "Chrome": { "$type": "gradient", "$value": [{ "color": "#FFFFFF", "position": 0 }, { "color": "#D9E4FF", "position": 0.22 }, { "color": "#8AA0D8", "position": 0.46 }, { "color": "#2A1650", "position": 0.5 }, { "color": "#6B2F7F", "position": 0.54 }, { "color": "#FF8C00", "position": 0.72 }, { "color": "#FFE08A", "position": 1 }], "$description": "Gökyüzü, keskin ufuk, gün batımı yansıması" },
+    "Sun": { "$type": "gradient", "$value": [{ "color": "#FFE08A", "position": 0 }, { "color": "#FF8C00", "position": 0.45 }, { "color": "#FF00FF", "position": 1 }] },
+    "Sunset": { "$type": "gradient", "$value": [{ "color": "#FF8C00", "position": 0 }, { "color": "#FF00FF", "position": 1 }], "$description": "Madde 15: bg-gradient-to-b from-[#FF8C00] to-[#FF00FF]" }
+  },
+  "Typography": {
+    "ChromeHeader": { "$type": "typography", "$value": { "fontFamily": ["Abril Fatface", "Didot", "serif"], "fontWeight": 400, "lineHeight": 0.95 }, "fill": "{Gradient.Chrome}", "$description": "Madde 5 · 13" },
+    "BrushScript": { "$type": "typography", "$value": { "fontFamily": ["Yellowtail", "Brush Script MT", "cursive"], "fontWeight": 400 }, "rotate": "-6deg", "$description": "Krom başlığın üstüne eğik" },
+    "NeonSign": { "$type": "typography", "$value": { "fontFamily": ["Monoton", "cursive"] }, "$description": "Yalnız kısa tabela kelimeleri" },
+    "Body": { "$type": "typography", "$value": { "fontFamily": ["Chivo Mono", "monospace"], "fontWeight": 500, "fontSize": "16px", "lineHeight": 1.65 } },
+    "UI": { "$type": "typography", "$value": { "fontFamily": ["Chivo Mono", "monospace"], "fontWeight": 700, "letterSpacing": "0.12em", "textTransform": "uppercase" }, "$description": "Madde 18: bileşenlerde Bold" }
+  },
+  "Grid": {
+    "$description": "Madde 2 · 11 · 16: <WireframeGrid>",
+    "Cell": { "$type": "dimension", "$value": "60px" },
+    "Tilt": { "$type": "string", "$value": "rotateX(76deg)" },
+    "Perspective": { "$type": "dimension", "$value": "320px" },
+    "Flow": { "$type": "duration", "$value": "1.2s", "$description": "Bir hücre, linear infinite" },
+    "Horizon": { "$type": "string", "$value": "%52–56" },
+    "FigmaSkew": { "$type": "string", "$value": "dikey çizgi i: Skew X = atan(tan(max) × t), t ∈ [−1, 1]", "$description": "Madde 12" }
+  },
+  "Shape": {
+    "Sun": { "$type": "string", "$value": "yarım daire; üst yarı dolu, alt yarıda aşağı indikçe büyüyen yatay kesikler", "$description": "Madde 6" },
+    "Radius": { "$type": "dimension", "$value": "6px (düğme) · 10px (kart)" }
+  },
+  "Motion": {
+    "Flicker": { "$type": "string", "$value": "5.2s döngü; %19,5 · %22 · %63'te 0,45–0,75'e söner", "$description": "Madde 16: saniyede en çok iki sönme, parlaklık sıfıra inmez" },
+    "Reduced": { "$type": "string", "$value": "prefers-reduced-motion ya da ayar: akış, titreme, tracking durur" }
+  },
+  "Responsive": {
+    "HeroOnly": { "$type": "string", "$value": "ızgara ve ufuk yalnız giriş alanında; telefonda palmiyesiz, dağlar alçak", "$description": "Madde 17" }
+  }
+}
