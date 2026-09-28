@@ -1,0 +1,99 @@
+{
+  "$description": "Stil 019: Y2K (2000s Millennium Aesthetic). W3C DTCG formatı. Adlar Figma yolu ile aynıdır: Color/ChromeSilver, Gradient/Y2KMetal, Effects/GlossyBevel. Madde 18: metin her zaman zeminin tam zıttı; krom, buz ve pembe üstünde #000000, koyu mor üstünde #FFFFFF. Oranlar WCAG 2.x.",
+  "Color": {
+    "IceBlue": { "$type": "color", "$value": "#A5F2F3", "text": "#000000", "contrast": 16.59, "$description": "Madde 4: buz mavisi; LCD ekran, seçili gezinme, zemin tonları" },
+    "ChromeSilver": { "$type": "color", "$value": "#E0E5EC", "text": "#000000", "contrast": 16.59, "$description": "Madde 4: krom gümüşü; sade yüzeyde düz krom" },
+    "BubblegumPink": { "$type": "color", "$value": "#FF66CC", "text": "#000000", "contrast": 8.02, "$description": "Madde 4: sakız pembesi; birincil düğme, rozet, seçim" },
+    "DeepPurple": { "$type": "color", "$value": "#2E0854", "text": "#FFFFFF", "contrast": 16.42, "$description": "Madde 4: koyu mor; ikincil düğme, gece teması, açık temada odak halkası" },
+    "Page": {
+      "light": { "$type": "color", "$value": "#E6FCFD", "text": "#000000", "contrast": 19.71 },
+      "dark": { "$type": "color", "$value": "#12052B", "text": "#FFFFFF", "contrast": 19.4 }
+    },
+    "Surface": {
+      "light": { "$type": "color", "$value": "#F7FAFD", "text": "#000000", "contrast": 20.05 },
+      "dark": { "$type": "color", "$value": "#1D0B40", "text": "#FFFFFF", "contrast": 17.89 }
+    },
+    "Muted": {
+      "light": { "$type": "color", "$value": "#262033", "contrast": 14.74 },
+      "dark": { "$type": "color", "$value": "#D9D2EC", "contrast": 13.29 }
+    },
+    "Focus": {
+      "light": { "$type": "color", "$value": "#2E0854" },
+      "dark": { "$type": "color", "$value": "#A5F2F3" }
+    }
+  },
+  "Gradient": {
+    "Y2KMetal": {
+      "$type": "gradient",
+      "$value": [
+        { "color": "#FFFFFF", "position": 0 },
+        { "color": "#B0C4DE", "position": 0.5 },
+        { "color": "#778899", "position": 1 }
+      ],
+      "angle": "135deg",
+      "text": "#000000",
+      "worstContrast": 5.77,
+      "$description": "Madde 15: linear-gradient(135deg, #FFF 0%, #B0C4DE 50%, #778899 100%). En koyu durakta bile siyah metin AA"
+    },
+    "Gloss": {
+      "$type": "gradient",
+      "$value": [
+        { "color": "#FFFFFFBF", "position": 0 },
+        { "color": "#FFFFFF2E", "position": 0.46 },
+        { "color": "#FFFFFF00", "position": 0.5 }
+      ],
+      "angle": "180deg",
+      "$description": "Üst yarıdaki plastik parlama; metalin üstüne biner. Sade varyantta 0"
+    },
+    "Candy": { "$type": "gradient", "$value": [{ "color": "#FFC2EA", "position": 0 }, { "color": "#FF66CC", "position": 0.55 }, { "color": "#E0309F", "position": 1 }], "angle": "180deg", "text": "#000000", "worstContrast": 5.09 },
+    "Ice": { "$type": "gradient", "$value": [{ "color": "#F0FFFF", "position": 0 }, { "color": "#A5F2F3", "position": 0.55 }, { "color": "#5FCFD2", "position": 1 }], "angle": "180deg", "text": "#000000", "worstContrast": 11.34 },
+    "Grape": { "$type": "gradient", "$value": [{ "color": "#7B4FB5", "position": 0 }, { "color": "#2E0854", "position": 0.6 }, { "color": "#1A0433", "position": 1 }], "angle": "180deg", "text": "#FFFFFF", "worstContrast": 5.79 },
+    "ChromeRim": { "$type": "gradient", "$value": [{ "color": "#FFFFFF", "position": 0 }, { "color": "#B0C4DE", "position": 0.3 }, { "color": "#778899", "position": 0.52 }, { "color": "#F5F8FC", "position": 0.64 }, { "color": "#8A99AE", "position": 1 }], "angle": "135deg", "$description": "Kart ve pencere çerçevesi (border-box katmanı)" },
+    "CD": { "$type": "string", "$value": "conic-gradient(from 20deg, #E8F7FF, #FFD6F0, #FFF4B0, #C9FFF2, #D6D9FF, #FFC8EC, #BFF6FF, #E8F7FF)", "$description": "Madde 2: CD-ROM yanardönerliği" }
+  },
+  "Effects": {
+    "GlossyBevel": {
+      "$type": "shadow",
+      "$value": [
+        { "inset": true, "offsetX": "0", "offsetY": "2px", "blur": "0", "spread": "0", "color": "#FFFFFFF2", "$description": "üst ışık" },
+        { "inset": true, "offsetX": "0", "offsetY": "-3px", "blur": "5px", "spread": "0", "color": "#1E283C73", "$description": "alt gölge" },
+        { "inset": true, "offsetX": "3px", "offsetY": "0", "blur": "4px", "spread": "0", "color": "#FFFFFF8C", "$description": "sol parlama" },
+        { "inset": true, "offsetX": "-3px", "offsetY": "0", "blur": "4px", "spread": "0", "color": "#323C504D", "$description": "sağ kenar" },
+        { "inset": true, "offsetX": "0", "offsetY": "0", "blur": "0", "spread": "1px", "color": "#FFFFFF73", "$description": "iç çizgi" }
+      ],
+      "$description": "Madde 7 · 12: derinlik dış gölgeyle değil, beş iç gölgeyle. Figma'da aynı bileşende iki Gradient Fill + beş Inner Shadow"
+    },
+    "Pressed": { "$type": "shadow", "$value": [{ "inset": true, "offsetX": "0", "offsetY": "3px", "blur": "7px", "spread": "0", "color": "#00000061" }, { "inset": true, "offsetX": "0", "offsetY": "-1px", "blur": "0", "spread": "0", "color": "#FFFFFF99" }], "$description": "Basılı düğme: yansıma ters döner, 1px iner" },
+    "Emboss": { "$type": "string", "$value": "text-shadow: 0 1px 0 #FFFFFFE6, 0 -1px 0 #0000002E", "$description": "Yalnız açık zeminde başlık; metin rengi yine saf siyah" },
+    "ChromeLogo": { "$type": "string", "$value": "SVG: ufuk çizgili gradyan yüz + 10 katman ekstrüzyon + feSpecularLighting (ışık imleci izler)" }
+  },
+  "Border": {
+    "ChromeRim": { "$type": "dimension", "$value": "5px", "mobile": "3px", "breakpoint": "768px", "$description": "Madde 17: krom sınır mobilde daralır, içerik 4px kazanır" },
+    "Hairline": { "$type": "border", "$value": { "width": "1px", "style": "solid", "color": "#2B34458C" }, "$description": "Kapsül düğme ve rozet kenarı" }
+  },
+  "Radius": {
+    "Pill": { "$type": "dimension", "$value": "9999px" },
+    "Bubble": { "$type": "dimension", "$value": "36px", "$description": "Madde 6: oval balon kart" },
+    "Window": { "$type": "dimension", "$value": "22px" },
+    "Oval": { "$type": "string", "$value": "50%", "$description": "Portfolyo balonları" }
+  },
+  "Typography": {
+    "Logo": { "$type": "typography", "$value": { "fontFamily": ["Michroma", "Eurostile", "Microgramma", "sans-serif"], "fontWeight": 400, "letterSpacing": "0.06–0.14em", "textCase": "uppercase" }, "$description": "Madde 5: genişletilmiş fütüristik; düğme, rozet, etiket. ₺ glifi yok" },
+    "Display": { "$type": "typography", "$value": { "fontFamily": ["Unbounded Variable", "sans-serif"], "fontWeight": 800, "fontSize": "clamp(34px, 5.6vw, 72px)", "lineHeight": 0.98, "letterSpacing": "-0.01em" } },
+    "Body": { "$type": "typography", "$value": { "fontFamily": ["Archivo Variable", "system-ui", "sans-serif"], "fontWeight": 400, "fontSize": "17px", "lineHeight": 1.55 } },
+    "Brat": { "$type": "typography", "$value": { "fontFamily": ["Archivo Variable", "sans-serif"], "fontStretch": "62%", "fontWeight": 540, "letterSpacing": "-0.035em", "lineHeight": 0.9, "filter": "blur(0.35px)", "textCase": "lowercase" }, "$description": "Madde 3: “brat” tarzı; yalnız 38px ve üstü" },
+    "Mono": { "$type": "typography", "$value": { "fontFamily": ["Martian Mono Variable", "monospace"], "fontSize": "13px" }, "$description": "LCD, süre, kod" }
+  },
+  "Motion": {
+    "PopupOpen": { "$type": "transition", "$value": { "duration": "140ms", "timingFunction": [0.2, 1.8, 0.4, 1] }, "$description": "Madde 16: hızlı açılan pencere, yaylı" },
+    "PopupClose": { "$type": "transition", "$value": { "duration": "90ms", "timingFunction": "ease-in" } },
+    "Spin": { "$type": "duration", "$value": "8s", "$description": "Dönen vektörler: doğrusal, sonsuz; CD 3–9 sn" },
+    "Float": { "$type": "duration", "$value": "6s" },
+    "Marquee": { "$type": "string", "$value": "sabit hız px/sn (varsayılan 60); üstüne gelince, odakta ve düğmeyle durur" },
+    "Reduced": { "$type": "string", "$value": "data-motion=off: bütün animasyon ve geçiş kapalı; prefers-reduced-motion otomatik" }
+  },
+  "Variants": {
+    "Dark": { "$type": "string", "$value": "koyu mor zemin #12052B, beyaz metin; krom yüzeyler açık kalır, üstlerinde metin yine siyah" },
+    "Plain": { "$type": "string", "$value": "data-sade=1: parlama ve yansıma katmanları 0, krom düz #E0E5EC, kenar siyah; sıvı metal ve ışık filtresi durur" }
+  }
+}

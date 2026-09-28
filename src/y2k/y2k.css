@@ -1,0 +1,498 @@
+@import 'tailwindcss' source(none);
+@source '.';
+
+/* ─────────────────────────────────────────────────────────────
+   STİL 019 · Y2K (2000s MILLENNIUM AESTHETIC)
+   Krom yüzeyler, aşırı parlaklık, buz mavisi ve sakız pembesi, genişletilmiş fütüristik yazı.
+   Derinlik gölgeyle değil, eğim ve kabartma (bevel & emboss) yansımalarıyla kurulur.
+   Madde 18: metin her zaman zeminin tam zıttı. Krom, buz ve pembe üstünde saf siyah; koyu mor üstünde beyaz.
+   Değerler tokens/y2k.tokens.json ile aynıdır.
+   ───────────────────────────────────────────────────────────── */
+
+/* Tailwind dark: varyantı bu sitenin tema sözleşmesine bağlanır (sistem tercihi + data-theme) */
+@custom-variant dark {
+  &:where([data-theme='dark'], [data-theme='dark'] *) {
+    @slot;
+  }
+  @media (prefers-color-scheme: dark) {
+    &:where(:root:not([data-theme='light']), :root:not([data-theme='light']) *) {
+      @slot;
+    }
+  }
+}
+
+@font-face {
+  font-family: 'Michroma';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url('@fontsource/michroma/files/michroma-latin-ext-400-normal.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329,
+    U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Michroma';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url('@fontsource/michroma/files/michroma-latin-400-normal.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Unbounded Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 200 900;
+  src: url('@fontsource-variable/unbounded/files/unbounded-latin-ext-wght-normal.woff2') format('woff2-variations');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329,
+    U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Unbounded Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 200 900;
+  src: url('@fontsource-variable/unbounded/files/unbounded-latin-wght-normal.woff2') format('woff2-variations');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Archivo Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  font-stretch: 62% 125%;
+  src: url('@fontsource-variable/archivo/files/archivo-latin-ext-standard-normal.woff2') format('woff2-variations');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329,
+    U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Archivo Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  font-stretch: 62% 125%;
+  src: url('@fontsource-variable/archivo/files/archivo-latin-standard-normal.woff2') format('woff2-variations');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Martian Mono Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 800;
+  font-stretch: 75% 112.5%;
+  src: url('@fontsource-variable/martian-mono/files/martian-mono-latin-ext-standard-normal.woff2') format('woff2-variations');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329,
+    U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Martian Mono Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 800;
+  font-stretch: 75% 112.5%;
+  src: url('@fontsource-variable/martian-mono/files/martian-mono-latin-standard-normal.woff2') format('woff2-variations');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* ── Madde 4: renkler ──
+   Siyah metin: buz mavisi 16,59 · krom gümüşü 16,59 · sakız pembesi 8,02 · krom gradyanının en koyu durağı #778899 5,77.
+   Koyu zeminde beyaz metin: #12052B 19,40 · #2E0854 16,42. Pembe koyu zeminde 7,41. */
+:root {
+  --bg: #e6fcfd;
+  --bg-2: #a5f2f3;
+  --surface: #f7fafd;
+  --ink: #000000;
+  --muted: #262033;
+  --line: #56657a;
+  --ice: #a5f2f3;
+  --chrome: #e0e5ec;
+  --chrome-hi: #ffffff;
+  --chrome-mid: #b0c4de;
+  --chrome-lo: #778899;
+  --pink: #ff66cc;
+  --purple: #2e0854;
+  --focus: #2e0854;
+  --page:
+    radial-gradient(60% 40% at 12% 0%, #ffffff 0%, transparent 70%),
+    radial-gradient(45% 32% at 96% 6%, #ffd6f0 0%, transparent 70%),
+    linear-gradient(180deg, #e6fcfd 0%, #cff8f9 45%, #b5f4f5 100%);
+  /* Madde 12 · 13: Effects/GlossyBevel. Dört iç gölge + bir kenar çizgisi */
+  --bevel:
+    inset 0 2px 0 rgb(255 255 255 / 0.95), inset 0 -3px 5px rgb(30 40 60 / 0.45), inset 3px 0 4px rgb(255 255 255 / 0.55),
+    inset -3px 0 4px rgb(50 60 80 / 0.3), inset 0 0 0 1px rgb(255 255 255 / 0.45);
+  --gloss: 1;
+  /* Kart üstü parlama: gecede metnin arkasını aydınlatmasın diye kısılır (Madde 18) */
+  --shine: 0.55;
+  /* Madde 17: krom sınır kalınlığı; mobilde daralır */
+  --cb: 5px;
+  color-scheme: light;
+}
+@media (max-width: 767px) {
+  :root {
+    --cb: 3px;
+  }
+}
+/* Koyu: koyu mor zemin, beyaz metin; krom yüzeyler yine açık ve üstlerinde yine siyah metin */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --bg: #12052b;
+    --bg-2: #2e0854;
+    --surface: #1d0b40;
+    --ink: #ffffff;
+    --muted: #d9d2ec;
+    --line: #b0c4de;
+    --focus: #a5f2f3;
+    --shine: 0.07;
+    --page:
+      radial-gradient(60% 40% at 12% 0%, #4a1a8a 0%, transparent 70%),
+      radial-gradient(45% 32% at 96% 6%, #5c1557 0%, transparent 70%),
+      linear-gradient(180deg, #12052b 0%, #1d0840 50%, #2e0854 100%);
+    color-scheme: dark;
+  }
+}
+:root[data-theme='dark'] {
+  --bg: #12052b;
+  --bg-2: #2e0854;
+  --surface: #1d0b40;
+  --ink: #ffffff;
+  --muted: #d9d2ec;
+  --line: #b0c4de;
+  --focus: #a5f2f3;
+  --shine: 0.07;
+  --page:
+    radial-gradient(60% 40% at 12% 0%, #4a1a8a 0%, transparent 70%),
+    radial-gradient(45% 32% at 96% 6%, #5c1557 0%, transparent 70%),
+    linear-gradient(180deg, #12052b 0%, #1d0840 50%, #2e0854 100%);
+  color-scheme: dark;
+}
+/* Sade varyant (Madde 18): parlama katmanları kalkar, krom düzleşir, kenar siyah */
+:root[data-sade='1'] {
+  --gloss: 0;
+  --bevel: inset 0 0 0 2px #000000;
+}
+
+@theme {
+  --color-*: initial;
+  --font-*: initial;
+  --font-logo: 'Michroma', 'Eurostile', 'Microgramma', 'Arial Black', sans-serif;
+  --font-display: 'Unbounded Variable', 'Unbounded', 'Arial Black', system-ui, sans-serif;
+  --font-sans: 'Archivo Variable', 'Archivo', system-ui, sans-serif;
+  --font-mono: 'Martian Mono Variable', 'Martian Mono', ui-monospace, monospace;
+  --color-black: #000000;
+  --color-white: #ffffff;
+  --color-transparent: transparent;
+}
+@theme inline {
+  --color-bg: var(--bg);
+  --color-bg-2: var(--bg-2);
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-ice: var(--ice);
+  --color-chrome: var(--chrome);
+  --color-pink: var(--pink);
+  --color-purple: var(--purple);
+}
+
+@layer base {
+  html {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    scroll-padding-top: 96px;
+  }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background: var(--page);
+    background-color: var(--bg);
+    color: var(--ink);
+    font-size: 17px;
+    line-height: 1.55;
+    overflow-x: clip;
+  }
+  :focus-visible {
+    outline: 3px solid var(--focus);
+    outline-offset: 3px;
+  }
+  ::selection {
+    background: #ff66cc;
+    color: #000000;
+  }
+  code,
+  pre,
+  kbd {
+    font-family: var(--font-mono);
+  }
+}
+
+@layer components {
+  /* Madde 5: genişletilmiş fütüristik başlık ve logo yazısı */
+  .kicker {
+    font-family: var(--font-logo);
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+  .display {
+    font-family: var(--font-display);
+    font-weight: 800;
+    line-height: 0.98;
+    letter-spacing: -0.01em;
+  }
+  /* "Brat" tipografi: dar, küçük harf, hafif bulanık; yalnız büyük boyda */
+  .brat {
+    font-family: var(--font-sans);
+    font-stretch: 62%;
+    font-weight: 540;
+    letter-spacing: -0.035em;
+    line-height: 0.9;
+    filter: blur(0.35px);
+  }
+
+  /* ── Madde 12 · 15: krom. İki gradyan katmanı + GlossyBevel ── */
+  .chrome {
+    color: #000000;
+    background-image:
+      linear-gradient(180deg, rgb(255 255 255 / calc(0.75 * var(--gloss))) 0%, rgb(255 255 255 / calc(0.18 * var(--gloss))) 46%, transparent 50%),
+      linear-gradient(135deg, #ffffff 0%, #b0c4de 50%, #778899 100%);
+    box-shadow: var(--bevel);
+  }
+  .candy {
+    color: #000000;
+    background-image:
+      linear-gradient(180deg, rgb(255 255 255 / calc(0.7 * var(--gloss))) 0%, rgb(255 255 255 / calc(0.15 * var(--gloss))) 46%, transparent 50%),
+      linear-gradient(180deg, #ffc2ea 0%, #ff66cc 55%, #e0309f 100%);
+    box-shadow: var(--bevel);
+  }
+  .icy {
+    color: #000000;
+    background-image:
+      linear-gradient(180deg, rgb(255 255 255 / calc(0.75 * var(--gloss))) 0%, rgb(255 255 255 / calc(0.15 * var(--gloss))) 46%, transparent 50%),
+      linear-gradient(180deg, #f0ffff 0%, #a5f2f3 55%, #5fcfd2 100%);
+    box-shadow: var(--bevel);
+  }
+  .grape {
+    color: #ffffff;
+    background-image:
+      linear-gradient(180deg, rgb(255 255 255 / calc(0.35 * var(--gloss))) 0%, rgb(255 255 255 / calc(0.06 * var(--gloss))) 46%, transparent 50%),
+      linear-gradient(180deg, #7b4fb5 0%, #2e0854 60%, #1a0433 100%);
+    box-shadow:
+      inset 0 2px 0 rgb(255 255 255 / 0.45),
+      inset 0 -3px 5px rgb(0 0 0 / 0.5),
+      inset 0 0 0 1px rgb(255 255 255 / 0.2);
+  }
+  :root[data-sade='1'] .chrome {
+    background-image: linear-gradient(#e0e5ec, #e0e5ec);
+  }
+  :root[data-sade='1'] .candy {
+    background-image: linear-gradient(#ff66cc, #ff66cc);
+  }
+  :root[data-sade='1'] .icy {
+    background-image: linear-gradient(#a5f2f3, #a5f2f3);
+  }
+  :root[data-sade='1'] .grape {
+    background-image: linear-gradient(#2e0854, #2e0854);
+    box-shadow: inset 0 0 0 2px #ffffff;
+  }
+
+  /* Krom çerçeve: kalınlık --cb (masaüstü 5px, mobil 3px) */
+  .rim {
+    border: var(--cb) solid transparent;
+    background:
+      linear-gradient(var(--surface), var(--surface)) padding-box,
+      linear-gradient(135deg, #ffffff 0%, #b0c4de 30%, #778899 52%, #f5f8fc 64%, #8a99ae 100%) border-box;
+    box-shadow:
+      0 0 0 1px rgb(40 50 70 / 0.45),
+      inset 0 2px 8px rgb(0 0 0 / 0.08);
+  }
+  :root[data-sade='1'] .rim {
+    border-color: var(--ink);
+    background: var(--surface);
+    box-shadow: none;
+  }
+  /* Balonun üstündeki plastik parlama */
+  .shine {
+    position: relative;
+    isolation: isolate;
+  }
+  .shine::before {
+    content: '';
+    position: absolute;
+    top: 6px;
+    left: 8%;
+    right: 8%;
+    height: 38%;
+    border-radius: 999px;
+    background: linear-gradient(180deg, rgb(255 255 255 / calc(var(--shine) * var(--gloss))), rgb(255 255 255 / 0));
+    pointer-events: none;
+    z-index: -1;
+  }
+  /* Emboss yazı: üstte açık, altta koyu kenar (yalnız açık zeminde) */
+  .emboss {
+    text-shadow:
+      0 1px 0 rgb(255 255 255 / 0.9),
+      0 -1px 0 rgb(0 0 0 / 0.18);
+  }
+  .dark .emboss,
+  :root[data-theme='dark'] .emboss {
+    text-shadow: none;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme='light']) .emboss {
+      text-shadow: none;
+    }
+  }
+
+  /* Madde 2: CD-ROM. Konik yanardöner yüzey, ortada delik */
+  .cd {
+    border-radius: 50%;
+    background:
+      radial-gradient(circle, transparent 0 17%, rgb(255 255 255 / 0.85) 17.5% 19%, rgb(160 175 195 / 0.9) 19.5% 31%, transparent 31.5%),
+      conic-gradient(from 20deg, #e8f7ff, #ffd6f0, #fff4b0, #c9fff2, #d6d9ff, #ffc8ec, #bff6ff, #e8f7ff);
+    mask: radial-gradient(circle, transparent 0 10%, #000 10.5%);
+    box-shadow:
+      inset 0 0 0 1px rgb(70 80 100 / 0.55),
+      inset 0 0 14px rgb(255 255 255 / 0.9);
+  }
+  .cd::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: linear-gradient(125deg, transparent 38%, rgb(255 255 255 / 0.85) 48%, transparent 58%);
+  }
+
+  /* Madde 11: kayan parlak şerit */
+  .strip {
+    background-image:
+      linear-gradient(180deg, rgb(255 255 255 / calc(0.7 * var(--gloss))) 0%, rgb(255 255 255 / 0) 55%),
+      linear-gradient(90deg, #ff66cc, #a5f2f3 50%, #ff66cc);
+    box-shadow:
+      inset 0 2px 0 rgb(255 255 255 / 0.8),
+      inset 0 -2px 3px rgb(0 0 0 / 0.25);
+    color: #000000;
+  }
+  :root[data-sade='1'] .strip {
+    background-image: linear-gradient(#a5f2f3, #a5f2f3);
+    box-shadow: inset 0 0 0 2px #000;
+  }
+  .track {
+    animation: kay var(--dur, 22s) linear infinite;
+    animation-direction: var(--yon, normal);
+  }
+  .strip:hover .track,
+  .strip:focus-within .track,
+  .strip[data-paused='1'] .track {
+    animation-play-state: paused;
+  }
+
+  /* Madde 16: dönen vektörler, süzülme, parıltı, hızlı açılan pencereler */
+  .spin {
+    animation: don var(--spin, 8s) linear infinite;
+  }
+  .float {
+    animation: suz calc(var(--float, 6s)) ease-in-out infinite alternate;
+  }
+  .twinkle {
+    animation: parla 1.8s ease-in-out infinite;
+  }
+  .pop-in {
+    animation: pop 140ms cubic-bezier(0.2, 1.8, 0.4, 1) both;
+  }
+  .pop-out {
+    animation: popkapa 90ms ease-in both;
+  }
+  .eq {
+    transform-origin: bottom;
+    animation: eq 0.9s ease-in-out infinite alternate;
+  }
+}
+
+@keyframes kay {
+  to {
+    transform: translateX(-50%);
+  }
+}
+@keyframes don {
+  to {
+    rotate: 360deg;
+  }
+}
+@keyframes suz {
+  from {
+    translate: 0 -10px;
+  }
+  to {
+    translate: 0 12px;
+  }
+}
+@keyframes parla {
+  0%,
+  100% {
+    opacity: 0.25;
+    scale: 0.7;
+  }
+  50% {
+    opacity: 1;
+    scale: 1.1;
+  }
+}
+@keyframes pop {
+  from {
+    opacity: 0;
+    scale: 0.55;
+  }
+  to {
+    opacity: 1;
+    scale: 1;
+  }
+}
+@keyframes popkapa {
+  to {
+    opacity: 0;
+    scale: 0.6;
+  }
+}
+@keyframes eq {
+  from {
+    scale: 1 0.25;
+  }
+  to {
+    scale: 1 1;
+  }
+}
+
+/* Hareket kapalı ya da "hareketi azalt": dönme, süzülme, kayma, açılma animasyonu yok */
+:root[data-motion='off'] *,
+:root[data-motion='off'] *::before,
+:root[data-motion='off'] *::after {
+  animation: none !important;
+  transition: none !important;
+}
+:root[data-sade='1'] .sparkle {
+  display: none;
+}
+
+@media (forced-colors: active) {
+  .chrome,
+  .candy,
+  .icy,
+  .grape,
+  .strip {
+    forced-color-adjust: auto;
+    background: ButtonFace;
+    color: ButtonText;
+    border: 2px solid ButtonText;
+  }
+  .rim {
+    border-color: CanvasText;
+    background: Canvas;
+  }
+}
