@@ -1,0 +1,780 @@
+{
+  "$description": "Stil 032: Biophilic Design (Living UI). W3C DTCG formatı. Adlar Figma yoluyla aynıdır: Theme/MorningLight, Theme/NoonSky, Theme/EveningGlow, Theme/NightCalm (Figma Variables · Modes: Sabah, Öğle, Akşam, Gece) ve Radius/BiophilicOrganic. Cam panelin opaklığı ve yazı rengi her mod için okunabilirlik çözücüsünden gelir (hedef 4,5:1; yüksek kontrast varyantında 7:1); aralarındaki saatlerde modlar sürekli karışır.",
+  "Color": {
+    "SkyBlue": {
+      "$type": "color",
+      "$value": "#87CEEB",
+      "$description": "Madde 4: Gökyüzü Mavisi. Öğle göğü, su yüzeyi. Yalnız arka plan; üstünde koyu yeşil yazı",
+      "contrast": {
+        "inkOnIt": 8.45
+      }
+    },
+    "ForestGreen": {
+      "$type": "color",
+      "$value": "#228B22",
+      "$description": "Madde 4: Orman Yeşili. Yaprak katmanları, dolgu, büyük ve kalın metin. Küçük yazıda kullanılmaz: beyaz üstünde 4,39:1",
+      "contrast": {
+        "whiteOnIt": 4.39,
+        "onWhite": 4.39
+      }
+    },
+    "SunlightYellow": {
+      "$type": "color",
+      "$value": "#FFFACD",
+      "$description": "Madde 4: Güneş Işığı Sarısı. Güneş parıltısı, vurgu düğmesi zemini, ilerleme ucu. Üstünde koyu yazı",
+      "contrast": {
+        "inkOnIt": 13.81
+      }
+    },
+    "PureWhite": {
+      "$type": "color",
+      "$value": "#FFFFFF",
+      "$description": "Madde 4: Saf Beyaz. Gündüz cam paneli tonu",
+      "contrast": {
+        "inkOnIt": 14.72
+      }
+    },
+    "Derived": {
+      "$description": "Ana renklerin yazıda ve düğmede güvenli türevleri",
+      "ForestInk": {
+        "$type": "color",
+        "$value": "#0F2E1B",
+        "$description": "Cam panel üstünde birincil metin (gündüz)",
+        "contrast": {
+          "onWhite": 14.72
+        }
+      },
+      "ForestAccent": {
+        "$type": "color",
+        "$value": "#0F4F20",
+        "$description": "Vurgu yazısı, üst yazı (gündüz çözümü)",
+        "contrast": {
+          "onWhite": 9.72
+        }
+      },
+      "ForestButton": {
+        "$type": "color",
+        "$value": "#17692A",
+        "$description": "Dolu düğme, seçili çip, anahtar. Üstünde beyaz yazı",
+        "contrast": {
+          "whiteOnIt": 6.8
+        }
+      },
+      "MintButton": {
+        "$type": "color",
+        "$value": "#A6EDB0",
+        "$description": "Gece ve akşam düğmesi. Üstünde koyu yazı",
+        "contrast": {
+          "darkOnIt": 13.45
+        }
+      },
+      "NightGlass": {
+        "$type": "color",
+        "$value": "#08161C",
+        "$description": "Koyu cam tonu (akşam ve gece)",
+        "contrast": {
+          "lightInkOnIt": 17.44
+        }
+      }
+    }
+  },
+  "Theme": {
+    "$description": "Madde 12 · 13: Figma Variables (Modes). Aynı değişken adı, mod başına farklı değer",
+    "MorningLight": {
+      "$description": "Sabah modu. Merkez saat 07:00; açık cam. Ana metin en zor zeminde 7,27:1, ikincil 4,71:1. Dengeleyici kapalıyken (sabit %50) ana metin 6,03:1'e düşer",
+      "Sky": {
+        "Top": {
+          "$type": "color",
+          "$value": "#9ED6F0",
+          "$description": "Gökyüzü üst"
+        },
+        "Mid": {
+          "$type": "color",
+          "$value": "#E4F3E6",
+          "$description": "Gökyüzü orta"
+        },
+        "Low": {
+          "$type": "color",
+          "$value": "#FFFACD",
+          "$description": "Ufuk"
+        }
+      },
+      "Sun": {
+        "$type": "color",
+        "$value": "#FFF1A8",
+        "$description": "Güneş / ay parıltısı"
+      },
+      "Leaf": {
+        "Far": {
+          "$type": "color",
+          "$value": "#5BBE6B",
+          "$description": "Uzak tepe ve yaprak"
+        },
+        "Mid": {
+          "$type": "color",
+          "$value": "#2E9E4A",
+          "$description": "Orta katman"
+        },
+        "Near": {
+          "$type": "color",
+          "$value": "#1F7A34",
+          "$description": "Yakın katman, en koyu zemin"
+        }
+      },
+      "Water": {
+        "$type": "color",
+        "$value": "#A9DCEB",
+        "$description": "Su şeridi"
+      },
+      "Glass": {
+        "Tint": {
+          "$type": "color",
+          "$value": "#FFFFFF",
+          "$description": "Cam tonu"
+        },
+        "Alpha": {
+          "$type": "number",
+          "$value": 0.62,
+          "$description": "Çözücünün seçtiği opaklık (normal kontrast)"
+        },
+        "AlphaHighContrast": {
+          "$type": "number",
+          "$value": 0.88,
+          "$description": "7:1 hedefi için opaklık; ana metin 10,3:1"
+        }
+      },
+      "Text": {
+        "Primary": {
+          "$type": "color",
+          "$value": "#0F2E1B",
+          "$description": "Birincil metin"
+        },
+        "Muted": {
+          "$type": "color",
+          "$value": "#314b3b",
+          "$description": "İkincil metin"
+        },
+        "Accent": {
+          "$type": "color",
+          "$value": "#0F4F20",
+          "$description": "Vurgu ve üst yazı"
+        }
+      },
+      "Shadow": {
+        "OffsetX": {
+          "$type": "dimension",
+          "$value": "11px",
+          "$description": "Güneşin konumundan gelen yatay gölge kayması; sabah sağa, akşam sola"
+        }
+      }
+    },
+    "NoonSky": {
+      "$description": "Öğle modu. Merkez saat 13:00; açık cam. Ana metin en zor zeminde 7,38:1, ikincil 4,78:1. Dengeleyici kapalıyken (sabit %50) ana metin 5,49:1'e düşer",
+      "Sky": {
+        "Top": {
+          "$type": "color",
+          "$value": "#87CEEB",
+          "$description": "Gökyüzü üst"
+        },
+        "Mid": {
+          "$type": "color",
+          "$value": "#C6E9F5",
+          "$description": "Gökyüzü orta"
+        },
+        "Low": {
+          "$type": "color",
+          "$value": "#E6F6E4",
+          "$description": "Ufuk"
+        }
+      },
+      "Sun": {
+        "$type": "color",
+        "$value": "#FFFDE0",
+        "$description": "Güneş / ay parıltısı"
+      },
+      "Leaf": {
+        "Far": {
+          "$type": "color",
+          "$value": "#4FB964",
+          "$description": "Uzak tepe ve yaprak"
+        },
+        "Mid": {
+          "$type": "color",
+          "$value": "#228B22",
+          "$description": "Orta katman"
+        },
+        "Near": {
+          "$type": "color",
+          "$value": "#17692A",
+          "$description": "Yakın katman, en koyu zemin"
+        }
+      },
+      "Water": {
+        "$type": "color",
+        "$value": "#8FD3EA",
+        "$description": "Su şeridi"
+      },
+      "Glass": {
+        "Tint": {
+          "$type": "color",
+          "$value": "#FFFFFF",
+          "$description": "Cam tonu"
+        },
+        "Alpha": {
+          "$type": "number",
+          "$value": 0.66,
+          "$description": "Çözücünün seçtiği opaklık (normal kontrast)"
+        },
+        "AlphaHighContrast": {
+          "$type": "number",
+          "$value": 0.88,
+          "$description": "7:1 hedefi için opaklık; ana metin 10,14:1"
+        }
+      },
+      "Text": {
+        "Primary": {
+          "$type": "color",
+          "$value": "#0F2E1B",
+          "$description": "Birincil metin"
+        },
+        "Muted": {
+          "$type": "color",
+          "$value": "#314b3b",
+          "$description": "İkincil metin"
+        },
+        "Accent": {
+          "$type": "color",
+          "$value": "#0F4F20",
+          "$description": "Vurgu ve üst yazı"
+        }
+      },
+      "Shadow": {
+        "OffsetX": {
+          "$type": "dimension",
+          "$value": "-1px",
+          "$description": "Güneşin konumundan gelen yatay gölge kayması; sabah sağa, akşam sola"
+        }
+      }
+    },
+    "EveningGlow": {
+      "$description": "Akşam modu. Merkez saat 19:00; koyu cam. Ana metin en zor zeminde 6,55:1, ikincil 4,88:1. Dengeleyici kapalıyken (sabit %50) ana metin 4,85:1'e düşer",
+      "Sky": {
+        "Top": {
+          "$type": "color",
+          "$value": "#86AEDB",
+          "$description": "Gökyüzü üst"
+        },
+        "Mid": {
+          "$type": "color",
+          "$value": "#F8CBA2",
+          "$description": "Gökyüzü orta"
+        },
+        "Low": {
+          "$type": "color",
+          "$value": "#F0977C",
+          "$description": "Ufuk"
+        }
+      },
+      "Sun": {
+        "$type": "color",
+        "$value": "#FFD08A",
+        "$description": "Güneş / ay parıltısı"
+      },
+      "Leaf": {
+        "Far": {
+          "$type": "color",
+          "$value": "#4F8B5A",
+          "$description": "Uzak tepe ve yaprak"
+        },
+        "Mid": {
+          "$type": "color",
+          "$value": "#2F6B3E",
+          "$description": "Orta katman"
+        },
+        "Near": {
+          "$type": "color",
+          "$value": "#1E4A2B",
+          "$description": "Yakın katman, en koyu zemin"
+        }
+      },
+      "Water": {
+        "$type": "color",
+        "$value": "#E9B7A0",
+        "$description": "Su şeridi"
+      },
+      "Glass": {
+        "Tint": {
+          "$type": "color",
+          "$value": "#08161C",
+          "$description": "Cam tonu"
+        },
+        "Alpha": {
+          "$type": "number",
+          "$value": 0.7,
+          "$description": "Çözücünün seçtiği opaklık (normal kontrast)"
+        },
+        "AlphaHighContrast": {
+          "$type": "number",
+          "$value": 0.84,
+          "$description": "7:1 hedefi için opaklık; ana metin 9,71:1"
+        }
+      },
+      "Text": {
+        "Primary": {
+          "$type": "color",
+          "$value": "#F3FBF4",
+          "$description": "Birincil metin"
+        },
+        "Muted": {
+          "$type": "color",
+          "$value": "#d2dbd6",
+          "$description": "İkincil metin"
+        },
+        "Accent": {
+          "$type": "color",
+          "$value": "#A6EDB0",
+          "$description": "Vurgu ve üst yazı"
+        }
+      },
+      "Shadow": {
+        "OffsetX": {
+          "$type": "dimension",
+          "$value": "-13px",
+          "$description": "Güneşin konumundan gelen yatay gölge kayması; sabah sağa, akşam sola"
+        }
+      }
+    },
+    "NightCalm": {
+      "$description": "Gece modu. Merkez saat 01:00; koyu cam. Ana metin en zor zeminde 6,6:1, ikincil 4,92:1. Dengeleyici kapalıyken (sabit %50) ana metin 3,21:1'e düşer",
+      "Sky": {
+        "Top": {
+          "$type": "color",
+          "$value": "#0B1D2E",
+          "$description": "Gökyüzü üst"
+        },
+        "Mid": {
+          "$type": "color",
+          "$value": "#12343F",
+          "$description": "Gökyüzü orta"
+        },
+        "Low": {
+          "$type": "color",
+          "$value": "#1B4A44",
+          "$description": "Ufuk"
+        }
+      },
+      "Sun": {
+        "$type": "color",
+        "$value": "#EAF2FF",
+        "$description": "Güneş / ay parıltısı"
+      },
+      "Leaf": {
+        "Far": {
+          "$type": "color",
+          "$value": "#2A6B5E",
+          "$description": "Uzak tepe ve yaprak"
+        },
+        "Mid": {
+          "$type": "color",
+          "$value": "#1B4F45",
+          "$description": "Orta katman"
+        },
+        "Near": {
+          "$type": "color",
+          "$value": "#0F332D",
+          "$description": "Yakın katman, en koyu zemin"
+        }
+      },
+      "Water": {
+        "$type": "color",
+        "$value": "#2C6672",
+        "$description": "Su şeridi"
+      },
+      "Glass": {
+        "Tint": {
+          "$type": "color",
+          "$value": "#08161C",
+          "$description": "Cam tonu"
+        },
+        "Alpha": {
+          "$type": "number",
+          "$value": 0.74,
+          "$description": "Çözücünün seçtiği opaklık (normal kontrast)"
+        },
+        "AlphaHighContrast": {
+          "$type": "number",
+          "$value": 0.88,
+          "$description": "7:1 hedefi için opaklık; ana metin 10,42:1"
+        }
+      },
+      "Text": {
+        "Primary": {
+          "$type": "color",
+          "$value": "#F3FBF4",
+          "$description": "Birincil metin"
+        },
+        "Muted": {
+          "$type": "color",
+          "$value": "#d2dbd6",
+          "$description": "İkincil metin"
+        },
+        "Accent": {
+          "$type": "color",
+          "$value": "#A6EDB0",
+          "$description": "Vurgu ve üst yazı"
+        }
+      },
+      "Shadow": {
+        "OffsetX": {
+          "$type": "dimension",
+          "$value": "1px",
+          "$description": "Güneşin konumundan gelen yatay gölge kayması; sabah sağa, akşam sola"
+        }
+      }
+    }
+  },
+  "Font": {
+    "Heading": {
+      "$type": "fontFamily",
+      "$value": ["Outfit Variable", "Outfit", "Inter Variable", "Inter", "system-ui", "sans-serif"],
+      "$description": "Madde 5: başlık ve düğme. 100–900; Türkçe karakterler var, ₺ yok (Inter tamamlar)"
+    },
+    "Body": {
+      "$type": "fontFamily",
+      "$value": ["Inter Variable", "Inter", "system-ui", "-apple-system", "Segoe UI", "Roboto", "sans-serif"],
+      "$description": "Gövde ve arayüz. 100–900; ğ, ş, ı, İ, ö, ç, ü ve ₺ var"
+    }
+  },
+  "Typography": {
+    "Display": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "Font/Heading",
+        "fontWeight": 300,
+        "fontSize": "clamp(42px, 6.4vw, 84px)",
+        "lineHeight": 1.02,
+        "letterSpacing": "-0.03em"
+      }
+    },
+    "H2": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "Font/Heading",
+        "fontWeight": 500,
+        "fontSize": "clamp(32px, 4.6vw, 56px)",
+        "lineHeight": 1.14
+      }
+    },
+    "H3": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "Font/Heading",
+        "fontWeight": 500,
+        "fontSize": "clamp(22px, 2.2vw, 28px)",
+        "lineHeight": 1.12
+      }
+    },
+    "Accent": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "Font/Heading",
+        "fontWeight": 300,
+        "color": "Theme/*/Text/Accent"
+      },
+      "$description": "Başlıktaki vurgulu sözcük"
+    },
+    "Kicker": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "Font/Heading",
+        "fontWeight": 600,
+        "fontSize": "13px",
+        "lineHeight": 1.5,
+        "letterSpacing": "0.16em",
+        "textTransform": "uppercase"
+      }
+    },
+    "Body": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "Font/Body",
+        "fontWeight": 400,
+        "fontSize": "17px",
+        "lineHeight": 1.72
+      },
+      "$description": "Nefes alan satır aralığı"
+    }
+  },
+  "Radius": {
+    "BiophilicOrganic": {
+      "$type": "string",
+      "$value": "63% 37% 54% 46% / 55% 48% 52% 45%",
+      "$description": "Madde 6 · 13: hücre formu. Hover'da 41% 59% 46% 54% / 50% 57% 43% 50%'e dönüşür (1,6 sn); morph animasyonu 14 sn"
+    },
+    "BiophilicOrganic2": {
+      "$type": "string",
+      "$value": "41% 59% 46% 54% / 50% 57% 43% 50%",
+      "$description": "İkinci hücre formu"
+    },
+    "Seed": {
+      "$type": "string",
+      "$value": "50% 50% 50% 8% / 60% 60% 40% 40%",
+      "$description": "Tohum: tek köşesi sivri"
+    },
+    "Card": {
+      "$type": "string",
+      "$value": "2.6rem 3rem 2.4rem 2.8rem / 2.8rem 2.4rem 3rem 2.4rem",
+      "$description": "BiophilicCard; hover'da 3 / 2.4 / 2.8 / 2.5 rem'e dönüşür (1,6 sn)"
+    },
+    "Glass": {
+      "$type": "string",
+      "$value": "2rem 2.4rem 2rem 2.2rem / 2.2rem 2rem 2.4rem 2rem",
+      "$description": "Cam panel"
+    },
+    "Pill": {
+      "$type": "dimension",
+      "$value": "999px",
+      "$description": "Düğme, çip, gezinme"
+    }
+  },
+  "Elevation": {
+    "SunSoft1": {
+      "$type": "shadow",
+      "$value": [
+        {
+          "color": "rgba(8, 52, 40, 0.06)",
+          "offsetX": "0",
+          "offsetY": "1px",
+          "blur": "3px",
+          "spread": "0"
+        },
+        {
+          "color": "rgba(8, 52, 40, 0.16)",
+          "offsetX": "Theme/*/Shadow/OffsetX",
+          "offsetY": "6px",
+          "blur": "22px",
+          "spread": "-8px"
+        }
+      ],
+      "$description": "Madde 7: düğme, çip"
+    },
+    "SunSoft2": {
+      "$type": "shadow",
+      "$value": [
+        {
+          "color": "rgba(8, 52, 40, 0.06)",
+          "offsetX": "0",
+          "offsetY": "2px",
+          "blur": "6px",
+          "spread": "0"
+        },
+        {
+          "color": "rgba(8, 52, 40, 0.2)",
+          "offsetX": "Theme/*/Shadow/OffsetX × 1,6",
+          "offsetY": "16px",
+          "blur": "44px",
+          "spread": "-14px"
+        }
+      ],
+      "$description": "Cam panel, kart (varsayılan)"
+    },
+    "SunSoft3": {
+      "$type": "shadow",
+      "$value": [
+        {
+          "color": "rgba(8, 52, 40, 0.07)",
+          "offsetX": "0",
+          "offsetY": "3px",
+          "blur": "10px",
+          "spread": "0"
+        },
+        {
+          "color": "rgba(8, 52, 40, 0.24)",
+          "offsetX": "Theme/*/Shadow/OffsetX × 2,4",
+          "offsetY": "30px",
+          "blur": "72px",
+          "spread": "-20px"
+        }
+      ],
+      "$description": "Yüzen menü, diyalog"
+    },
+    "Rule": {
+      "$type": "string",
+      "$value": "Işık yukarıdadır: y hep pozitif, blur ≥ 2 × y, yayılım negatif; sert, dar ve koyu gölge yok. Gece cam koyu olduğunda gölge rengi rgba(0, 6, 10)"
+    }
+  },
+  "Texture": {
+    "Water": {
+      "$type": "string",
+      "$value": "fractalNoise .014 × .026 ×3, alfa tablosu (ince eşik bandı: caustics), 320² döşeme, alfa maske, opaklık %7",
+      "$description": "Madde 8: su dalgalanması (varsayılan)"
+    },
+    "LeafVein": {
+      "$type": "string",
+      "$value": "SVG yol döşemesi 150²: ana damar + 8 yan damar + ince dallar, opaklık %7",
+      "$description": "Yaprak damarı"
+    },
+    "Wood": {
+      "$type": "string",
+      "$value": "fractalNoise .003 × .16 ×3, çok tepeli alfa tablosu (lif çizgileri), 360×240 döşeme, opaklık %7",
+      "$description": "Hafif ahşap dokusu"
+    },
+    "Flat": {
+      "$type": "string",
+      "$value": "none"
+    },
+    "Rule": {
+      "$type": "string",
+      "$value": "Doku cam yüzeyinin üstünde, metnin altında durur; çözücü dokunun en koyu ve en açık uçlarını en kötü zemin hesabına katar"
+    }
+  },
+  "Glass": {
+    "Blur": {
+      "$type": "string",
+      "$value": "blur(20px) saturate(1.3)",
+      "$description": "Tam doğa seviyesi; hafif seviyede yok"
+    },
+    "Opaque": {
+      "$type": "number",
+      "$value": 0.95,
+      "$description": "Üzerinden içerik geçebilen yüzeyler: menü, diyalog, yapışkan gezinme"
+    },
+    "Solver": {
+      "$type": "string",
+      "$value": "opaklık 0,50'den başlar, 0,02 adımla hedef + 0,2 tutana kadar artar; en zor zeminler: 3 gökyüzü, güneş, 3 yaprak, su (doku uçları dahil); açık ve koyu ton arasından parlak gökyüzünde açık, ışık azalınca koyu seçilir"
+    }
+  },
+  "Icon": {
+    "Grid": {
+      "$type": "string",
+      "$value": "32×32; 43 ikon: güneş, ay, gün doğumu ve batımı, bulut, rüzgâr, ışık, yaprak, filiz, tohum, ağaç, damla, dalga, nem, sıcaklık, nefes, kalp, nabız, uyku, meditasyon, ev, saksı, sulama, ofis, ahşap kesiti, çadır, konum ve arayüz kümesi",
+      "$description": "Madde 9: ince konturlu, dolgusuz; uç ve köşeler yuvarlak"
+    },
+    "Stroke": {
+      "$type": "dimension",
+      "$value": "1.4px",
+      "$description": "Ölçekten bağımsız (vector-effect: non-scaling-stroke); 1–2,4 arası ayarlanabilir"
+    }
+  },
+  "Spacing": {
+    "Section": {
+      "$type": "dimension",
+      "$value": "96px",
+      "$description": "clamp(52px, 7vw, 96px)"
+    },
+    "Element": {
+      "$type": "dimension",
+      "$value": "64px",
+      "$description": "clamp(32px, 5vw, 64px)"
+    },
+    "LineHeight": {
+      "$type": "number",
+      "$value": 1.72,
+      "$description": "Gövde satır aralığı"
+    }
+  },
+  "Motion": {
+    "Transition": {
+      "$type": "duration",
+      "$value": {
+        "value": 1000,
+        "unit": "ms"
+      },
+      "$description": "Madde 15: gün ışığı geçişi (renkler, güneş konumu, gölge yönü), ease-in-out; hafif seviyede 400 ms, kaydırıcıyla sürüklerken 140 ms"
+    },
+    "Breath": {
+      "$type": "duration",
+      "$value": {
+        "value": 10000,
+        "unit": "ms"
+      },
+      "$description": "Madde 16: genişleme + daralma (dakikada 6 nefes; 4 sn al, 6 sn ver); 4–16 nefes/dk arası"
+    },
+    "Heartbeat": {
+      "$type": "duration",
+      "$value": {
+        "value": 938,
+        "unit": "ms"
+      },
+      "$description": "60 / bpm: çift atım (lub-dub), %16 ve %9 büyüme; 50–110 bpm"
+    },
+    "Cloud": {
+      "$type": "duration",
+      "$value": {
+        "value": 150000,
+        "unit": "ms"
+      },
+      "$description": "Bulut süzülmesi (150–210 sn), doğrusal"
+    },
+    "Rays": {
+      "$type": "duration",
+      "$value": {
+        "value": 9000,
+        "unit": "ms"
+      },
+      "$description": "Işık huzmesi yalnız opaklıkla nefes alır"
+    },
+    "Sway": {
+      "$type": "duration",
+      "$value": {
+        "value": 8000,
+        "unit": "ms"
+      },
+      "$description": "Bitki salınımı ±1,3–2,5° köke göre"
+    },
+    "Reveal": {
+      "$type": "duration",
+      "$value": {
+        "value": 1400,
+        "unit": "ms"
+      },
+      "$description": "Bölüm belirişi: opaklık + 14 px yerleşme"
+    },
+    "Patterns": {
+      "$type": "string",
+      "$value": "Sakin nefes 4-6 · Kutu 4-4-4-4 · 4-7-8 uyku 4-7-8",
+      "$description": "BreatheTimer desenleri; halka ölçeği 0 → 1 (al), 1 → 1 (tut), 1 → 0 (ver)"
+    },
+    "ReducedMotion": {
+      "$type": "string",
+      "$value": "Hareket kapalıyken (ya da sistem hareketi azaltıyorsa) hiçbir animasyon çalışmaz; halkalar orta boyda sabit kalır, sayaç adımı ve geri sayımı yazıyla verir"
+    }
+  },
+  "Responsive": {
+    "NatureLevel": {
+      "$type": "string",
+      "$value": "Madde 17: < 768 px ya da saveData → hafif. Huzme, bulut, su ve polen çizilmez; yaprak sayısı yarıya iner ve damarlar kalkar; cam bulanıklığı yok; gölge tek katman; geçiş 400 ms; salınım yok"
+    },
+    "Layout": {
+      "$type": "string",
+      "$value": "Kapsayıcı sorgusu (container-type: inline-size): kolaj ≥ 640 px yatay, altında dikey; ızgara ≥ 900 px 3, ≥ 480 px 2, altında 1 kolon"
+    },
+    "TouchTarget": {
+      "$type": "dimension",
+      "$value": "46px",
+      "$description": "Düğme, çip, anahtar, kaydırıcı"
+    }
+  },
+  "Accessibility": {
+    "Balancer": {
+      "$type": "string",
+      "$value": "Madde 18: her saat için cam opaklığı, ton ve yazı rengi yeniden çözülür. Dengeleyici açıkken 24 saatin her yarım saatinde en düşük kontrast 4,7:1 (hedef 4,5:1 + 0,2 pay); kapalıyken (sabit %50) 3,2:1'e kadar iner"
+    },
+    "Scan": {
+      "$type": "string",
+      "$value": "1114 metin düğümü × 40 saat / doku / kontrast / doğa seviyesi birleşimi, her biri en kötü zeminde (3 gökyüzü, güneş, 3 yaprak, su, doku uçları) AA'yı geçer; yüksek kontrast varyantında 7:1"
+    },
+    "Focus": {
+      "$type": "string",
+      "$value": "3px solid Theme/*/Focus (gündüz #0B3A18, gece #E2FBE5), offset 3px"
+    },
+    "Selected": {
+      "$type": "string",
+      "$value": "yaprak işareti + dolu zemin + kalın yazı; nem durumu ikon + yazı; uyku evreleri desenli; grafik çizgileri farklı kesikli desende; durum AÇIK / KAPALI"
+    },
+    "HighContrast": {
+      "$type": "string",
+      "$value": "Kontrast: Yüksek → çözücü hedefi 7:1; cam opaklığı %84–%88'e çıkar"
+    }
+  }
+}

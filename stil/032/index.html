@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Stil 032: Biophilic Design. Günün saatine göre renk değiştiren adaptif zemin, yarı saydam cam paneller, orman yeşili, gökyüzü mavisi ve güneş ışığı sarısı, nefes alan animasyonlar, Outfit ile Inter: meditasyon ve uyku, akıllı ev bitkileri, biofilik mimari portfolyo."
+    />
+    <meta name="theme-color" content="#87CEEB" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Ccircle cx='24' cy='24' r='24' fill='%2387CEEB'/%3E%3Ccircle cx='24' cy='24' r='9' fill='%23FFFACD'/%3E%3Cpath d='M8 38C12 28 20 28 24 34C28 26 36 28 40 38Z' fill='%23228B22'/%3E%3C/svg%3E"
+    />
+    <title>Stil 032 · Biophilic Design</title>
+    <script>
+      try {
+        var d = document.documentElement
+        var g = function (k) {
+          return localStorage.getItem(k)
+        }
+        var m = g('bf-hareket')
+        d.dataset.motion = m === 'kapali' || (m !== 'acik' && matchMedia('(prefers-reduced-motion: reduce)').matches) ? 'off' : 'on'
+        var z = g('bf-zaman')
+        var h
+        if (z && z !== 'oto' && !isNaN(+z)) h = +z
+        else {
+          var n = new Date()
+          h = n.getHours() + n.getMinutes() / 60
+        }
+        d.dataset.zaman = h >= 5 && h < 10 ? 'sabah' : h >= 10 && h < 16 ? 'ogle' : h >= 16 && h < 21 ? 'aksam' : 'gece'
+        var k = g('bf-doku')
+        d.dataset.doku = k === 'su' || k === 'yaprak' || k === 'ahsap' ? k : 'yok'
+        d.dataset.kontrast = g('bf-kontrast') === 'yuksek' ? 'yuksek' : 'normal'
+        var o = g('bf-doga')
+        d.dataset.doga = o === 'tam' || o === 'hafif' ? o : 'oto'
+        d.dataset.dogaSeviye = o === 'tam' ? 'tam' : o === 'hafif' || (o !== 'tam' && matchMedia('(max-width: 767px)').matches) ? 'hafif' : 'tam'
+      } catch (e) {}
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/biophilic/main.tsx"></script>
+  </body>
+</html>
