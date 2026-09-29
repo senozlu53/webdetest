@@ -1,0 +1,117 @@
+{
+  "$description": "Stil 028: Art Deco. W3C DTCG formatı. Adlar Figma yoluyla aynıdır: Color/ArtDecoGold, Border/ThinGold, Typography/LuxurySerif. Dört tema: Gece Siyahı (varsayılan), Derin Lacivert, Derin Zümrüt ve aydınlık Fildişi. Gölge yok; derinlik iç içe altın çerçevelerle.",
+  "Color": {
+    "ArtDecoBlack": { "$type": "color", "$value": "#0B0B0B", "$description": "Madde 4: Gece Siyahı, ana zemin", "contrast": { "ivoryOnIt": 19.51, "goldOnIt": 9.36 } },
+    "ArtDecoNavy": { "$type": "color", "$value": "#0A192F", "$description": "Derin Lacivert zemin", "contrast": { "ivoryOnIt": 17.45, "goldOnIt": 8.37 } },
+    "ArtDecoEmerald": { "$type": "color", "$value": "#062A22", "$description": "Derin Zümrüt zemin", "contrast": { "ivoryOnIt": 15.28, "goldOnIt": 7.33 } },
+    "ArtDecoGold": { "$type": "color", "$value": "#D4AF37", "$description": "Parlak Altın: çizgi, çerçeve, başlık, koyu zeminde metin", "contrast": { "onBlack": 9.36, "onNavy": 8.37, "onEmerald": 7.33, "onIvory": 2.08 } },
+    "ArtDecoIvory": { "$type": "color", "$value": "#FFFFF0", "$description": "Saf Fildişi: gövde metni, aydınlık tema zemini" },
+    "Surface": {
+      "Black": { "$type": "color", "$value": "#151310", "$description": "Kart yüzeyi" },
+      "Navy": { "$type": "color", "$value": "#102640" },
+      "Emerald": { "$type": "color", "$value": "#0C382E" },
+      "Ivory": { "$type": "color", "$value": "#F6F1DA" }
+    },
+    "Muted": {
+      "OnDark": { "$type": "color", "$value": "#C2C2B7", "$description": "İkincil metin (siyahta 10,3:1)" },
+      "OnIvory": { "$type": "color", "$value": "#545143", "$description": "Fildişinde ikincil metin (7,0:1)" }
+    },
+    "Ivory": {
+      "$description": "Fildişi (aydınlık) tema: altın koyulaşır",
+      "GoldText": { "$type": "color", "$value": "#6B4F08", "$description": "Metin altını (fildişi üstünde 7,6:1)" },
+      "GoldLine": { "$type": "color", "$value": "#A0801F", "$description": "Çizgi altını (3,7:1, yalnız çizgi)" },
+      "Ink": { "$type": "color", "$value": "#1B1709", "$description": "Metin (17,7:1)" }
+    },
+    "GoldScale": {
+      "Deep": { "$type": "color", "$value": "#8C6D1F" },
+      "Light": { "$type": "color", "$value": "#E0C258", "$description": "Gradyanın parlak durağı" },
+      "Bright": { "$type": "color", "$value": "#F3DC82", "$description": "Odak halkası, yüksek kontrast altın metin (14,4:1)" },
+      "Gold": { "$type": "color", "$value": "#D4AF37" },
+      "Warm": { "$type": "color", "$value": "#B8942A" }
+    },
+    "HighContrast": {
+      "$description": "Madde 18 varyantı",
+      "GoldText": { "$type": "color", "$value": "#F3DC82" },
+      "Muted": { "$type": "color", "$value": "#FFFFF0" },
+      "LineWidth": { "$type": "dimension", "$value": "2px" }
+    }
+  },
+  "Border": {
+    "ThinGold": {
+      "$type": "gradient",
+      "$value": [
+        { "color": "#8C6D1F", "position": 0 },
+        { "color": "#E0C258", "position": 0.22 },
+        { "color": "#D4AF37", "position": 0.46 },
+        { "color": "#8C6D1F", "position": 0.64 },
+        { "color": "#E0C258", "position": 0.84 },
+        { "color": "#B8942A", "position": 1 }
+      ],
+      "width": { "$type": "dimension", "$value": "1px" },
+      "angle": { "$type": "number", "$value": 135 },
+      "$description": "Madde 7 · 12 · 13: ince altın gradyan stroke. Yalnız çerçeve çizgisinde; gradyanlı metin yoktur"
+    },
+    "InnerFrame": { "$type": "string", "$value": "1px, altın %42 saydam, 7px içeride", "$description": "Madde 7: ikinci, içe alınmış çerçeve" },
+    "Nested": { "$type": "string", "$value": "1–6 çerçeve, aralık 5–18 px (varsayılan 8–9 px); dış çerçeve gradyan, içtekiler solar", "$description": "Derinlik gölgeyle değil, iç içe çerçeveyle" },
+    "Corner": {
+      "Flat": { "$type": "string", "$value": "düz dikdörtgen" },
+      "Chamfer": { "$type": "string", "$value": "45° kesik köşe, 10–16 px" },
+      "Stepped": { "$type": "string", "$value": "iki basamaklı ziggurat köşe (k, 2k)" }
+    },
+    "Motif": { "$type": "string", "$value": "üst ve alt orta noktada 9 px baklava, çizgiyi keser", "$description": "Simetri ekseninin imzası" }
+  },
+  "Typography": {
+    "LuxurySerif": {
+      "$type": "typography",
+      "$value": { "fontFamily": ["Cinzel Variable", "Cinzel", "Trajan Pro", "Times New Roman", "serif"], "fontWeight": 500, "letterSpacing": "0.14em", "textTransform": "uppercase", "lineHeight": 1.15 },
+      "$description": "Madde 5: başlık, üst yazı, düğme. Hep büyük harf (Cinzel küçük harfi küçük büyük harf çizer)"
+    },
+    "H1": { "$type": "typography", "$value": { "fontFamily": "Typography/LuxurySerif", "fontSize": "clamp(38px, 8.4vw, 104px)", "letterSpacing": "0.16em" } },
+    "H2": { "$type": "typography", "$value": { "fontFamily": "Typography/LuxurySerif", "fontSize": "clamp(26px, 4.6vw, 56px)" } },
+    "H3": { "$type": "typography", "$value": { "fontFamily": "Typography/LuxurySerif", "fontSize": "clamp(20px, 2.4vw, 26px)" } },
+    "Kicker": { "$type": "typography", "$value": { "fontFamily": "Typography/LuxurySerif", "fontWeight": 600, "fontSize": "14px", "letterSpacing": "0.32em", "textTransform": "uppercase" }, "$description": "Küçük altın metin: 14 px, 600, #D4AF37 (siyahta 9,4:1)" },
+    "Button": { "$type": "typography", "$value": { "fontFamily": "Typography/LuxurySerif", "fontWeight": 600, "fontSize": "13–17px", "letterSpacing": "0.22em", "textTransform": "uppercase" } },
+    "Display": { "$type": "typography", "$value": { "fontFamily": ["Bodoni Moda Variable", "Didot", "Bodoni 72", "Georgia", "serif"], "fontWeight": 500, "fontVariantNumeric": "lining-nums tabular-nums" }, "$description": "Gösteriş rakamı ve fiyat" },
+    "Body": { "$type": "typography", "$value": { "fontFamily": ["Playfair Display Variable", "Playfair Display", "Didot", "Georgia", "serif"], "fontWeight": 400, "fontSize": "18px", "lineHeight": 1.8 } }
+  },
+  "Texture": {
+    "Velvet": { "$type": "string", "$value": "fractalNoise .9 ×2 oktav, alfa 1,6×A − 0,62, altın renkli maske %34 + üstten radyal altın ışık", "$description": "Madde 8: kadife" },
+    "Marble": { "$type": "string", "$value": "fractalNoise .004 .009 ×5 oktav, damar eşiği (table), altın maske %34, 700² döşeme", "$description": "Madde 8: mermer damarları" },
+    "BrushedGold": { "$type": "string", "$value": "fractalNoise .0035 .85 ×3, yatay çizgili tane, altın maske %34, 300² döşeme", "$description": "Madde 8: fırçalanmış altın" },
+    "Flat": { "$type": "string", "$value": "none" }
+  },
+  "Pattern": {
+    "Fan": { "$type": "string", "$value": "birbirine geçen yarım daire kabukları, 40×20 döşeme, 1 px" },
+    "Zigzag": { "$type": "string", "$value": "çift sıra şevron, 24×14 döşeme, 1 px" },
+    "Channel": { "$type": "string", "$value": "dikey çizgi, 8 px aralık, 1 px" },
+    "Sunburst": { "$type": "string", "$value": "n ışın (8–72), dönüşümlü uzun-kısa, 0–9 halka, merkezden kenara sönen maske" }
+  },
+  "Icon": {
+    "Stroke": { "$type": "dimension", "$value": "1px", "$description": "Madde 9: ikon hattı 1 px, ölçek değişse de sabit (vector-effect: non-scaling-stroke)" },
+    "Grid": { "$type": "string", "$value": "32×32, dikey eksen x = 16, ayna simetrik" }
+  },
+  "Motion": {
+    "Easing": { "$type": "cubicBezier", "$value": [0.65, 0, 0.35, 1], "$description": "Madde 16: nokta simetrik eğri; açılış ve kapanış birbirinin aynası" },
+    "Curtain": { "$type": "duration", "$value": { "value": 1100, "unit": "ms" }, "$description": "clip-path inset(0 50%) → inset(0)" },
+    "DrawFrame": { "$type": "duration", "$value": { "value": 2200, "unit": "ms" }, "$description": "stroke-dashoffset 1 → 0, çerçeveler 250 ms arayla" },
+    "DrawRays": { "$type": "duration", "$value": { "value": 2400, "unit": "ms" }, "$description": "ortadaki ışın önce" },
+    "ButtonFill": { "$type": "duration", "$value": { "value": 700, "unit": "ms" }, "$description": "scaleX 0 → 1, merkezden" },
+    "ReducedMotion": { "$type": "string", "$value": "prefers-reduced-motion: reduce veya ayar 'Kapalı' → animasyon ve geçişler anında; çerçeve ve perdeler yerinde" }
+  },
+  "Responsive": {
+    "Frames": {
+      "Narrow": { "$type": "string", "$value": "< 420 px: 1 çerçeve, köşe 8, yan boşluk 20" },
+      "Medium": { "$type": "string", "$value": "420–640 px: 2 çerçeve, köşe 10, yan boşluk 32" },
+      "Wide": { "$type": "string", "$value": "≥ 640 px: 3 çerçeve, köşe 14, yan boşluk 48" }
+    },
+    "Alignment": { "$type": "string", "$value": "Madde 17: dikey eksen ortalama hiçbir boyutta terk edilmez; ızgaralar tek sütuna iner, her hücre kendi içinde ortalı" },
+    "TouchTarget": { "$type": "dimension", "$value": "44px", "$description": "düğmeler ≥ 48 px, anahtar ve kaydırıcı 44 px" }
+  },
+  "Accessibility": {
+    "GoldText": { "$type": "string", "$value": "Küçük altın metin: ≥ 14 px, ≥ 600, #D4AF37 (≥ 7:1). Daha soluk altın (#8C6D1F) yalnız çizgide. Fildişinde #6B4F08" },
+    "LargeText": { "$type": "string", "$value": "≥ 24 px ya da ≥ 18,66 px ve ≥ 700 kalınlık: 3:1 yeterli" },
+    "Spacing": { "$type": "string", "$value": "Harf aralığı 'Dar' seçeneği geniş aralığı 0,45 katına indirir" },
+    "Focus": { "$type": "string", "$value": "2px solid #F3DC82 (fildişinde #6B4F08), offset 4px" },
+    "Selected": { "$type": "string", "$value": "baklava işareti + kalın yazı + 2 px çerçeve; durum ayrıca yazıyla da verilir (AÇIK / KAPALI, SEÇİLİ)" }
+  }
+}

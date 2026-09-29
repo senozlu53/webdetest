@@ -1,0 +1,768 @@
+@import 'tailwindcss' source(none);
+@source '.';
+
+/* ─────────────────────────────────────────────────────────────
+   STİL 028 · ART DECO
+   Gece siyahı ve derin lacivert zemin, ince altın çizgi, simetri.
+   Gölge yok: derinlik iç içe altın çerçevelerle kurulur.
+   ───────────────────────────────────────────────────────────── */
+
+@font-face {
+  font-family: 'Cinzel Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400 900;
+  src: url('@fontsource-variable/cinzel/files/cinzel-latin-ext-wght-normal.woff2') format('woff2-variations');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Cinzel Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400 900;
+  src: url('@fontsource-variable/cinzel/files/cinzel-latin-wght-normal.woff2') format('woff2-variations');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Playfair Display Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400 900;
+  src: url('@fontsource-variable/playfair-display/files/playfair-display-latin-ext-wght-normal.woff2') format('woff2-variations');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Playfair Display Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400 900;
+  src: url('@fontsource-variable/playfair-display/files/playfair-display-latin-wght-normal.woff2') format('woff2-variations');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Playfair Display Variable';
+  font-style: italic;
+  font-display: swap;
+  font-weight: 400 900;
+  src: url('@fontsource-variable/playfair-display/files/playfair-display-latin-ext-wght-italic.woff2') format('woff2-variations');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Playfair Display Variable';
+  font-style: italic;
+  font-display: swap;
+  font-weight: 400 900;
+  src: url('@fontsource-variable/playfair-display/files/playfair-display-latin-wght-italic.woff2') format('woff2-variations');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Bodoni Moda Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400 900;
+  src: url('@fontsource-variable/bodoni-moda/files/bodoni-moda-latin-ext-opsz-normal.woff2') format('woff2-variations');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Bodoni Moda Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400 900;
+  src: url('@fontsource-variable/bodoni-moda/files/bodoni-moda-latin-opsz-normal.woff2') format('woff2-variations');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Bodoni Moda Variable';
+  font-style: italic;
+  font-display: swap;
+  font-weight: 400 900;
+  src: url('@fontsource-variable/bodoni-moda/files/bodoni-moda-latin-ext-opsz-italic.woff2') format('woff2-variations');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Bodoni Moda Variable';
+  font-style: italic;
+  font-display: swap;
+  font-weight: 400 900;
+  src: url('@fontsource-variable/bodoni-moda/files/bodoni-moda-latin-opsz-italic.woff2') format('woff2-variations');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* ── Madde 4: gece siyahı + altın + fildişi. Tanımdaki adlar korunur ── */
+:root,
+[data-onizle='siyah'] {
+  --zemin: #0b0b0b; /* Gece Siyahı */
+  --yuzey: #151310;
+  --yuzey2: #1d1a14;
+  --metin: #fffff0; /* Saf Fildişi */
+  --soluk: #c2c2b7;
+  --altin: #d4af37; /* Parlak Altın: çizgi ve büyük vurgu */
+  --altin-yazi: #d4af37; /* metin için altın (zeminle ≥ 7:1) */
+  --altin-cizgi: #d4af37;
+  --altin-parlak: #f3dc82;
+  --altin-isik: #e0c258;
+  --altin-koyu: #8c6d1f;
+  --altin-soluk: color-mix(in srgb, #d4af37 42%, transparent);
+  --on-altin: #0b0b0b; /* altın dolgu üstündeki yazı */
+  --altin-grad: linear-gradient(135deg, #8c6d1f 0%, #e0c258 22%, #d4af37 46%, #8c6d1f 64%, #e0c258 84%, #b8942a 100%);
+  --kalin: 1px;
+  --iz: 1; /* harf aralığı çarpanı */
+  --focus: #f3dc82;
+  --dok-a: 0.34;
+  --font-baslik: 'Cinzel Variable', 'Cinzel', 'Trajan Pro', 'Times New Roman', serif;
+  --font-metin: 'Playfair Display Variable', 'Playfair Display', 'Didot', Georgia, serif;
+  --font-gosteris: 'Bodoni Moda Variable', 'Bodoni Moda', 'Didot', 'Bodoni 72', Georgia, serif;
+  color-scheme: dark;
+}
+/* Derin lacivert: aynı altın, farklı gece */
+:root[data-tema='lacivert'],
+[data-onizle='lacivert'] {
+  --zemin: #0a192f;
+  --yuzey: #102640;
+  --yuzey2: #163050;
+  --soluk: #c2c6c0;
+  color-scheme: dark;
+}
+/* Derin zümrüt */
+:root[data-tema='zumrut'],
+[data-onizle='zumrut'] {
+  --zemin: #062a22;
+  --yuzey: #0c382e;
+  --yuzey2: #124638;
+  --soluk: #c1cabc;
+  color-scheme: dark;
+}
+/* Fildişi: aydınlık varyant. Altın metin koyu altına döner (≥ 7:1), çizgi ≥ 3:1 */
+:root[data-tema='fildisi'],
+[data-onizle='fildisi'] {
+  --zemin: #fffff0;
+  --yuzey: #f6f1da;
+  --yuzey2: #ece5c6;
+  --metin: #1b1709;
+  --soluk: #545143;
+  --altin: #a0801f;
+  --altin-yazi: #6b4f08;
+  --altin-cizgi: #a0801f;
+  --altin-parlak: #d9b84c;
+  --altin-isik: #c49f34;
+  --altin-koyu: #6b4f08;
+  --altin-soluk: color-mix(in srgb, #a0801f 45%, transparent);
+  --on-altin: #fffff0;
+  --altin-grad: linear-gradient(135deg, #6b4f08 0%, #c49f34 22%, #a0801f 46%, #6b4f08 64%, #c49f34 84%, #8a6a10 100%);
+  --focus: #6b4f08;
+  --dok-a: 0.22;
+  color-scheme: light;
+}
+/* Madde 18 varyantı: yüksek kontrast. Altın metin açılır, çizgi kalınlaşır */
+:root[data-kontrast='yuksek'] {
+  --altin-yazi: #f3dc82;
+  --soluk: #fffff0;
+  --kalin: 2px;
+  --dok-a: 0.12;
+}
+:root[data-kontrast='yuksek'][data-tema='fildisi'] {
+  --altin-yazi: #4a3604;
+  --soluk: #1b1709;
+}
+:root[data-iz='dar'] {
+  --iz: 0.45;
+}
+
+/* ── Madde 8: doku. Maske olarak SVG alfa gürültüsü; renk altından gelir ── */
+:root {
+  --m-kadife: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' seed='5' result='t'/%3E%3CfeColorMatrix in='t' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.6 0 0 0 -.62'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  --m-mermer: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='700' height='700'%3E%3Cfilter id='m' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.004 .009' numOctaves='5' seed='14' result='t'/%3E%3CfeColorMatrix in='t' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0' result='a'/%3E%3CfeComponentTransfer in='a'%3E%3CfeFuncA type='table' tableValues='0 0 0 0 0 0 0 0 0 .22 1 .22 0 0 0 0 0 0 0 0 0'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23m)'/%3E%3C/svg%3E");
+  --m-firca: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='b' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.0035 .85' numOctaves='3' seed='2' result='t'/%3E%3CfeColorMatrix in='t' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2.4 0 0 0 -1.05'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23b)'/%3E%3C/svg%3E");
+  --dok-img: var(--m-kadife);
+  --dok-boyut: 220px;
+  /* Madde 6: desen kalıpları (maske; renk altından) */
+  --m-yelpaze: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='20' viewBox='0 0 40 20' fill='none' stroke='black' stroke-width='1'%3E%3Cpath d='M0 20A20 20 0 0 1 40 20M6 20A14 14 0 0 1 34 20M12 20A8 8 0 0 1 28 20M20 0A20 20 0 0 0 0 20M20 0A20 20 0 0 1 40 20M20 6A14 14 0 0 0 6 20M20 6A14 14 0 0 1 34 20'/%3E%3C/svg%3E");
+  --m-zigzag: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='14' viewBox='0 0 24 14' fill='none' stroke='black' stroke-width='1'%3E%3Cpath d='M0 12L6 2L12 12L18 2L24 12M0 8L6 -2M6 -2L12 8L18 -2L24 8'/%3E%3C/svg%3E");
+  --m-kanal: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8' fill='none' stroke='black' stroke-width='1'%3E%3Cpath d='M.5 0V8'/%3E%3C/svg%3E");
+}
+:root[data-doku='mermer'] {
+  --dok-img: var(--m-mermer);
+  --dok-boyut: 700px;
+}
+:root[data-doku='firca'] {
+  --dok-img: var(--m-firca);
+  --dok-boyut: 300px;
+}
+:root[data-doku='duz'] {
+  --dok-img: none;
+}
+
+@theme inline {
+  --color-*: initial;
+  --font-*: initial;
+  --font-baslik: 'Cinzel Variable', 'Cinzel', 'Trajan Pro', 'Times New Roman', serif;
+  --font-metin: 'Playfair Display Variable', 'Playfair Display', 'Didot', Georgia, serif;
+  --font-gosteris: 'Bodoni Moda Variable', 'Bodoni Moda', 'Didot', 'Bodoni 72', Georgia, serif;
+  --font-mono: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+  --color-white: #ffffff;
+  --color-transparent: transparent;
+  --color-zemin: var(--zemin);
+  --color-yuzey: var(--yuzey);
+  --color-yuzey2: var(--yuzey2);
+  --color-metin: var(--metin);
+  --color-soluk: var(--soluk);
+  --color-altin: var(--altin);
+  --color-altin-yazi: var(--altin-yazi);
+  --color-altin-cizgi: var(--altin-cizgi);
+  --color-altin-parlak: var(--altin-parlak);
+  --color-altin-koyu: var(--altin-koyu);
+  --color-altin-soluk: var(--altin-soluk);
+  --color-on-altin: var(--on-altin);
+}
+
+@layer base {
+  html {
+    background: var(--zemin);
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+  :root[data-motion='off'] {
+    scroll-behavior: auto;
+  }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background: var(--zemin);
+    color: var(--metin);
+    font-family: var(--font-metin);
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.8;
+    overflow-x: clip;
+    text-rendering: optimizeLegibility;
+  }
+  /* Madde 8: sayfa dokusu, tüm içeriğin arkasında sabit */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background: var(--altin);
+    opacity: var(--dok-a);
+    -webkit-mask-image: var(--dok-img);
+    mask-image: var(--dok-img);
+    -webkit-mask-size: var(--dok-boyut);
+    mask-size: var(--dok-boyut);
+  }
+  :root[data-doku='duz'] body::before {
+    display: none;
+  }
+  /* kadife: yukarıdan gelen soluk altın ışık */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background: radial-gradient(ellipse 70% 45% at 50% 0%, color-mix(in srgb, var(--altin) 12%, transparent), transparent 70%);
+  }
+  :root:not([data-doku='kadife']) body::after {
+    display: none;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    margin: 0;
+    font-family: var(--font-baslik);
+    font-weight: 500;
+    line-height: 1.15;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: calc(0.14em * var(--iz));
+    color: var(--altin-yazi);
+    text-wrap: balance;
+    overflow-wrap: anywhere;
+  }
+  p {
+    margin: 0;
+  }
+  a {
+    color: var(--altin-yazi);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 5px;
+  }
+  a:hover {
+    color: var(--metin);
+  }
+  :focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 4px;
+  }
+  ::selection {
+    background: var(--altin);
+    color: var(--on-altin);
+  }
+  button,
+  input,
+  select,
+  textarea {
+    font: inherit;
+    color: inherit;
+  }
+  button {
+    cursor: pointer;
+  }
+  svg {
+    display: block;
+  }
+  pre {
+    margin: 0;
+  }
+}
+
+@layer components {
+  [data-onizle] {
+    background-color: var(--zemin);
+    color: var(--metin);
+    position: relative;
+    isolation: isolate;
+  }
+  /* küçük büyük harf üst yazı */
+  .kicker {
+    font-family: var(--font-baslik);
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 1.5;
+    text-transform: uppercase;
+    letter-spacing: calc(0.32em * var(--iz));
+    color: var(--altin-yazi);
+    text-align: center;
+  }
+  .etiket {
+    font-family: var(--font-baslik);
+    font-weight: 600;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: calc(0.24em * var(--iz));
+    color: var(--altin-yazi);
+  }
+  .rakam {
+    font-family: var(--font-gosteris);
+    font-weight: 500;
+    font-variant-numeric: lining-nums tabular-nums;
+  }
+
+  /* Madde 15: altın çerçeve */
+  .kart {
+    position: relative;
+    padding: 36px 28px;
+    background: var(--yuzey);
+    border: var(--kalin) solid;
+    border-image: var(--altin-grad) 1;
+    text-align: center;
+  }
+  /* Madde 7: ikinci, içe alınmış çerçeve. Derinlik çizgiyle, gölgeyle değil */
+  .kart::before {
+    content: '';
+    position: absolute;
+    inset: 7px;
+    border: 1px solid var(--altin-soluk);
+    pointer-events: none;
+  }
+  .kart-duz {
+    background: var(--yuzey);
+    border: 1px solid var(--altin-soluk);
+  }
+
+  /* <GoldBorderButton>: altın çerçeveli düğme; dolgu ortadan iki yana simetrik açılır */
+  .gbtn {
+    position: relative;
+    isolation: isolate;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    min-height: 52px;
+    padding: 12px 34px;
+    border: var(--kalin) solid;
+    border-image: var(--altin-grad) 1;
+    background: transparent;
+    color: var(--altin-yazi);
+    font-family: var(--font-baslik);
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 1.2;
+    text-transform: uppercase;
+    letter-spacing: calc(0.22em * var(--iz));
+    white-space: nowrap;
+    text-decoration: none;
+    transition: color 500ms cubic-bezier(0.65, 0, 0.35, 1);
+  }
+  .gbtn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: var(--altin);
+    transform: scaleX(0);
+    transform-origin: 50% 50%;
+    transition: transform 700ms cubic-bezier(0.65, 0, 0.35, 1);
+  }
+  /* iç ince çerçeve (Madde 7: üst üste bindirilmiş çerçeve) */
+  .gbtn::after {
+    content: '';
+    position: absolute;
+    inset: 4px;
+    border: 1px solid var(--altin-soluk);
+    pointer-events: none;
+    transition: border-color 500ms;
+  }
+  .gbtn:hover:not(:disabled),
+  .gbtn:focus-visible {
+    color: var(--on-altin);
+  }
+  .gbtn:hover:not(:disabled)::before,
+  .gbtn:focus-visible::before {
+    transform: scaleX(1);
+  }
+  .gbtn:hover:not(:disabled)::after,
+  .gbtn:focus-visible::after {
+    border-color: var(--on-altin);
+  }
+  .gbtn:active:not(:disabled)::before {
+    transform: scaleX(1);
+    filter: brightness(0.9);
+  }
+  .gbtn[data-ana] {
+    color: var(--on-altin);
+  }
+  .gbtn[data-ana]::before {
+    transform: scaleX(1);
+  }
+  .gbtn[data-ana]::after {
+    border-color: var(--on-altin);
+    opacity: 0.55;
+  }
+  .gbtn[data-ana]:hover:not(:disabled) {
+    color: var(--altin-yazi);
+  }
+  .gbtn[data-ana]:hover:not(:disabled)::before {
+    transform: scaleX(0);
+  }
+  .gbtn[data-ana]:hover:not(:disabled)::after {
+    border-color: var(--altin-soluk);
+    opacity: 1;
+  }
+  .gbtn[data-boy='k'] {
+    min-height: 48px;
+    padding: 8px 24px;
+    font-size: 13px;
+  }
+  .gbtn[data-boy='b'] {
+    min-height: 62px;
+    padding: 16px 44px;
+    font-size: 17px;
+  }
+  @media (max-width: 480px) {
+    .gbtn {
+      max-width: 100%;
+    }
+    .gbtn[data-boy='b'] {
+      padding: 14px 20px;
+      font-size: 15px;
+      white-space: normal;
+      text-align: center;
+    }
+  }
+  .gbtn:disabled {
+    color: var(--soluk);
+    cursor: not-allowed;
+    border-image: linear-gradient(var(--altin-soluk), var(--altin-soluk)) 1;
+  }
+  .gbtn:disabled::before {
+    display: none;
+  }
+  .gbtn:focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 5px;
+  }
+
+  /* Alanlar: yalnız alt çizgi ve ince çerçeve, koyu yüzey */
+  .alan {
+    display: block;
+    width: 100%;
+    min-height: 52px;
+    padding: 10px 16px;
+    background: var(--yuzey);
+    color: var(--metin);
+    border: 1px solid var(--altin-soluk);
+    border-radius: 0;
+    font-family: var(--font-metin);
+    font-size: 18px;
+    line-height: 1.5;
+    transition: border-color 400ms;
+  }
+  .alan::placeholder {
+    color: var(--soluk);
+    opacity: 0.75;
+  }
+  .alan:hover {
+    border-color: var(--altin-cizgi);
+  }
+  .alan:focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 3px;
+    border-color: var(--altin-cizgi);
+  }
+  .alan[aria-invalid='true'] {
+    border-color: var(--altin-parlak);
+    border-width: 2px;
+  }
+  select.alan {
+    appearance: none;
+    background-image: linear-gradient(45deg, transparent 50%, var(--altin-cizgi) 50%), linear-gradient(135deg, var(--altin-cizgi) 50%, transparent 50%);
+    background-position:
+      calc(100% - 22px) 50%,
+      calc(100% - 16px) 50%;
+    background-size:
+      6px 6px,
+      6px 6px;
+    background-repeat: no-repeat;
+    padding-right: 44px;
+  }
+
+  .kod {
+    margin: 0;
+    padding: 18px 22px;
+    background: var(--yuzey);
+    color: var(--metin);
+    border: 1px solid var(--altin-soluk);
+    font-family: var(--font-mono);
+    font-size: 14.5px;
+    line-height: 1.65;
+    text-align: left;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+  }
+
+  /* Seçim çipi: seçilince altın çerçeve + baklava işareti + kalın yazı */
+  .cip {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 48px;
+    padding: 6px 20px;
+    border: 1px solid var(--altin-soluk);
+    background: transparent;
+    color: var(--metin);
+    font-family: var(--font-baslik);
+    font-size: 13px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: calc(0.16em * var(--iz));
+    cursor: pointer;
+    user-select: none;
+    transition:
+      border-color 400ms,
+      color 400ms;
+  }
+  .cip:hover {
+    border-color: var(--altin-cizgi);
+  }
+  .cip[data-on] {
+    border: 2px solid var(--altin-cizgi);
+    padding: 5px 19px;
+    font-weight: 700;
+    color: var(--altin-yazi);
+  }
+  .cip[data-on]::before {
+    content: '';
+    width: 7px;
+    height: 7px;
+    background: var(--altin-cizgi);
+    rotate: 45deg;
+    flex-shrink: 0;
+  }
+  .cip:has(:focus-visible) {
+    outline: 2px solid var(--focus);
+    outline-offset: 4px;
+  }
+
+  /* Anahtar: ince çerçeveli ray, baklava tutamak */
+  .anahtar {
+    position: relative;
+    flex-shrink: 0;
+    width: 72px;
+    height: 44px;
+    padding: 0;
+    border: 1px solid var(--altin-cizgi);
+    background: transparent;
+  }
+  .anahtar > i {
+    position: absolute;
+    top: 50%;
+    left: 8px;
+    width: 18px;
+    height: 18px;
+    margin-top: -9px;
+    background: transparent;
+    border: 1px solid var(--altin-cizgi);
+    rotate: 45deg;
+    transition:
+      left 500ms cubic-bezier(0.65, 0, 0.35, 1),
+      background-color 400ms;
+  }
+  .anahtar[aria-checked='true'] > i {
+    left: 42px;
+    background: var(--altin-cizgi);
+  }
+  .anahtar:focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 4px;
+  }
+
+  /* Aralık: ince altın çizgi, baklava tutamak */
+  .aralik {
+    display: block;
+    width: 100%;
+    height: 44px;
+    margin: 0;
+    background: transparent;
+    appearance: none;
+    cursor: pointer;
+  }
+  .aralik::-webkit-slider-runnable-track {
+    height: 1px;
+    background: linear-gradient(90deg, var(--altin-cizgi) var(--p, 50%), var(--altin-soluk) var(--p, 50%));
+  }
+  .aralik::-moz-range-track {
+    height: 1px;
+    background: linear-gradient(90deg, var(--altin-cizgi) var(--p, 50%), var(--altin-soluk) var(--p, 50%));
+  }
+  .aralik::-webkit-slider-thumb {
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    margin-top: -8px;
+    border: 1px solid var(--altin-cizgi);
+    background: var(--zemin);
+    rotate: 45deg;
+  }
+  .aralik::-moz-range-thumb {
+    width: 14px;
+    height: 14px;
+    border: 1px solid var(--altin-cizgi);
+    border-radius: 0;
+    background: var(--zemin);
+    rotate: 45deg;
+  }
+  .aralik:focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 3px;
+  }
+
+  /* Madde 6: desen bantları (altın maske) */
+  .desen {
+    background: var(--altin-cizgi);
+    -webkit-mask-repeat: repeat;
+    mask-repeat: repeat;
+    pointer-events: none;
+  }
+  .desen-yelpaze {
+    -webkit-mask-image: var(--m-yelpaze);
+    mask-image: var(--m-yelpaze);
+    -webkit-mask-size: 40px 20px;
+    mask-size: 40px 20px;
+  }
+  .desen-zigzag {
+    -webkit-mask-image: var(--m-zigzag);
+    mask-image: var(--m-zigzag);
+    -webkit-mask-size: 24px 14px;
+    mask-size: 24px 14px;
+  }
+  .desen-kanal {
+    -webkit-mask-image: var(--m-kanal);
+    mask-image: var(--m-kanal);
+    -webkit-mask-size: 8px 8px;
+    mask-size: 8px 8px;
+  }
+  .doku-ornek {
+    position: absolute;
+    inset: 0;
+    background: var(--altin);
+    opacity: 0.6;
+  }
+
+  /* tablo */
+  .tablo th,
+  .tablo td {
+    padding: 10px 14px;
+    text-align: left;
+    border-top: 1px solid var(--altin-soluk);
+    vertical-align: top;
+  }
+  .tablo caption {
+    padding-bottom: 12px;
+    font-family: var(--font-baslik);
+    font-size: 17px;
+    letter-spacing: calc(0.14em * var(--iz));
+    text-transform: uppercase;
+    color: var(--altin-yazi);
+    text-align: center;
+  }
+}
+
+/* ── Madde 16: yavaş, ağırbaşlı, simetrik açılış ── */
+@keyframes ac-yatay {
+  from {
+    clip-path: inset(0 50% 0 50%);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+@keyframes ac-dikey {
+  from {
+    clip-path: inset(50% 0 50% 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+@keyframes cizgi-ciz {
+  from {
+    stroke-dashoffset: var(--uzunluk, 1000);
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes isin-ac {
+  from {
+    opacity: 0;
+    scale: 0.6;
+  }
+  to {
+    opacity: 1;
+    scale: 1;
+  }
+}
+@keyframes belir {
+  from {
+    opacity: 0;
+    letter-spacing: 0.02em;
+  }
+  to {
+    opacity: 1;
+  }
+}
+:root[data-motion='off'] * {
+  animation: none !important;
+  transition-duration: 0.01ms !important;
+}
+
+/* Basamaklı ve pahlı köşeler: çerçeve kendi şeklini dolduruyor; üst öğenin dikdörtgen zemini kalkar (köşeler boş kalır) */
+.bg-yuzey:has(> [data-cerceve]),
+.bg-zemin:has(> [data-cerceve]) {
+  background-color: transparent;
+}
