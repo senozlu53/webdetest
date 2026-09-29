@@ -14,9 +14,9 @@ export function Hero() {
       <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-[1.2fr_1fr]">
         <div className="min-w-0">
           <p className="kicker">Stil 025 · Illustration / Handcraft</p>
-          <h1 id="baslik" className="mt-4 text-[clamp(84px,14vw,190px)] leading-[0.85]">
+          <h1 id="baslik" className="mt-4 text-[clamp(84px,14vw,190px)] leading-[0.95]">
             <span className="block">
-              <Not tur="underline" sure={900} sw={3.5} pad={-2} gecikme={300}>
+              <Not tur="underline" sure={900} sw={3.5} pad={0} gecikme={300}>
                 Kırık
               </Not>
             </span>
