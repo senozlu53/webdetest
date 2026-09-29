@@ -1,0 +1,151 @@
+{
+  "$description": "Stil 031: Botanical / Earthy. W3C DTCG formatı. Adlar Figma yoluyla aynıdır: Color/TerracottaPrimary, Color/OliveSurface, Texture/LinenBase. Üç tema: Keten (varsayılan), Toprak (bg #D2B48C) ve Orman (koyu orman yeşili). Derinlik ton sür ton katmanlardan ve çok yumuşak ortam gölgelerinden gelir; sert gölge yok.",
+  "Color": {
+    "TerracottaPrimary": {
+      "$type": "color",
+      "$value": "#C86D51",
+      "$description": "Madde 4: Kil Kırmızısı. Vurgu dolgusu, rozet, seçili sekme işareti, kaydırıcı tutamağı. Küçük yazı olarak kullanılmaz (keten üstünde 3,15:1); dolgu üstünde koyu yazı yalnız büyük ve kalın (≥18,66 px, 700) olabilir: 3,89:1",
+      "contrast": { "onLinen": 3.15, "darkTextOnIt": 3.89 }
+    },
+    "OliveSurface": { "$type": "color", "$value": "#556B2F", "$description": "Madde 4: Zeytin Yeşili. Seçili yüzey, çip, anahtar ve kaydırıcı dolgusu, ikon rozeti. Keten üstünde yazı olarak da yeterli", "contrast": { "onLinen": 5.14, "onSurface": 5.61, "linenTextOnIt": 5.42 } },
+    "EarthBeige": { "$type": "color", "$value": "#D2B48C", "$description": "Madde 4: Toprak Beji. Yüzey ve Toprak teması zemini. Üstünde orman yeşili yazı 4,53:1 (sınırda), derin kömür-orman 7,20:1", "contrast": { "forestOnIt": 4.53, "deepOnIt": 7.2 } },
+    "ForestInk": { "$type": "color", "$value": "#2F4F4F", "$description": "Madde 4: Koyu Orman Yeşili. Metin, düğme dolgusu, Orman temasının yüzeyi", "contrast": { "onLinen": 7.72, "onSurface": 8.42 } },
+    "Linen": {
+      "$description": "Keten (varsayılan) tema yüzeyleri: ton sür ton dört basamak",
+      "Ground": { "$type": "color", "$value": "#F4EEE1", "$description": "Sayfa zemini", "contrast": { "forestOnIt": 7.72 } },
+      "Surface": { "$type": "color", "$value": "#FBF8F1", "$description": "Kart ve panel", "contrast": { "forestOnIt": 8.42 } },
+      "Surface2": { "$type": "color", "$value": "#EBE1CD", "$description": "İkinci yüzey: alan dolgusu, kod bloğu" },
+      "Surface3": { "$type": "color", "$value": "#E2D4B8", "$description": "Üçüncü yüzey: kaydırıcı rayı" },
+      "InkMuted": { "$type": "color", "$value": "#4A5F5C", "$description": "İkincil metin", "contrast": { "onSurface": 6.42, "onGround": 5.89 } },
+      "Line": { "$type": "color", "$value": "rgba(85, 107, 47, 0.2)", "$description": "border-[#556B2F]/20: kart ve panel çerçevesi" },
+      "Control": { "$type": "color", "$value": "#71806A", "$description": "Form çerçevesi, anahtar", "contrast": { "onSurface": 3.96 } }
+    },
+    "TextVariant": {
+      "$description": "Tanım renklerinin yazıda güvenli türevleri",
+      "DeepTerracotta": { "$type": "color", "$value": "#9A4530", "$description": "Üst yazı, vurgu (italik), hata", "contrast": { "onSurface": 6.06, "onGround": 5.56 } },
+      "Olive": { "$type": "color", "$value": "#556B2F", "$description": "Vurgu ve bağlantı", "contrast": { "onSurface": 5.61 } },
+      "DeepEarth": { "$type": "color", "$value": "#7A5B32", "$description": "Koyu toprak yazı" },
+      "DeepInk": { "$type": "color", "$value": "#1C2E2E", "$description": "Derin kömür-orman: bej yüzeyde önerilen yazı", "contrast": { "onBeige": 7.2 } }
+    },
+    "Ramps": {
+      "$description": "Madde 7: her tanım rengi için açıktan koyuya beş basamak (ton sür ton)",
+      "Terracotta": { "$type": "string", "$value": "#F0CBBB · #E3A48F · #C86D51 · #9A4530 · #6F2F1F" },
+      "Olive": { "$type": "string", "$value": "#DDE3C6 · #B9C68F · #8A9E5B · #556B2F · #3D4F20" },
+      "Earth": { "$type": "string", "$value": "#F3E9D6 · #E8D6B8 · #D2B48C · #A98A5F · #7A5B32" },
+      "Forest": { "$type": "string", "$value": "#DCE5E3 · #9BB3AF · #5C7C7A · #2F4F4F · #1F3535" }
+    },
+    "EarthTheme": {
+      "$description": "Toprak teması: Tailwind örneğindeki bg-[#D2B48C] tam zemin",
+      "Ground": { "$type": "color", "$value": "#D2B48C" },
+      "Surface": { "$type": "color", "$value": "#E9DBC0" },
+      "Ink": { "$type": "color", "$value": "#1C2E2E", "contrast": { "onGround": 7.2, "onSurface": 10.38 } },
+      "InkMuted": { "$type": "color", "$value": "#2F4A47", "contrast": { "onGround": 4.86 } },
+      "Olive": { "$type": "color", "$value": "#3D4F1E", "contrast": { "onGround": 4.56 } },
+      "DeepTerracotta": { "$type": "color", "$value": "#63301D", "contrast": { "onGround": 5.4 } }
+    },
+    "ForestTheme": {
+      "$description": "Orman teması: Koyu Orman Yeşili yüzey, aynı toprak gece",
+      "Ground": { "$type": "color", "$value": "#1F3535" },
+      "Surface": { "$type": "color", "$value": "#2F4F4F" },
+      "Ink": { "$type": "color", "$value": "#F4EEE1", "contrast": { "onGround": 11.22, "onSurface": 7.72 } },
+      "InkMuted": { "$type": "color", "$value": "#C9D2C4", "contrast": { "onSurface": 5.74 } },
+      "Olive": { "$type": "color", "$value": "#BDD186", "contrast": { "onSurface": 5.37 } },
+      "Rose": { "$type": "color", "$value": "#F0B5A0", "contrast": { "onSurface": 5.03 } },
+      "Button": { "$type": "color", "$value": "#D2B48C", "$description": "Düğme dolgusu; yazı #1F3535", "contrast": { "textOnIt": 6.58 } }
+    },
+    "HighContrast": {
+      "$description": "Madde 18 varyantı",
+      "Ink": { "$type": "color", "$value": "#0F1F1F", "contrast": { "onSurface": 16.02 } },
+      "NightInk": { "$type": "color", "$value": "#FFFFFF", "contrast": { "onForest": 8.93 } }
+    }
+  },
+  "Font": {
+    "Heading": { "$type": "fontFamily", "$value": ["Playfair Display Variable", "Playfair Display", "Iowan Old Style", "Palatino Linotype", "Georgia", "serif"], "$description": "Madde 5: başlık. 400–900, düz ve italik; ğ, ş, ı, İ, ç, ö, ü var, ₺ yok (DM Sans tamamlar)" },
+    "Body": { "$type": "fontFamily", "$value": ["DM Sans Variable", "DM Sans", "Helvetica Neue", "Arial", "sans-serif"], "$description": "Gövde ve arayüz. 100–1000; Türkçe karakterler ve ₺ var" },
+    "Soft": { "$type": "fontFamily", "$value": ["Quicksand Variable", "Quicksand", "DM Sans Variable", "Helvetica Neue", "Arial", "sans-serif"], "$description": "Düğme, etiket, rakam. 300–700, yuvarlak uçlu; ₺ var" }
+  },
+  "Typography": {
+    "Display": { "$type": "typography", "$value": { "fontFamily": "Font/Heading", "fontWeight": 600, "fontSize": "clamp(40px, 6.2vw, 88px)", "lineHeight": 1.1 } },
+    "H2": { "$type": "typography", "$value": { "fontFamily": "Font/Heading", "fontWeight": 600, "fontSize": "clamp(32px, 5vw, 62px)", "lineHeight": 1.1 } },
+    "H3": { "$type": "typography", "$value": { "fontFamily": "Font/Heading", "fontWeight": 600, "fontSize": "clamp(22px, 2.2vw, 28px)", "lineHeight": 1.1 } },
+    "Accent": { "$type": "typography", "$value": { "fontFamily": "Font/Heading", "fontWeight": 500, "fontStyle": "italic", "color": "Color/TextVariant/DeepTerracotta" }, "$description": "Başlıktaki vurgulu sözcük" },
+    "Kicker": { "$type": "typography", "$value": { "fontFamily": "Font/Soft", "fontWeight": 700, "fontSize": "13px", "letterSpacing": "0.14em", "textTransform": "uppercase" } },
+    "Body": { "$type": "typography", "$value": { "fontFamily": "Font/Body", "fontWeight": 420, "fontSize": "17.5px", "lineHeight": 1.68 } },
+    "Button": { "$type": "typography", "$value": { "fontFamily": "Font/Soft", "fontWeight": 700, "fontSize": "17px" }, "$description": "Terracotta dolgulu düğme: 19,5 px, 700 (büyük metin)" }
+  },
+  "Radius": {
+    "Card": { "$type": "string", "$value": "2.25rem 0.9rem 2.75rem 1.1rem", "$description": "Madde 6: dört köşe farklı; hover'da 2.75 / 1.1 / 2.25 / 0.9 rem'e dönüşür (1,4 sn)" },
+    "Soft": { "$type": "string", "$value": "1.4rem 0.7rem 1.6rem 0.8rem", "$description": "Alan, kod bloğu, küçük panel" },
+    "Button": { "$type": "string", "$value": "2rem 1.35rem 1.8rem 1.25rem / 1.6rem 2rem 1.3rem 1.9rem", "$description": "Taş biçimli düğme; hover'da başka bir taşa dönüşür (1,2 sn)" },
+    "Pebble": { "$type": "string", "$value": "58% 42% 63% 37% / 46% 55% 45% 54%", "$description": "Rozet, ikon zemini, anahtar tutamağı" },
+    "Masks": { "$type": "string", "$value": "yaprak · damla · taş · dalga (objectBoundingBox clipPath, 0–1 uzayı)", "$description": "Madde 11 · 14: ürün kartı görsel maskeleri" }
+  },
+  "Elevation": {
+    "Ambient1": {
+      "$type": "shadow",
+      "$value": [
+        { "color": "rgba(47, 79, 79, 0.05)", "offsetX": "0", "offsetY": "1px", "blur": "2px", "spread": "0" },
+        { "color": "rgba(47, 79, 79, 0.14)", "offsetX": "0", "offsetY": "8px", "blur": "24px", "spread": "-10px" }
+      ],
+      "$description": "Madde 7 · 15: kart, panel, shadow-sm"
+    },
+    "Ambient2": {
+      "$type": "shadow",
+      "$value": [
+        { "color": "rgba(47, 79, 79, 0.05)", "offsetX": "0", "offsetY": "2px", "blur": "4px", "spread": "0" },
+        { "color": "rgba(47, 79, 79, 0.18)", "offsetX": "0", "offsetY": "16px", "blur": "40px", "spread": "-14px" }
+      ],
+      "$description": "Hover, shadow-md"
+    },
+    "Ambient3": {
+      "$type": "shadow",
+      "$value": [
+        { "color": "rgba(47, 79, 79, 0.05)", "offsetX": "0", "offsetY": "4px", "blur": "8px", "spread": "0" },
+        { "color": "rgba(47, 79, 79, 0.2)", "offsetX": "0", "offsetY": "28px", "blur": "64px", "spread": "-20px" }
+      ],
+      "$description": "Açılır pencere, shadow-lg"
+    },
+    "Rule": { "$type": "string", "$value": "Kaydırma-x sıfır, alfa ≤ .25, bulanıklık ≥ 1,5 × kaydırma-y. Sert gölge yok (testte tüm sayfa taranır). Orman temasında renk siyah, alfa .12–.36" },
+    "Layers": { "$type": "string", "$value": "Zemin → Yüzey → Yüzey 2 → Yüzey 3 → Yüzey 3 + %20 toprak; arka kart katmanları ±1,4° / ∓1,8° döner ve bir sonraki tonu taşır (kil, zeytin)" }
+  },
+  "Texture": {
+    "LinenBase": { "$type": "string", "$value": "fractalNoise .9 × .04 ve .04 × .9 (iki katman: çözgü ve atkı), stitchTiles, 300² döşeme, alfa maske, opaklık %12", "$description": "Madde 8: keten kumaş, varsayılan zemin" },
+    "Kraft": { "$type": "string", "$value": "fractalNoise .012 × .02 ×4 (leke) + .03 × .7 (yatay lif), 360² döşeme, %16", "$description": "İşlenmemiş kraft kâğıt" },
+    "Soil": { "$type": "string", "$value": "fractalNoise .8 ×2 eşikli (tane, k=9) + .02 ×3 (kümeler), 280² döşeme, %16", "$description": "Hafif toprak taneli mat yüzey" },
+    "Flat": { "$type": "string", "$value": "none" }
+  },
+  "Mask": {
+    "Organic": { "$type": "string", "$value": "mask-image: url(svg blob + feGaussianBlur 1.8); mask-size: 100% 100%", "$description": "Madde 15: yumuşak kenar" },
+    "Leaf": { "$type": "string", "$value": "mask-image: url(svg yaprak); mask-size: 100% 100%" },
+    "Wave": { "$type": "string", "$value": "120×16 px dalga şeridi (mask, repeat-x) ve 160×24 px dolu dalga: su çizgisi, ayraç, dalga kenarı" },
+    "VectorNetwork": { "$type": "string", "$value": "8 düğüm, Catmull-Rom tutamakları (gerginlik 0,4–1,6) → kapalı Bezier yolu → clipPathUnits=objectBoundingBox", "$description": "Madde 12: Figma Vector Network dışa aktarımı" }
+  },
+  "Icon": {
+    "Grid": { "$type": "string", "$value": "32×32; 13 doğa + 13 arayüz", "$description": "Madde 9: ince çizgili organik vektör; uç ve birleşim yuvarlak, yumuşak dolgu (%18) yaprak, damla ve tohumda" },
+    "Stroke": { "$type": "dimension", "$value": "1.5px", "$description": "Ölçekten bağımsız (vector-effect: non-scaling-stroke)" }
+  },
+  "Spacing": {
+    "Comfort": { "$type": "number", "$value": 1.5, "$description": "Madde 12: Auto Layout iç boşluk = 1,5 × elemanlar arası aralık" },
+    "Section": { "$type": "dimension", "$value": "104px", "$description": "clamp(56px, 8vw, 104px)" },
+    "Element": { "$type": "dimension", "$value": "80px", "$description": "clamp(40px, 6vw, 80px)" }
+  },
+  "Motion": {
+    "Sway": { "$type": "duration", "$value": { "value": 7000, "unit": "ms" }, "$description": "Madde 16: dal salınımı (sakin 10 sn, güçlü 4,6 sn); ±3° (1,6–5,5°), ease-in-out, sonsuz; her yaprak ±1,7× ve %70 sürede" },
+    "Flow": { "$type": "duration", "$value": { "value": 14000, "unit": "ms" }, "$description": "Su akışı: dalga şeridi bir dalga boyu kayar (8–22 sn), doğrusal, sonsuz" },
+    "Reveal": { "$type": "duration", "$value": { "value": 1600, "unit": "ms" }, "$description": "Bölüm belirişi: opaklık + 16 px yerleşme" },
+    "ButtonShape": { "$type": "duration", "$value": { "value": 1200, "unit": "ms" }, "$description": "Düğme köşeleri başka bir taşa dönüşür" },
+    "ButtonColor": { "$type": "duration", "$value": { "value": 800, "unit": "ms" } },
+    "Easing": { "$type": "cubicBezier", "$value": [0.22, 0.61, 0.36, 1] },
+    "ReducedMotion": { "$type": "string", "$value": "prefers-reduced-motion: reduce veya ayar 'Kapalı' → salınım, akış ve geçişler yok, tüm içerik ilk andan görünür" }
+  },
+  "Responsive": {
+    "Rule": { "$type": "string", "$value": "Madde 17: kapsayıcı sorgusu (container-type: inline-size). Kolaj ≥640 px yatay, altında dikey; ızgara ≥900 px 3, ≥480 px 2, altında 1 kolon; yatay ürün kartı 560 px altında dikey. Şekiller yüzdeli / rem yarıçaplı olduğu için akışkanlık bozulmaz" },
+    "TouchTarget": { "$type": "dimension", "$value": "44px", "$description": "Düğme ≥ 46, çip ≥ 46, anahtar 46, kaydırıcı 46" }
+  },
+  "Accessibility": {
+    "TextColors": { "$type": "string", "$value": "Metin daima koyu orman yeşili (7,7:1) ya da derin kömür-orman (bej üstünde 7,2:1); terracotta ve toprak beji yazı olmaz. Terracotta dolgu yalnız 19,5 px 700 (büyük metin, 3,89:1)" },
+    "Scan": { "$type": "string", "$value": "996 metin düğümü × 8 tema / doku / kontrast birleşimi (dokunun en koyu noktası dahil) AA'yı geçer; bilerek kötü gösterilen kontrast laboratuvarı önizlemesi hariç" },
+    "Focus": { "$type": "string", "$value": "3px solid Ink, offset 3px (Orman temasında toprak beji)" },
+    "Selected": { "$type": "string", "$value": "yaprak işareti + dolu zeytin zemin + kalın yazı; hasat / ekim harfle; hata ✕ ve yazı; durum AÇIK / KAPALI" }
+  }
+}

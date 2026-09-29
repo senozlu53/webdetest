@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Stil 031: Botanical / Earthy. Terracotta, zeytin yeşili, toprak beji ve koyu orman yeşili, keten ve kraft dokusu, yumuşak organik formlar, Playfair Display ile DM Sans: organik gıda ve kozmetik, sürdürülebilir yaşam, ekolojik tarım ve doğa turizmi." />
+    <meta name="theme-color" content="#F4EEE1" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='16' fill='%23F4EEE1'/%3E%3Cpath d='M12 37C10 22 20 11 38 10C39 27 28 38 12 37Z' fill='%23556B2F'/%3E%3Cpath d='M12 37C19 29 27 21 33 15' fill='none' stroke='%23F4EEE1' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E"
+    />
+    <title>Stil 031 · Botanical / Earthy</title>
+    <script>
+      try {
+        var d = document.documentElement
+        var g = function (k) {
+          return localStorage.getItem(k)
+        }
+        var m = g('bt-hareket')
+        d.dataset.motion = m === 'kapali' || (m !== 'acik' && matchMedia('(prefers-reduced-motion: reduce)').matches) ? 'off' : 'on'
+        var t = g('bt-tema')
+        d.dataset.tema = t === 'toprak' || t === 'orman' ? t : t === 'oto' && matchMedia('(prefers-color-scheme: dark)').matches ? 'orman' : 'keten'
+        var k = g('bt-doku')
+        d.dataset.doku = k === 'kraft' || k === 'toprak' || k === 'duz' ? k : 'keten'
+        d.dataset.kontrast = g('bt-kontrast') === 'yuksek' ? 'yuksek' : 'normal'
+        var r = g('bt-ruzgar')
+        d.dataset.ruzgar = r === 'sakin' || r === 'guclu' ? r : 'orta'
+      } catch (e) {}
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/botanical/main.tsx"></script>
+  </body>
+</html>
