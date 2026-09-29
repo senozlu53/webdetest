@@ -1,0 +1,58 @@
+/** 24×24 kutuda, 1 piksel hatlı, tamamen işlevsel çizgi ikonlar */
+const daire = (cx: number, cy: number, r: number) => `M${cx - r} ${cy}a${r} ${r} 0 1 0 ${2 * r} 0a${r} ${r} 0 1 0 ${-2 * r} 0Z`
+
+export const SIMGELER = {
+  ok: ['M4 12H20', 'M14 6L20 12L14 18'],
+  geri: ['M20 12H4', 'M10 6L4 12L10 18'],
+  yukari: ['M12 20V4', 'M6 10L12 4L18 10'],
+  asagi: ['M12 4V20', 'M6 14L12 20L18 14'],
+  arti: ['M12 5V19', 'M5 12H19'],
+  eksi: ['M5 12H19'],
+  kapat: ['M6 6L18 18', 'M18 6L6 18'],
+  ara: [daire(10, 10, 6), 'M14.5 14.5L20 20'],
+  canta: ['M5 8H19L20 20H4Z', 'M9 8V6A3 3 0 0 1 15 6V8'],
+  kalp: ['M12 20C4 14 4 8 8 6C10 5 12 6.5 12 8C12 6.5 14 5 16 6C20 8 20 14 12 20Z'],
+  kisi: [daire(12, 8, 4), 'M4 21C4 16 8 14 12 14C16 14 20 16 20 21'],
+  takvim: ['M4 6H20V20H4Z', 'M4 10H20', 'M8 3V7', 'M16 3V7'],
+  anahtar: [daire(8, 12, 4), 'M12 12H21', 'M18 12V15', 'M21 12V14'],
+  yatak: ['M3 18V7', 'M3 14H21V18', 'M21 14V11A2 2 0 0 0 19 9H11V14', daire(6.5, 11.5, 1.8)],
+  konum: ['M12 21C7 15 5 12 5 9A7 7 0 0 1 19 9C19 12 17 15 12 21Z', daire(12, 9, 2.5)],
+  zarf: ['M3 6H21V18H3Z', 'M3 7L12 13L21 7'],
+  telefon: ['M6 3H10L11 8L8.5 9.5C9.5 12 12 14.5 14.5 15.5L16 13L21 14V18C21 19.5 20 21 18 21C10 21 3 14 3 6C3 4 4.5 3 6 3Z'],
+  saat: [daire(12, 12, 9), 'M12 7V12L15.5 14'],
+  kilit: ['M5 11H19V21H5Z', 'M8 11V7A4 4 0 0 1 16 7V11'],
+  filtre: ['M3 6H21', 'M6 12H18', 'M10 18H14'],
+  izgara: ['M4 4H10V10H4Z', 'M14 4H20V10H14Z', 'M4 14H10V20H4Z', 'M14 14H20V20H14Z'],
+  liste: ['M4 6H20', 'M4 12H20', 'M4 18H20'],
+  buyut: ['M4 9V4H9', 'M15 4H20V9', 'M20 15V20H15', 'M9 20H4V15'],
+  indir: ['M12 4V15', 'M7 11L12 16L17 11', 'M4 20H20'],
+} as const
+
+export type SimgeAd = keyof typeof SIMGELER
+export const SIMGE_AD: Record<SimgeAd, string> = {
+  ok: 'İleri',
+  geri: 'Geri',
+  yukari: 'Yukarı',
+  asagi: 'Aşağı',
+  arti: 'Artı',
+  eksi: 'Eksi',
+  kapat: 'Kapat',
+  ara: 'Ara',
+  canta: 'Sepet',
+  kalp: 'Favori',
+  kisi: 'Hesap',
+  takvim: 'Takvim',
+  anahtar: 'Anahtar',
+  yatak: 'Oda',
+  konum: 'Konum',
+  zarf: 'Posta',
+  telefon: 'Telefon',
+  saat: 'Saat',
+  kilit: 'Kilit',
+  filtre: 'Süz',
+  izgara: 'Izgara',
+  liste: 'Liste',
+  buyut: 'Tam ekran',
+  indir: 'İndir',
+}
+export const TUM_SIMGELER = Object.keys(SIMGELER) as SimgeAd[]

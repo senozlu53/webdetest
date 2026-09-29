@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Stil 029: Quiet Luxury. Taş grisi zemin, kömür yazı, cömert boşluk, Cormorant Garamond ve Montserrat, düz mimari, keten ve mat kâğıt dokusu: mimarlık ofisi, sanat koleksiyonu, butik otel, mağaza ve dergi." />
+    <meta name="theme-color" content="#F4F1EA" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' fill='%23F4F1EA'/%3E%3Cpath d='M14 34V14H30M14 24H26' fill='none' stroke='%23222222' stroke-width='1.5'/%3E%3C/svg%3E" />
+    <title>Stil 029 · Quiet Luxury</title>
+    <script>
+      try {
+        var d = document.documentElement
+        var g = function (k) {
+          return localStorage.getItem(k)
+        }
+        var m = g('ql-hareket')
+        d.dataset.motion = m === 'kapali' || (m !== 'acik' && matchMedia('(prefers-reduced-motion: reduce)').matches) ? 'off' : 'on'
+        var t = g('ql-tema')
+        d.dataset.tema = t === 'fildisi' || t === 'komur' ? t : t === 'oto' && matchMedia('(prefers-color-scheme: dark)').matches ? 'komur' : 'tas'
+        var k = g('ql-doku')
+        d.dataset.doku = k === 'kagit' || k === 'tas' || k === 'duz' ? k : 'keten'
+        d.dataset.kontrast = g('ql-kontrast') === 'yuksek' ? 'yuksek' : 'normal'
+        d.dataset.bosluk = g('ql-bosluk') === 'siki' ? 'siki' : 'genis'
+      } catch (e) {}
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/quiet/main.tsx"></script>
+  </body>
+</html>

@@ -1,0 +1,100 @@
+{
+  "$description": "Stil 029: Quiet Luxury. W3C DTCG formatı. Adlar Figma yoluyla aynıdır: Spacing/EditorialGenerous, Color/StoneBackground, Color/CharcoalText. Üç tema: Taş (varsayılan), Fildişi ve Kömür (ters). Gölge yok; derinlik yalnız görsel ve metin katmanlarının örtüşmesinden gelir.",
+  "Spacing": {
+    "EditorialGenerous": { "$type": "dimension", "$value": "96px", "$description": "Madde 12: elemanlar arası. Masaüstünde 96 px, mobilde 48 px'e orantılı iner: clamp(48px, 7.5vw, 96px)" },
+    "Section": { "$type": "dimension", "$value": "160px", "$description": "Bölümlerin dikey boşluğu: clamp(72px, 12.5vw, 160px)" },
+    "Gutter": { "$type": "dimension", "$value": "32px", "$description": "12 kolon arası: clamp(16px, 2.4vw, 32px)" },
+    "Compact": { "$type": "number", "$value": 0.6, "$description": "Madde 18 varyantı: 'Sıkı' boşluk çarpanı (--bosluk)" },
+    "Mobile": {
+      "Section": { "$type": "dimension", "$value": "72px", "$description": "Madde 17: 160 → 72, orantılı daralma" },
+      "Element": { "$type": "dimension", "$value": "48px", "$description": "96 → 48" }
+    },
+    "ColumnGrid": { "$type": "string", "$value": "12 kolon, oluk 32 px, max genişlik 1320 px, yan boşluk 48 px", "$description": "Sabit oranlı grid (7/5, 5/7, 4/4/4, 3/9, 12)" }
+  },
+  "Color": {
+    "StoneBackground": { "$type": "color", "$value": "#F4F1EA", "$description": "Madde 4: Taş Grisi / Sıcak Kil, sayfa zemini", "contrast": { "charcoalOnIt": 14.1 } },
+    "CharcoalText": { "$type": "color", "$value": "#222222", "$description": "Kömür: metin, düğme dolgusu, tek piksel çizgi" },
+    "IvorySurface": { "$type": "color", "$value": "#FAF8F5", "$description": "Fildişi: yüzey, form alanı; Fildişi temasında zemin", "contrast": { "charcoalOnIt": 15.01 } },
+    "Earth": {
+      "$description": "Zayıf toprak tonları. Yalnız süs, çizgi ve ikincil metin (kendi kontrast sınırlarıyla)",
+      "Deep": { "$type": "color", "$value": "#5B4E42", "$description": "Vurgu metni", "contrast": { "onStone": 7.12, "onIvory": 7.58 } },
+      "Muted": { "$type": "color", "$value": "#6E6357", "$description": "İkincil metin", "contrast": { "onStone": 5.19, "onIvory": 5.53 } },
+      "Mid": { "$type": "color", "$value": "#8B7B6B", "$description": "Kontrol çerçevesi (yalnız çizgi)", "contrast": { "onStone": 3.62, "onIvory": 3.85 } },
+      "Clay": { "$type": "color", "$value": "#B9A793", "$description": "Süs çizgisi, dolgu. Metin olarak kullanılmaz (2,07:1)" },
+      "Sand": { "$type": "color", "$value": "#D8CFC0", "$description": "İnce ayraç, boş görsel zemini" }
+    },
+    "Charcoal": {
+      "$description": "Kömür (ters) tema",
+      "Background": { "$type": "color", "$value": "#222222" },
+      "Surface": { "$type": "color", "$value": "#2C2B29" },
+      "Text": { "$type": "color", "$value": "#FAF8F5", "contrast": { "onBackground": 15.01 } },
+      "Muted": { "$type": "color", "$value": "#BDB6AA", "contrast": { "onBackground": 7.91 } },
+      "Border": { "$type": "color", "$value": "#A89F92", "contrast": { "onBackground": 6.09 } }
+    },
+    "HighContrast": {
+      "$description": "Madde 18 varyantı",
+      "Text": { "$type": "color", "$value": "#000000", "contrast": { "onStone": 18.62 } },
+      "Muted": { "$type": "color", "$value": "#3D342B" },
+      "Line": { "$type": "color", "$value": "rgba(0, 0, 0, 0.55)" }
+    }
+  },
+  "Font": {
+    "EditorialSerif": {
+      "$type": "fontFamily",
+      "$value": ["Cormorant Garamond Variable", "Cormorant Garamond", "Iowan Old Style", "Palatino Linotype", "Georgia", "serif"],
+      "$description": "Madde 5: dergi başlığı. 300–700, düz ve italik; ğ, ş, ı, İ, ç, ö, ü, ₺ var"
+    },
+    "CleanSans": {
+      "$type": "fontFamily",
+      "$value": ["Montserrat Variable", "Montserrat", "Helvetica Neue", "Arial", "sans-serif"],
+      "$description": "Gövde, üst yazı, düğme. 100–900; Türkçe karakterler ve ₺ var"
+    }
+  },
+  "Typography": {
+    "Display": { "$type": "typography", "$value": { "fontFamily": "Font/EditorialSerif", "fontWeight": 300, "fontSize": "clamp(52px, 11.5vw, 176px)", "lineHeight": 1.02, "letterSpacing": "-0.012em" } },
+    "H2": { "$type": "typography", "$value": { "fontFamily": "Font/EditorialSerif", "fontWeight": 300, "fontSize": "clamp(38px, 6.4vw, 92px)", "lineHeight": 1.02 } },
+    "H3": { "$type": "typography", "$value": { "fontFamily": "Font/EditorialSerif", "fontWeight": 400, "fontSize": "clamp(28px, 3.2vw, 44px)", "lineHeight": 1.08 } },
+    "Kicker": { "$type": "typography", "$value": { "fontFamily": "Font/CleanSans", "fontWeight": 500, "fontSize": "11.5px", "letterSpacing": "0.3em", "textTransform": "uppercase" } },
+    "Body": { "$type": "typography", "$value": { "fontFamily": "Font/CleanSans", "fontWeight": 400, "fontSize": "16.5px", "lineHeight": 1.8, "letterSpacing": "0.012em" } },
+    "Reading": { "$type": "typography", "$value": { "fontFamily": "Font/EditorialSerif", "fontWeight": 400, "fontSize": "19–22px", "lineHeight": 1.75 }, "$description": "Makale metni; 20 px altına inmez (Cormorant küçük x-yüksekliği)" }
+  },
+  "Radius": {
+    "Sharp": { "$type": "dimension", "$value": "0px" },
+    "Default": { "$type": "dimension", "$value": "2px", "$description": "Madde 6: 2–4 px, saf geometri" },
+    "Soft": { "$type": "dimension", "$value": "4px" }
+  },
+  "Border": {
+    "Hairline": { "$type": "dimension", "$value": "1px", "$description": "Tek piksel ayraç ve çerçeve" },
+    "Line": { "$type": "color", "$value": "rgba(34, 34, 34, 0.16)", "$description": "Süs ayracı (kontrol değil)" },
+    "Control": { "$type": "color", "$value": "#8B7B6B", "$description": "Form alanı alt çizgisi, anahtar (3,6:1)" }
+  },
+  "Elevation": {
+    "None": { "$type": "string", "$value": "none", "$description": "Madde 7: box-shadow ve drop-shadow yok. Derinlik metin bloğunun görselin kenarına taşmasıyla (negatif margin, z-index)" }
+  },
+  "Texture": {
+    "Linen": { "$type": "string", "$value": "fractalNoise .9 .035 + .035 .9 (iki katman, yatay ve dikey iplik), alfa gürültü maskesi, opaklık %7,5", "$description": "Madde 8: ince keten" },
+    "MattePaper": { "$type": "string", "$value": "fractalNoise .8 ×3, alfa maske, %7,5", "$description": "Mat kâğıt" },
+    "Stone": { "$type": "string", "$value": "fractalNoise .003 .008 ×5, damar eşiği (table), 800² döşeme", "$description": "Doğal taş, traverten damarı" },
+    "Flat": { "$type": "string", "$value": "none" }
+  },
+  "Icon": {
+    "Stroke": { "$type": "dimension", "$value": "1px", "$description": "Madde 9: ikon hattı 1 px, ölçekten bağımsız (vector-effect: non-scaling-stroke); uç kare, birleşim keskin" },
+    "Grid": { "$type": "string", "$value": "24×24, yalnız işlevsel: ok, artı, ara, sepet, takvim, konum…" }
+  },
+  "Motion": {
+    "FadeIn": { "$type": "duration", "$value": { "value": 1800, "unit": "ms" }, "$description": "Madde 16: yalnız opacity 0 → 1, görününce; kayma yok" },
+    "Crossfade": { "$type": "duration", "$value": { "value": 1600, "unit": "ms" }, "$description": "Galeri geçişi" },
+    "Button": { "$type": "duration", "$value": { "value": 700, "unit": "ms" }, "$description": "QuietButton dolgu ve yazı rengi" },
+    "Easing": { "$type": "cubicBezier", "$value": [0.22, 0.61, 0.36, 1] },
+    "ReducedMotion": { "$type": "string", "$value": "prefers-reduced-motion: reduce veya ayar 'Kapalı' → geçiş yok, tüm içerik ilk andan görünür" }
+  },
+  "Responsive": {
+    "Rule": { "$type": "string", "$value": "Madde 17: boşluk orantılı daralır (bölüm 160 → 72, eleman 96 → 48); dergi hissi kalır: büyük serif başlık, kenardan kenara görsel, girintili dar okuma sütunu, geniş aralıklı küçük üst yazı" },
+    "TouchTarget": { "$type": "dimension", "$value": "44px", "$description": "Düğme ≥ 48, seçim ≥ 44×48, anahtar ve kaydırıcı 44" }
+  },
+  "Accessibility": {
+    "Contrast": { "$type": "string", "$value": "Kömür / taş 14,1:1; kömür / fildişi 15,0:1 (AAA). Toprak tonları çizgi ve büyük yazı için; ikincil metin #6E6357 (5,2:1)" },
+    "Focus": { "$type": "string", "$value": "2px solid Charcoal, offset 4px (Kömür temada fildişi)" },
+    "Selected": { "$type": "string", "$value": "kare işaret + kalın yazı + 2 px alt çizgi; durum ayrıca yazıyla da verilir (AÇIK / KAPALI, SEÇİLİ)" }
+  }
+}
