@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Stil 025: Hand-drawn / Sketch. Eskiz defteri kremi üzerine kömür, mürekkep mavisi ve kırmızı kalem; rough.js ile titrek çizgiler, karalanarak dolan onay kutuları, tarama gölgeleri ve kare kare titreme: butik kahveci, indie geliştirici portfolyosu ve kişisel blog." />
+    <meta name="theme-color" content="#F9F6F0" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' fill='%23F9F6F0'/%3E%3Cpath d='M9 19 H33 V31 Q33 40 24 40 H18 Q9 40 9 31 Z M33 22 Q42 22 42 28 Q42 35 33 35 M5 44 H37' fill='none' stroke='%232B2B2B' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M15 6 Q19 10 15 14 M22 4 Q26 9 22 13' fill='none' stroke='%23E63946' stroke-width='3.4' stroke-linecap='round'/%3E%3C/svg%3E" />
+    <title>Stil 025 · Hand-drawn / Sketch</title>
+    <script>
+      try {
+        var d = document.documentElement
+        var g = function (k) {
+          return localStorage.getItem(k)
+        }
+        var m = g('skc-hareket')
+        d.dataset.motion = m === 'kapali' || (m !== 'acik' && matchMedia('(prefers-reduced-motion: reduce)').matches) ? 'off' : 'on'
+        d.dataset.titreme = g('skc-titreme') === 'surekli' ? 'surekli' : 'etkilesim'
+        d.dataset.kagit = g('skc-kagit') === 'geri' || g('skc-kagit') === 'yok' ? g('skc-kagit') : 'ekskiz'
+        d.dataset.baslik = g('skc-baslik') === 'okunur' ? 'okunur' : 'el'
+        d.dataset.kontrast = g('skc-kontrast') === 'yuksek' ? 'yuksek' : 'normal'
+      } catch (e) {}
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/sketch/main.tsx"></script>
+  </body>
+</html>

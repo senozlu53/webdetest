@@ -1,0 +1,62 @@
+{
+  "$description": "Stil 025: Hand-drawn / Sketch. W3C DTCG formatı. Adlar Figma yolu ile aynıdır: Stroke/RoughBorder, Texture/PaperBase, Color/Charcoal. Tek tema: açık (kâğıt). El yazısı yalnız başlık ve süs; gövde okunaklı sans (Madde 18).",
+  "Color": {
+    "SketchCream": { "$type": "color", "$value": "#F9F6F0", "$description": "Madde 4: Eskiz Defteri Kremi, sayfa zemini", "contrast": { "charcoalOnIt": 13.13, "inkOnIt": 11.46 } },
+    "Charcoal": { "$type": "color", "$value": "#2B2B2B", "$description": "Kömür Siyahı: çizgi ve gövde metni" },
+    "Ink": { "$type": "color", "$value": "#1D3557", "$description": "Mürekkep Mavisi: başlık, bağlantı, dolgu", "contrast": { "onCream": 11.46, "creamOnIt": 11.46 } },
+    "RedPencil": { "$type": "color", "$value": "#E63946", "$description": "Kırmızı Kalem: yalnız çizgi, daire, karalama ve büyük yazı", "contrast": { "onCream": 3.86 } },
+    "RedPencilDark": { "$type": "color", "$value": "#C1121F", "$description": "Küçük kırmızı yazı ve dolu kırmızı düğme için koyu ton", "contrast": { "onCream": 5.77, "whiteOnIt": 6.22 } },
+    "Muted": { "$type": "color", "$value": "#5A5A5A", "$description": "İkincil metin", "contrast": { "onCream": 6.39 } },
+    "Paper2": { "$type": "color", "$value": "#EFEADF", "$description": "Kod bloğu ve tablo zemini" },
+    "HighContrast": {
+      "$description": "Madde 18 varyantı",
+      "Charcoal": { "$type": "color", "$value": "#111111" },
+      "Ink": { "$type": "color", "$value": "#0F2440" },
+      "RedPencilDark": { "$type": "color", "$value": "#A50E1A" },
+      "Muted": { "$type": "color", "$value": "#3D3D3D" },
+      "StrokeScale": { "$type": "number", "$value": 1.35, "$description": "Kalem kalınlığı çarpanı" }
+    }
+  },
+  "Stroke": {
+    "RoughBorder": {
+      "$type": "strokeStyle",
+      "$value": { "lineCap": "round", "lineJoin": "round", "dashArray": [] },
+      "width": { "$type": "dimension", "$value": "2px" },
+      "roughen": { "$type": "number", "$value": 1.6, "$description": "Madde 12: Roughen amount. rough.js roughness 1.2–1.6, bowing 1.4" },
+      "$description": "Madde 12 · 13: Stroke → Round"
+    },
+    "Scale": { "$type": "string", "$value": "clamp(0.62, innerWidth / 1100, 1)", "$description": "Madde 17: ekran küçülünce kalınlık oranı korunur" },
+    "Focus": { "$type": "string", "$value": "3px dashed Ink, offset 4px" }
+  },
+  "Texture": {
+    "PaperBase": { "$type": "string", "$value": "feTurbulence fractalNoise baseFrequency .8 numOctaves 3, alfa 0,8×A − 0,31, kahverengi-gri", "$description": "Madde 8 · 13: eskiz defteri tanesi (SVG, resim dosyası yok)" },
+    "PaperRecycled": { "$type": "string", "$value": "PaperBase + lif (baseFrequency .012 .35) + benek (eşikli gürültü)" },
+    "Hatching": { "$type": "string", "$value": "repeating-linear-gradient(-45deg, Charcoal 0 1.5px, transparent 1.5px 6px), L biçimli clip-path, feDisplacementMap scale 3", "$description": "Madde 7: dijital gölge yerine tarama" }
+  },
+  "Radius": {
+    "Hand": { "$type": "string", "$value": "255px 15px 225px 15px / 15px 225px 15px 255px", "$description": "Madde 15: asimetrik yarıçap, JS'siz hafif çerçeve" },
+    "HandReverse": { "$type": "string", "$value": "15px 225px 15px 255px / 255px 15px 225px 15px" }
+  },
+  "Typography": {
+    "Heading": { "$type": "typography", "$value": { "fontFamily": ["Caveat", "Patrick Hand", "cursive"], "fontWeight": 700, "lineHeight": 1 }, "$description": "Madde 5: yalnız ≥ 34px; 28px altına inmez" },
+    "Note": { "$type": "typography", "$value": { "fontFamily": ["Patrick Hand", "Caveat", "cursive"], "fontWeight": 400, "fontSize": "19–34px" }, "$description": "Kenar notu, düğme. Uzun metin yok" },
+    "Label": { "$type": "typography", "$value": { "fontFamily": ["Courier Prime", "Courier New", "monospace"], "fontWeight": 700, "fontSize": "14px", "letterSpacing": "0.1em", "textTransform": "uppercase" } },
+    "Body": { "$type": "typography", "$value": { "fontFamily": ["Atkinson Hyperlegible Next", "system-ui", "sans-serif"], "fontWeight": 400, "fontSize": "18px", "lineHeight": 1.65, "letterSpacing": "0.005em" }, "$description": "Madde 18: disleksi dostu okunaklı sans" }
+  },
+  "Component": {
+    "RoughBox": { "seed": "her örnek kendi tohumu", "frames": { "$type": "number", "$value": 3 }, "padding": { "$type": "dimension", "$value": "3px" }, "$description": "Madde 14: rough.js generator + ResizeObserver" },
+    "RoughButton": { "height": { "$type": "dimension", "$value": "48px · 52px · 62px" }, "types": ["cizgi", "murekkep", "kirmizi"] },
+    "ScribbleCheckbox": { "size": { "$type": "dimension", "$value": "36px" }, "fill": { "$type": "string", "$value": "tek parça zikzak, pathLength=1, steps(8) 420ms" }, "$description": "Madde 11" },
+    "Field": { "height": { "$type": "dimension", "$value": "54px" }, "error": "Kırmızı kalem çerçeve + kalem ikonu + koyu kırmızı metin + aria-invalid" },
+    "Annotation": { "$type": "string", "$value": "react-rough-notation: underline, box, circle, highlight, strike-through, crossed-off, bracket" }
+  },
+  "Motion": {
+    "Jitter": { "$type": "string", "$value": "3 kare × 0,42 sn (7 kare/sn) linear infinite; hover, odak veya 'Sürekli' ayarı", "$description": "Madde 16: stop-motion; parlaklık değişmez" },
+    "PenDraw": { "$type": "string", "$value": "stroke-dashoffset 1 → 0, steps(N, end)" },
+    "Reduced": { "$type": "string", "$value": "prefers-reduced-motion ya da ayar: bütün titreme ve çizim animasyonları durur" }
+  },
+  "Responsive": {
+    "TouchTarget": { "$type": "dimension", "$value": "48px" },
+    "IconViewBox": { "$type": "string", "$value": "0 0 48 48", "$description": "Madde 17: çizgi 3 birim, boyutla birlikte ölçeklenir" }
+  }
+}

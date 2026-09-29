@@ -1,0 +1,629 @@
+@import 'tailwindcss' source(none);
+@source '.';
+
+/* ─────────────────────────────────────────────────────────────
+   STİL 025 · HAND-DRAWN / SKETCH
+   Cetvel ve piksellerin yerini karakalem, mürekkep ve kasten titrek çizgiler alır.
+   Zemin eskiz defteri kremi; çizgi kömür, vurgu mürekkep mavisi ve kırmızı kalem.
+   Kırmızı kalem (#E63946) krem üstünde 3,86:1: yalnız çizgi, işaret ve büyük yazı. Küçük kırmızı yazı koyu tonla (#C1121F, 5,77:1).
+   Gövde metni okunaklı sans (Atkinson Hyperlegible Next); el yazısı yalnız başlık ve süs (Madde 18).
+   Değerler tokens/sketch.tokens.json ile aynıdır.
+   ───────────────────────────────────────────────────────────── */
+
+@custom-variant motion (&:where([data-motion='on'], [data-motion='on'] *));
+
+@font-face {
+  font-family: 'Caveat Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400 700;
+  src: url('@fontsource-variable/caveat/files/caveat-latin-ext-wght-normal.woff2') format('woff2-variations');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Caveat Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400 700;
+  src: url('@fontsource-variable/caveat/files/caveat-latin-wght-normal.woff2') format('woff2-variations');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Patrick Hand';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url('@fontsource/patrick-hand/files/patrick-hand-latin-ext-400-normal.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Patrick Hand';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url('@fontsource/patrick-hand/files/patrick-hand-latin-400-normal.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Courier Prime';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url('@fontsource/courier-prime/files/courier-prime-latin-ext-400-normal.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Courier Prime';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url('@fontsource/courier-prime/files/courier-prime-latin-400-normal.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Courier Prime';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: url('@fontsource/courier-prime/files/courier-prime-latin-ext-700-normal.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Courier Prime';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: url('@fontsource/courier-prime/files/courier-prime-latin-700-normal.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Atkinson Hyperlegible Next Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 200 800;
+  src: url('@fontsource-variable/atkinson-hyperlegible-next/files/atkinson-hyperlegible-next-latin-ext-wght-normal.woff2') format('woff2-variations');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Atkinson Hyperlegible Next Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 200 800;
+  src: url('@fontsource-variable/atkinson-hyperlegible-next/files/atkinson-hyperlegible-next-latin-wght-normal.woff2') format('woff2-variations');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* ── Madde 4: renkler ── */
+:root {
+  --kagit: #f9f6f0;
+  --kagit-2: #efeadf;
+  --komur: #2b2b2b;
+  --murekkep: #1d3557;
+  --kirmizi: #e63946;
+  --kirmizi-k: #c1121f;
+  --soluk: #5a5a5a;
+  --k: 1; /* Madde 17: çizgi ölçeği. Ekran küçülünce kalınlık oranını korur (JS ayarlar) */
+  --focus: #1d3557;
+  --font-baslik: 'Caveat Variable', 'Caveat', 'Patrick Hand', cursive;
+  --baslik-agirlik: 700;
+  --baslik-boy: 1;
+  color-scheme: light;
+}
+/* Madde 18 varyantı: yüksek kontrast. Koyu çizgi, kalın kalem */
+:root[data-kontrast='yuksek'] {
+  --komur: #111111;
+  --murekkep: #0f2440;
+  --kirmizi-k: #a50e1a;
+  --soluk: #3d3d3d;
+  --focus: #0f2440;
+}
+/* Madde 18: el yazısı başlıklar kapatılınca okunaklı sans */
+:root[data-baslik='okunur'] {
+  --font-baslik: 'Atkinson Hyperlegible Next Variable', 'Atkinson Hyperlegible Next', system-ui, sans-serif;
+  --baslik-agirlik: 800;
+  --baslik-boy: 0.72;
+}
+
+/* ── Madde 8: kâğıt dokuları (SVG gürültü, ağ isteği yok) ── */
+:root {
+  --dok-ekskiz: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='n' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' seed='4' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .32 0 0 0 0 .28 0 0 0 0 .22 0 0 0 .8 -.31'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  --dok-lif: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='420' height='420'%3E%3Cfilter id='f' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.012 .35' numOctaves='2' seed='9' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .42 0 0 0 0 .34 0 0 0 0 .24 0 0 0 1.3 -.52'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)'/%3E%3C/svg%3E");
+  --dok-benek: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='360' height='360'%3E%3Cfilter id='b' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.28' numOctaves='2' seed='21' stitchTiles='stitch'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='discrete' tableValues='0 0 0 0 0 0 0 0 0 0 0 0 0 0 .75 1'/%3E%3C/feComponentTransfer%3E%3CfeColorMatrix values='0 0 0 0 .35 0 0 0 0 .27 0 0 0 0 .18 0 0 0 1 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23b)'/%3E%3C/svg%3E");
+  --grain: var(--dok-ekskiz);
+}
+:root[data-kagit='geri'] {
+  --grain: var(--dok-benek), var(--dok-lif), var(--dok-ekskiz);
+}
+:root[data-kagit='yok'] {
+  --grain: none;
+}
+
+@theme {
+  --color-*: initial;
+  --font-*: initial;
+  --font-el: 'Caveat Variable', 'Caveat', 'Patrick Hand', cursive;
+  --font-not: 'Patrick Hand', 'Caveat Variable', cursive;
+  --font-daktilo: 'Courier Prime', 'Courier New', Courier, monospace;
+  --font-sans: 'Atkinson Hyperlegible Next Variable', 'Atkinson Hyperlegible Next', system-ui, sans-serif;
+  --font-mono: 'Courier Prime', 'Courier New', Courier, monospace;
+  --color-white: #ffffff;
+  --color-transparent: transparent;
+  --color-kagit: var(--kagit);
+  --color-kagit2: var(--kagit-2);
+  --color-komur: var(--komur);
+  --color-murekkep: var(--murekkep);
+  --color-kirmizi: var(--kirmizi);
+  --color-kirmiziK: var(--kirmizi-k);
+  --color-soluk: var(--soluk);
+}
+
+@layer base {
+  html {
+    background: var(--kagit);
+    color: var(--komur);
+    font-family: var(--font-sans);
+    scroll-padding-top: 96px;
+  }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background-color: var(--kagit);
+    background-image: linear-gradient(rgb(249 246 240 / var(--veil, 0)), rgb(249 246 240 / var(--veil, 0))), var(--grain);
+    color: var(--komur);
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.65;
+    letter-spacing: 0.005em;
+    overflow-x: clip;
+  }
+  :focus-visible {
+    outline: calc(3px * var(--k)) solid var(--focus);
+    outline-offset: 4px;
+    border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+  }
+  ::selection {
+    background: #f4c7cb;
+    color: var(--komur);
+  }
+  h1,
+  h2,
+  h3 {
+    margin: 0;
+    font-family: var(--font-baslik);
+    font-weight: var(--baslik-agirlik);
+    line-height: 1;
+    text-wrap: balance;
+    color: var(--murekkep);
+  }
+  p {
+    margin: 0;
+  }
+  a {
+    color: var(--murekkep);
+    font-weight: 700;
+    text-decoration-line: underline;
+    text-decoration-thickness: 2px;
+    text-decoration-color: var(--kirmizi);
+    text-underline-offset: 5px;
+  }
+  button {
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+  }
+}
+
+@layer components {
+  /* Madde 15: tanımdaki asimetrik yarıçap, JS'siz hafif çerçeve (etiket, hücre, çip) */
+  .el-kose {
+    border: calc(2px * var(--k)) solid var(--komur);
+    border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+  }
+  .el-kose-2 {
+    border: calc(2px * var(--k)) solid var(--komur);
+    border-radius: 15px 225px 15px 255px / 255px 15px 225px 15px;
+  }
+
+  .kicker {
+    font-family: var(--font-daktilo);
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--murekkep);
+  }
+  .not {
+    font-family: var(--font-not);
+    font-size: 21px;
+    line-height: 1.25;
+    color: var(--murekkep);
+  }
+
+  /* Madde 7: dijital gölge yok; sağ-alt L biçimli tarama (hatching). Çizgiler hafif dalgalı */
+  .tarama {
+    --d: 10px;
+    --gap: 6px;
+    --a: -45deg;
+    --tc: var(--komur);
+    position: relative;
+    isolation: isolate;
+  }
+  .tarama::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    translate: var(--d) var(--d);
+    pointer-events: none;
+    background: repeating-linear-gradient(var(--a), var(--tc) 0 calc(1.5px * var(--k)), transparent calc(1.5px * var(--k)) var(--gap));
+    clip-path: polygon(calc(100% - var(--d)) 0, 100% 0, 100% 100%, 0 100%, 0 calc(100% - var(--d)), calc(100% - var(--d)) calc(100% - var(--d)));
+    filter: url(#titrek);
+  }
+  .tarama-mavi {
+    --tc: var(--murekkep);
+  }
+  .tarama-kirmizi {
+    --tc: var(--kirmizi);
+  }
+
+  /* Karalama zemini: açık hafif çapraz tarama */
+  .tarama-zemin {
+    background-image: repeating-linear-gradient(-52deg, rgb(43 43 43 / 0.09) 0 calc(1.5px * var(--k)), transparent calc(1.5px * var(--k)) 7px);
+  }
+
+  /* Rough çizimleri */
+  .rough-cizim {
+    position: absolute;
+    inset: 0;
+    overflow: visible;
+    pointer-events: none;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .rough-cizim path {
+    vector-effect: none;
+  }
+  /* Madde 16: kare kare titreme. Üç çizim aynı şeklin üç ayrı denemesi; sırayla açılır */
+  .kare[data-i='1'],
+  .kare[data-i='2'] {
+    opacity: 0;
+  }
+
+  /* <RoughButton> */
+  .rbtn {
+    position: relative;
+    isolation: isolate;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 52px;
+    padding: 10px 26px;
+    border: 0;
+    background: transparent;
+    color: var(--komur);
+    font-family: var(--font-not);
+    font-size: 22px;
+    line-height: 1.1;
+    white-space: nowrap;
+    transition: rotate 120ms steps(2);
+  }
+  .rbtn > .rough-cizim {
+    z-index: -1;
+  }
+  .rbtn[data-boy='k'] {
+    min-height: 48px;
+    padding: 6px 18px;
+    font-size: 19px;
+  }
+  .rbtn[data-boy='b'] {
+    min-height: 62px;
+    padding: 14px 34px;
+    font-size: 26px;
+  }
+  .rbtn[data-tur='murekkep'] {
+    color: var(--kagit);
+  }
+  .rbtn[data-tur='kirmizi'] {
+    color: #ffffff;
+  }
+  .rbtn:disabled {
+    color: var(--soluk);
+    cursor: not-allowed;
+  }
+  .rbtn:disabled > .rough-cizim {
+    opacity: 0.55;
+  }
+  :root[data-motion='on'] .rbtn:hover:not(:disabled) {
+    rotate: -0.8deg;
+  }
+  .rbtn:active:not(:disabled) {
+    translate: 2px 3px;
+  }
+  /* karalama vurgusu: üstüne gelince işaretleyici gibi çizilir */
+  .rbtn > .vurgu {
+    z-index: -2;
+  }
+
+  /* Karalama çizgisi: tek parça, pathLength=1 ile çizilerek dolar (steps: stop-motion) */
+  .karala {
+    stroke-dasharray: 1 2;
+    stroke-dashoffset: 1;
+    transition: stroke-dashoffset 420ms steps(8, end);
+  }
+  .karala[data-ac='1'] {
+    stroke-dashoffset: 0;
+  }
+  :root[data-motion='off'] .karala {
+    transition: none;
+  }
+
+  /* Madde 11: titrek çerçeveli alan */
+  .alan {
+    position: relative;
+    isolation: isolate;
+    display: block;
+  }
+  .alan > .rough-cizim {
+    z-index: -1;
+  }
+  .alan-girdi {
+    display: block;
+    width: 100%;
+    min-height: 54px;
+    padding: 10px 18px;
+    border: 0;
+    background: transparent;
+    color: var(--komur);
+    font-family: var(--font-sans);
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 6px;
+  }
+  .alan-girdi::placeholder {
+    color: var(--soluk);
+    opacity: 1;
+  }
+  .alan-girdi:focus-visible {
+    outline: none;
+  }
+  .alan:has(.alan-girdi:focus-visible) {
+    outline: calc(3px * var(--k)) dashed var(--focus);
+    outline-offset: 5px;
+    border-radius: 12px;
+  }
+  textarea.alan-girdi {
+    min-height: 130px;
+    resize: vertical;
+  }
+
+  /* Karalanarak dolan onay kutusu ve seçenek */
+  .kutu-sec {
+    position: relative;
+    display: inline-flex;
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+  }
+  .kutu-sec > input {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    opacity: 0;
+    cursor: pointer;
+  }
+  .kutu-sec:has(> input:focus-visible) {
+    outline: calc(3px * var(--k)) dashed var(--focus);
+    outline-offset: 4px;
+    border-radius: 10px;
+  }
+  .kutu-sec > .rough-cizim {
+    inset: 0;
+  }
+
+  /* Anahtar: kalem çizgisi ray, tutamak karalanmış daire */
+  .anahtar {
+    position: relative;
+    flex-shrink: 0;
+    width: 76px;
+    height: 48px;
+    border: 0;
+    background: transparent;
+  }
+  .anahtar > .rough-cizim {
+    inset: 0;
+  }
+  /* Kaydırıcı */
+  .kalem-aralik {
+    appearance: none;
+    display: block;
+    width: 100%;
+    height: 48px;
+    background: transparent;
+    cursor: pointer;
+  }
+  .kalem-aralik::-webkit-slider-runnable-track {
+    height: 8px;
+    background: linear-gradient(to right, var(--murekkep) var(--p), rgb(43 43 43 / 0.22) var(--p));
+    border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+    border: calc(2px * var(--k)) solid var(--komur);
+    box-sizing: content-box;
+  }
+  .kalem-aralik::-moz-range-track {
+    height: 8px;
+    background: linear-gradient(to right, var(--murekkep) var(--p), rgb(43 43 43 / 0.22) var(--p));
+    border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+    border: calc(2px * var(--k)) solid var(--komur);
+  }
+  .kalem-aralik::-webkit-slider-thumb {
+    appearance: none;
+    width: 30px;
+    height: 30px;
+    margin-top: -12px;
+    border: calc(3px * var(--k)) solid var(--komur);
+    border-radius: 58% 42% 55% 45% / 46% 56% 44% 54%;
+    background: var(--kagit);
+  }
+  .kalem-aralik::-moz-range-thumb {
+    width: 24px;
+    height: 24px;
+    border: calc(3px * var(--k)) solid var(--komur);
+    border-radius: 58% 42% 55% 45% / 46% 56% 44% 54%;
+    background: var(--kagit);
+  }
+  .kalem-aralik:focus-visible {
+    outline-offset: 2px;
+  }
+
+  /* Seçim çipi: Madde 15 yarıçapı, seçilince mürekkep dolgu + onay işareti */
+  .cip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 48px;
+    padding: 4px 18px;
+    border: calc(2px * var(--k)) solid var(--komur);
+    border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+    background: transparent;
+    color: var(--komur);
+    font-family: var(--font-not);
+    font-size: 20px;
+    cursor: pointer;
+    user-select: none;
+  }
+  .cip[data-on] {
+    background: var(--murekkep);
+    border-color: var(--murekkep);
+    color: var(--kagit);
+  }
+  .cip:has(:focus-visible) {
+    outline: calc(3px * var(--k)) dashed var(--focus);
+    outline-offset: 4px;
+  }
+
+  .kod {
+    margin: 0;
+    padding: 16px 20px;
+    border: calc(2px * var(--k)) solid var(--komur);
+    border-radius: 15px 225px 15px 255px / 255px 15px 225px 15px;
+    background: rgb(43 43 43 / 0.05);
+    color: var(--komur);
+    font-family: var(--font-daktilo);
+    font-size: 15px;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+  }
+
+  .el-tablo {
+    border-collapse: collapse;
+  }
+}
+
+/* ── Madde 16: kare kare titreme (stop-motion). Üç çizim sırayla açılıp kapanır, geçiş yok ── */
+@keyframes kare-0 {
+  0%,
+  33.32% {
+    opacity: 1;
+  }
+  33.33%,
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes kare-1 {
+  0%,
+  33.32% {
+    opacity: 0;
+  }
+  33.33%,
+  66.66% {
+    opacity: 1;
+  }
+  66.67%,
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes kare-2 {
+  0%,
+  66.66% {
+    opacity: 0;
+  }
+  66.67%,
+  100% {
+    opacity: 1;
+  }
+}
+/* etkileşim: üstüne gelince / odakta / basınca */
+:root[data-motion='on'] [data-titre]:is(:hover, :focus-within) .kare[data-i='0'],
+:root[data-motion='on'][data-titreme='surekli'] [data-titre] .kare[data-i='0'],
+:root[data-motion='on'] .titre-hep .kare[data-i='0'] {
+  animation: kare-0 var(--kare-sure, 0.42s) linear infinite;
+}
+:root[data-motion='on'] [data-titre]:is(:hover, :focus-within) .kare[data-i='1'],
+:root[data-motion='on'][data-titreme='surekli'] [data-titre] .kare[data-i='1'],
+:root[data-motion='on'] .titre-hep .kare[data-i='1'] {
+  animation: kare-1 var(--kare-sure, 0.42s) linear infinite;
+}
+:root[data-motion='on'] [data-titre]:is(:hover, :focus-within) .kare[data-i='2'],
+:root[data-motion='on'][data-titreme='surekli'] [data-titre] .kare[data-i='2'],
+:root[data-motion='on'] .titre-hep .kare[data-i='2'] {
+  animation: kare-2 var(--kare-sure, 0.42s) linear infinite;
+}
+@keyframes yaz-ciz {
+  from {
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes sallan {
+  0%,
+  100% {
+    rotate: 0deg;
+  }
+  25% {
+    rotate: -1.6deg;
+  }
+  75% {
+    rotate: 1.4deg;
+  }
+}
+:root[data-motion='on'] .sallan {
+  animation: sallan 0.9s steps(4, end) infinite;
+}
+@keyframes buhar {
+  0% {
+    translate: 0 6px;
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  100% {
+    translate: 2px -10px;
+    opacity: 0;
+  }
+}
+:root[data-motion='on'] .buhar {
+  animation: buhar 1.8s steps(6, end) infinite;
+}
+:root[data-motion='on'] .buhar:nth-of-type(2) {
+  animation-delay: 0.6s;
+}
+:root[data-motion='on'] .buhar:nth-of-type(3) {
+  animation-delay: 1.2s;
+}
+
+:root[data-motion='off'] *,
+:root[data-motion='off'] *::before,
+:root[data-motion='off'] *::after {
+  animation: none !important;
+  transition-duration: 0.01ms !important;
+}
