@@ -34,7 +34,7 @@ export function Sunburst({ n = 36, halka = 5, aci = 180, kisa = 0.78, className,
               acik !== undefined
                 ? { strokeDashoffset: acik ? 0 : 1, transition: `stroke-dashoffset ${yavas}s cubic-bezier(0.65,0,0.35,1) ${(Math.abs(i - n / 2) / (n / 2)) * (acik ? 0.9 : 0.1)}s` }
                 : ciz && g
-                  ? { animation: `cizgi-ciz ${yavas}s cubic-bezier(0.65,0,0.35,1) ${(Math.abs(i - n / 2) / (n / 2)) * 0.9}s both`, ['--uzunluk' as string]: 1 }
+                  ? { animation: `cizgi-ciz ${yavas}s cubic-bezier(0.65,0,0.35,1) ${(Math.abs(i - n / 2) / (n / 2)) * 0.5}s both`, ['--uzunluk' as string]: 1 }
                   : ciz
                     ? { strokeDashoffset: 1 }
                     : undefined

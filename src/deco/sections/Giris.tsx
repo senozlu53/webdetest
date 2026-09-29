@@ -15,9 +15,9 @@ export function Hero() {
   return (
     <section id="ust" aria-labelledby="baslik" className="mx-auto w-full max-w-[1240px] px-4 pt-8 pb-8 md:px-8 md:pt-12">
       <div ref={ref} className="relative isolate mx-auto flex max-w-[1000px] flex-col items-center px-5 pt-10 pb-14 text-center md:px-16 md:pt-14" data-hero="" data-kat={c.kat}>
-        <Cerceve key={c.kat} kat={c.kat} stil="basamak" k={c.k} aralik={c.aralik} zemin="var(--zemin)" dolgu={false} ciz yavas={2.6} />
+        <Cerceve key={c.kat} kat={c.kat} stil="basamak" k={c.k} aralik={c.aralik} zemin="var(--zemin)" dolgu={false} ciz yavas={1.4} />
         <div className="w-full max-w-[760px]">
-          <Sunburst n={40} halka={5} ciz yavas={2.8} className="max-h-[300px]" />
+          <Sunburst n={40} halka={5} ciz yavas={1.5} className="max-h-[300px]" />
         </div>
         <p className="kicker mt-6">İstanbul · Beyoğlu · MCMXXVIII</p>
         <h1 id="baslik" lang="en" className="mt-5 text-[clamp(38px,8.4vw,104px)] leading-[1.02] font-medium" style={{ letterSpacing: 'calc(0.16em * var(--iz))' }}>
