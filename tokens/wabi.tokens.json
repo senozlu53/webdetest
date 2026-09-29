@@ -1,0 +1,705 @@
+{
+  "$description": "Stil 033: Natural Minimalism (Wabi-Sabi Digital). W3C DTCG formatı. Adlar Figma yoluyla aynıdır: Color/WabiStone, Spacing/MeditativeSpace, Font/WeightLight. Palet dört tondur: Ham Kil, Kül Grisi, Kurumuş Yaprak, Mat Siyah. Doğal taş renkleri düşük kontrast riski taşıdığı için yazı ve denetim çizgisi yalnız koyu türevlerle çizilir; Kül Grisi süstür. Hiçbir öğede gölge yoktur; derinlik konum, boy ve tondan gelir. Kontrast sayıları sayfadaki tarayıcı taramasının aynısıdır (zemin + dokunun en koyu noktası).",
+  "Color": {
+    "WabiStone": {
+      "$type": "color",
+      "$value": "#E8E4DF",
+      "$description": "Madde 4: Ham Kil. Sayfa zemini",
+      "contrast": {
+        "inkOnIt": 7.47,
+        "mutedOnIt": 6.04
+      }
+    },
+    "AshGrey": {
+      "$type": "color",
+      "$value": "#B0A8A0",
+      "$description": "Madde 4: Kül Grisi. Yalnız süs: ince çizgi, seramik sırı, ayraç. Kil zeminde çizgi ya da yazı olarak yetmez",
+      "contrast": {
+        "onWabiStone": 1.85
+      }
+    },
+    "DriedLeaf": {
+      "$type": "color",
+      "$value": "#8C7B70",
+      "$description": "Madde 4: Kurumuş Yaprak. İnce çizgi, büyük yazı; kömür temada denetim çerçevesi",
+      "contrast": {
+        "onWabiStone": 3.2
+      }
+    },
+    "MatteBlack": {
+      "$type": "color",
+      "$value": "#1F1C1A",
+      "$description": "Madde 4: Mat Siyah. Küçük detaylar: dolu düğme, ensō fırçası, mat seramik",
+      "contrast": {
+        "onWabiStone": 13.39
+      }
+    },
+    "Derived": {
+      "$description": "Ana renklerin yazıda ve çizgide güvenli türevleri (Clay teması)",
+      "Ink": {
+        "$type": "color",
+        "$value": "#4A4542",
+        "$description": "Madde 15 metin rengi",
+        "contrast": {
+          "onWabiStone": 7.47
+        }
+      },
+      "InkMuted": {
+        "$type": "color",
+        "$value": "#5E5148",
+        "contrast": {
+          "onWabiStone": 6.04,
+          "onTextureDarkest": 5.34
+        }
+      },
+      "Line": {
+        "$type": "color",
+        "$value": "#857468",
+        "$description": "Form çerçevesi",
+        "contrast": {
+          "onWabiStone": 3.53
+        }
+      },
+      "Focus": {
+        "$type": "color",
+        "$value": "#3B2A20",
+        "$description": "Madde 18: koyu kahverengi odak konturu",
+        "contrast": {
+          "onWabiStone": 10.79
+        }
+      },
+      "Surface": {
+        "$type": "color",
+        "$value": "#EFECE7"
+      },
+      "Surface2": {
+        "$type": "color",
+        "$value": "#DFDAD3"
+      }
+    }
+  },
+  "Theme": {
+    "Clay": {
+      "$description": "Varsayılan. Ham kil zemin, koyu kahverengi-gri yazı",
+      "zemin": {
+        "$type": "color",
+        "$value": "#E8E4DF"
+      },
+      "yuzey": {
+        "$type": "color",
+        "$value": "#EFECE7",
+        "$description": "Kart ve kod bloğu zemini (sayfa üstünde %70)"
+      },
+      "metin": {
+        "$type": "color",
+        "$value": "#4A4542",
+        "contrast": {
+          "onZemin": 7.47,
+          "onDokuEnKotu": 6.6
+        }
+      },
+      "soluk": {
+        "$type": "color",
+        "$value": "#5E5148",
+        "$description": "İkincil metin",
+        "contrast": {
+          "onZemin": 6.04,
+          "onDokuEnKotu": 5.34
+        }
+      },
+      "kontrol": {
+        "$type": "color",
+        "$value": "#857468",
+        "$description": "Denetim çerçevesi ve ince çizgi (≥ 3:1)",
+        "contrast": {
+          "onZemin": 3.53
+        }
+      },
+      "odak": {
+        "$type": "color",
+        "$value": "#3B2A20",
+        "$description": "Madde 18: odak ve tıklama konturu",
+        "contrast": {
+          "onZemin": 10.79
+        }
+      },
+      "dokuRengi": {
+        "$type": "color",
+        "$value": "#4A4542"
+      },
+      "dokuAlfa": {
+        "$type": "number",
+        "$value": 0.08
+      },
+      "dugme": {
+        "$type": "color",
+        "$value": "#1F1C1A",
+        "contrast": {
+          "textOnIt": 13.39
+        }
+      },
+      "yuksekKontrast": {
+        "metin": {
+          "$type": "color",
+          "$value": "#2B2623",
+          "contrast": {
+            "onZemin": 11.82,
+            "onDokuEnKotu": 10.96
+          }
+        },
+        "soluk": {
+          "$type": "color",
+          "$value": "#3F3733",
+          "contrast": {
+            "onZemin": 9.19,
+            "onDokuEnKotu": 8.52
+          }
+        },
+        "kontrol": {
+          "$type": "color",
+          "$value": "#4A4542",
+          "contrast": {
+            "onZemin": 7.47
+          }
+        },
+        "dokuAlfa": {
+          "$type": "number",
+          "$value": 0.05
+        }
+      }
+    },
+    "Ash": {
+      "$description": "Kül grisi zemin: Madde 4 rengi zemin olur, yazı mat siyaha yakın",
+      "zemin": {
+        "$type": "color",
+        "$value": "#B0A8A0"
+      },
+      "yuzey": {
+        "$type": "color",
+        "$value": "#BAB3AC",
+        "$description": "Kart ve kod bloğu zemini (sayfa üstünde %70)"
+      },
+      "metin": {
+        "$type": "color",
+        "$value": "#1F1C1A",
+        "contrast": {
+          "onZemin": 7.23,
+          "onDokuEnKotu": 6.32
+        }
+      },
+      "soluk": {
+        "$type": "color",
+        "$value": "#2A2420",
+        "$description": "İkincil metin",
+        "contrast": {
+          "onZemin": 6.53,
+          "onDokuEnKotu": 5.71
+        }
+      },
+      "kontrol": {
+        "$type": "color",
+        "$value": "#5A4E46",
+        "$description": "Denetim çerçevesi ve ince çizgi (≥ 3:1)",
+        "contrast": {
+          "onZemin": 3.43
+        }
+      },
+      "odak": {
+        "$type": "color",
+        "$value": "#241A12",
+        "$description": "Madde 18: odak ve tıklama konturu",
+        "contrast": {
+          "onZemin": 7.27
+        }
+      },
+      "dokuRengi": {
+        "$type": "color",
+        "$value": "#1F1C1A"
+      },
+      "dokuAlfa": {
+        "$type": "number",
+        "$value": 0.08
+      },
+      "dugme": {
+        "$type": "color",
+        "$value": "#1F1C1A",
+        "contrast": {
+          "textOnIt": 13.39
+        }
+      },
+      "yuksekKontrast": {
+        "metin": {
+          "$type": "color",
+          "$value": "#0F0D0C",
+          "contrast": {
+            "onZemin": 8.27,
+            "onDokuEnKotu": 7.71
+          }
+        },
+        "soluk": {
+          "$type": "color",
+          "$value": "#17120F",
+          "contrast": {
+            "onZemin": 7.93,
+            "onDokuEnKotu": 7.39
+          }
+        },
+        "kontrol": {
+          "$type": "color",
+          "$value": "#2F2824",
+          "contrast": {
+            "onZemin": 6.18
+          }
+        },
+        "dokuAlfa": {
+          "$type": "number",
+          "$value": 0.04
+        }
+      }
+    },
+    "Charcoal": {
+      "$description": "Koyu sistem tercihi: kömür zemin, ham kil yazı; odak açık kahve",
+      "zemin": {
+        "$type": "color",
+        "$value": "#1C1A18"
+      },
+      "yuzey": {
+        "$type": "color",
+        "$value": "#23201E",
+        "$description": "Kart ve kod bloğu zemini (sayfa üstünde %70)"
+      },
+      "metin": {
+        "$type": "color",
+        "$value": "#E8E4DF",
+        "contrast": {
+          "onZemin": 13.71,
+          "onDokuEnKotu": 11.91
+        }
+      },
+      "soluk": {
+        "$type": "color",
+        "$value": "#B8B0A8",
+        "$description": "İkincil metin",
+        "contrast": {
+          "onZemin": 8.11,
+          "onDokuEnKotu": 7.05
+        }
+      },
+      "kontrol": {
+        "$type": "color",
+        "$value": "#8C7B70",
+        "$description": "Denetim çerçevesi ve ince çizgi (≥ 3:1)",
+        "contrast": {
+          "onZemin": 4.28
+        }
+      },
+      "odak": {
+        "$type": "color",
+        "$value": "#D8C4AC",
+        "$description": "Madde 18: odak ve tıklama konturu",
+        "contrast": {
+          "onZemin": 10.25
+        }
+      },
+      "dokuRengi": {
+        "$type": "color",
+        "$value": "#E8E4DF"
+      },
+      "dokuAlfa": {
+        "$type": "number",
+        "$value": 0.06
+      },
+      "dugme": {
+        "$type": "color",
+        "$value": "#E8E4DF",
+        "contrast": {
+          "textOnIt": 13.71
+        }
+      },
+      "yuksekKontrast": {
+        "metin": {
+          "$type": "color",
+          "$value": "#FFFFFF",
+          "contrast": {
+            "onZemin": 17.35,
+            "onDokuEnKotu": 15.08
+          }
+        },
+        "soluk": {
+          "$type": "color",
+          "$value": "#E6E0D9",
+          "contrast": {
+            "onZemin": 13.24,
+            "onDokuEnKotu": 11.51
+          }
+        },
+        "kontrol": {
+          "$type": "color",
+          "$value": "#D8CFC4",
+          "contrast": {
+            "onZemin": 11.27
+          }
+        },
+        "dokuAlfa": {
+          "$type": "number",
+          "$value": 0.06
+        }
+      }
+    }
+  },
+  "Spacing": {
+    "MeditativeSpace": {
+      "$description": "Madde 13: Spacing/MeditativeSpace. 96 px taban; ölçek 1 : 2 : 3 : 5 : 8. Bölüm boşluğu clamp(96px, 13vw, 200px), hiçbir genişlikte 96 px altına inmez",
+      "base": {
+        "$type": "dimension",
+        "$value": "96px"
+      },
+      "x1": {
+        "$type": "dimension",
+        "$value": "96px"
+      },
+      "x2": {
+        "$type": "dimension",
+        "$value": "192px"
+      },
+      "x3": {
+        "$type": "dimension",
+        "$value": "288px"
+      },
+      "x5": {
+        "$type": "dimension",
+        "$value": "480px"
+      },
+      "x8": {
+        "$type": "dimension",
+        "$value": "768px"
+      },
+      "section": {
+        "$type": "dimension",
+        "$value": "clamp(96px, 13vw, 200px)"
+      },
+      "pageMargin": {
+        "$type": "dimension",
+        "$value": "clamp(20px, 6vw, 96px)"
+      },
+      "columnGap": {
+        "$type": "dimension",
+        "$value": "clamp(12px, 2vw, 32px)"
+      },
+      "minStackGap": {
+        "$type": "dimension",
+        "$value": "2.5rem",
+        "$description": "Madde 17: dar kapta nesneler arası en az boşluk"
+      }
+    },
+    "Asymmetry": {
+      "$description": "Madde 12: Auto Layout iç boşlukları bilerek eşit değil. Ön ayarlar (sol / sağ / üst / alt, px)",
+      "LeanLeft": {
+        "$type": "string",
+        "$value": "24 / 96 / 64 / 96",
+        "$description": "sağ / sol = 4,0"
+      },
+      "LeanRight": {
+        "$type": "string",
+        "$value": "96 / 24 / 64 / 96",
+        "$description": "sağ / sol = 0,25"
+      },
+      "Faded": {
+        "$type": "string",
+        "$value": "40 / 160 / 96 / 40",
+        "$description": "soluk: sağ / sol = 4,0"
+      },
+      "Centered": {
+        "$type": "string",
+        "$value": "64 / 64 / 64 / 64",
+        "$description": "Yapma: simetri"
+      },
+      "minRatio": {
+        "$type": "number",
+        "$value": 1.5,
+        "$description": "Asimetrik sayılmak için sol : sağ oranı en az 1 : 1,5"
+      }
+    }
+  },
+  "Layout": {
+    "columns": {
+      "$type": "number",
+      "$value": 12
+    },
+    "maxWidth": {
+      "$type": "dimension",
+      "$value": "1360px"
+    },
+    "containerBreakpoint": {
+      "$type": "dimension",
+      "$value": "720px",
+      "$description": "Kapsayıcı sorgusu: altında yatay asimetri dikeye çevrilir (üst boşluk rem, girinti %)"
+    },
+    "Mirror": {
+      "$type": "string",
+      "$value": "direction: rtl",
+      "$description": "Sağa yaslı: ızgara direction ile aynalanır; satırlar ve DOM sırası aynı kalır"
+    },
+    "HeroEmptyRatio": {
+      "$type": "number",
+      "$value": 0.5,
+      "$description": "Hero: sayfa alanının en az yarısı boş"
+    }
+  },
+  "Font": {
+    "Heading": {
+      "$type": "fontFamily",
+      "$value": ["Cormorant Garamond Variable", "Cormorant Garamond", "Iowan Old Style", "Palatino Linotype", "Georgia", "serif"]
+    },
+    "Body": {
+      "$type": "fontFamily",
+      "$value": ["Inter Variable", "Inter", "Helvetica Neue", "Arial", "sans-serif"]
+    },
+    "WeightLight": {
+      "$type": "fontWeight",
+      "$value": 300,
+      "$description": "Madde 13: Font/WeightLight. Başlık ve gövde 300; kalın ağırlık kullanılmaz"
+    },
+    "WeightLabel": {
+      "$type": "fontWeight",
+      "$value": 400,
+      "$description": "Yalnız küçük üst yazı ve etiket"
+    },
+    "Tracking": {
+      "$type": "dimension",
+      "$value": "0.1em",
+      "$description": "Madde 15: tracking-widest"
+    },
+    "TrackingBody": {
+      "$type": "dimension",
+      "$value": "0.018em"
+    },
+    "TrackingLabel": {
+      "$type": "dimension",
+      "$value": "0.3em"
+    },
+    "Size": {
+      "body": {
+        "$type": "dimension",
+        "$value": "17.5px"
+      },
+      "display": {
+        "$type": "dimension",
+        "$value": "clamp(54px, 9vw, 148px)"
+      },
+      "heading": {
+        "$type": "dimension",
+        "$value": "clamp(40px, 6.4vw, 92px)"
+      },
+      "label": {
+        "$type": "dimension",
+        "$value": "12px"
+      }
+    },
+    "LineHeight": {
+      "body": {
+        "$type": "number",
+        "$value": 1.9
+      },
+      "display": {
+        "$type": "number",
+        "$value": 0.98
+      }
+    }
+  },
+  "Radius": {
+    "Handmade": {
+      "$type": "string",
+      "$value": "5px 11px 7px 13px / 12px 6px 11px 5px",
+      "$description": "Dört köşe farklı, hiçbiri keskin değil"
+    },
+    "HandmadeAlt": {
+      "$type": "string",
+      "$value": "12px 6px 13px 5px / 6px 12px 5px 11px"
+    },
+    "Pebble": {
+      "$type": "string",
+      "$value": "58% 42% 63% 37% / 46% 55% 45% 54%",
+      "$description": "Çakıl biçimi (yüzdeli yarıçap; sayfada dört çeşit)"
+    }
+  },
+  "Shadow": {
+    "none": {
+      "$type": "string",
+      "$value": "none",
+      "$description": "Madde 7: gölge yok. Sayfadaki 0 öğede box-shadow, text-shadow ya da drop-shadow vardır (canlı sayım). Çerçeveler 1 px çizgidir"
+    }
+  },
+  "Imperfection": {
+    "$description": "Kusur çarpanı: elle çizilen hatların sapması. Ensō, çerçeve, ayraç, plan ve seramik silüetleri aynı çarpanı kullanır. Kaynak: tohumlu sözde rastgele sayı, her seferinde aynı el",
+    "yok": {
+      "$type": "number",
+      "$value": 0
+    },
+    "az": {
+      "$type": "number",
+      "$value": 0.55
+    },
+    "orta": {
+      "$type": "number",
+      "$value": 1,
+      "$description": "Varsayılan"
+    },
+    "cok": {
+      "$type": "number",
+      "$value": 1.7
+    }
+  },
+  "Texture": {
+    "$description": "Madde 8: alfa gürültüsü SVG maskesi (feTurbulence, stitchTiles). Renk temadan gelir; opaklık en fazla %8",
+    "plaster": {
+      "$type": "string",
+      "$value": "baseFrequency .8 + .009, 420 px döşeme",
+      "$description": "Sıva: ince tane ve geniş bulutlu ton (varsayılan)"
+    },
+    "concrete": {
+      "$type": "string",
+      "$value": "baseFrequency .5 + .006/.012, 360 px döşeme",
+      "$description": "Ham beton: gözenek ve kalıp izi"
+    },
+    "clay": {
+      "$type": "string",
+      "$value": "baseFrequency .9/.16 + .03, 380 px döşeme",
+      "$description": "Killi toprak: yatay kaymış tane"
+    },
+    "ceramic": {
+      "$type": "string",
+      "$value": "baseFrequency .38 + .014, 300 px döşeme",
+      "$description": "El yapımı seramik: seyrek benek"
+    },
+    "flat": {
+      "$type": "string",
+      "$value": "none"
+    },
+    "maxOpacity": {
+      "$type": "number",
+      "$value": 0.08
+    }
+  },
+  "Motion": {
+    "$description": "Madde 16: neredeyse hissedilmeyecek kadar yavaş. Yalnız opaklık, renk ve çizgi çizimi; hiçbir şey yer değiştirmez, büyümez ya da sıçramaz",
+    "Reveal": {
+      "$type": "duration",
+      "$value": "2600ms",
+      "$description": "Bölüm belirişi (yalnız opaklık)"
+    },
+    "Fade": {
+      "$type": "duration",
+      "$value": "1200ms",
+      "$description": "Renk, tema, üzerine gelme, boşluk geçişleri"
+    },
+    "Draw": {
+      "$type": "duration",
+      "$value": "6s",
+      "$description": "Elle çizilen çerçeve ve ensō (stroke-dashoffset, pathLength = 1)"
+    },
+    "Light": {
+      "$type": "duration",
+      "$value": "90s",
+      "$description": "Sıvanın üstünde gezinen soluk aydınlık (gidip gelir)"
+    },
+    "Breath": {
+      "$type": "duration",
+      "$value": "9s",
+      "$description": "Solup gelme (ayarlanır 4–20 sn)"
+    },
+    "Easing": {
+      "$type": "cubicBezier",
+      "$value": [0.3, 0.1, 0.2, 1]
+    },
+    "Off": {
+      "$type": "string",
+      "$value": "animation: none; transition-duration: .01ms",
+      "$description": "Hareket kapalı ya da sistem hareketi azaltıyorsa her şey ilk andan görünür"
+    }
+  },
+  "Accessibility": {
+    "$description": "Madde 18: doğal taş renkleri düşük kontrast riski taşır; tıkla / odaklan durumlarında koyu kahverengi kontur devreye girer",
+    "FocusRing": {
+      "$type": "string",
+      "$value": "2px solid var(--odak); outline-offset: 4px",
+      "$description": ":focus-visible ve :active (düğme, bağlantı, anahtar, çip). Kömür temada açık kahve #D8C4AC"
+    },
+    "TargetSize": {
+      "$type": "dimension",
+      "$value": "46px",
+      "$description": "Düğme, çip, alan ve anahtar; sayfada 44 px altında hedef 0"
+    },
+    "TextContrast": {
+      "$type": "number",
+      "$value": 4.5,
+      "$description": "Küçük yazı; yüksek kontrast varyantında 7"
+    },
+    "LargeTextContrast": {
+      "$type": "number",
+      "$value": 3,
+      "$description": "Büyük yazı; yüksek kontrastta 4,5"
+    },
+    "Scan": {
+      "$description": "Tarayıcıda tüm metin düğümleri (912 düğüm) 10 kombinasyonda ölçüldü; hesaplanan renk, gerçek arka plan ve dokunun en koyu noktası",
+      "combos": {
+        "$type": "string",
+        "$value": "kil, kül, kömür, kil + yüksek, kül + yüksek, kömür + yüksek, beton, killi toprak, seramik + kömür, kül + sağa yaslı"
+      },
+      "textNodes": {
+        "$type": "number",
+        "$value": 912
+      },
+      "failures": {
+        "$type": "number",
+        "$value": 0
+      }
+    },
+    "Variants": {
+      "$type": "string",
+      "$value": "tema (oto, kil, kül, kömür) · doku (sıva, beton, kil, seramik, düz) · kusur (yok, az, orta, çok) · yaslanma (sola, sağa) · hareket (oto, açık, kapalı) · kontrast (normal, yüksek)"
+    }
+  },
+  "Icon": {
+    "stroke": {
+      "$type": "dimension",
+      "$value": "1px",
+      "$description": "Madde 9: tek ince çizgi, dolgu yok; vector-effect: non-scaling-stroke"
+    },
+    "grid": {
+      "$type": "dimension",
+      "$value": "24px"
+    },
+    "count": {
+      "$type": "number",
+      "$value": 27,
+      "$description": "Yön 5, eylem 7, bilgi 6, malzeme 9"
+    }
+  },
+  "Components": {
+    "$description": "Madde 14: React bileşenleri",
+    "WabiContainer": {
+      "$type": "string",
+      "$value": "<WabiContainer yon=\"sol\" | \"sag\">"
+    },
+    "Yer": {
+      "$type": "string",
+      "$value": "<Yer b s ind ust>"
+    },
+    "ImperfectCard": {
+      "$type": "string",
+      "$value": "<ImperfectCard tohum kaydir mat dolgu>"
+    },
+    "ZenHero": {
+      "$type": "string",
+      "$value": "<ZenHero odak sir dal tohum yon>"
+    }
+  },
+  "Tailwind": {
+    "classes": {
+      "$type": "string",
+      "$value": "bg-[#E8E4DF] text-[#4A4542] font-light tracking-widest",
+      "$description": "Madde 15: kutu bu sınıflarla çizilir; hesaplanan değerler sayfada okunur"
+    }
+  }
+}

@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Stil 033: Natural Minimalism (Wabi-Sabi). Ham kil rengi zemin, kül grisi ve kurumuş yaprak tonları, asimetrik sakin yerleşim, elle çizilmiş gibi kusurlu hatlar, gölgesiz derinlik, ince Cormorant Garamond ve Inter Light: seramik atölyesi, zen merkezi, mimarlık ofisi ve bağımsız yayın."
+    />
+    <meta name="theme-color" content="#E8E4DF" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='10' fill='%23E8E4DF'/%3E%3Cpath d='M22 9C27 8 30 11 29.500 15C29 19 33 22 33 28C33 36 29 40 24 40C18 40 15 36 15.500 29C16 23 20 20 20 15C20 12 20 10 22 9Z' fill='%238C7B70'/%3E%3C/svg%3E"
+    />
+    <title>Stil 033 · Natural Minimalism</title>
+    <script>
+      try {
+        var d = document.documentElement
+        var g = function (k) {
+          return localStorage.getItem(k)
+        }
+        var m = g('wb-hareket')
+        d.dataset.motion = m === 'kapali' || (m !== 'acik' && matchMedia('(prefers-reduced-motion: reduce)').matches) ? 'off' : 'on'
+        var t = g('wb-tema')
+        d.dataset.tema = t === 'kil' || t === 'kul' || t === 'komur' ? t : matchMedia('(prefers-color-scheme: dark)').matches ? 'komur' : 'kil'
+        var k = g('wb-doku')
+        d.dataset.doku = k === 'beton' || k === 'kil' || k === 'seramik' || k === 'duz' ? k : 'siva'
+        d.dataset.kontrast = g('wb-kontrast') === 'yuksek' ? 'yuksek' : 'normal'
+        d.dataset.yon = g('wb-yon') === 'sag' ? 'sag' : 'sol'
+        var u = g('wb-kusur')
+        d.dataset.kusur = u === 'yok' || u === 'az' || u === 'cok' ? u : 'orta'
+      } catch (e) {}
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/wabi/main.tsx"></script>
+  </body>
+</html>
