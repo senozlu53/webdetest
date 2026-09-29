@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Stil 026: Paper Cut (Layered Paper). Kraft karton zemin üzerinde makasla kesilmiş doygun pastel kâğıt katmanları, gerçek drop-shadow gölgeleri, oyuk girdiler, kâğıttan silüet ikonlar ve farklı hızda hareket eden paralaks katmanları: çocuk kitabı, eko markalı dükkân ve hikâye anlatımı." />
+    <meta name="theme-color" content="#C9A57B" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' fill='%23C9A57B'/%3E%3Cpath d='M2 40 Q12 22 24 32 T46 26 V48 H2Z' fill='%2362C370'/%3E%3Cpath d='M24 6 L35 20 H30 L40 33 H8 L18 20 H13Z' fill='%232EC4B6' stroke='%23FFFAF0' stroke-width='2.5' stroke-linejoin='round'/%3E%3C/svg%3E" />
+    <title>Stil 026 · Paper Cut</title>
+    <script>
+      try {
+        var d = document.documentElement
+        var g = function (k) {
+          return localStorage.getItem(k)
+        }
+        var m = g('pap-hareket')
+        d.dataset.motion = m === 'kapali' || (m !== 'acik' && matchMedia('(prefers-reduced-motion: reduce)').matches) ? 'off' : 'on'
+        var k = g('pap-doku')
+        d.dataset.doku = k === 'suluboya' || k === 'duz' ? k : 'karton'
+        d.dataset.kontrast = g('pap-kontrast') === 'yuksek' ? 'yuksek' : 'normal'
+        var a = parseFloat(g('pap-isik'))
+        if (isFinite(a)) {
+          d.style.setProperty('--ux', Math.cos((a * Math.PI) / 180).toFixed(3))
+          d.style.setProperty('--uy', Math.sin((a * Math.PI) / 180).toFixed(3))
+        }
+      } catch (e) {}
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/paper/main.tsx"></script>
+  </body>
+</html>

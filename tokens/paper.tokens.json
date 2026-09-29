@@ -1,0 +1,74 @@
+{
+  "$description": "Stil 026: Paper Cut (Layered Paper). W3C DTCG formatı. Adlar Figma yolu ile aynıdır: Shadow/PaperLayer1…5, Texture/CraftPaper. Tek tema: açık (kâğıt). Metin hep en üstteki pürüzsüz krem / bej kâğıtta, koyu kahve mürekkeple.",
+  "Color": {
+    "Kraft": { "$type": "color", "$value": "#C9A57B", "$description": "Madde 4: zemin karton, en alt katman", "contrast": { "inkOnIt": 6.52 } },
+    "KraftDark": { "$type": "color", "$value": "#B08A5E", "$description": "Ön plan toprak katmanı", "contrast": { "inkOnIt": 4.73 } },
+    "Beige": { "$type": "color", "$value": "#EFE4D0", "$description": "Bölüm levhaları", "contrast": { "inkOnIt": 11.89 } },
+    "Cream": { "$type": "color", "$value": "#FFFAF0", "$description": "En üst katman: kartlar ve yazı", "contrast": { "inkOnIt": 14.39 } },
+    "Ink": { "$type": "color", "$value": "#2B2622", "$description": "Bütün metin. Pastellerde 5,9:1 ve üstü; beyaz yazı yok (en fazla 2,5:1)" },
+    "Muted": { "$type": "color", "$value": "#5C5148", "$description": "İkincil metin", "contrast": { "onCream": 7.41, "onBeige": 6.12 } },
+    "Coral": { "$type": "color", "$value": "#FF7B6B", "contrast": { "inkOnIt": 5.91 } },
+    "Sun": { "$type": "color", "$value": "#FFC940", "contrast": { "inkOnIt": 9.75 } },
+    "Teal": { "$type": "color", "$value": "#2EC4B6", "contrast": { "inkOnIt": 6.9, "whiteOnIt": 2.17 } },
+    "Sky": { "$type": "color", "$value": "#5FA8FF", "contrast": { "inkOnIt": 6.08 } },
+    "Lilac": { "$type": "color", "$value": "#B7A0FF", "contrast": { "inkOnIt": 6.76 } },
+    "Leaf": { "$type": "color", "$value": "#62C370", "contrast": { "inkOnIt": 6.81 } },
+    "Pink": { "$type": "color", "$value": "#FF93B4", "contrast": { "inkOnIt": 7.19 } },
+    "ShadowTint": { "$type": "color", "$value": "#342210", "$description": "Gölge rengi: siyah değil, kâğıdın altındaki koyu kahve" },
+    "HighContrast": {
+      "$description": "Madde 18 varyantı",
+      "Ink": { "$type": "color", "$value": "#14100D" },
+      "Muted": { "$type": "color", "$value": "#3A322B" },
+      "Edge": { "$type": "dimension", "$value": "1.5px", "$description": "Her kâğıda dört yönlü koyu kenar (drop-shadow ×4)" }
+    }
+  },
+  "Shadow": {
+    "$description": "Madde 7 · 13: Her seviye iki drop-shadow: keskin (blur 0) + yumuşak. Ofsetler ışık vektöründen (ux, uy) türer. Varsayılan ışık 63°: ux 0,454, uy 0,891",
+    "PaperLayer1": { "$type": "shadow", "$value": [{ "color": "#3422104D", "offsetX": "0.45px", "offsetY": "0.89px", "blur": "0px" }, { "color": "#34221038", "offsetX": "0.45px", "offsetY": "1.78px", "blur": "2px" }] },
+    "PaperLayer2": { "$type": "shadow", "$value": [{ "color": "#3422104D", "offsetX": "0.9px", "offsetY": "1.8px", "blur": "0px" }, { "color": "#34221042", "offsetX": "0.9px", "offsetY": "3.6px", "blur": "5px" }] },
+    "PaperLayer3": { "$type": "shadow", "$value": [{ "color": "#3422104D", "offsetX": "1.4px", "offsetY": "2.7px", "blur": "0px" }, { "color": "#34221047", "offsetX": "1.8px", "offsetY": "7.1px", "blur": "8px" }] },
+    "PaperLayer4": { "$type": "shadow", "$value": [{ "color": "#3422104D", "offsetX": "1.8px", "offsetY": "3.6px", "blur": "0px" }, { "color": "#3422104D", "offsetX": "2.7px", "offsetY": "10.7px", "blur": "12px" }] },
+    "PaperLayer5": { "$type": "shadow", "$value": [{ "color": "#3422104D", "offsetX": "2.7px", "offsetY": "5.3px", "blur": "0px" }, { "color": "#34221052", "offsetX": "4.5px", "offsetY": "16px", "blur": "18px" }] },
+    "InnerHole": {
+      "$type": "shadow",
+      "$value": [
+        { "color": "#34221066", "offsetX": "1.4px", "offsetY": "2.7px", "blur": "0px", "inset": true },
+        { "color": "#34221040", "offsetX": "1.8px", "offsetY": "6.2px", "blur": "9px", "inset": true },
+        { "color": "#FFFFFFD9", "offsetX": "-0.9px", "offsetY": "-1.8px", "blur": "0px", "inset": true }
+      ],
+      "$description": "Madde 11 · 12: oyuk (delik) içi: keskin iç gölge, yumuşak iç gölge, alt-sağ dudak ışığı"
+    },
+    "Madde15": { "$type": "string", "$value": "filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.3))", "$description": "Tanımdaki SVG maskesi gölgesi, birebir" }
+  },
+  "Texture": {
+    "CraftPaper": { "$type": "string", "$value": "benek (feTurbulence .34, eşikli) + yatay lif (.05 .7, 3 oktav) + 5px oluk çizgisi, multiply", "$description": "Madde 8 · 13: geri dönüştürülmüş karton" },
+    "Watercolor": { "$type": "string", "$value": "kaba tane (.5, 2 oktav) + büyük leke (.012, 3 oktav)", "$description": "Pütürlü suluboya kâğıdı" },
+    "Smooth": { "$type": "string", "$value": "none", "$description": "Madde 18: metin taşıyan katmanlar (data-duz)" }
+  },
+  "Shape": {
+    "ScissorCut": { "$type": "string", "$value": "clip-path: path(evenodd, kapalı Catmull-Rom yolu; kenar dalgası 1–14px; köşe yarıçapı 0,6×–1,6×)", "$description": "Madde 6 · 12: makas izi" },
+    "PunchHole": { "$type": "string", "$value": "aynı path içinde ikinci alt yol: kusursuz daire, evenodd ile oyulur", "$description": "Zımba deliği" },
+    "Topography": { "$type": "string", "$value": "üst kenarı dalgalı ya da dağ profilli katmanlar, farklı z ve nivel" }
+  },
+  "Typography": {
+    "Heading": { "$type": "typography", "$value": { "fontFamily": ["Titan One", "Paytone One", "Arial Rounded MT Bold", "sans-serif"], "fontWeight": 400, "lineHeight": 1.04 }, "$description": "Madde 5. Titan One'da büyük İ yok, Paytone One tamamlar" },
+    "CutLetters": { "$type": "string", "$value": "-webkit-text-stroke .2em Cream; paint-order stroke fill; text-shadow sert + yumuşak", "$description": "Kâğıttan kesilmiş harfler" },
+    "Body": { "$type": "typography", "$value": { "fontFamily": ["Figtree", "system-ui", "sans-serif"], "fontWeight": 500, "fontSize": "18px", "lineHeight": 1.65 } },
+    "Label": { "$type": "typography", "$value": { "fontFamily": ["ui-monospace", "Menlo", "monospace"], "fontWeight": 800, "fontSize": "14px", "letterSpacing": "0.1em", "textTransform": "uppercase" } }
+  },
+  "Component": {
+    "PaperCard": { "$description": "Dış kap filter (drop-shadow), iç yüz clip-path. nivel 1…5, z-index, duz (pürüzsüz)", "levels": { "$type": "number", "$value": 5 } },
+    "CutoutInput": { "height": { "$type": "dimension", "$value": "54px" }, "radius": "16px 22px 14px 24px / 20px 14px 24px 16px", "shadow": "{Shadow.InnerHole}" },
+    "PunchHoleCheckbox": { "size": { "$type": "dimension", "$value": "38px" }, "fill": "renkli kâğıt yuvarlak, scale 0 → 1 (220ms, yaylanmalı)" },
+    "PaperButton": { "height": { "$type": "dimension", "$value": "48px · 52px · 64px" }, "hover": "Layer4, ışığa doğru 1–2px kalkar", "active": "Layer1, gölge yönünde 2–3px iner" }
+  },
+  "Motion": {
+    "Parallax": { "$type": "string", "$value": "translate3d(--dp × --ax, --dp × --ay); --dp 0…1 kaydırma ilerlemesi", "$description": "Madde 16: bulutlar 70px, güneş 40px, uzak dağlar 54px, yakın dağlar 38px, tepeler 22px, ön plan 0" },
+    "Scrollytelling": { "$type": "string", "$value": "300vh iz, sticky sahne; güneş, ayı ve nehir --dp ile ilerler" },
+    "Reduced": { "$type": "string", "$value": "prefers-reduced-motion ya da ayar: paralaks, yaylanma ve süzülme durur" }
+  },
+  "Responsive": {
+    "Depth": { "$type": "string", "$value": "< 640px: 3 katman · < 1024px: 4 · ≥ 1024px: 5 (1 gökyüzü · 2 ön plan · 3 dağlar · 4 tepeler · 5 bulutlar)", "$description": "Madde 17: flattening" },
+    "TouchTarget": { "$type": "dimension", "$value": "48px" }
+  }
+}

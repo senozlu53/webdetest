@@ -1,0 +1,548 @@
+@import 'tailwindcss' source(none);
+@source '.';
+
+/* ─────────────────────────────────────────────────────────────
+   STİL 026 · PAPER CUT (LAYERED PAPER)
+   Arayüz üst üste bindirilmiş, makasla kesilmiş karton ve el işi kâğıtlardan oluşur.
+   Zemin kraft karton; katmanlar doygun düz pastel bloklar. Her katman keskin + yumuşak iki gölgeyle ayrılır
+   (drop-shadow, kesim şeklini izler) ve yazı hep en üstteki pürüzsüz krem kâğıtta durur (Madde 18).
+   Kahverengi mürekkep bütün pastellerde 5,9:1 ve üstü, kremde 14,4:1.
+   Değerler tokens/paper.tokens.json ile aynıdır.
+   ───────────────────────────────────────────────────────────── */
+
+@custom-variant motion (&:where([data-motion='on'], [data-motion='on'] *));
+
+@font-face {
+  font-family: 'Titan One';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url('@fontsource/titan-one/files/titan-one-latin-ext-400-normal.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Titan One';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url('@fontsource/titan-one/files/titan-one-latin-400-normal.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Paytone One';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url('@fontsource/paytone-one/files/paytone-one-latin-ext-400-normal.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Paytone One';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url('@fontsource/paytone-one/files/paytone-one-latin-400-normal.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Figtree Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 300 900;
+  src: url('@fontsource-variable/figtree/files/figtree-latin-ext-wght-normal.woff2') format('woff2-variations');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Figtree Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 300 900;
+  src: url('@fontsource-variable/figtree/files/figtree-latin-wght-normal.woff2') format('woff2-variations');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* ── Madde 4: doğal kâğıt tonları + doygun düz pastel bloklar ── */
+:root {
+  --kraft: #c9a57b;
+  --kraft-d: #b08a5e;
+  --bej: #efe4d0;
+  --krem: #fffaf0;
+  --murekkep: #2b2622;
+  --soluk: #5c5148;
+  --mercan: #ff7b6b;
+  --gunes: #ffc940;
+  --turkuaz: #2ec4b6;
+  --gokyuzu: #5fa8ff;
+  --leylak: #b7a0ff;
+  --yaprak: #62c370;
+  --pembe: #ff93b4;
+  --g-rgb: 52 34 16; /* gölge rengi: siyah değil, kâğıdın altındaki koyu kahve */
+  /* Madde 7: ışık yönü. Gölge ofsetleri bu birim vektörden türer (varsayılan: sol-üst ışık, 63°) */
+  --ux: 0.45;
+  --uy: 0.89;
+  --kenar: drop-shadow(0 0 0 transparent);
+  /* Madde 7 · 13: Shadow/PaperLayer1…5. Her seviye: keskin (blur 0) + yumuşak gölge */
+  --sh-1: drop-shadow(calc(var(--ux) * 1px) calc(var(--uy) * 1px) 0 rgb(var(--g-rgb) / 0.3)) drop-shadow(calc(var(--ux) * 1px) calc(var(--uy) * 2px) 2px rgb(var(--g-rgb) / 0.22));
+  --sh-2: drop-shadow(calc(var(--ux) * 2px) calc(var(--uy) * 2px) 0 rgb(var(--g-rgb) / 0.3)) drop-shadow(calc(var(--ux) * 2px) calc(var(--uy) * 4px) 5px rgb(var(--g-rgb) / 0.26));
+  --sh-3: drop-shadow(calc(var(--ux) * 3px) calc(var(--uy) * 3px) 0 rgb(var(--g-rgb) / 0.3)) drop-shadow(calc(var(--ux) * 4px) calc(var(--uy) * 8px) 8px rgb(var(--g-rgb) / 0.28));
+  --sh-4: drop-shadow(calc(var(--ux) * 4px) calc(var(--uy) * 4px) 0 rgb(var(--g-rgb) / 0.3)) drop-shadow(calc(var(--ux) * 6px) calc(var(--uy) * 12px) 12px rgb(var(--g-rgb) / 0.3));
+  --sh-5: drop-shadow(calc(var(--ux) * 6px) calc(var(--uy) * 6px) 0 rgb(var(--g-rgb) / 0.3)) drop-shadow(calc(var(--ux) * 10px) calc(var(--uy) * 18px) 18px rgb(var(--g-rgb) / 0.32));
+  /* Madde 7: oyuk (delik) içi: keskin iç gölge + yumuşak iç gölge + alt-sağ dudak ışığı */
+  --oyuk: inset calc(var(--ux) * 3px) calc(var(--uy) * 3px) 0 rgb(var(--g-rgb) / 0.4), inset calc(var(--ux) * 4px) calc(var(--uy) * 7px) 9px rgb(var(--g-rgb) / 0.25), inset calc(var(--ux) * -2px) calc(var(--uy) * -2px) 0 rgb(255 255 255 / 0.85);
+  --oyuk-dis: 0 0 0 2px rgb(255 255 255 / 0.6), calc(var(--ux) * 2px) calc(var(--uy) * 2px) 0 3px rgb(var(--g-rgb) / 0.1);
+  --font-baslik: 'Titan One', 'Paytone One', 'Arial Rounded MT Bold', sans-serif;
+  color-scheme: light;
+}
+/* Madde 18 varyantı: yüksek kontrast. Koyu mürekkep, her kâğıda 2px koyu kenar */
+:root[data-kontrast='yuksek'] {
+  --murekkep: #14100d;
+  --soluk: #3a322b;
+  --g-rgb: 20 12 4;
+  --kenar: drop-shadow(1.5px 0 0 #14100d) drop-shadow(-1.5px 0 0 #14100d) drop-shadow(0 1.5px 0 #14100d) drop-shadow(0 -1.5px 0 #14100d);
+}
+
+/* ── Madde 8: kâğıt dokuları (SVG gürültü, ağ isteği yok) ── */
+:root {
+  --dok-lif: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='f' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.05 .7' numOctaves='3' seed='5' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .36 0 0 0 0 .24 0 0 0 0 .1 0 0 0 1 -.46'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)'/%3E%3C/svg%3E");
+  --dok-benek: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='b' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.34' numOctaves='2' seed='11' stitchTiles='stitch'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='discrete' tableValues='0 0 0 0 0 0 0 0 0 0 0 .55 .8 1'/%3E%3C/feComponentTransfer%3E%3CfeColorMatrix values='0 0 0 0 .3 0 0 0 0 .2 0 0 0 0 .1 0 0 0 1 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23b)'/%3E%3C/svg%3E");
+  --dok-sulu: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='320'%3E%3Cfilter id='s' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.5' numOctaves='2' seed='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .32 0 0 0 0 .3 0 0 0 0 .3 0 0 0 1.9 -.85'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23s)'/%3E%3C/svg%3E");
+  --dok-leke: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='480' height='480'%3E%3Cfilter id='l' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.012' numOctaves='3' seed='8' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .42 0 0 0 0 .34 0 0 0 0 .26 0 0 0 .9 -.32'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23l)'/%3E%3C/svg%3E");
+  --tex: var(--dok-benek), var(--dok-lif), repeating-linear-gradient(0deg, rgb(120 78 34 / 0.06) 0 1px, transparent 1px 5px);
+  --tex-body: var(--dok-benek), var(--dok-lif), repeating-linear-gradient(90deg, rgb(110 70 30 / 0.09) 0 1px, transparent 1px 5px);
+}
+:root[data-doku='suluboya'] {
+  --tex: var(--dok-sulu), var(--dok-leke);
+  --tex-body: var(--dok-sulu), var(--dok-leke);
+}
+:root[data-doku='duz'] {
+  --tex: none;
+  --tex-body: none;
+}
+
+@theme {
+  --color-*: initial;
+  --font-*: initial;
+  --font-baslik: 'Titan One', 'Paytone One', 'Arial Rounded MT Bold', sans-serif;
+  --font-sans: 'Figtree Variable', 'Figtree', system-ui, sans-serif;
+  --font-mono: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+  --color-white: #ffffff;
+  --color-transparent: transparent;
+  --color-kraft: var(--kraft);
+  --color-kraftD: var(--kraft-d);
+  --color-bej: var(--bej);
+  --color-krem: var(--krem);
+  --color-murekkep: var(--murekkep);
+  --color-soluk: var(--soluk);
+  --color-mercan: var(--mercan);
+  --color-gunes: var(--gunes);
+  --color-turkuaz: var(--turkuaz);
+  --color-gokyuzu: var(--gokyuzu);
+  --color-leylak: var(--leylak);
+  --color-yaprak: var(--yaprak);
+  --color-pembe: var(--pembe);
+}
+
+@layer base {
+  html {
+    background: var(--kraft);
+    color: var(--murekkep);
+    font-family: var(--font-sans);
+    scroll-padding-top: 96px;
+  }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background-color: var(--kraft);
+    background-image: var(--tex-body);
+    color: var(--murekkep);
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.65;
+    overflow-x: clip;
+  }
+  :focus-visible {
+    outline: 3px solid var(--murekkep);
+    outline-offset: 3px;
+    box-shadow: 0 0 0 6px var(--krem);
+    border-radius: 10px;
+  }
+  ::selection {
+    background: var(--gunes);
+    color: var(--murekkep);
+  }
+  h1,
+  h2,
+  h3 {
+    margin: 0;
+    font-family: var(--font-baslik);
+    font-weight: 400;
+    line-height: 1.04;
+    letter-spacing: 0.01em;
+    text-wrap: balance;
+    color: var(--murekkep);
+  }
+  p {
+    margin: 0;
+  }
+  a {
+    color: var(--murekkep);
+    font-weight: 800;
+    text-decoration-line: underline;
+    text-decoration-thickness: 3px;
+    text-decoration-color: var(--mercan);
+    text-underline-offset: 4px;
+  }
+  button {
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+  }
+}
+
+@layer components {
+  /* ── Madde 14: <PaperCard>. Dış kap gölge filtresini taşır, iç yüz kesim şeklidir ── */
+  .kagit {
+    position: relative;
+    filter: var(--kenar) var(--gol, var(--sh-2));
+  }
+  .kagit-yuz {
+    position: relative;
+    background-color: var(--c, var(--krem));
+    background-image: var(--tex);
+    background-blend-mode: multiply;
+    color: var(--murekkep);
+  }
+  /* Madde 18: yazı taşıyan yüzeyler pürüzsüz */
+  .kagit-yuz[data-duz] {
+    background-image: none;
+  }
+
+  .etiket {
+    font-family: var(--font-mono);
+    font-weight: 800;
+    font-size: 14px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  /* Madde 5: kâğıttan kesilmiş harfler. Krem halo = harfin altındaki ikinci kâğıt, sert + yumuşak gölge */
+  .kesik-yazi {
+    color: var(--murekkep);
+    font-family: var(--font-baslik);
+    -webkit-text-stroke: 0.2em var(--krem);
+    paint-order: stroke fill;
+    stroke-linejoin: round;
+    text-shadow:
+      calc(var(--ux) * 0.05em) calc(var(--uy) * 0.05em) 0 rgb(var(--g-rgb) / 0.55),
+      calc(var(--ux) * 0.09em) calc(var(--uy) * 0.16em) 0.08em rgb(var(--g-rgb) / 0.35);
+  }
+
+  /* ── Madde 11: <CutoutInput>. Yüzeye oyulmuş alan ── */
+  .oyuk {
+    display: block;
+    width: 100%;
+    min-height: 54px;
+    padding: 10px 20px;
+    border: 0;
+    border-radius: 16px 22px 14px 24px / 20px 14px 24px 16px;
+    background: var(--krem);
+    color: var(--murekkep);
+    font-family: var(--font-sans);
+    font-size: 18px;
+    font-weight: 600;
+    box-shadow: var(--oyuk), var(--oyuk-dis);
+  }
+  .oyuk::placeholder {
+    color: var(--soluk);
+    opacity: 1;
+  }
+  textarea.oyuk {
+    min-height: 130px;
+    resize: vertical;
+    line-height: 1.5;
+  }
+  .oyuk:focus-visible {
+    outline: 3px solid var(--murekkep);
+    outline-offset: 4px;
+    box-shadow:
+      var(--oyuk),
+      0 0 0 4px var(--gunes);
+    border-radius: 16px 22px 14px 24px / 20px 14px 24px 16px;
+  }
+  .oyuk[aria-invalid='true'] {
+    box-shadow:
+      var(--oyuk),
+      0 0 0 4px var(--mercan);
+  }
+  /* delik: onay kutusu / seçenek */
+  .delik {
+    position: relative;
+    display: inline-block;
+    flex-shrink: 0;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: var(--krem);
+    box-shadow: var(--oyuk), var(--oyuk-dis);
+  }
+  .delik > input {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    opacity: 0;
+    cursor: pointer;
+  }
+  .delik:has(> input:focus-visible) {
+    outline: 3px solid var(--murekkep);
+    outline-offset: 4px;
+  }
+  .delik > svg {
+    position: absolute;
+    inset: 3px;
+    width: 32px;
+    height: 32px;
+    overflow: visible;
+    pointer-events: none;
+    filter: var(--sh-1);
+    scale: 0;
+    transition: scale 220ms cubic-bezier(0.34, 1.6, 0.5, 1);
+  }
+  .delik > input:checked ~ svg {
+    scale: 1;
+  }
+  /* anahtar: yuva + kayan kâğıt tırnak */
+  .yuva {
+    position: relative;
+    flex-shrink: 0;
+    width: 78px;
+    height: 48px;
+    padding: 0;
+    border: 0;
+    border-radius: 24px;
+    background: var(--krem);
+    box-shadow: var(--oyuk), var(--oyuk-dis);
+  }
+  .yuva > i {
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: var(--bej);
+    filter: var(--sh-2);
+    transition:
+      translate 240ms cubic-bezier(0.34, 1.4, 0.5, 1),
+      background-color 200ms;
+  }
+  .yuva[aria-checked='true'] > i {
+    translate: 30px 0;
+    background: var(--turkuaz);
+  }
+  /* kaydırıcı: ince yarık + kâğıt yuvarlak */
+  .yarik {
+    appearance: none;
+    display: block;
+    width: 100%;
+    height: 48px;
+    background: transparent;
+    cursor: pointer;
+  }
+  .yarik::-webkit-slider-runnable-track {
+    height: 14px;
+    border-radius: 7px;
+    background: linear-gradient(to right, var(--c, var(--gokyuzu)) var(--p), var(--krem) var(--p));
+    box-shadow: var(--oyuk);
+  }
+  .yarik::-moz-range-track {
+    height: 14px;
+    border-radius: 7px;
+    background: linear-gradient(to right, var(--c, var(--gokyuzu)) var(--p), var(--krem) var(--p));
+    box-shadow: var(--oyuk);
+  }
+  .yarik::-webkit-slider-thumb {
+    appearance: none;
+    width: 32px;
+    height: 32px;
+    margin-top: -9px;
+    border: 0;
+    border-radius: 50%;
+    background: var(--bej);
+    filter: var(--sh-3);
+  }
+  .yarik::-moz-range-thumb {
+    width: 32px;
+    height: 32px;
+    border: 0;
+    border-radius: 50%;
+    background: var(--bej);
+    filter: var(--sh-3);
+  }
+  .yarik:focus-visible {
+    outline-offset: 2px;
+  }
+
+  /* <PaperButton>: kâğıt parça; basınca yüzeye iner, gölge küçülür */
+  .pbtn {
+    position: relative;
+    display: inline-flex;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    filter: var(--kenar) var(--sh-3);
+    transition:
+      translate 140ms cubic-bezier(0.3, 1.4, 0.5, 1),
+      filter 140ms;
+  }
+  .pbtn > .kagit-yuz {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 52px;
+    padding: 10px 28px;
+    font-family: var(--font-baslik);
+    font-size: 21px;
+    line-height: 1.1;
+    white-space: nowrap;
+    color: var(--murekkep);
+  }
+  .pbtn[data-boy='k'] > .kagit-yuz {
+    min-height: 48px;
+    padding: 6px 20px;
+    font-size: 18px;
+  }
+  .pbtn[data-boy='b'] > .kagit-yuz {
+    min-height: 64px;
+    padding: 14px 38px;
+    font-size: 26px;
+  }
+  .pbtn[data-boy='i'] > .kagit-yuz {
+    min-height: 48px;
+    min-width: 48px;
+    padding: 0;
+  }
+  :root[data-motion='on'] .pbtn:hover:not(:disabled) {
+    translate: calc(var(--ux) * -1px) calc(var(--uy) * -2px);
+    filter: var(--kenar) var(--sh-4);
+  }
+  :root[data-motion] .pbtn:active:not(:disabled) {
+    translate: calc(var(--ux) * 2px) calc(var(--uy) * 3px);
+    filter: var(--kenar) var(--sh-1);
+  }
+  @media (max-width: 420px) {
+    .pbtn[data-boy='b'] > .kagit-yuz {
+      min-height: 56px;
+      padding: 10px 20px;
+      font-size: 21px;
+    }
+    .pbtn > .kagit-yuz {
+      white-space: normal;
+      text-align: center;
+    }
+  }
+  .pbtn:disabled {
+    filter: var(--kenar) var(--sh-1);
+    opacity: 0.75;
+    cursor: not-allowed;
+  }
+  .pbtn:disabled > .kagit-yuz {
+    color: var(--soluk);
+  }
+  .pbtn:focus-visible {
+    border-radius: 0;
+    box-shadow: none;
+    outline-offset: 6px;
+  }
+
+  /* seçim çipi (kesik kâğıt etiket) */
+  .cip {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 48px;
+    padding: 4px 20px;
+    border-radius: 22px 12px 24px 14px / 14px 24px 12px 22px;
+    background: var(--krem);
+    color: var(--murekkep);
+    font-family: var(--font-baslik);
+    font-size: 17px;
+    cursor: pointer;
+    user-select: none;
+    box-shadow: var(--oyuk), var(--oyuk-dis);
+  }
+  .cip[data-on] {
+    background: var(--c, var(--gunes));
+    box-shadow: none;
+    filter: var(--sh-2);
+  }
+  .cip:has(:focus-visible) {
+    outline: 3px solid var(--murekkep);
+    outline-offset: 4px;
+  }
+
+  .kod {
+    margin: 0;
+    padding: 16px 20px;
+    border-radius: 14px 22px 12px 24px / 22px 12px 24px 14px;
+    background: var(--krem);
+    color: var(--murekkep);
+    font-family: var(--font-mono);
+    font-size: 14.5px;
+    font-weight: 600;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    box-shadow: var(--oyuk), var(--oyuk-dis);
+  }
+
+  /* Paralaks katmanı: --dp (0…1) ilerlemesi, --ax / --ay katmana özgü genlik */
+  .paralaks {
+    position: absolute;
+    left: 0;
+    right: 0;
+    will-change: transform;
+    transform: translate3d(calc(var(--dp, 0) * var(--ax, 0) * 1px), calc(var(--dp, 0) * var(--ay, 0) * 1px), 0);
+  }
+  :root[data-motion='off'] .paralaks {
+    transform: none;
+  }
+}
+
+:root[data-motion='off'] *,
+:root[data-motion='off'] *::before,
+:root[data-motion='off'] *::after {
+  animation: none !important;
+  transition-duration: 0.01ms !important;
+}
+
+/* Madde 16: küçük hareket yardımcıları */
+@keyframes salin {
+  0%,
+  100% {
+    rotate: -2.5deg;
+  }
+  50% {
+    rotate: 2.5deg;
+  }
+}
+:root[data-motion='on'] .salin {
+  animation: salin 4.2s ease-in-out infinite;
+  transform-origin: 50% 0;
+}
+@keyframes yuz {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 -8px;
+  }
+}
+:root[data-motion='on'] .yuz {
+  animation: yuz 5s ease-in-out infinite;
+}
