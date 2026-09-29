@@ -1,0 +1,431 @@
+{
+  "$description": "Stil 030: Art Nouveau ve organik zarafet. W3C DTCG formatı. Adlar Figma yoluyla aynıdır: Color/NouveauSage, Border/OrganicCurve, Typography/ArtisticSerif. Üç tema: Parşömen (varsayılan), Zeytin ve Gece. Dört tanım rengi yalnız süs içindir; yazı için koyulaştırılmış sürümleri ayrıca tanımlıdır.",
+  "Color": {
+    "NouveauSage": {
+      "$type": "color",
+      "$value": "#6B8E23",
+      "$description": "Madde 4: Soluk Zeytin Yeşili. Sarmaşık gövdesi, yaprak dolgusu, seçili işareti, kaydırıcı dolgusu. Parşömen panel üstünde 3,52:1 (çizgi için yeterli, yazı için değil)",
+      "contrast": { "onPanel": 3.52 }
+    },
+    "AntiqueGold": {
+      "$type": "color",
+      "$value": "#C5A059",
+      "$description": "Madde 4: Antik Altın. Çerçeve konturu, dalgalı ayraç, kıvrım ucu. Yalnız süs: panel üstünde 2,28:1, bilgi taşımaz",
+      "contrast": { "onPanel": 2.28 }
+    },
+    "DustyRose": {
+      "$type": "color",
+      "$value": "#D8A47F",
+      "$description": "Madde 4: Kirli Gül. Taç yaprak, arka çerçeve katmanı. Yalnız süs (2,04:1)",
+      "contrast": { "onPanel": 2.04 }
+    },
+    "NightIndigo": {
+      "$type": "color",
+      "$value": "#1B2347",
+      "$description": "Madde 4: Gece Laciverti. Mürekkep (metin), düğme dolgusu, Gece temasının zemini",
+      "contrast": { "onParchment": 12.31, "onPanel": 14.11 }
+    },
+    "Parchment": {
+      "$description": "Parşömen (varsayılan) tema yüzeyleri",
+      "Ground": {
+        "$type": "color",
+        "$value": "#F1E6CF",
+        "$description": "Sayfa zemini, el yapımı parşömen",
+        "contrast": { "inkOnIt": 12.31 }
+      },
+      "Panel": {
+        "$type": "color",
+        "$value": "#FBF6E8",
+        "$description": "Madde 18: düz ve dokusuz metin paneli",
+        "contrast": { "inkOnIt": 14.11 }
+      },
+      "InkMuted": {
+        "$type": "color",
+        "$value": "#4E5169",
+        "$description": "İkincil metin",
+        "contrast": { "onPanel": 7.19, "onGround": 6.27 }
+      },
+      "Line": {
+        "$type": "color",
+        "$value": "rgba(27, 35, 71, 0.22)",
+        "$description": "Panel çerçevesi (kontrol değil)"
+      },
+      "Control": {
+        "$type": "color",
+        "$value": "#7A6A4F",
+        "$description": "Form alanı alt çizgisi, anahtar çerçevesi",
+        "contrast": { "onPanel": 4.86 }
+      }
+    },
+    "TextVariant": {
+      "$description": "Süs renklerinin yazıda kullanılan koyulaştırılmış sürümleri",
+      "Olive": {
+        "$type": "color",
+        "$value": "#46601A",
+        "$description": "Vurgu, bağlantı, seçili işaret",
+        "contrast": { "onPanel": 6.6, "onGround": 5.75 }
+      },
+      "Gold": {
+        "$type": "color",
+        "$value": "#7A5A17",
+        "$description": "Üst yazı (kicker)",
+        "contrast": { "onPanel": 5.89, "onGround": 5.14 }
+      },
+      "Rose": {
+        "$type": "color",
+        "$value": "#8B4A2E",
+        "$description": "Hata ve uyarı yazısı",
+        "contrast": { "onPanel": 6.24, "onGround": 5.44 }
+      }
+    },
+    "Olive": {
+      "$description": "Zeytin teması",
+      "Ground": { "$type": "color", "$value": "#E4E8CF" },
+      "Panel": { "$type": "color", "$value": "#F6F7E9" },
+      "InkMuted": {
+        "$type": "color",
+        "$value": "#464C52",
+        "contrast": { "onPanel": 8.03 }
+      }
+    },
+    "Night": {
+      "$description": "Gece Laciverti teması: aynı bitki, ters yön",
+      "Ground": { "$type": "color", "$value": "#141A36" },
+      "Panel": { "$type": "color", "$value": "#1E2650" },
+      "Ink": {
+        "$type": "color",
+        "$value": "#F1E6CF",
+        "contrast": { "onGround": 13.78, "onPanel": 11.71 }
+      },
+      "InkMuted": {
+        "$type": "color",
+        "$value": "#C2C0D4",
+        "contrast": { "onPanel": 8.14 }
+      },
+      "Olive": {
+        "$type": "color",
+        "$value": "#A9C078",
+        "contrast": { "onPanel": 7.25 }
+      },
+      "Gold": {
+        "$type": "color",
+        "$value": "#DCBB7D",
+        "contrast": { "onPanel": 7.9 }
+      },
+      "Rose": {
+        "$type": "color",
+        "$value": "#E8B99A",
+        "contrast": { "onPanel": 8.17 }
+      },
+      "Control": {
+        "$type": "color",
+        "$value": "#8E8FB0",
+        "contrast": { "onPanel": 4.63 }
+      }
+    },
+    "HighContrast": {
+      "$description": "Madde 18 varyantı",
+      "Ink": {
+        "$type": "color",
+        "$value": "#000000",
+        "contrast": { "onPanel": 19.45 }
+      },
+      "InkMuted": {
+        "$type": "color",
+        "$value": "#2E3148",
+        "contrast": { "onPanel": 11.79 }
+      },
+      "NightInk": {
+        "$type": "color",
+        "$value": "#FFFFFF",
+        "contrast": { "onPanel": 14.5 }
+      }
+    },
+    "Button": {
+      "Fill": {
+        "$type": "color",
+        "$value": "#1B2347",
+        "$description": "NouveauButton dolgusu; Gece temasında #DCBB7D"
+      },
+      "Sap": {
+        "$type": "color",
+        "$value": "#2F4A12",
+        "$description": "Hover'da alttan yükselen özsu (dolu düğme); yazı #FBF6E8 ile 9,22:1",
+        "contrast": { "textOnIt": 9.22 }
+      }
+    }
+  },
+  "Font": {
+    "ArtisticSerif": {
+      "$type": "fontFamily",
+      "$value": ["Metamorphous", "Alegreya Variable", "Palatino Linotype", "Book Antiqua", "Georgia", "serif"],
+      "$description": "Madde 5: Windsor / De Vinne / Cheri ruhunda açık lisanslı karşılık. Yalnız 400. ğ, ş, İ, ı, ç, ö, ü var; ₺ yok (Alegreya tamamlar). u harfi v'ye benzediği için 26 px altında kullanılmaz"
+    },
+    "Accent": {
+      "$type": "fontFamily",
+      "$value": ["Sansita Swashed Variable", "Sansita Swashed", "Alegreya Variable", "Georgia", "serif"],
+      "$description": "Vurgu, düğme yazısı, rakam, kapitel, 26 px altı başlıklar. 300–900; ₺ var"
+    },
+    "Body": {
+      "$type": "fontFamily",
+      "$value": ["Alegreya Variable", "Alegreya", "Palatino Linotype", "Georgia", "serif"],
+      "$description": "Gövde ve arayüz. 400–900, düz ve italik; kaligrafik tempo, Türkçe karakterler ve ₺ var"
+    }
+  },
+  "Typography": {
+    "ArtisticSerif": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "Font/ArtisticSerif",
+        "fontWeight": 400,
+        "fontSize": "clamp(32px, 5vw, 64px)",
+        "lineHeight": 1.1
+      },
+      "$description": "Madde 13: Typography/ArtisticSerif. Bölüm başlığı (H2)"
+    },
+    "Display": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "Font/ArtisticSerif",
+        "fontWeight": 400,
+        "fontSize": "clamp(34px, 5.4vw, 78px)",
+        "lineHeight": 1.1
+      }
+    },
+    "H3": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "Font/ArtisticSerif",
+        "fontWeight": 400,
+        "fontSize": "clamp(26px, 2.4vw, 30px)",
+        "lineHeight": 1.1
+      },
+      "$description": "En küçük ArtisticSerif boyutu 26 px"
+    },
+    "SmallHeading": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "Font/Accent",
+        "fontWeight": 600,
+        "fontSize": "24px",
+        "lineHeight": 1.18
+      },
+      "$description": "26 px altındaki başlıklar"
+    },
+    "Kicker": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "Font/Body",
+        "fontWeight": 700,
+        "fontSize": "13px",
+        "letterSpacing": "0.2em",
+        "textTransform": "uppercase"
+      }
+    },
+    "Body": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "Font/Body",
+        "fontWeight": 450,
+        "fontSize": "19px",
+        "lineHeight": 1.62,
+        "letterSpacing": "0.005em"
+      }
+    },
+    "Button": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "Font/Accent",
+        "fontWeight": 600,
+        "fontSize": "18px",
+        "letterSpacing": "0.035em"
+      }
+    }
+  },
+  "Border": {
+    "OrganicCurve": {
+      "$type": "shape",
+      "$value": {
+        "amplitude": "7px",
+        "wavelength": "150px",
+        "asymmetry": 0.6,
+        "superellipseExponent": 4.2,
+        "harmonics": ["ana dalga: çevre / dalga boyu", "ikincil: %38 sıklık, %45 genlik", "asimetri: 2 lobluk düşük frekans"]
+      },
+      "$description": "Madde 6 · 13: kontur = süper elips (üs 4,2) üzerine çevre uzunluğunca üç dalganın toplamı. Dik köşe ve düz kenar üretmez; en sıkı eğrilik yarıçapı canlı ölçülür"
+    },
+    "Hairline": {
+      "$type": "dimension",
+      "$value": "1px",
+      "$description": "Panel çerçevesi"
+    },
+    "Gold": {
+      "$type": "dimension",
+      "$value": "1.7px",
+      "$description": "Çerçeve konturunun altın çizgisi"
+    },
+    "Wave": {
+      "$type": "string",
+      "$value": "48×10 px dalga şeridi (mask, repeat-x): ayraç, alan alt çizgisi, tablo satırı",
+      "$description": "Düz çizgi yerine"
+    }
+  },
+  "Radius": {
+    "PlateLarge": {
+      "$type": "dimension",
+      "$value": "34px",
+      "$description": "Metin plakasının iki büyük köşesi (sol üst, sağ alt)"
+    },
+    "PlateSmall": {
+      "$type": "dimension",
+      "$value": "10px",
+      "$description": "İki küçük köşe (sağ üst, sol alt): asimetrik yaprak"
+    },
+    "ButtonLeaf": {
+      "$type": "string",
+      "$value": "26px 8px 26px 8px",
+      "$description": "NouveauButton; büyük boy 34/10"
+    }
+  },
+  "Elevation": {
+    "None": {
+      "$type": "string",
+      "$value": "none",
+      "$description": "Madde 7: box-shadow ve drop-shadow yok. Derinlik üst üste binen 0–3 arka çerçeveden gelir: kayma 4–30 px, eğim 0–4°, katman başına renk kayması (gül, zeytin, altın tonu)"
+    },
+    "LayerOffset": {
+      "$type": "dimension",
+      "$value": "12px",
+      "$description": "Arka çerçeve kayması"
+    },
+    "LayerTilt": { "$type": "number", "$value": 1.6, "$description": "Derece" }
+  },
+  "Texture": {
+    "Parchment": {
+      "$type": "string",
+      "$value": "fractalNoise .011 × .016 (4 oktav, stitchTiles) + ince tane .85; alfa maske, opaklık %20 (Gece %13); kenarlara radyal koyulaşma",
+      "$description": "Madde 8: el yapımı parşömen"
+    },
+    "PressedFlowers": {
+      "$type": "string",
+      "$value": "9 kurutulmuş dal (gövde, yaprak, sarmaşık yaprağı, 5–7 taç), 520² döşeme, kenardan taşanlar karşı kenara sarılır",
+      "$description": "Preslenmiş çiçek"
+    },
+    "Wallpaper": {
+      "$type": "string",
+      "$value": "190×250 yarım kaymalı tekrar; kamçı kıvrım, yaprak çifti, tomurcuk; iki motif 180° dönük",
+      "$description": "Antika duvar kâğıdı"
+    },
+    "Flat": { "$type": "string", "$value": "none" }
+  },
+  "Mask": {
+    "Organic": {
+      "$type": "string",
+      "$value": "mask-image: url(svg blob + feGaussianBlur 1.6); mask-size: 100% 100%",
+      "$description": "Madde 15: piksellerin sert kenarını yumuşatır"
+    },
+    "Leaf": {
+      "$type": "string",
+      "$value": "mask-image: url(svg yaprak); mask-size: 100% 100%"
+    },
+    "WaveEdge": {
+      "$type": "string",
+      "$value": "iki katman: linear-gradient + 56×14 px dalga şeridi (repeat-x)",
+      "$description": "Dalgalı alt kenar; düğmede dalgalı üst kenar (özsu)"
+    },
+    "ClipPath": {
+      "$type": "string",
+      "$value": "clip-path: path(...) (DalgaGorsel, piksel uzayı) · clipPathUnits=objectBoundingBox (Figma içe aktarımı)"
+    }
+  },
+  "Icon": {
+    "Grid": {
+      "$type": "string",
+      "$value": "32×32; 16 işlev + 10 botanik",
+      "$description": "Madde 9: kavisli yollar, uç ve birleşim yuvarlak, yumuşak dolgu (%16) yalnız yaprak ve taç yapraklarda"
+    },
+    "Stroke": {
+      "$type": "dimension",
+      "$value": "1.6px",
+      "$description": "Ölçekten bağımsız (vector-effect: non-scaling-stroke)"
+    }
+  },
+  "Ornament": {
+    "Levels": {
+      "$type": "string",
+      "$value": "tam: kenar payı 34, bant 30, yaprak aralığı 30 px, 9 kıvrım, 2 çiçek, ölçek %100 · sade: 22 / 18 / 50 px, 3 kıvrım, 1 çiçek, ölçek %82 · yalın: yalnız dalgalı kontur",
+      "$description": "Madde 17: 768 px altında otomatik sade"
+    },
+    "Vine": {
+      "$type": "string",
+      "$value": "kontur çevresinde iki yönde ±10 px dolanan tek dal; kapsam %78; yapraklar iki kümede yoğunlaşır (simetri yok)"
+    }
+  },
+  "Motion": {
+    "Growth": {
+      "$type": "duration",
+      "$value": { "value": 3200, "unit": "ms" },
+      "$description": "Madde 16: sarmaşık gövdesi çizilir (stroke-dashoffset 1 → 0)"
+    },
+    "LeafOpen": {
+      "$type": "duration",
+      "$value": { "value": 1600, "unit": "ms" },
+      "$description": "Yaprak ve kıvrımlar köklerinden açılır (scale 0 → 1, hafif taşar)"
+    },
+    "Sway": {
+      "$type": "duration",
+      "$value": { "value": 7000, "unit": "ms" },
+      "$description": "Salınım ±3,5°, her yaprak kendi kökünde, farklı gecikmeyle"
+    },
+    "Reveal": {
+      "$type": "duration",
+      "$value": { "value": 1400, "unit": "ms" },
+      "$description": "Bölüm belirişi: opaklık + 14 px yükseliş"
+    },
+    "Sap": {
+      "$type": "duration",
+      "$value": { "value": 850, "unit": "ms" },
+      "$description": "Düğme özsuyu"
+    },
+    "GrowthEasing": { "$type": "cubicBezier", "$value": [0.45, 0.05, 0.25, 1] },
+    "LeafEasing": { "$type": "cubicBezier", "$value": [0.2, 1.1, 0.3, 1] },
+    "ReducedMotion": {
+      "$type": "string",
+      "$value": "prefers-reduced-motion: reduce veya ayar 'Kapalı' → büyüme ve salınım yok, bütün içerik ilk andan görünür"
+    }
+  },
+  "Responsive": {
+    "Rule": {
+      "$type": "string",
+      "$value": "Madde 17: 768 px altında süs 'sade' (yaprak sayısı, kıvrım, çiçek azalır, ölçek %82), kontur dalgalı kalır. Çok dar ekranda ve 380 px altında başlık çubuğu simge düğmesine iner"
+    },
+    "TouchTarget": {
+      "$type": "dimension",
+      "$value": "44px",
+      "$description": "Düğme ≥ 46, seçim ≥ 44×48, anahtar ve kaydırıcı 44"
+    },
+    "Section": {
+      "$type": "dimension",
+      "$value": "96px",
+      "$description": "Bölüm dikey boşluğu: clamp(48px, 7vw, 96px)"
+    }
+  },
+  "Accessibility": {
+    "TextPlate": {
+      "$type": "string",
+      "$value": "Madde 18: 30+ karakterlik her paragraf .sade-panel içindedir; süs yalnız panelin çevresindeki bantta ve arkada durur. Test: her paragraf kapsayıcı kontrolü + 720+ metin düğümünde kontrast taraması (dokunun en koyu noktası dahil)"
+    },
+    "Contrast": {
+      "$type": "string",
+      "$value": "Mürekkep / panel 14,1:1; soluk 7,2:1; zeytin 6,6:1; altın 5,9:1; gül 6,2:1. Tanım renkleri (sage 3,5:1, altın 2,3:1, gül 2,0:1) yalnız süs"
+    },
+    "Focus": {
+      "$type": "string",
+      "$value": "2px solid Ink, offset 4px (Gece temasında altın)"
+    },
+    "Selected": {
+      "$type": "string",
+      "$value": "yaprak işareti + kalın yazı + dalgalı alt çizgi; durum ayrıca yazıyla da verilir (AÇIK / KAPALI, hata için ✕)"
+    }
+  }
+}

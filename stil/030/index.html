@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Stil 030: Art Nouveau ve organik zarafet. Kamçı kıvrımları, asimetrik bitkisel çerçeveler, zeytin yeşili, antik altın ve kirli gül, Metamorphous ile Alegreya, parşömen ve preslenmiş çiçek dokusu: müze, antikacı, parfüm ve tasarım atölyesi." />
+    <meta name="theme-color" content="#F1E6CF" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='14' fill='%23F1E6CF'/%3E%3Cpath d='M14 36C14 24 22 22 27 16S34 8 34 8C34 20 28 22 22 28S14 36 14 36Z' fill='%236B8E23'/%3E%3Cpath d='M14 36C20 30 26 22 34 8' fill='none' stroke='%231B2347' stroke-width='1.6'/%3E%3C/svg%3E"
+    />
+    <title>Stil 030 · Art Nouveau</title>
+    <script>
+      try {
+        var d = document.documentElement
+        var g = function (k) {
+          return localStorage.getItem(k)
+        }
+        var m = g('an-hareket')
+        d.dataset.motion = m === 'kapali' || (m !== 'acik' && matchMedia('(prefers-reduced-motion: reduce)').matches) ? 'off' : 'on'
+        var t = g('an-tema')
+        d.dataset.tema = t === 'zeytin' || t === 'gece' ? t : t === 'oto' && matchMedia('(prefers-color-scheme: dark)').matches ? 'gece' : 'parsomen'
+        var k = g('an-doku')
+        d.dataset.doku = k === 'cicek' || k === 'duvar' || k === 'duz' ? k : 'parsomen'
+        d.dataset.kontrast = g('an-kontrast') === 'yuksek' ? 'yuksek' : 'normal'
+        var s = g('an-sus')
+        d.dataset.sus = s === 'tam' || s === 'sade' || s === 'yalin' ? s : 'oto'
+      } catch (e) {}
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/nouveau/main.tsx"></script>
+  </body>
+</html>
