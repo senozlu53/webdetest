@@ -1,0 +1,112 @@
+{
+  "$description": "Stil 027: Storybook / Watercolor. W3C DTCG formatı. Adlar Figma yoluyla aynıdır: BlendMode/Multiply, Color/WatercolorWash, Font/StorybookSerif. Üç tema: Gündüz (krem kâğıt), Parşömen (eski kâğıt), Gece masalı (derin lacivert). Siyah 'dark mode' yoktur (Madde 18): çoğaltma kipi koyu zeminde boyayı yok eder.",
+  "BlendMode": {
+    "Multiply": { "$type": "string", "$value": "multiply", "$description": "Madde 12 · 15: Figma Multiply = CSS mix-blend-mode: multiply. Gündüz ve parşömen. Beyaz zeminli görsel bile kâğıda oturur (Tailwind: mix-blend-multiply)" },
+    "Screen": { "$type": "string", "$value": "screen", "$description": "Gece masalı: lacivert zeminde boya ışıyarak biner (Tailwind: mix-blend-screen)" },
+    "Isolation": { "$type": "string", "$value": "isolate", "$description": "Karışım yalnız sarmalayıcının içinde kalır" }
+  },
+  "Color": {
+    "WatercolorWash": {
+      "$description": "Madde 4: saydam, doygunluğu düşük pigmentler. Fırça ve leke rengi; metin rengi değil",
+      "Ultramarine": { "$type": "color", "$value": "#4A5FA8", "$description": "Ultramarin: gökyüzü, su, gece", "contrast": { "onSayfa": 5.62 } },
+      "SapGreen": { "$type": "color", "$value": "#6F9B58", "$description": "Sap Yeşili: yaprak, tepe, umut" },
+      "RoseMadder": { "$type": "color", "$value": "#C9707E", "$description": "Gül Kökü (Rose Madder): gül, akşam, sıcaklık" },
+      "YellowOchre": { "$type": "color", "$value": "#D2A24C", "$description": "Sarı Ocre: yardımcı, ışık ve bal" },
+      "Opacity": { "$type": "number", "$value": 0.72, "$description": "--leke-op: gündüz ve parşömen 0,72 · gece 0,62 · yüksek kontrast 0,4 / 0,3" },
+      "Water": { "$type": "number", "$value": 1, "$description": "--su: su miktarı çarpanı 0,4–1,4. Bütün lekelerin saydamlığını birlikte ayarlar" }
+    },
+    "Paper": {
+      "Gunduz": { "$type": "color", "$value": "#F6F0E1", "$description": "Krem suluboya kâğıdı (sayfa zemini)" },
+      "GunduzPage": { "$type": "color", "$value": "#FBF7EC", "$description": "Metin bloğunun dokusuz sayfası" },
+      "Parsomen": { "$type": "color", "$value": "#EBDAB2", "$description": "Madde 18: eski parşömen kâğıdı" },
+      "ParsomenPage": { "$type": "color", "$value": "#F3E6C4" },
+      "Gece": { "$type": "color", "$value": "#14203D", "$description": "Madde 18: gece masalı, derin lacivert zemin" },
+      "GecePage": { "$type": "color", "$value": "#1C2A4E" }
+    },
+    "Ink": {
+      "Gunduz": { "$type": "color", "$value": "#2B2A3A", "$description": "Mürekkep: gövde metni", "contrast": { "onSayfa": 13.12 } },
+      "GunduzMuted": { "$type": "color", "$value": "#57526B", "$description": "İkincil metin", "contrast": { "onSayfa": 6.95 } },
+      "Parsomen": { "$type": "color", "$value": "#33261A", "contrast": { "onSayfa": 11.81 } },
+      "ParsomenMuted": { "$type": "color", "$value": "#5E4A33", "contrast": { "onSayfa": 6.76 } },
+      "Gece": { "$type": "color", "$value": "#F1E7CE", "$description": "Krem yazı", "contrast": { "onSayfa": 11.45 } },
+      "GeceMuted": { "$type": "color", "$value": "#B9B9D0", "contrast": { "onSayfa": 7.32 } }
+    },
+    "TextTone": {
+      "$description": "Bağlantı ve vurgu metni için pigmentin koyu tonu (ham pigment küçük yazıda kullanılmaz)",
+      "UltramarineDark": { "$type": "color", "$value": "#2F3F86", "contrast": { "onKagit": 8.49 } },
+      "SapGreenDark": { "$type": "color", "$value": "#3F6B2E", "contrast": { "onSayfa": 5.85 } },
+      "RoseMadderDark": { "$type": "color", "$value": "#9C3F55", "contrast": { "onSayfa": 6.03 } },
+      "UltramarineLight": { "$type": "color", "$value": "#9FB0F0", "$description": "Gece masalında bağlantı", "contrast": { "onKagit": 7.63 } }
+    },
+    "HighContrast": {
+      "$description": "Madde 18 varyantı",
+      "Ink": { "$type": "color", "$value": "#14121F" },
+      "Muted": { "$type": "color", "$value": "#3B3650" },
+      "WashOpacity": { "$type": "number", "$value": 0.4 }
+    }
+  },
+  "Font": {
+    "StorybookSerif": {
+      "$type": "fontFamily",
+      "$value": ["EB Garamond Variable", "EB Garamond", "Iowan Old Style", "Georgia", "serif"],
+      "$description": "Madde 5: yüksek kontrastlı klasik masal serifi. Başlık, üst yazı, düğme. 400–800, düz ve italik; ğ ş ı İ ç ö ü var"
+    },
+    "StorybookBody": {
+      "$type": "fontFamily",
+      "$value": ["Lora Variable", "Lora", "Georgia", "serif"],
+      "$description": "Uzun metin: 19px, satır 1,75. 400–700, düz ve italik; Türkçe glifler var"
+    },
+    "Mono": { "$type": "fontFamily", "$value": ["ui-monospace", "SFMono-Regular", "Menlo", "Consolas", "monospace"] }
+  },
+  "Typography": {
+    "H1": { "$type": "typography", "$value": { "fontFamily": "Font/StorybookSerif", "fontWeight": 500, "fontStyle": "italic", "fontSize": "clamp(52px, 8.6vw, 118px)", "lineHeight": 0.95 } },
+    "H2": { "$type": "typography", "$value": { "fontFamily": "Font/StorybookSerif", "fontWeight": 500, "fontStyle": "italic", "fontSize": "clamp(42px, 6.6vw, 84px)", "lineHeight": 1.05 } },
+    "H3": { "$type": "typography", "$value": { "fontFamily": "Font/StorybookSerif", "fontWeight": 500, "fontSize": "30–36px", "lineHeight": 1.1 } },
+    "Kicker": { "$type": "typography", "$value": { "fontFamily": "Font/StorybookSerif", "fontWeight": 600, "fontSize": "17px", "letterSpacing": "0.14em", "fontVariantCaps": "all-small-caps" } },
+    "Body": { "$type": "typography", "$value": { "fontFamily": "Font/StorybookBody", "fontWeight": 400, "fontSize": "19px", "lineHeight": 1.75 } },
+    "DropCap": { "$type": "typography", "$value": { "fontFamily": "Font/StorybookSerif", "fontWeight": 600, "fontSize": "4.6em", "color": "Color/TextTone/RoseMadderDark" }, "$description": "Süslü ilk harf (::first-letter)" }
+  },
+  "Texture": {
+    "WatercolorPaper": { "$type": "string", "$value": "feTurbulence fractalNoise .05 ×5 oktav → feDiffuseLighting (surfaceScale .75, elevation 68°), 360² döşeme, background-blend-mode: multiply", "$description": "Madde 8: kalın preslenmiş suluboya kâğıdı, çukur ve tepecikler" },
+    "Canvas": { "$type": "string", "$value": "0°/90° 1px iplik çizgileri (3px aralık) + fractalNoise .9 iplik tanesi", "$description": "Madde 8: pamuklu kanvas" },
+    "Flat": { "$type": "string", "$value": "none" }
+  },
+  "Filter": {
+    "$description": "Suluboya SVG filtre zinciri. Sekiz boy: wc-leke, wc-sahne, wc-orta, wc-ikon, wc-firca, wc-firca-kuru, wc-sizinti, wc-maske-kenar",
+    "Chain": { "$type": "string", "$value": "1 bozma (turbulence → displacement) · 2 kenarda pigment birikimi (alfa − bulanık alfa, koyu ton) · 3 granülasyon (yüksek frekanslı gürültü alfayı deler) · 4 backrun (düşük frekanslı gürültü alfayı bölgesel açar)" },
+    "Wash": { "$type": "string", "$value": "wc-leke: baseFrequency .011 ×4, displacement 46, rim blur 9, grain .85, backrun .006 — 1000 birim genişlik" },
+    "Scene": { "$type": "string", "$value": "wc-sahne: baseFrequency .02, displacement 16, rim blur 3,2 — 460 birim genişlik" },
+    "Icon": { "$type": "string", "$value": "wc-ikon: 48 birimlik el boyaması ikon, displacement 3" }
+  },
+  "Shape": {
+    "Wash": { "$type": "string", "$value": "9 kontrol noktalı elips, yarıçap ±%10–20, Catmull-Rom yumuşatma; tohumla üretilir", "$description": "Madde 6: köşesiz leke" },
+    "Brush": { "$type": "string", "$value": "soldan sağa darbe, ortada kalın, ucunda kıl tellerine dağılır; kuruluk 0–1", "$description": "Madde 6: fırça darbesi" },
+    "TextBlock": { "$type": "string", "$value": "border-radius 3px 14px 12px 4px / 4px 12px 14px 3px", "$description": "Metin bloğu ve resim bloğu: hafif organik köşe, sert kenar" }
+  },
+  "Depth": {
+    "UnderTone": { "$type": "string", "$value": "aynı pigmentin daha koyu fırça darbesi, bileşenin 3px altına/sağına; opaklık .32 (murekkep) veya .75 (pigment)", "$description": "Madde 7: dijital gölge yok; box-shadow ve drop-shadow kullanılmaz" }
+  },
+  "Reveal": {
+    "Mask": { "$type": "string", "$value": "SVG <mask> userSpaceOnUse; üç daire (ana + iki uydu), r CSS geçişiyle uzar, wc-sizinti filtresiyle dalgalı kenar; bitince maske kaldırılır", "$description": "Madde 11 · 16: sıvı gibi yayılan sayfa geçişi" },
+    "Duration": { "$type": "duration", "$value": { "value": 2600, "unit": "ms" } },
+    "Easing": { "$type": "cubicBezier", "$value": [0.25, 0.6, 0.25, 1] }
+  },
+  "Motion": {
+    "Bleed": { "$type": "duration", "$value": { "value": 3200, "unit": "ms" }, "$description": "Leke yayılması: ölçek .55 → 1, bulanıklık 6 → 0 px" },
+    "BleedEasing": { "$type": "cubicBezier", "$value": [0.2, 0.7, 0.2, 1] },
+    "Dry": { "$type": "duration", "$value": { "value": 9000, "unit": "ms" }, "$description": "3 sn sonra opaklık 1 → .86" },
+    "Button": { "$type": "duration", "$value": { "value": 900, "unit": "ms" }, "$description": "Düğme lekesi üstüne gelince ölçek 1,08" },
+    "Float": { "$type": "duration", "$value": { "value": 7000, "unit": "ms" }, "$description": "Baykuş süzülmesi 7px" },
+    "ReducedMotion": { "$type": "string", "$value": "prefers-reduced-motion: reduce veya ayar 'Kapalı' → yayılma, kuruma, reveal ve süzülme kapalı; sayfa doğrudan değişir" }
+  },
+  "Responsive": {
+    "Breakpoint": { "$type": "dimension", "$value": "768px", "$description": "Madde 17: altında metin bloğu ve resim bloğu üst üste, aralarında 2px mürekkep sınırı; üstünde yan yana ama yine iki ayrı yüzey" },
+    "Rule": { "$type": "string", "$value": "leke hiçbir zaman kendi bloğu dışındaki metnin altına girmez; metin her zaman opak .sayfa üstünde" },
+    "TouchTarget": { "$type": "dimension", "$value": "44px" }
+  },
+  "Accessibility": {
+    "NoBlackDark": { "$type": "string", "$value": "Madde 18: karanlık tema = Parşömen ya da Gece masalı. prefers-color-scheme: dark → Gece masalı (#14203D + screen)" },
+    "Focus": { "$type": "string", "$value": "3px solid Ink, offset 4px" },
+    "Selected": { "$type": "string", "$value": "renkle birlikte yaprak simgesi ve kalın yazı; durum ayrıca metinle de verilir (AÇIK / KAPALI)" }
+  }
+}

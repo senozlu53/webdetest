@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Stil 027: Storybook / Watercolor. Saydam ultramarin, sap yeşili ve gül kökü pigmentleri; kâğıda çoğaltma kipiyle bütünleşen suluboya lekeleri, kenarda biriken pigment, fırça darbeleri, sıvı gibi açılan sayfa geçişleri, el boyaması ikonlar ve karakterler: masal kitabı, wellness uygulaması, organik gıda markası ve dergi." />
+    <meta name="theme-color" content="#F6F0E1" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' fill='%23F6F0E1'/%3E%3Cpath d='M8 30C6 16 18 8 30 10C42 12 44 26 36 34C28 42 10 42 8 30Z' fill='%234A5FA8' fill-opacity='.7'/%3E%3Cpath d='M22 20C28 14 40 18 40 28C40 38 26 42 20 36C16 32 18 24 22 20Z' fill='%23C9707E' fill-opacity='.6'/%3E%3C/svg%3E" />
+    <title>Stil 027 · Storybook / Watercolor</title>
+    <script>
+      try {
+        var d = document.documentElement
+        var g = function (k) {
+          return localStorage.getItem(k)
+        }
+        var m = g('wc-hareket')
+        d.dataset.motion = m === 'kapali' || (m !== 'acik' && matchMedia('(prefers-reduced-motion: reduce)').matches) ? 'off' : 'on'
+        var t = g('wc-tema')
+        d.dataset.tema = t === 'gunduz' || t === 'parsomen' || t === 'gece' ? t : matchMedia('(prefers-color-scheme: dark)').matches ? 'gece' : 'gunduz'
+        var k = g('wc-doku')
+        d.dataset.doku = k === 'kanvas' || k === 'duz' ? k : 'sulu'
+        d.dataset.kontrast = g('wc-kontrast') === 'yuksek' ? 'yuksek' : 'normal'
+        var s = parseFloat(g('wc-su'))
+        if (isFinite(s)) d.style.setProperty('--su', String(s))
+      } catch (e) {}
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/wash/main.tsx"></script>
+  </body>
+</html>

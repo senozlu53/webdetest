@@ -1,0 +1,597 @@
+@import 'tailwindcss' source(none);
+@source '.';
+
+/* ─────────────────────────────────────────────────────────────
+   STİL 027 · STORYBOOK / WATERCOLOR
+   Kitap sayfalarından fırlamış suluboya: saydam, doygunluğu düşük pigmentler (Ultramarin, Sap Yeşili, Gül Kökü),
+   kâğıda çoğaltma (multiply) kipiyle bütünleşen lekeler, kenarda biriken pigment, fırça darbeleri.
+   Dijital gölge yok: gölge gerekiyorsa altına fırçayla daha koyu bir ton boyanır.
+   Metin hep dokusuz "sayfa" bloklarında, sabit sınırlarla; boya yalnız çevrede.
+   Karanlık tema: suluboya karanlıkta çalışmaz, bu yüzden "gece masalı" lacivert zemin ve parşömen kâğıt (Madde 18).
+   Değerler tokens/wash.tokens.json ile aynıdır.
+   ───────────────────────────────────────────────────────────── */
+
+@custom-variant motion (&:where([data-motion='on'], [data-motion='on'] *));
+
+@font-face {
+  font-family: 'EB Garamond Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400 800;
+  src: url('@fontsource-variable/eb-garamond/files/eb-garamond-latin-ext-wght-normal.woff2') format('woff2-variations');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'EB Garamond Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400 800;
+  src: url('@fontsource-variable/eb-garamond/files/eb-garamond-latin-wght-normal.woff2') format('woff2-variations');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Lora Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400 700;
+  src: url('@fontsource-variable/lora/files/lora-latin-ext-wght-normal.woff2') format('woff2-variations');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Lora Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400 700;
+  src: url('@fontsource-variable/lora/files/lora-latin-wght-normal.woff2') format('woff2-variations');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'EB Garamond Variable';
+  font-style: italic;
+  font-display: swap;
+  font-weight: 400 800;
+  src: url('@fontsource-variable/eb-garamond/files/eb-garamond-latin-ext-wght-italic.woff2') format('woff2-variations');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'EB Garamond Variable';
+  font-style: italic;
+  font-display: swap;
+  font-weight: 400 800;
+  src: url('@fontsource-variable/eb-garamond/files/eb-garamond-latin-wght-italic.woff2') format('woff2-variations');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Lora Variable';
+  font-style: italic;
+  font-display: swap;
+  font-weight: 400 700;
+  src: url('@fontsource-variable/lora/files/lora-latin-ext-wght-italic.woff2') format('woff2-variations');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Lora Variable';
+  font-style: italic;
+  font-display: swap;
+  font-weight: 400 700;
+  src: url('@fontsource-variable/lora/files/lora-latin-wght-italic.woff2') format('woff2-variations');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* ── Madde 4: pigmentler. Tanımdaki adlar korunur ── */
+:root,
+[data-onizle='gunduz'] {
+  --kagit: #f6f0e1;
+  --sayfa: #fbf7ec; /* metin bloklarının dokusuz sayfası */
+  --murekkep: #2b2a3a;
+  --soluk: #57526b;
+  --ultramarin: #4a5fa8; /* Ultramarin: fırça rengi */
+  --yesil: #6f9b58; /* Sap Yeşili */
+  --gul: #c9707e; /* Gül Kökü (Rose Madder) */
+  --ocre: #d2a24c;
+  --ultramarin-y: #2f3f86; /* metin ve bağlantıda kullanılan koyu tonlar */
+  --yesil-y: #3f6b2e;
+  --gul-y: #9c3f55;
+  --cizgi: rgb(43 42 58 / 0.22);
+  --blend: multiply;
+  --su: 1; /* "su miktarı": bütün lekelerin saydamlık çarpanı */
+  --leke-op: 0.72;
+  --focus: #2f3f86;
+  --font-baslik: 'EB Garamond Variable', 'EB Garamond', 'Iowan Old Style', Georgia, serif;
+  --font-metin: 'Lora Variable', 'Lora', Georgia, serif;
+  --dok: var(--dok-sulu);
+  color-scheme: light;
+}
+/* Parşömen: sıcak, daha koyu kâğıt. Suluboya burada da çoğaltma kipiyle çalışır */
+:root[data-tema='parsomen'],
+[data-onizle='parsomen'] {
+  --kagit: #ebdab2;
+  --sayfa: #f3e6c4;
+  --murekkep: #33261a;
+  --soluk: #5e4a33;
+  --ultramarin-y: #2c3a7a;
+  --yesil-y: #3a5f2a;
+  --gul-y: #8c3a4c;
+  --cizgi: rgb(51 38 26 / 0.28);
+  --focus: #2c3a7a;
+}
+/* Gece masalı: derin lacivert zemin. Suluboya ışıklı pigment olarak (screen) çalışır, kâğıt parşömen tonunda metin taşır */
+:root[data-tema='gece'],
+[data-onizle='gece'] {
+  --kagit: #14203d;
+  --sayfa: #1c2a4e;
+  --murekkep: #f1e7ce;
+  --soluk: #b9b9d0;
+  --ultramarin: #7c90e0;
+  --yesil: #8dba78;
+  --gul: #e29aa6;
+  --ocre: #e6c06a;
+  --ultramarin-y: #9fb0f0;
+  --yesil-y: #a8d08f;
+  --gul-y: #f0a9b5;
+  --cizgi: rgb(241 231 206 / 0.26);
+  --blend: screen;
+  --leke-op: 0.62;
+  --focus: #f1e7ce;
+  color-scheme: dark;
+}
+/* Madde 18 varyantı: yüksek kontrast. Leke daha soluk, çizgi belirgin, metin en koyu */
+:root[data-kontrast='yuksek'] {
+  --murekkep: #14121f;
+  --soluk: #3b3650;
+  --cizgi: rgb(20 18 31 / 0.7);
+  --leke-op: 0.4;
+}
+:root[data-kontrast='yuksek'][data-tema='parsomen'] {
+  --murekkep: #1d140b;
+  --soluk: #45341f;
+}
+:root[data-kontrast='yuksek'][data-tema='gece'] {
+  --murekkep: #ffffff;
+  --soluk: #e3e3f0;
+  --cizgi: rgb(255 255 255 / 0.7);
+  --leke-op: 0.3;
+}
+
+/* ── Madde 8: doku. SVG gürültüsü, ağ isteği yok. Renkle çoğaltılır ── */
+:root {
+  --dok-sulu: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='360' height='360'%3E%3Cfilter id='p' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.05' numOctaves='5' seed='3' result='n'/%3E%3CfeDiffuseLighting in='n' lighting-color='%23fff' surfaceScale='.75'%3E%3CfeDistantLight azimuth='50' elevation='68'/%3E%3C/feDiffuseLighting%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23p)'/%3E%3C/svg%3E");
+  --dok-kanvas: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='k' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' seed='6' result='n'/%3E%3CfeColorMatrix in='n' values='0 0 0 0 .5 0 0 0 0 .46 0 0 0 0 .4 0 0 0 .55 -.2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23k)'/%3E%3C/svg%3E");
+  --dok-dokuma: repeating-linear-gradient(0deg, rgb(90 76 50 / 0.1) 0 1px, transparent 1px 3px), repeating-linear-gradient(90deg, rgb(90 76 50 / 0.1) 0 1px, transparent 1px 3px);
+}
+:root[data-doku='kanvas'] {
+  --dok: var(--dok-dokuma), var(--dok-kanvas);
+}
+:root[data-doku='duz'] {
+  --dok: none;
+}
+
+@theme inline {
+  --color-*: initial;
+  --font-*: initial;
+  --font-baslik: 'EB Garamond Variable', 'EB Garamond', 'Iowan Old Style', Georgia, serif;
+  --font-metin: 'Lora Variable', 'Lora', Georgia, serif;
+  --font-mono: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+  --color-white: #ffffff;
+  --color-transparent: transparent;
+  --color-kagit: var(--kagit);
+  --color-sayfa: var(--sayfa);
+  --color-murekkep: var(--murekkep);
+  --color-soluk: var(--soluk);
+  --color-ultramarin: var(--ultramarin);
+  --color-yesil: var(--yesil);
+  --color-gul: var(--gul);
+  --color-ocre: var(--ocre);
+  --color-ultramarinY: var(--ultramarin-y);
+  --color-yesilY: var(--yesil-y);
+  --color-gulY: var(--gul-y);
+}
+
+@layer base {
+  html {
+    background: var(--kagit);
+    color: var(--murekkep);
+    font-family: var(--font-metin);
+    scroll-padding-top: 88px;
+  }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background-color: var(--kagit);
+    background-image: var(--dok);
+    background-blend-mode: multiply;
+    color: var(--murekkep);
+    font-size: 19px;
+    font-weight: 400;
+    line-height: 1.75;
+    overflow-x: clip;
+  }
+  :focus-visible {
+    outline: 3px solid var(--focus);
+    outline-offset: 4px;
+    border-radius: 6px;
+  }
+  ::selection {
+    background: rgb(201 112 126 / 0.4);
+    color: var(--murekkep);
+  }
+  h1,
+  h2,
+  h3 {
+    margin: 0;
+    font-family: var(--font-baslik);
+    font-weight: 500;
+    line-height: 1.05;
+    letter-spacing: -0.005em;
+    text-wrap: balance;
+    color: var(--murekkep);
+  }
+  p {
+    margin: 0;
+  }
+  a {
+    color: var(--ultramarin-y);
+    font-weight: 600;
+    text-decoration-line: underline;
+    text-decoration-thickness: 1.5px;
+    text-decoration-color: var(--gul);
+    text-underline-offset: 5px;
+  }
+  button {
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+  }
+}
+
+@layer components {
+  [data-onizle] {
+    background-color: var(--kagit);
+    color: var(--murekkep);
+    position: relative;
+    isolation: isolate;
+  }
+  /* Metin bloğu: dokusuz "sayfa", sabit ve net sınırlı. Boya bunun arkasına kayamaz (Madde 17 · 18) */
+  .sayfa {
+    position: relative;
+    background: var(--sayfa);
+    color: var(--murekkep);
+    border: 1px solid var(--cizgi);
+    border-radius: 3px 14px 4px 12px / 12px 4px 14px 3px;
+  }
+  .sayfa-ic {
+    background-image: none;
+  }
+
+  .etiket {
+    font-family: var(--font-baslik);
+    font-style: italic;
+    font-weight: 500;
+    font-size: 19px;
+    letter-spacing: 0.02em;
+    color: var(--gul-y);
+  }
+  .kicker {
+    font-family: var(--font-baslik);
+    font-variant-caps: all-small-caps;
+    letter-spacing: 0.14em;
+    font-weight: 600;
+    font-size: 17px;
+    color: var(--soluk);
+  }
+
+  /* Boyalı katmanlar: çoğaltma kipi kâğıtla bütünleştirir (Madde 15) */
+  .leke {
+    mix-blend-mode: var(--blend);
+    pointer-events: none;
+  }
+  .leke-svg {
+    position: absolute;
+    overflow: visible;
+    pointer-events: none;
+    mix-blend-mode: var(--blend);
+    opacity: min(1, calc(var(--leke-op) * var(--su)));
+  }
+
+  /* Madde 7: gölge yok; altına fırçayla daha koyu bir ton boyanır */
+  .alt-firca {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: -1;
+    mix-blend-mode: var(--blend);
+  }
+
+  /* <WashButton>: arkasında suluboya lekesi olan düğme */
+  .wbtn {
+    position: relative;
+    isolation: isolate;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 52px;
+    padding: 12px 30px;
+    border: 0;
+    background: transparent;
+    color: var(--murekkep);
+    font-family: var(--font-baslik);
+    font-style: italic;
+    font-weight: 600;
+    font-size: 23px;
+    line-height: 1.1;
+    white-space: nowrap;
+    transition: color 200ms;
+  }
+  .wbtn > .wbtn-leke {
+    position: absolute;
+    inset: -8px -10px;
+    z-index: -1;
+    pointer-events: none;
+    mix-blend-mode: var(--blend);
+    opacity: 0.9;
+    transition:
+      scale 900ms cubic-bezier(0.2, 0.7, 0.2, 1),
+      opacity 900ms;
+  }
+  /* Gece: ışıyan pigment metnin altında fazla açılmasın (krem yazı ≥ 4,5:1) */
+  :root[data-tema='gece'] .wbtn:not(:disabled) > .wbtn-leke,
+  [data-onizle='gece'] .wbtn:not(:disabled) > .wbtn-leke {
+    opacity: 0.66;
+  }
+  :root[data-motion='on'] .wbtn:hover:not(:disabled) > .wbtn-leke,
+  :root[data-motion='on'] .wbtn:focus-visible > .wbtn-leke {
+    scale: 1.08;
+  }
+  .wbtn:active:not(:disabled) > .wbtn-leke {
+    scale: 0.97;
+  }
+  .wbtn[data-boy='k'] {
+    min-height: 48px;
+    padding: 8px 22px;
+    font-size: 19px;
+  }
+  .wbtn[data-boy='b'] {
+    min-height: 62px;
+    padding: 14px 38px;
+    font-size: 27px;
+  }
+  .wbtn:disabled {
+    color: var(--soluk);
+    cursor: not-allowed;
+  }
+  .wbtn:disabled > .wbtn-leke {
+    opacity: 0.4;
+  }
+  .wbtn:focus-visible {
+    outline-offset: 8px;
+  }
+
+  /* Form: boyalı çizgi alanı, altı fırça darbesi */
+  .alan {
+    display: block;
+    width: 100%;
+    min-height: 54px;
+    padding: 10px 16px;
+    border: 0;
+    border-bottom: 2px solid var(--cizgi);
+    border-radius: 6px 10px 2px 2px;
+    background: color-mix(in srgb, var(--sayfa) 88%, transparent);
+    color: var(--murekkep);
+    font-family: var(--font-metin);
+    font-size: 19px;
+    transition:
+      border-color 300ms,
+      background-color 300ms;
+  }
+  .alan::placeholder {
+    color: var(--soluk);
+    opacity: 1;
+    font-style: italic;
+  }
+  textarea.alan {
+    min-height: 140px;
+    resize: vertical;
+    line-height: 1.7;
+    background-image: repeating-linear-gradient(transparent 0 31px, var(--cizgi) 31px 32px);
+    background-attachment: local;
+  }
+  .alan:focus-visible {
+    outline: 3px solid var(--focus);
+    outline-offset: 3px;
+    border-bottom-color: var(--ultramarin);
+  }
+  .alan[aria-invalid='true'] {
+    border-bottom: 3px solid var(--gul);
+  }
+
+  .kod {
+    margin: 0;
+    padding: 16px 20px;
+    background: var(--sayfa);
+    color: var(--murekkep);
+    border: 1px solid var(--cizgi);
+    border-radius: 3px 12px 3px 10px;
+    font-family: var(--font-mono);
+    font-size: 14.5px;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+  }
+
+  /* Seçim çipi: seçilince altına fırçayla ton boyanır (dolgu değil, işaret + kalın altı) */
+  .cip {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 48px;
+    padding: 4px 18px;
+    border: 1px solid var(--cizgi);
+    border-radius: 18px 6px 16px 8px / 8px 16px 6px 18px;
+    background: var(--sayfa);
+    color: var(--murekkep);
+    font-family: var(--font-baslik);
+    font-size: 20px;
+    font-style: italic;
+    font-weight: 500;
+    cursor: pointer;
+    user-select: none;
+  }
+  .cip[data-on] {
+    border-color: var(--ultramarin-y);
+    border-width: 2px;
+    font-weight: 700;
+    box-shadow: inset 0 -6px 0 -2px color-mix(in srgb, var(--c, var(--ultramarin)) 55%, transparent);
+  }
+  .cip:has(:focus-visible) {
+    outline: 3px solid var(--focus);
+    outline-offset: 4px;
+  }
+
+  /* Anahtar: kâğıda oyulmuş ray, boya damlası tutamak */
+  .damla {
+    position: relative;
+    flex-shrink: 0;
+    width: 74px;
+    height: 46px;
+    padding: 0;
+    border: 1px solid var(--cizgi);
+    border-radius: 23px;
+    background: var(--sayfa);
+  }
+  .damla > i {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 34px;
+    height: 34px;
+    border-radius: 50% 50% 50% 8%;
+    rotate: -45deg;
+    background: var(--soluk);
+    transition:
+      translate 500ms cubic-bezier(0.3, 0.9, 0.3, 1),
+      background-color 500ms,
+      rotate 500ms;
+  }
+  .damla[aria-checked='true'] > i {
+    translate: 27px 0;
+    background: var(--ultramarin);
+    rotate: 135deg;
+  }
+  /* Kaydırıcı: iz solgun, doluluk ultramarin fırça çizgisi */
+  .firca-arali {
+    appearance: none;
+    display: block;
+    width: 100%;
+    height: 48px;
+    background: transparent;
+    cursor: pointer;
+  }
+  .firca-arali::-webkit-slider-runnable-track {
+    height: 6px;
+    border-radius: 3px 5px 3px 4px;
+    background: linear-gradient(to right, var(--c, var(--ultramarin)) var(--p), var(--cizgi) var(--p));
+  }
+  .firca-arali::-moz-range-track {
+    height: 6px;
+    border-radius: 3px 5px 3px 4px;
+    background: linear-gradient(to right, var(--c, var(--ultramarin)) var(--p), var(--cizgi) var(--p));
+  }
+  .firca-arali::-webkit-slider-thumb {
+    appearance: none;
+    width: 28px;
+    height: 28px;
+    margin-top: -11px;
+    border: 2px solid var(--murekkep);
+    border-radius: 50% 50% 50% 10%;
+    rotate: -45deg;
+    background: var(--c, var(--ultramarin));
+  }
+  .firca-arali::-moz-range-thumb {
+    width: 24px;
+    height: 24px;
+    border: 2px solid var(--murekkep);
+    border-radius: 50% 50% 50% 10%;
+    background: var(--c, var(--ultramarin));
+  }
+  .firca-arali:focus-visible {
+    outline-offset: 2px;
+  }
+
+  /* Baş harf (drop cap) */
+  .basharf::first-letter {
+    float: left;
+    margin: 0.06em 0.12em 0 0;
+    font-family: var(--font-baslik);
+    font-size: 4.6em;
+    font-weight: 600;
+    line-height: 0.82;
+    color: var(--gul-y);
+  }
+}
+
+/* ── Madde 16: yavaş, yumuşak açılış. Boya kâğıda yayılır, sonra kurur ── */
+@keyframes yayil {
+  from {
+    opacity: 0;
+    scale: 0.55;
+    filter: blur(6px);
+  }
+  55% {
+    opacity: 1;
+  }
+  to {
+    opacity: 1;
+    scale: 1;
+    filter: blur(0);
+  }
+}
+@keyframes kuru {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.86;
+  }
+}
+:root[data-motion='on'] .leke-g[data-yayil] {
+  animation:
+    yayil var(--yayil-sure, 3.2s) cubic-bezier(0.2, 0.7, 0.2, 1) both,
+    kuru 9s ease-in 3s forwards;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+@keyframes nefes {
+  0% {
+    scale: 0.6;
+  }
+  33% {
+    scale: 1;
+  }
+  50% {
+    scale: 1;
+  }
+  100% {
+    scale: 0.6;
+  }
+}
+@keyframes yuz {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 -7px;
+  }
+}
+:root[data-motion='on'] .yuz {
+  animation: yuz 7s ease-in-out infinite;
+}
+
+:root[data-motion='off'] *,
+:root[data-motion='off'] *::before,
+:root[data-motion='off'] *::after {
+  animation: none !important;
+  transition-duration: 0.01ms !important;
+}
