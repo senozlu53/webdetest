@@ -30,7 +30,7 @@
         }
         d.dataset.zaman = h >= 5 && h < 10 ? 'sabah' : h >= 10 && h < 16 ? 'ogle' : h >= 16 && h < 21 ? 'aksam' : 'gece'
         var k = g('bf-doku')
-        d.dataset.doku = k === 'su' || k === 'yaprak' || k === 'ahsap' ? k : 'yok'
+        d.dataset.doku = k === 'yok' || k === 'yaprak' || k === 'ahsap' ? k : 'su'
         d.dataset.kontrast = g('bf-kontrast') === 'yuksek' ? 'yuksek' : 'normal'
         var o = g('bf-doga')
         d.dataset.doga = o === 'tam' || o === 'hafif' ? o : 'oto'
