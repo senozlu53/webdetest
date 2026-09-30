@@ -1,0 +1,476 @@
+{
+  "$description": "Stil 038: Esports & Sci-Fi Gaming. W3C DTCG formatı. Adlar Figma yoluyla aynıdır: Color/EsportsNeonGreen, Texture/CarbonFiber, Shape/SlantedCard. Palet karbon siyahı zemin; elektrik mavisi, neon lime ve turuncu şerit ve vurgudur. Kontrast sayıları düz renk çiftleri içindir; `onCarbon` düz zemin, `onWeave` karbon örgüsünün en açık ipliği #1B1F27 üstündedir. Sayfadaki tarama gerçek piksellerin en kötü %2'lik dilimini ölçer (AAA 7:1, büyük metin 4,5:1).",
+  "Color": {
+    "CarbonBlack": {
+      "$type": "color",
+      "$value": "#0D0E12",
+      "$description": "Madde 4: Karbon Siyahı. Zemin ve panel",
+      "contrast": {
+        "iceWhiteOnIt": 17.76
+      }
+    },
+    "ElectricBlue": {
+      "$type": "color",
+      "$value": "#00F0FF",
+      "$description": "Madde 4: Elektrik Mavisi. Birincil vurgu, canlı, bağlantı",
+      "contrast": {
+        "onCarbon": 13.69,
+        "onWeave": 11.72,
+        "carbonOnIt": 13.69
+      }
+    },
+    "EsportsNeonGreen": {
+      "$type": "color",
+      "$value": "#39FF14",
+      "$description": "Madde 4: Neon Lime Yeşili. Galibiyet, ikincil vurgu, şerit",
+      "contrast": {
+        "onCarbon": 14.23,
+        "onWeave": 12.18,
+        "carbonOnIt": 14.23
+      }
+    },
+    "AggressiveOrange": {
+      "$type": "color",
+      "$value": "#FF4500",
+      "$description": "Madde 4: Agresif Turuncu. Şerit, geri sayım; karbon üstünde yalnız büyük metin (≥ 18,66 px kalın) için",
+      "contrast": {
+        "onCarbon": 5.61,
+        "onWeave": 4.8,
+        "carbonOnIt": 5.61
+      }
+    },
+    "OrangeText": {
+      "$type": "color",
+      "$value": "#FF8F5F",
+      "$description": "Turuncunun küçük metin tonu",
+      "contrast": {
+        "onCarbon": 8.59,
+        "onWeave": 7.35
+      }
+    },
+    "OrangeFill": {
+      "$type": "color",
+      "$value": "#FF7440",
+      "$description": "Koyu yazı taşıyan küçük turuncu dolgu (seçili çip)",
+      "contrast": {
+        "carbonOnIt": 7.19
+      }
+    },
+    "LiveBadge": {
+      "$type": "color",
+      "$value": "#9C2600",
+      "$description": "Canlı ve mağlubiyet rozeti zemini",
+      "contrast": {
+        "whiteOnIt": 7.8
+      }
+    },
+    "IceWhite": {
+      "$type": "color",
+      "$value": "#F2F6FA",
+      "$description": "Gövde metni",
+      "contrast": {
+        "onCarbon": 17.76,
+        "onWeave": 15.2
+      }
+    },
+    "SoftText": {
+      "$type": "color",
+      "$value": "#B4C0CF",
+      "$description": "İkincil metin",
+      "contrast": {
+        "onCarbon": 10.45,
+        "onWeave": 8.95
+      }
+    },
+    "IceWhiteHigh": {
+      "$type": "color",
+      "$value": "#FFFFFF",
+      "$description": "Yüksek kontrast metin",
+      "contrast": {
+        "onCarbon": 19.29
+      }
+    },
+    "SoftTextHigh": {
+      "$type": "color",
+      "$value": "#E6EDF5",
+      "$description": "Yüksek kontrast ikincil metin",
+      "contrast": {
+        "onCarbon": 16.35
+      }
+    },
+    "Carbon2": {
+      "$type": "color",
+      "$value": "#12141A",
+      "$description": "Kart zemin tonu"
+    },
+    "Carbon3": {
+      "$type": "color",
+      "$value": "#1C1F26",
+      "$description": "Düğme ve satır zemini"
+    },
+    "SteelDark": {
+      "$type": "color",
+      "$value": "#2A2F3A",
+      "$description": "Fırçalanmış çelik gradyanının orta tonu",
+      "contrast": {
+        "softOnIt": 10.44
+      }
+    },
+    "WeaveHighlight": {
+      "$type": "color",
+      "$value": "#1B1F27",
+      "$description": "Karbon örgüsünün en açık ipliği; kontrast için en kötü zemin"
+    }
+  },
+  "Texture": {
+    "CarbonFiber": {
+      "$type": "string",
+      "$value": "SVG 12×12 çapraz örgü · #0D0E12 zemin, #141720 kare, #1B1F27 parlak iplik, #08090C gölge iplik",
+      "$description": "Madde 8: karbon fiber. Yalnız zemini hafifçe aydınlatır; en açık ton #1B1F27",
+      "tile": "12x12"
+    },
+    "BrushedSteel": {
+      "$type": "string",
+      "$value": "fractalNoise 0,004 × 0,9 · 2 oktav · beyaz iplik + soğuk gradyan",
+      "$description": "Fırçalanmış çelik: yatay ışık çizgileri; üstünde beyaz metin",
+      "baseFrequency": "0.004 0.9",
+      "numOctaves": 2,
+      "tile": "256x64",
+      "opacity": "0.2"
+    },
+    "MattePlastic": {
+      "$type": "string",
+      "$value": "fractalNoise 0,85 · 2 oktav · ince tane",
+      "$description": "Mat siyah plastik: üst kenarda hafif parlak çizgi",
+      "baseFrequency": "0.85",
+      "numOctaves": 2,
+      "tile": "96x96",
+      "opacity": "0.06"
+    }
+  },
+  "Shape": {
+    "SlantedCard": {
+      "$type": "string",
+      "$value": "polygon(0 0, 100% 0, calc(100% − 16px) 100%, 0 100%)",
+      "$description": "Madde 15: sağ kenarı eğik kart. Eğim piksel olarak tutulur, açı yalnız yüksekliğe bağlıdır; sol kenarda 4 px neon şerit"
+    },
+    "CutCorner": {
+      "$type": "string",
+      "$value": "polygon(0 0, calc(100% − 22px) 0, 100% 22px, 100% 100%, 22px 100%, 0 calc(100% − 22px))",
+      "$description": "45° kesik iki köşe: yatay ve dikey bacak eşit"
+    },
+    "SlantedButton": {
+      "$type": "string",
+      "$value": "skewX(−12deg) · yazı skewX(+12deg)",
+      "$description": "Düğme paralelkenardır; yazı ters açıyla düz okunur"
+    },
+    "Triangle": {
+      "$type": "string",
+      "$value": "polygon(50% 0, 100% 100%, 0 100%)",
+      "$description": "Yön ve hız formu"
+    },
+    "Arrow": {
+      "$type": "string",
+      "$value": "polygon(0 20%, 60% 20%, 60% 0, 100% 50%, 60% 100%, 60% 80%, 0 80%)",
+      "$description": "Ok formu"
+    }
+  },
+  "Effects": {
+    "NeonGlowBlue": {
+      "$type": "shadow",
+      "$value": {
+        "color": "rgba(0, 240, 255, 0.5)",
+        "offsetX": "0px",
+        "offsetY": "0px",
+        "blur": "10px",
+        "spread": "0px"
+      },
+      "$description": "Madde 7: kesik kenarı izleyen neon parlama (drop-shadow). Tailwind: drop-shadow"
+    },
+    "NeonGlowGreen": {
+      "$type": "shadow",
+      "$value": {
+        "color": "rgba(57, 255, 20, 0.5)",
+        "offsetX": "0px",
+        "offsetY": "0px",
+        "blur": "10px",
+        "spread": "0px"
+      },
+      "$description": "Lime parlama"
+    },
+    "NeonGlowOrange": {
+      "$type": "shadow",
+      "$value": {
+        "color": "rgba(255, 69, 0, 0.5)",
+        "offsetX": "0px",
+        "offsetY": "0px",
+        "blur": "10px",
+        "spread": "0px"
+      },
+      "$description": "Turuncu parlama"
+    },
+    "HardShadow": {
+      "$type": "shadow",
+      "$value": {
+        "color": "rgba(0, 0, 0, 0.55)",
+        "offsetX": "6px",
+        "offsetY": "6px",
+        "blur": "0px",
+        "spread": "0px"
+      },
+      "$description": "Sıfır bulanıklık; eğik ve kesik kenarı izleyen keskin dış gölge"
+    }
+  },
+  "Border": {
+    "NeonEdge": {
+      "$type": "dimension",
+      "$value": "4px",
+      "$description": "Madde 15: border-l-4. Yüksek kontrastta 6 px"
+    },
+    "NeonEdgeGradient": {
+      "$type": "gradient",
+      "$value": [
+        {
+          "color": "#00F0FF",
+          "position": 0
+        },
+        {
+          "color": "rgba(0, 240, 255, 0.35)",
+          "position": 0.46
+        },
+        {
+          "color": "#39FF14",
+          "position": 1
+        }
+      ],
+      "$description": "Kartın iki katmanlı kenarı: dış katman bu gradyan, iç katman karbon zemin 2 px içeride"
+    }
+  },
+  "Dimension": {
+    "CutSize": {
+      "$type": "dimension",
+      "$value": "22px",
+      "$description": "Kesik köşe; 640 px altında 12 px, Düz ayarında 0"
+    },
+    "SlantSize": {
+      "$type": "dimension",
+      "$value": "16px",
+      "$description": "Eğik kenar yatay payı; 640 px altında 8 px"
+    },
+    "SkewAngle": {
+      "$type": "number",
+      "$value": 12,
+      "$description": "Düğme eğimi, derece; 0–24 arası ayarlanır; 640 px altında kalkar"
+    },
+    "TouchTarget": {
+      "$type": "dimension",
+      "$value": "52px",
+      "$description": "Düğme yüksekliği (küçük 44 px)"
+    },
+    "SimplifyBreakpoint": {
+      "$type": "dimension",
+      "$value": "640px",
+      "$description": "Madde 17: bu genişliğin altında paneller dikey akar, açılar yumuşar"
+    }
+  },
+  "Font": {
+    "Heading": {
+      "$type": "fontFamily",
+      "$value": ["Anybody Variable", "Arial Black", "Helvetica Neue", "Arial", "sans-serif"],
+      "$description": "Madde 5: genişletilmiş kalın başlık; genişlik ekseni %125–140, kalınlık 800–900; 640 px altında %100"
+    },
+    "Body": {
+      "$type": "fontFamily",
+      "$value": ["Rajdhani", "Anybody Variable", "Agency FB", "Bahnschrift", "Arial Narrow", "system-ui", "sans-serif"],
+      "$description": "Gövde ve arayüz, 20 px; 500–700"
+    },
+    "Numeric": {
+      "$type": "fontFamily",
+      "$value": ["Orbitron Variable", "Rajdhani", "Agency FB", "ui-monospace", "sans-serif"],
+      "$description": "Skor, süre, sayı. Türkçe harf içermez: yalnız rakam ve ASCII işaretler"
+    }
+  },
+  "Motion": {
+    "TickerLoop": {
+      "$type": "duration",
+      "$value": "34s",
+      "$description": "Madde 16: kayan skor şeridi bir tur, linear sonsuz; 10–60 sn arası ayarlanır. Kayan alanın üstünde ve Duraklat ile durur; hareket kapalıyken kaymaz"
+    },
+    "SkewSlide": {
+      "$type": "transition",
+      "$value": {
+        "duration": "260ms",
+        "delay": "0ms",
+        "timingFunction": [0.2, 0.85, 0.2, 1]
+      },
+      "$description": "Düğmenin üstüne gelince sağa kayan neon dilim; 80–600 ms ayarlanır"
+    },
+    "ScoreRoll": {
+      "$type": "transition",
+      "$value": {
+        "duration": "500ms",
+        "delay": "0ms",
+        "timingFunction": [0.33, 1, 0.68, 1]
+      },
+      "$description": "Skor sayacı tırmanışı (ease-out cubic)"
+    },
+    "LivePulse": {
+      "$type": "duration",
+      "$value": "1200ms",
+      "$description": "Canlı noktası nabzı, sonsuz"
+    },
+    "RowFlash": {
+      "$type": "duration",
+      "$value": "900ms",
+      "$description": "Skor tablosunda değişen satırın yanıp sönmesi"
+    }
+  },
+  "Theme": {
+    "Carbon": {
+      "$description": "Tek zemin: karbon. Vurgu rengi Accent grubundan seçilir",
+      "Normal": {
+        "zemin": {
+          "$type": "color",
+          "$value": "#0d0e12"
+        },
+        "metin": {
+          "$type": "color",
+          "$value": "#f2f6fa",
+          "contrast": {
+            "onZemin": 17.76
+          }
+        },
+        "soluk": {
+          "$type": "color",
+          "$value": "#b4c0cf",
+          "contrast": {
+            "onZemin": 10.45
+          }
+        },
+        "vurguYazi": {
+          "$type": "color",
+          "$value": "#00f0ff",
+          "contrast": {
+            "onZemin": 13.69
+          }
+        }
+      },
+      "High": {
+        "zemin": {
+          "$type": "color",
+          "$value": "#0d0e12"
+        },
+        "metin": {
+          "$type": "color",
+          "$value": "#ffffff",
+          "contrast": {
+            "onZemin": 19.29
+          }
+        },
+        "soluk": {
+          "$type": "color",
+          "$value": "#e6edf5",
+          "contrast": {
+            "onZemin": 16.35
+          }
+        },
+        "vurguYazi": {
+          "$type": "color",
+          "$value": "#00f0ff",
+          "contrast": {
+            "onZemin": 13.69
+          }
+        }
+      }
+    },
+    "Accent": {
+      "Blue": {
+        "vurgu": {
+          "$type": "color",
+          "$value": "#00f0ff"
+        },
+        "yazi": {
+          "$type": "color",
+          "$value": "#00f0ff",
+          "contrast": {
+            "onCarbon": 13.69
+          }
+        },
+        "dolgu": {
+          "$type": "color",
+          "$value": "#00f0ff",
+          "contrast": {
+            "carbonOnIt": 13.69
+          }
+        }
+      },
+      "Green": {
+        "vurgu": {
+          "$type": "color",
+          "$value": "#39ff14"
+        },
+        "yazi": {
+          "$type": "color",
+          "$value": "#39ff14",
+          "contrast": {
+            "onCarbon": 14.23
+          }
+        },
+        "dolgu": {
+          "$type": "color",
+          "$value": "#39ff14",
+          "contrast": {
+            "carbonOnIt": 14.23
+          }
+        }
+      },
+      "Orange": {
+        "vurgu": {
+          "$type": "color",
+          "$value": "#ff4500"
+        },
+        "yazi": {
+          "$type": "color",
+          "$value": "#ff8f5f",
+          "contrast": {
+            "onCarbon": 8.59
+          }
+        },
+        "dolgu": {
+          "$type": "color",
+          "$value": "#ff7440",
+          "contrast": {
+            "carbonOnIt": 7.19
+          }
+        }
+      }
+    }
+  },
+  "Component": {
+    "EsportsCard": {
+      "$description": "Madde 11 · 14: <EsportsCard>. Dış sarmalayıcı drop-shadow, iç katman clip-path",
+      "kesim": {
+        "$type": "string",
+        "$value": "kose | egik | duz"
+      },
+      "yuzey": {
+        "$type": "string",
+        "$value": "karbon | celik | plastik"
+      }
+    },
+    "SlantedButton": {
+      "$description": "Madde 14 · 16: <SlantedButton>. Sağa kayan neon dilim",
+      "ton": {
+        "$type": "string",
+        "$value": "birincil | ikincil | turuncu | hayalet"
+      }
+    },
+    "LeaderboardTable": {
+      "$description": "Madde 11 · 14: <LeaderboardTable>. Gerçek tablo; satır uçları clip-path ile eğik",
+      "canli": {
+        "$type": "boolean",
+        "$value": false
+      }
+    }
+  }
+}
