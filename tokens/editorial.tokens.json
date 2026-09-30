@@ -1,0 +1,715 @@
+{
+  "$description": "Stil 036: Editorial & Swiss Typography. W3C DTCG formatı. Adlar Figma yoluyla aynıdır: Grid/Editorial12, Typography/LineHeightRelaxed, Color/EditorialCharcoal. Palet kâğıt beyazı, mat kömür ve hafif gri çizgidir; gölge, gradyan, doku ve dolu simge yoktur. Kontrast sayıları sayfadaki tarayıcı taramasının aynısıdır.",
+  "Color": {
+    "EditorialCharcoal": {
+      "$type": "color",
+      "$value": "#111111",
+      "$description": "Madde 4: Mat kömür. Metin",
+      "contrast": {
+        "onPaperWhite": 18.27,
+        "onWhite": 18.88
+      }
+    },
+    "PaperWhite": {
+      "$type": "color",
+      "$value": "#FDFBF7",
+      "$description": "Madde 4: Kâğıt beyazı. Zemin",
+      "contrast": {
+        "charcoalOnIt": 18.27
+      }
+    },
+    "PureWhite": {
+      "$type": "color",
+      "$value": "#FFFFFF",
+      "$description": "Madde 4: Alternatif zemin",
+      "contrast": {
+        "charcoalOnIt": 18.88
+      }
+    },
+    "HairlineGrey": {
+      "$type": "color",
+      "$value": "#E0E0E0",
+      "$description": "Madde 4: Hafif gri yapısal çizgi. Yalnız 1 px ayırıcı; metin rengi olarak kullanılmaz",
+      "contrast": {
+        "onPaperWhite": 1.28
+      }
+    },
+    "SecondaryText": {
+      "$type": "color",
+      "$value": "#4D4D4D",
+      "$description": "İkincil metin (alt yazı). AAA: kâğıt üstünde 7:1 ve üstü",
+      "contrast": {
+        "onPaperWhite": 8.18,
+        "onSurface": 7.56
+      }
+    },
+    "ControlBorder": {
+      "$type": "color",
+      "$value": "#8A8A8A",
+      "$description": "Form ve düğme çerçevesi",
+      "contrast": {
+        "onPaperWhite": 3.34
+      }
+    },
+    "Surface": {
+      "$type": "color",
+      "$value": "#F5F2EA",
+      "$description": "Kod bloğu ve satır vurgusu"
+    }
+  },
+  "Theme": {
+    "Paper": {
+      "$description": "Kâğıt beyazı #FDFBF7 zemin, mat kömür #111111 metin: varsayılan",
+      "Normal": {
+        "zemin": {
+          "$type": "color",
+          "$value": "#fdfbf7"
+        },
+        "metin": {
+          "$type": "color",
+          "$value": "#111111",
+          "contrast": {
+            "onZemin": 18.27
+          }
+        },
+        "soluk": {
+          "$type": "color",
+          "$value": "#4d4d4d",
+          "$description": "İkincil metin: alt yazı, künye, üst yazı",
+          "contrast": {
+            "onZemin": 8.18,
+            "onYuzey": 7.56
+          }
+        },
+        "kontrol": {
+          "$type": "color",
+          "$value": "#8a8a8a",
+          "$description": "Form ve düğme çerçevesi (≥ 3:1)",
+          "contrast": {
+            "onZemin": 3.34
+          }
+        },
+        "cizgi": {
+          "$type": "color",
+          "$value": "#e0e0e0",
+          "$description": "1 px yapısal çizgi: bilgi taşımaz",
+          "contrast": {
+            "onZemin": 1.28
+          }
+        },
+        "yuzey": {
+          "$type": "color",
+          "$value": "#f5f2ea",
+          "$description": "Kod bloğu ve satır vurgusu"
+        }
+      },
+      "HighContrast": {
+        "zemin": {
+          "$type": "color",
+          "$value": "#fdfbf7"
+        },
+        "metin": {
+          "$type": "color",
+          "$value": "#111111",
+          "contrast": {
+            "onZemin": 18.27
+          }
+        },
+        "soluk": {
+          "$type": "color",
+          "$value": "#333333",
+          "$description": "İkincil metin: alt yazı, künye, üst yazı",
+          "contrast": {
+            "onZemin": 12.22,
+            "onYuzey": 11.29
+          }
+        },
+        "kontrol": {
+          "$type": "color",
+          "$value": "#595959",
+          "$description": "Form ve düğme çerçevesi (≥ 3:1)",
+          "contrast": {
+            "onZemin": 6.78
+          }
+        },
+        "cizgi": {
+          "$type": "color",
+          "$value": "#767676",
+          "$description": "1 px yapısal çizgi: bilgi taşımaz",
+          "contrast": {
+            "onZemin": 4.39
+          }
+        },
+        "yuzey": {
+          "$type": "color",
+          "$value": "#f5f2ea",
+          "$description": "Kod bloğu ve satır vurgusu"
+        }
+      }
+    },
+    "White": {
+      "$description": "Saf beyaz #FFFFFF zemin, mat kömür metin: en keskin zıtlık",
+      "Normal": {
+        "zemin": {
+          "$type": "color",
+          "$value": "#ffffff"
+        },
+        "metin": {
+          "$type": "color",
+          "$value": "#111111",
+          "contrast": {
+            "onZemin": 18.88
+          }
+        },
+        "soluk": {
+          "$type": "color",
+          "$value": "#4d4d4d",
+          "$description": "İkincil metin: alt yazı, künye, üst yazı",
+          "contrast": {
+            "onZemin": 8.45,
+            "onYuzey": 7.75
+          }
+        },
+        "kontrol": {
+          "$type": "color",
+          "$value": "#8a8a8a",
+          "$description": "Form ve düğme çerçevesi (≥ 3:1)",
+          "contrast": {
+            "onZemin": 3.45
+          }
+        },
+        "cizgi": {
+          "$type": "color",
+          "$value": "#e0e0e0",
+          "$description": "1 px yapısal çizgi: bilgi taşımaz",
+          "contrast": {
+            "onZemin": 1.32
+          }
+        },
+        "yuzey": {
+          "$type": "color",
+          "$value": "#f5f5f5",
+          "$description": "Kod bloğu ve satır vurgusu"
+        }
+      },
+      "HighContrast": {
+        "zemin": {
+          "$type": "color",
+          "$value": "#ffffff"
+        },
+        "metin": {
+          "$type": "color",
+          "$value": "#111111",
+          "contrast": {
+            "onZemin": 18.88
+          }
+        },
+        "soluk": {
+          "$type": "color",
+          "$value": "#333333",
+          "$description": "İkincil metin: alt yazı, künye, üst yazı",
+          "contrast": {
+            "onZemin": 12.63,
+            "onYuzey": 11.59
+          }
+        },
+        "kontrol": {
+          "$type": "color",
+          "$value": "#595959",
+          "$description": "Form ve düğme çerçevesi (≥ 3:1)",
+          "contrast": {
+            "onZemin": 7
+          }
+        },
+        "cizgi": {
+          "$type": "color",
+          "$value": "#767676",
+          "$description": "1 px yapısal çizgi: bilgi taşımaz",
+          "contrast": {
+            "onZemin": 4.54
+          }
+        },
+        "yuzey": {
+          "$type": "color",
+          "$value": "#f5f5f5",
+          "$description": "Kod bloğu ve satır vurgusu"
+        }
+      }
+    },
+    "Night": {
+      "$description": "Kömür #111111 zemin, kâğıt beyazı metin: karanlıkta okuma",
+      "Normal": {
+        "zemin": {
+          "$type": "color",
+          "$value": "#111111"
+        },
+        "metin": {
+          "$type": "color",
+          "$value": "#fdfbf7",
+          "contrast": {
+            "onZemin": 18.27
+          }
+        },
+        "soluk": {
+          "$type": "color",
+          "$value": "#b8b8b8",
+          "$description": "İkincil metin: alt yazı, künye, üst yazı",
+          "contrast": {
+            "onZemin": 9.52,
+            "onYuzey": 8.68
+          }
+        },
+        "kontrol": {
+          "$type": "color",
+          "$value": "#8a8a8a",
+          "$description": "Form ve düğme çerçevesi (≥ 3:1)",
+          "contrast": {
+            "onZemin": 5.47
+          }
+        },
+        "cizgi": {
+          "$type": "color",
+          "$value": "#333333",
+          "$description": "1 px yapısal çizgi: bilgi taşımaz",
+          "contrast": {
+            "onZemin": 1.49
+          }
+        },
+        "yuzey": {
+          "$type": "color",
+          "$value": "#1b1b1b",
+          "$description": "Kod bloğu ve satır vurgusu"
+        }
+      },
+      "HighContrast": {
+        "zemin": {
+          "$type": "color",
+          "$value": "#111111"
+        },
+        "metin": {
+          "$type": "color",
+          "$value": "#fdfbf7",
+          "contrast": {
+            "onZemin": 18.27
+          }
+        },
+        "soluk": {
+          "$type": "color",
+          "$value": "#d6d6d6",
+          "$description": "İkincil metin: alt yazı, künye, üst yazı",
+          "contrast": {
+            "onZemin": 12.99,
+            "onYuzey": 11.85
+          }
+        },
+        "kontrol": {
+          "$type": "color",
+          "$value": "#b0b0b0",
+          "$description": "Form ve düğme çerçevesi (≥ 3:1)",
+          "contrast": {
+            "onZemin": 8.71
+          }
+        },
+        "cizgi": {
+          "$type": "color",
+          "$value": "#7a7a7a",
+          "$description": "1 px yapısal çizgi: bilgi taşımaz",
+          "contrast": {
+            "onZemin": 4.4
+          }
+        },
+        "yuzey": {
+          "$type": "color",
+          "$value": "#1b1b1b",
+          "$description": "Kod bloğu ve satır vurgusu"
+        }
+      }
+    }
+  },
+  "Grid": {
+    "Editorial12": {
+      "$description": "Madde 12 · 13: Grid/Editorial12. Sıkı 12 kolon; 768 pikselin altında 4 kolon",
+      "columns": {
+        "$type": "number",
+        "$value": 12
+      },
+      "columnsCompact": {
+        "$type": "number",
+        "$value": 4,
+        "$description": "< 768 px"
+      },
+      "gutter": {
+        "desktop": {
+          "$type": "dimension",
+          "$value": "32px",
+          "$description": "≥ 1024 px (Tailwind gap-8)"
+        },
+        "tablet": {
+          "$type": "dimension",
+          "$value": "24px",
+          "$description": "768–1023 px"
+        },
+        "mobile": {
+          "$type": "dimension",
+          "$value": "16px",
+          "$description": "< 768 px"
+        }
+      },
+      "margin": {
+        "$type": "dimension",
+        "$value": "clamp(16px, 4vw, 64px)"
+      },
+      "maxWidth": {
+        "$type": "dimension",
+        "$value": "1440px"
+      },
+      "breakpoint": {
+        "$type": "dimension",
+        "$value": "768px"
+      },
+      "columnWidth": {
+        "$type": "string",
+        "$value": "(çerçeve − 2 × kenar − 11 × oluk) ÷ 12",
+        "$description": "1440 çerçeve, 64 kenar, 32 oluk: 80 px. Sayfada hesaplanan ve ölçülen değer karşılaştırılır"
+      }
+    },
+    "SectionSpace": {
+      "$type": "dimension",
+      "$value": "clamp(96px, 12vw, 200px)",
+      "$description": "Bölümler arası negatif boşluk"
+    },
+    "Alignment": {
+      "$type": "string",
+      "$value": "Başlık 4. kolonda, künye 1., giriş 4.–9., kenar notu 10.–12. kolonda başlar; sayfadaki hizalama denetimi sapmayı ölçer: 0 px",
+      "$description": "Madde 1 · 3: kusursuz grid hizalaması"
+    }
+  },
+  "Typography": {
+    "LineHeightTight": {
+      "$type": "number",
+      "$value": 1.1,
+      "$description": "Başlık ve manşet"
+    },
+    "LineHeightSnug": {
+      "$type": "number",
+      "$value": 1.25,
+      "$description": "Alt başlık, dek"
+    },
+    "LineHeightNormal": {
+      "$type": "number",
+      "$value": 1.5,
+      "$description": "Alt yazı, etiket, tablo"
+    },
+    "LineHeightRelaxed": {
+      "$type": "number",
+      "$value": 1.625,
+      "$description": "Madde 13: Typography/LineHeightRelaxed. Gövde metni (Tailwind leading-relaxed)"
+    },
+    "LineHeightLoose": {
+      "$type": "number",
+      "$value": 2,
+      "$description": "Erişilebilirlik testi"
+    },
+    "Display": {
+      "$type": "typography",
+      "$description": "Manşet. 96 px görünüm ölçeğinde",
+      "$value": {
+        "fontFamily": ["Newsreader Variable", "Newsreader", "New York", "EB Garamond", "Garamond", "Georgia", "serif"],
+        "fontWeight": 700,
+        "fontSize": "clamp(56px, 9.4vw, 136px)",
+        "lineHeight": 0.92,
+        "letterSpacing": "-0.035em"
+      }
+    },
+    "Heading1": {
+      "$type": "typography",
+      "$description": "Bölüm başlığı. 72 px",
+      "$value": {
+        "fontFamily": ["Newsreader Variable", "Newsreader", "New York", "EB Garamond", "Garamond", "Georgia", "serif"],
+        "fontWeight": 700,
+        "fontSize": "clamp(40px, 6vw, 84px)",
+        "lineHeight": 0.98,
+        "letterSpacing": "-0.03em"
+      }
+    },
+    "Heading2": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": ["Newsreader Variable", "Newsreader", "New York", "EB Garamond", "Garamond", "Georgia", "serif"],
+        "fontWeight": 600,
+        "fontSize": "clamp(32px, 3.6vw, 48px)",
+        "lineHeight": 1.05,
+        "letterSpacing": "-0.02em"
+      }
+    },
+    "Heading3": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": ["Newsreader Variable", "Newsreader", "New York", "EB Garamond", "Garamond", "Georgia", "serif"],
+        "fontWeight": 600,
+        "fontSize": "clamp(24px, 2.2vw, 32px)",
+        "lineHeight": 1.15,
+        "letterSpacing": "-0.01em"
+      }
+    },
+    "Dek": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": ["Newsreader Variable", "Newsreader", "New York", "EB Garamond", "Garamond", "Georgia", "serif"],
+        "fontWeight": 400,
+        "fontSize": "clamp(18px, 1.7vw, 22px)",
+        "lineHeight": 1.36,
+        "letterSpacing": "0em"
+      }
+    },
+    "Body": {
+      "$type": "typography",
+      "$description": "Madde 7: 72 px başlık ile 18 px gövde arasındaki fark derinliktir",
+      "$value": {
+        "fontFamily": ["Newsreader Variable", "Newsreader", "New York", "EB Garamond", "Garamond", "Georgia", "serif"],
+        "fontWeight": 400,
+        "fontSize": "18px",
+        "lineHeight": 1.625,
+        "letterSpacing": "0em"
+      }
+    },
+    "Caption": {
+      "$type": "typography",
+      "$description": "72 px : 14 px = 5,14",
+      "$value": {
+        "fontFamily": ["Inter Tight Variable", "Inter Tight", "Helvetica Neue", "Univers", "Arial", "sans-serif"],
+        "fontWeight": 400,
+        "fontSize": "14px",
+        "lineHeight": 1.5,
+        "letterSpacing": "0em"
+      }
+    },
+    "Label": {
+      "$type": "typography",
+      "$extensions": {
+        "com.devinim.text": {
+          "textTransform": "uppercase"
+        }
+      },
+      "$value": {
+        "fontFamily": ["Inter Tight Variable", "Inter Tight", "Helvetica Neue", "Univers", "Arial", "sans-serif"],
+        "fontWeight": 600,
+        "fontSize": "12px",
+        "lineHeight": 1.5,
+        "letterSpacing": "0.12em"
+      }
+    },
+    "Measure": {
+      "$type": "dimension",
+      "$value": "58ch",
+      "$description": "Gövde ölçüsü ≈ 70 karakter; konfor bandı 45–75. Sayfada satır kırılmalarından ölçülür"
+    },
+    "ModularScale": {
+      "$type": "number",
+      "$value": 1.333,
+      "$description": "Derinlik bölümündeki oran kaydırıcısının varsayılanı; 18 px tabanlı, 1,125–1,618"
+    },
+    "Features": {
+      "$type": "string",
+      "$value": "kern, liga, tnum (tablo ve sayfa numarası), hyphens: auto (lang=tr), text-wrap: pretty ve balance"
+    }
+  },
+  "Line": {
+    "Hairline": {
+      "$type": "dimension",
+      "$value": "1px",
+      "$description": "Madde 6: ince ayırıcı. Satır, sütun, liste"
+    },
+    "Section": {
+      "$type": "dimension",
+      "$value": "2px",
+      "$description": "Bölüm ve makale üstü, tablo başlığı üstü"
+    },
+    "Heavy": {
+      "$type": "dimension",
+      "$value": "4px",
+      "$description": "Yalnız gazete manşetinin üstü"
+    },
+    "Radius": {
+      "$type": "dimension",
+      "$value": "0px",
+      "$description": "Keskin 90 derece: sayfada yuvarlak köşeli öğe 0"
+    },
+    "Shadow": {
+      "$type": "string",
+      "$value": "none",
+      "$description": "Madde 7: sıfır gölge. Sayfadaki her öğe taranır"
+    }
+  },
+  "Motion": {
+    "Fade": {
+      "$type": "duration",
+      "$value": "240ms",
+      "$description": "Madde 16: sayfa geçişi, filtre, sayfalama, makale paneli. Yalnız opaklık"
+    },
+    "PageLoad": {
+      "$type": "duration",
+      "$value": "320ms"
+    },
+    "Hover": {
+      "$type": "duration",
+      "$value": "150ms",
+      "$description": "Zemin ve yazı rengi"
+    },
+    "Easing": {
+      "$type": "cubicBezier",
+      "$value": [0, 0, 0.58, 1],
+      "$description": "ease-out"
+    },
+    "Properties": {
+      "$type": "string",
+      "$value": "opacity",
+      "$description": "Yer değiştiren geçiş (transform, kenar boşluğu, konum) sayısı canlı sayılır: 0"
+    },
+    "Off": {
+      "$type": "string",
+      "$value": "animation: none; transition-duration: .01ms",
+      "$description": "Sistemin azaltılmış hareket tercihi ya da Ayarlar > Geçiş hareketi > Durdur"
+    }
+  },
+  "MultiColumn": {
+    "$description": "Madde 11 · 14: <MultiColumnLayout>. Sütun sayısı kapsayıcı genişliğine bağlıdır (kapsayıcı sorgusu)",
+    "Rule": {
+      "$type": "dimension",
+      "$value": "1px",
+      "$description": "column-rule"
+    },
+    "Gap": {
+      "$type": "dimension",
+      "$value": "32px"
+    },
+    "Breakpoints": {
+      "$type": "string",
+      "$value": "< 640: 1 sütun · 640–959: 2 · 960–1119: 3 · ≥ 1120: seçilen sayı (en çok 4)"
+    },
+    "DropCap": {
+      "$type": "string",
+      "$value": "::first-letter, 4,3 em, üç satır"
+    }
+  },
+  "Icon": {
+    "Stroke": {
+      "$type": "dimension",
+      "$value": "1.25px",
+      "$description": "Madde 9: non-scaling-stroke; boyut değişse de sabit"
+    },
+    "Caps": {
+      "$type": "string",
+      "$value": "square"
+    },
+    "Joins": {
+      "$type": "string",
+      "$value": "miter"
+    },
+    "Size": {
+      "$type": "dimension",
+      "$value": "24px"
+    },
+    "Count": {
+      "$type": "number",
+      "$value": 14,
+      "$description": "ok (4 yön + çapraz), artı, eksi, çarpı, V, yıldız, dış bağlantı, ızgara, sayfa, sütunlar. Dolu, gölgeli ya da renkli simge yok"
+    },
+    "Marks": {
+      "$type": "string",
+      "$value": "* † ‡ § ¶",
+      "$description": "Metin işaretleri, yazı tipinin kendi glifleri"
+    }
+  },
+  "Accessibility": {
+    "$description": "Madde 18: mat zemin ve yüksek kontrastlı kömür metin, WCAG AAA",
+    "TextContrast": {
+      "$type": "number",
+      "$value": 7,
+      "$description": "AAA: bütün küçük metin"
+    },
+    "LargeTextContrast": {
+      "$type": "number",
+      "$value": 4.5,
+      "$description": "AAA: büyük metin (≥ 24 px)"
+    },
+    "CharcoalOnPaper": {
+      "$type": "number",
+      "$value": 18.27
+    },
+    "Scan": {
+      "$description": "Tarayıcıda tüm metin düğümleri (1159) 10 kombinasyonda ölçüldü: 3 kâğıt × normal / yüksek kontrast, %125 yazı, metin aralığı testi, hareket açık, kılavuz açık",
+      "failures": {
+        "$type": "number",
+        "$value": 0
+      },
+      "minRatio": {
+        "$type": "number",
+        "$value": 8.18,
+        "$description": "Kâğıt üstünde en soluk ikincil metin"
+      }
+    },
+    "TextSpacing": {
+      "$type": "string",
+      "$value": "satır 1,5 · paragraf 2× · harf 0,12 em · sözcük 0,16 em",
+      "$description": "WCAG 1.4.12: uygulandığında kırpılan metin 0, taşma 0"
+    },
+    "Zoom": {
+      "$type": "string",
+      "$value": "%100 · %112 · %125 (rem)",
+      "$description": "320 pikselde yatay kaydırma yok"
+    },
+    "FocusRing": {
+      "$type": "string",
+      "$value": "3px solid var(--metin); outline-offset: 3px"
+    },
+    "TargetSize": {
+      "$type": "dimension",
+      "$value": "44px",
+      "$description": "Sayfada 44 px altında hedef 0"
+    },
+    "Variants": {
+      "$type": "string",
+      "$value": "kâğıt (krem, beyaz, gece) · kontrast (normal, yüksek) · yazı boyutu (%100, %112, %125) · metin aralığı (normal, geniş) · geçiş hareketi (sisteme uy, açık, durdur) · kolon kılavuzu (açık, kapalı)"
+    }
+  },
+  "Components": {
+    "$description": "Madde 14: React bileşenleri",
+    "EditorialContainer": {
+      "$type": "string",
+      "$value": "<EditorialContainer as kolon izgara genis>"
+    },
+    "MultiColumnLayout": {
+      "$type": "string",
+      "$value": "<MultiColumnLayout sutun kural ilkHarf>"
+    },
+    "ArticleHeader": {
+      "$type": "string",
+      "$value": "<ArticleHeader kicker baslik dek imza dk seviye>"
+    },
+    "Pagination": {
+      "$type": "string",
+      "$value": "<Pagination toplam sayfa onChange komsu>"
+    },
+    "ArticleCard": {
+      "$type": "string",
+      "$value": "<ArticleCard makale acik onToggle>"
+    },
+    "FigmaAutoLayout": {
+      "$type": "string",
+      "$value": "Direction Horizontal / Vertical · Gap 0 / 16 / 32 · Padding 0 / 16 / 32 · Sizing Fill container"
+    }
+  },
+  "Tailwind": {
+    "classes": {
+      "$type": "string",
+      "$value": "grid grid-cols-12 gap-8 font-sans leading-relaxed text-neutral-900",
+      "$description": "Madde 15: hesaplanan değerler sayfada okunur (grid, 12 kolon, 32 px, Inter Tight, 1,625, rgb(17, 17, 17))"
+    },
+    "theme": {
+      "$type": "string",
+      "$value": "--color-neutral-900: #111111; --font-sans: Inter Tight; --font-serif: Newsreader",
+      "$description": "neutral-900 bu temada tasarım belirtecidir"
+    }
+  }
+}

@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Stil 036: Editorial & Swiss Typography. Metnin mimari bir grid elemanı olduğu; 12 kolonlu kusursuz hizalama, 1 piksellik ayırıcılar, devasa beyaz alan, çok sütunlu gazete düzenleri ve klasik editoryal zarafet; Newsreader ve Inter Tight." />
+    <meta name="theme-color" content="#fdfbf7" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' fill='%23fdfbf7'/%3E%3Cpath d='M9 8H15V40H9ZM19 8H21V40H19ZM25 8H27V40H25ZM31 8H39V40H31Z' fill='%23111'/%3E%3C/svg%3E" />
+    <title>Stil 036 · Editorial Typography</title>
+    <script>
+      try {
+        var d = document.documentElement
+        var g = function (k) {
+          return localStorage.getItem(k)
+        }
+        var m = g('ed-hareket')
+        d.dataset.motion = m === 'kapali' || (m !== 'acik' && matchMedia('(prefers-reduced-motion: reduce)').matches) ? 'off' : 'on'
+        var t = g('ed-tema')
+        d.dataset.tema = t === 'beyaz' || t === 'gece' ? t : 'krem'
+        d.dataset.kontrast = g('ed-kontrast') === 'yuksek' ? 'yuksek' : 'normal'
+        var b = g('ed-boyut')
+        d.dataset.boyut = b === '112' || b === '125' ? b : '100'
+        d.dataset.aralik = g('ed-aralik') === 'genis' ? 'genis' : 'normal'
+        d.dataset.izgara = g('ed-izgara') === 'acik' ? 'acik' : 'kapali'
+        if (d.dataset.tema === 'gece') d.style.colorScheme = 'dark'
+      } catch (e) {}
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/editorial/main.tsx"></script>
+  </body>
+</html>
