@@ -1,9 +1,11 @@
 import { Degisken } from '../components/Degisken'
 import { Baglanti, Bolum, Kod, KENAR } from '../components/ui'
+import { useVariable } from '../lib/store'
 
 const PROMPT = 'Experimental variable typography, interactive font weight shifting on hover, avant-garde web design, chaotic letterforms, high contrast editorial layout.'
 
 export function Hero() {
+  const { kilitli } = useVariable()
   return (
     <section id="ust" aria-label="Giriş" className="relative">
       <div className={`${KENAR} pt-[clamp(24px,5vw,64px)] pb-[clamp(40px,6vw,88px)]`}>
@@ -13,7 +15,7 @@ export function Hero() {
             <Degisken metin="Büküm" boy="clamp(96px, 40vw, 600px)" k={0.66} ad="hero" />
           </h1>
           <p
-            className="patlama-blok vk f-fra z-10 self-end justify-self-start px-[0.4em] py-[0.15em] text-[clamp(20px,3.6vw,52px)] leading-none"
+            className="patlama-blok vk f-fra z-10 self-end justify-self-start px-[0.4em] py-[0.15em] text-[clamp(20px,3.6vw,52px)] leading-none max-[639px]:translate-y-[45%]"
             style={{ gridArea: '1 / 1', ['--wght' as string]: 300, ['--soft' as string]: 100, ['--wonk' as string]: 1, ['--opsz' as string]: 72 }}
             data-hero-etiket="1"
           >
@@ -24,7 +26,7 @@ export function Hero() {
             style={{ gridArea: '1 / 1', background: 'var(--metin)', color: 'var(--zemin)', fontFamily: 'var(--font-rec)', fontVariationSettings: "'wght' 600, 'MONO' 1, 'CASL' 0", letterSpacing: '0.04em' }}
             data-hero-etiket="2"
           >
-            eksenler serbest
+            {kilitli ? 'eksenler kilitli' : 'eksenler serbest'}
           </p>
         </div>
         <div className="mt-12 grid grid-cols-1 items-end gap-8 md:grid-cols-12">
