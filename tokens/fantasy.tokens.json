@@ -1,0 +1,568 @@
+{
+  "$description": "Stil 037: MMORPG / Fantasy UI. W3C DTCG formatı. Adlar Figma yoluyla aynıdır: Color/FantasyGold, Texture/Parchment, Effects/MagicGlow. Palet derin zindan grisi, büyülü altın, kan kırmızısı ve mana mavisidir; metin parlak palete değil, onların açık ve okunaklı türevlerine yaslanır. Kontrast sayıları düz renk çiftleri içindir; dokulu yüzeylerde sayfadaki tarama gerçek piksellerin en kötü %2'lik dilimini ölçer (AAA 7:1, büyük metin 4,5:1).",
+  "Color": {
+    "FantasyGold": {
+      "$type": "color",
+      "$value": "#D4AF37",
+      "$description": "Madde 4: Büyülü Altın. Çerçeve, büyük başlık, dolgu. Zindan üstünde 7,89:1 (büyük metin AAA)",
+      "contrast": {
+        "onDungeonStone": 7.89,
+        "darkTextOnIt": 7.89
+      }
+    },
+    "DungeonStone": {
+      "$type": "color",
+      "$value": "#1E1E24",
+      "$description": "Madde 4: Derin Zindan Grisi. Zemin ve taş",
+      "contrast": {
+        "parchmentWhiteOnIt": 14.08
+      }
+    },
+    "BloodRed": {
+      "$type": "color",
+      "$value": "#8B0000",
+      "$description": "Madde 4: Kan Kırmızısı. Can çubuğu, tehlike düğmesi",
+      "contrast": {
+        "whiteOnIt": 10.01
+      }
+    },
+    "ManaBlue": {
+      "$type": "color",
+      "$value": "#1E90FF",
+      "$description": "Madde 4: Mana Mavisi. Mana çubuğu kenarı ve büyü vurgusu; bileşen olarak 3:1 ve üstü",
+      "contrast": {
+        "onDungeonStone": 5.12
+      }
+    },
+    "ParchmentWhite": {
+      "$type": "color",
+      "$value": "#F4ECD8",
+      "$description": "Taş üstünde gövde metni",
+      "contrast": {
+        "onDungeonStone": 14.08
+      }
+    },
+    "ParchmentWhiteHigh": {
+      "$type": "color",
+      "$value": "#FFFFFF",
+      "$description": "Yüksek kontrast varyantında gövde metni",
+      "contrast": {
+        "onDungeonStone": 16.58
+      }
+    },
+    "SoftText": {
+      "$type": "color",
+      "$value": "#C9BFA8",
+      "$description": "Taş üstünde ikincil metin",
+      "contrast": {
+        "onDungeonStone": 9.08
+      }
+    },
+    "GoldText": {
+      "$type": "color",
+      "$value": "#E6C55A",
+      "$description": "Taş üstünde vurgu, sayı, bağlantı",
+      "contrast": {
+        "onDungeonStone": 9.87
+      }
+    },
+    "GoldTextHigh": {
+      "$type": "color",
+      "$value": "#FFE07A",
+      "$description": "Yüksek kontrastta vurgu ve odak halkası",
+      "contrast": {
+        "onDungeonStone": 12.79
+      }
+    },
+    "BloodText": {
+      "$type": "color",
+      "$value": "#FF9C9C",
+      "$description": "Taş üstünde hasar ve uyarı yazısı",
+      "contrast": {
+        "onDungeonStone": 8.28
+      }
+    },
+    "ManaText": {
+      "$type": "color",
+      "$value": "#7FBFFF",
+      "$description": "Taş üstünde mana ve büyü yazısı",
+      "contrast": {
+        "onDungeonStone": 8.53
+      }
+    },
+    "Parchment": {
+      "$type": "color",
+      "$value": "#E9DDB8",
+      "$description": "Parşömen zemini (dokusuz düz değer)",
+      "contrast": {
+        "inkOnIt": 12.06
+      }
+    },
+    "ParchmentHigh": {
+      "$type": "color",
+      "$value": "#F4ECD0",
+      "$description": "Yüksek kontrast parşömen zemini",
+      "contrast": {
+        "blackOnIt": 17.76
+      }
+    },
+    "Ink": {
+      "$type": "color",
+      "$value": "#2B1D0E",
+      "$description": "Parşömen üstünde gövde mürekkebi",
+      "contrast": {
+        "onParchment": 12.06
+      }
+    },
+    "InkSoft": {
+      "$type": "color",
+      "$value": "#33240F",
+      "$description": "Parşömen üstünde ikincil mürekkep",
+      "contrast": {
+        "onParchment": 11.07
+      }
+    },
+    "InkBlood": {
+      "$type": "color",
+      "$value": "#4D0C0C",
+      "$description": "Parşömen üstünde başlık ve vurgu",
+      "contrast": {
+        "onParchment": 11.29
+      }
+    },
+    "Rarity": {
+      "$description": "Nadirlik renkleri taş üstünde ≥ 7:1. Yalnız renkle söylenmez: ad yazıyla, eşya kendi çizimiyle ayrılır",
+      "Common": {
+        "$type": "color",
+        "$value": "#BDB8AD",
+        "$description": "Sıradan",
+        "contrast": {
+          "onDungeonStone": 8.39
+        }
+      },
+      "Uncommon": {
+        "$type": "color",
+        "$value": "#7BD88F",
+        "$description": "Özel",
+        "contrast": {
+          "onDungeonStone": 9.52
+        }
+      },
+      "Rare": {
+        "$type": "color",
+        "$value": "#7FBFFF",
+        "$description": "Nadir",
+        "contrast": {
+          "onDungeonStone": 8.53
+        }
+      },
+      "Epic": {
+        "$type": "color",
+        "$value": "#D2A9FF",
+        "$description": "Epik",
+        "contrast": {
+          "onDungeonStone": 8.58
+        }
+      },
+      "Legendary": {
+        "$type": "color",
+        "$value": "#FFC94D",
+        "$description": "Efsanevi",
+        "contrast": {
+          "onDungeonStone": 10.83
+        }
+      }
+    }
+  },
+  "Texture": {
+    "Parchment": {
+      "$type": "string",
+      "$value": "fractalNoise 0,018 · 4 oktav · en çok %42 kahve leke + %24 ince tane",
+      "$description": "Madde 8: Eskitilmiş parşömen. Yalnız koyulaştırır; dokusuz düz değer #E9DDB8",
+      "baseFrequency": "0.018",
+      "numOctaves": 4,
+      "tile": "256x256",
+      "opacity": "0.42 + 0.24"
+    },
+    "Stone": {
+      "$type": "string",
+      "$value": "fractalNoise 0,8 · 2 oktav · harç çizgileri ve blok tonu",
+      "$description": "SVG feTurbulence karosu, görsel dosyası yok",
+      "baseFrequency": "0.8",
+      "numOctaves": 2,
+      "tile": "192x128",
+      "opacity": "0.55"
+    },
+    "Leather": {
+      "$type": "string",
+      "$value": "fractalNoise 0,55 · 3 oktav · çukurlu tane, dikiş çizgisi",
+      "$description": "SVG feTurbulence karosu, görsel dosyası yok",
+      "baseFrequency": "0.55",
+      "numOctaves": 3,
+      "tile": "128x128",
+      "opacity": "0.55"
+    },
+    "Wood": {
+      "$type": "string",
+      "$value": "fractalNoise 0,012 × 0,3 · 3 oktav · yatay damar",
+      "$description": "SVG feTurbulence karosu, görsel dosyası yok",
+      "baseFrequency": "0.012 0.3",
+      "numOctaves": 3,
+      "tile": "256x128",
+      "opacity": "0.7"
+    },
+    "BrushedMetal": {
+      "$type": "string",
+      "$value": "fractalNoise 0,004 × 0,95 · 2 oktav · yatay ışık çizgileri",
+      "$description": "SVG feTurbulence karosu, görsel dosyası yok",
+      "baseFrequency": "0.004 0.95",
+      "numOctaves": 2,
+      "tile": "256x128",
+      "opacity": "0.16"
+    }
+  },
+  "Effects": {
+    "MagicGlow": {
+      "$type": "shadow",
+      "$value": {
+        "color": "rgba(212, 175, 55, 0.55)",
+        "offsetX": "0px",
+        "offsetY": "0px",
+        "blur": "12px",
+        "spread": "2px"
+      },
+      "$description": "Madde 7: Dışa doğru parlayan altın büyü"
+    },
+    "MagicGlowMana": {
+      "$type": "shadow",
+      "$value": {
+        "color": "rgba(30, 144, 255, 0.55)",
+        "offsetX": "0px",
+        "offsetY": "0px",
+        "blur": "12px",
+        "spread": "2px"
+      },
+      "$description": "Mana büyüsü"
+    },
+    "MagicGlowBlood": {
+      "$type": "shadow",
+      "$value": {
+        "color": "rgba(255, 90, 90, 0.55)",
+        "offsetX": "0px",
+        "offsetY": "0px",
+        "blur": "12px",
+        "spread": "2px"
+      },
+      "$description": "Kan büyüsü"
+    },
+    "InnerShadow": {
+      "$type": "shadow",
+      "$value": {
+        "color": "rgba(0, 0, 0, 0.8)",
+        "offsetX": "0px",
+        "offsetY": "0px",
+        "blur": "10px",
+        "spread": "0px",
+        "inset": true
+      },
+      "$description": "Madde 7 · 15: içe doğru yoğun gölge; pencereyi taşa gömer. Tailwind: shadow-[inset_0_0_10px_rgba(0,0,0,0.8)]"
+    },
+    "PanelDrop": {
+      "$type": "shadow",
+      "$value": {
+        "color": "rgba(0, 0, 0, 0.45)",
+        "offsetX": "0px",
+        "offsetY": "8px",
+        "blur": "24px",
+        "spread": "0px"
+      },
+      "$description": "Panelin zeminden kopması"
+    }
+  },
+  "Border": {
+    "GoldWidth": {
+      "$type": "dimension",
+      "$value": "4px",
+      "$description": "Madde 15: border-4. 640 px altında 3 px; yüksek kontrastta 5 px"
+    },
+    "GoldFrame": {
+      "$type": "gradient",
+      "$value": [
+        {
+          "color": "#F2DC8B",
+          "position": 0
+        },
+        {
+          "color": "#D4AF37",
+          "position": 0.32
+        },
+        {
+          "color": "#8F7220",
+          "position": 0.58
+        },
+        {
+          "color": "#D4AF37",
+          "position": 0.82
+        },
+        {
+          "color": "#F2DC8B",
+          "position": 1
+        }
+      ],
+      "$description": "İki katmanlı arka plan: padding-box düz zemin, border-box bu gradyan"
+    },
+    "InnerLine": {
+      "$type": "dimension",
+      "$value": "1px",
+      "$description": "Panelin 6 px içindeki ince altın çizgi; 640 px altında 4 px"
+    }
+  },
+  "Dimension": {
+    "CornerOrnament": {
+      "$type": "dimension",
+      "$value": "48px",
+      "$description": "Madde 12: filigree köşe süsü, Absolute Position ile köşeye çivili. 32–72 px arası ayarlanır; 640 px altında kapanır"
+    },
+    "Slot": {
+      "$type": "dimension",
+      "$value": "56px",
+      "$description": "Madde 11 · 17: envanter yuvası en az boyu; 640 px altında 44 px"
+    },
+    "SlotCompact": {
+      "$type": "dimension",
+      "$value": "44px"
+    },
+    "TouchTarget": {
+      "$type": "dimension",
+      "$value": "48px",
+      "$description": "Düğme ve çip en az boyu (WCAG 2.5.5 ≥ 44)"
+    },
+    "SimplifyBreakpoint": {
+      "$type": "dimension",
+      "$value": "640px",
+      "$description": "Madde 17: süslemeler bu genişliğin altında sadeleşir"
+    }
+  },
+  "Font": {
+    "Heading": {
+      "$type": "fontFamily",
+      "$value": ["Cinzel Variable", "Cinzel", "Trajan", "Trajan Pro", "Palatino Linotype", "Georgia", "serif"],
+      "$description": "Madde 5: yontulmuş başlık serifi, 400–900"
+    },
+    "Body": {
+      "$type": "fontFamily",
+      "$value": ["Crimson Pro Variable", "Crimson Pro", "Iowan Old Style", "Georgia", "Times New Roman", "serif"],
+      "$description": "Okunaklı gövde serifi, 19 px, satır 1,65"
+    },
+    "Mono": {
+      "$type": "fontFamily",
+      "$value": ["ui-monospace", "SFMono-Regular", "Menlo", "Consolas", "monospace"]
+    }
+  },
+  "Motion": {
+    "ScrollUnfurl": {
+      "$type": "transition",
+      "$value": {
+        "duration": "820ms",
+        "delay": "0ms",
+        "timingFunction": [0.22, 0.8, 0.24, 1]
+      },
+      "$description": "Madde 16: parşömen ortadan dışarı açılır; kapanış 420 ms ease-in"
+    },
+    "ScrollRoll": {
+      "$type": "transition",
+      "$value": {
+        "duration": "420ms",
+        "delay": "0ms",
+        "timingFunction": [0.42, 0, 1, 1]
+      },
+      "$description": "Parşömen kapanışı"
+    },
+    "ChestLidOuter": {
+      "$type": "transition",
+      "$value": {
+        "duration": "340ms",
+        "delay": "0ms",
+        "timingFunction": [0.42, 0, 1, 1]
+      },
+      "$description": "Madde 16: sandık kapağı dış yüz"
+    },
+    "ChestLidInner": {
+      "$type": "transition",
+      "$value": {
+        "duration": "420ms",
+        "delay": "320ms",
+        "timingFunction": [0, 0, 0.58, 1]
+      },
+      "$description": "Kapağın kırmızı astarı"
+    },
+    "BarFill": {
+      "$type": "transition",
+      "$value": {
+        "duration": "500ms",
+        "delay": "0ms",
+        "timingFunction": [0.3, 0.8, 0.3, 1]
+      },
+      "$description": "Çubuk dolgusu; hasar izi 700 ms, 500 ms geriden"
+    },
+    "LootRise": {
+      "$type": "transition",
+      "$value": {
+        "duration": "420ms",
+        "delay": "0ms",
+        "timingFunction": [0.2, 0.9, 0.3, 1.2]
+      },
+      "$description": "Ganimet yükselişi, 150 ms aralıkla"
+    },
+    "GoldLeaf": {
+      "$type": "duration",
+      "$value": "550ms",
+      "$description": "Yaldız parçası ömrü 0,55–1,15 sn, en çok 240 parça; yerçekimi 900 px/sn²"
+    }
+  },
+  "Theme": {
+    "Dungeon": {
+      "Normal": {
+        "$description": "Varsayılan: koyu taş zemin, parşömen beyazı ve altın",
+        "zemin": {
+          "$type": "color",
+          "$value": "#1e1e24"
+        },
+        "metin": {
+          "$type": "color",
+          "$value": "#f4ecd8",
+          "contrast": {
+            "onZemin": 14.08
+          }
+        },
+        "soluk": {
+          "$type": "color",
+          "$value": "#c9bfa8",
+          "contrast": {
+            "onZemin": 9.08
+          }
+        },
+        "vurgu": {
+          "$type": "color",
+          "$value": "#e6c55a",
+          "contrast": {
+            "onZemin": 9.87
+          }
+        }
+      },
+      "High": {
+        "$description": "Yüksek kontrast: doku kapalı, saf beyaz ve açık altın",
+        "zemin": {
+          "$type": "color",
+          "$value": "#1e1e24"
+        },
+        "metin": {
+          "$type": "color",
+          "$value": "#ffffff",
+          "contrast": {
+            "onZemin": 16.58
+          }
+        },
+        "soluk": {
+          "$type": "color",
+          "$value": "#e8e2d0",
+          "contrast": {
+            "onZemin": 12.81
+          }
+        },
+        "vurgu": {
+          "$type": "color",
+          "$value": "#ffe07a",
+          "contrast": {
+            "onZemin": 12.79
+          }
+        }
+      }
+    },
+    "Parchment": {
+      "Normal": {
+        "$description": "Parşömen sayfa zemini: koyu mürekkep, koyu kan kırmızısı başlık",
+        "zemin": {
+          "$type": "color",
+          "$value": "#e9ddb8"
+        },
+        "metin": {
+          "$type": "color",
+          "$value": "#2b1d0e",
+          "contrast": {
+            "onZemin": 12.06
+          }
+        },
+        "soluk": {
+          "$type": "color",
+          "$value": "#33240f",
+          "contrast": {
+            "onZemin": 11.07
+          }
+        },
+        "vurgu": {
+          "$type": "color",
+          "$value": "#4d0c0c",
+          "contrast": {
+            "onZemin": 11.29
+          }
+        }
+      },
+      "High": {
+        "$description": "Yüksek kontrast parşömen: doku kapalı, siyah mürekkep",
+        "zemin": {
+          "$type": "color",
+          "$value": "#f4ecd0"
+        },
+        "metin": {
+          "$type": "color",
+          "$value": "#000000",
+          "contrast": {
+            "onZemin": 17.76
+          }
+        },
+        "soluk": {
+          "$type": "color",
+          "$value": "#2b1d0e",
+          "contrast": {
+            "onZemin": 13.82
+          }
+        },
+        "vurgu": {
+          "$type": "color",
+          "$value": "#3d0000",
+          "contrast": {
+            "onZemin": 14.82
+          }
+        }
+      }
+    }
+  },
+  "Component": {
+    "HealthBar": {
+      "$description": "Madde 11 · 14: <HealthBar>. Değer çubuğun dışında sayıyla yazılır",
+      "height": {
+        "$type": "dimension",
+        "$value": "26px"
+      },
+      "variants": {
+        "$type": "string",
+        "$value": "can | mana | deneyim"
+      }
+    },
+    "InventoryGrid": {
+      "$description": "Madde 11 · 14: <InventoryGrid>. 30 yuva, sütun sayısı kapsayıcıya göre; ok tuşları, Home, End, Enter ile taşıma, sürükle-bırak",
+      "columns": {
+        "$type": "string",
+        "$value": "repeat(auto-fill, minmax(56px, 1fr))"
+      }
+    },
+    "FantasyModal": {
+      "$description": "Madde 11 · 14: <FantasyModal>. Radix Dialog; parşömen açılışı, odak tuzağı, Esc, odak açan öğeye döner",
+      "zIndex": {
+        "$type": "number",
+        "$value": 150
+      }
+    }
+  }
+}
