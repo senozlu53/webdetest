@@ -17,7 +17,7 @@ export function Hero() {
           <span className="rakam">{SAYI.tarih}</span>
           <span>Çevrimiçi baskı</span>
         </div>
-        <div className="masthead-sig mt-6 mb-3">
+        <div className="masthead-sig mt-6 mb-3 pt-3">
           <p className="masthead" data-masthead="" aria-label="Kolon">
             Kolon
           </p>
