@@ -1,0 +1,739 @@
+@import 'tailwindcss' source(none);
+@source '.';
+
+/* ─────────────────────────────────────────────────────────────
+   STİL 034 · KINETIC TYPOGRAPHY (MOTION-DRIVEN TEXT)
+   Saf siyah zemin, saf beyaz metin ve tek bir neon vurgu (asit yeşili ya da elektrik kırmızısı).
+   Gölge, gradyan, doku ve ikon yok; yüzey pürüzsüz, ivme metnin kendisinde.
+   Hareket kaydırma hızından, zamandan ve imleçten gelir; "Hareketi durdur" her zaman bir tık uzakta.
+   ───────────────────────────────────────────────────────────── */
+
+@font-face {
+  font-family: 'Syne Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400 800;
+  src: url('@fontsource-variable/syne/files/syne-latin-ext-wght-normal.woff2') format('woff2-variations');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Syne Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400 800;
+  src: url('@fontsource-variable/syne/files/syne-latin-wght-normal.woff2') format('woff2-variations');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Inter Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url('@fontsource-variable/inter/files/inter-latin-ext-wght-normal.woff2') format('woff2-variations');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Inter Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url('@fontsource-variable/inter/files/inter-latin-wght-normal.woff2') format('woff2-variations');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* ── Madde 4: palet. Saf siyah zemin, saf beyaz metin, tek neon vurgu ── */
+:root {
+  --zemin: #000000; /* Saf Siyah */
+  --metin: #ffffff; /* Saf Beyaz */
+  --soluk: #a3a3a3; /* 8,3:1 */
+  --kontrol: #8a8a8a; /* form çerçevesi ≥ 3:1 (6,1:1) */
+  --hat: #2b2b2b; /* yalnız süs: ince ayraç */
+  --yuzey: #0d0d0d; /* kod bloğu */
+  --vurgu: #ccff00; /* Asit Yeşili: dolgu */
+  --vurgu-yazi: #ccff00; /* zemin üstünde yazı olarak */
+  --vurgu-uzeri: #000000; /* vurgu dolgusunun üstündeki yazı */
+  color-scheme: dark;
+}
+:root[data-vurgu='kirmizi'] {
+  --vurgu: #ff3b3b; /* Elektrik Kırmızısı */
+  --vurgu-yazi: #ff3b3b;
+  --vurgu-uzeri: #000000;
+}
+:root[data-tema='ak'] {
+  --zemin: #ffffff;
+  --metin: #000000;
+  --soluk: #525252;
+  --kontrol: #757575;
+  --hat: #d4d4d4;
+  --yuzey: #f2f2f2;
+  --vurgu-yazi: #3d5a00; /* asit yeşili beyaz üstünde yazı olamaz: koyu türevi */
+  color-scheme: light;
+}
+:root[data-tema='ak'][data-vurgu='kirmizi'] {
+  --vurgu: #d40000;
+  --vurgu-yazi: #d40000;
+  --vurgu-uzeri: #ffffff;
+}
+/* Madde 18 varyantı: yüksek kontrast (7:1) */
+:root[data-kontrast='yuksek'] {
+  --soluk: #d4d4d4;
+  --kontrol: #d4d4d4;
+  --hat: #8a8a8a;
+}
+:root[data-kontrast='yuksek'][data-vurgu='kirmizi'] {
+  --vurgu: #ff6060;
+  --vurgu-yazi: #ff6060;
+}
+:root[data-kontrast='yuksek'][data-tema='ak'] {
+  --soluk: #262626;
+  --kontrol: #404040;
+  --hat: #737373;
+  --vurgu-yazi: #2c4200;
+}
+:root[data-kontrast='yuksek'][data-tema='ak'][data-vurgu='kirmizi'] {
+  --vurgu: #b00000;
+  --vurgu-yazi: #b00000;
+  --vurgu-uzeri: #ffffff;
+}
+
+:root {
+  --font-baslik: 'Syne Variable', 'Syne', 'Arial Black', 'Helvetica Neue', Arial, sans-serif;
+  --font-metin: 'Inter Variable', 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+  --kenar: clamp(16px, 4.5vw, 72px);
+  --max: 1440px;
+  --bolum: clamp(88px, 13vw, 200px);
+  --genlik: 1; /* dalga genliği çarpanı (hareket şiddeti) */
+  --imlek: 1; /* imleç etkisi çarpanı */
+  --odak-kalin: 3px;
+}
+:root[data-siddet='hafif'] {
+  --genlik: 0.35;
+  --imlek: 0;
+}
+
+@theme inline {
+  --color-*: initial;
+  --font-*: initial;
+  --shadow-*: initial;
+  --font-baslik: 'Syne Variable', 'Syne', 'Arial Black', 'Helvetica Neue', Arial, sans-serif;
+  --font-metin: 'Inter Variable', 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-transparent: transparent;
+  --color-zemin: var(--zemin);
+  --color-metin: var(--metin);
+  --color-soluk: var(--soluk);
+  --color-kontrol: var(--kontrol);
+  --color-hat: var(--hat);
+  --color-yuzey: var(--yuzey);
+  --color-vurgu: var(--vurgu);
+  --color-vurgu-yazi: var(--vurgu-yazi);
+  --color-vurgu-uzeri: var(--vurgu-uzeri);
+}
+
+@layer base {
+  html {
+    background: var(--zemin);
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+  }
+  :root[data-motion='off'] {
+    scroll-behavior: auto;
+  }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background: var(--zemin);
+    color: var(--metin);
+    font-family: var(--font-metin);
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 1.6;
+    overflow-x: clip;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    margin: 0;
+    font-family: var(--font-baslik);
+    font-weight: 800;
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+    text-wrap: balance;
+  }
+  p {
+    margin: 0;
+  }
+  a {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 5px;
+    text-decoration-color: var(--vurgu-yazi);
+  }
+  a:hover {
+    color: var(--vurgu-yazi);
+  }
+  /* Madde 18: odak halkası vurgu renginde, kalın ve ayrık */
+  :focus-visible {
+    outline: var(--odak-kalin) solid var(--vurgu-yazi);
+    outline-offset: 3px;
+  }
+  ::selection {
+    background: var(--vurgu);
+    color: var(--vurgu-uzeri);
+  }
+  button,
+  input,
+  select,
+  textarea {
+    font: inherit;
+    color: inherit;
+    letter-spacing: inherit;
+  }
+  button {
+    cursor: pointer;
+  }
+  pre,
+  ul,
+  ol,
+  dl,
+  dd,
+  figure,
+  fieldset {
+    margin: 0;
+    padding: 0;
+  }
+  ul,
+  ol {
+    list-style: none;
+  }
+}
+
+/* ───────────────── Madde 5 · 6: dev harfler ───────────────── */
+@layer components {
+  .dev {
+    font-family: var(--font-baslik);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: -0.045em;
+    line-height: 0.88;
+  }
+  /* Sığdırma: kapsayıcının genişliği ve en uzun kelimenin uzunluğu (--uz) boyu sınırlar; clamp() üst sınırı verir */
+  .sigdir {
+    display: block;
+    container-type: inline-size;
+    width: 100%;
+  }
+  .sigdir .dev-boy {
+    font-size: min(var(--boy, 12vw), calc(100cqw / (var(--uz, 8) * 1.25)));
+  }
+  .kicker {
+    font-family: var(--font-metin);
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.5;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--soluk);
+  }
+  .etiket {
+    font-family: var(--font-metin);
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+  .rakam {
+    font-family: var(--font-baslik);
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+  }
+  .vurgu {
+    color: var(--vurgu-yazi);
+  }
+  .vurgu-blok {
+    background: var(--vurgu);
+    color: var(--vurgu-uzeri);
+  }
+  /* Çizgi harf: değişken yazı tipinin kesişen konturları içeride iz bırakmasın diye dolgu zemin renginde,
+     çizgi dolgunun altında (paint-order) çizilir; görünen yalnız dış yarısıdır */
+  .kontur {
+    color: var(--zemin);
+    -webkit-text-fill-color: var(--zemin);
+    -webkit-text-stroke: max(3px, 0.036em) var(--metin);
+    paint-order: stroke fill;
+  }
+  .kontur-vurgu {
+    -webkit-text-stroke-color: var(--vurgu-yazi);
+  }
+
+  /* ───── bölünmüş metin: kelime > harf ───── */
+  .kh {
+    display: block;
+  }
+  .kh-ic {
+    display: block;
+  }
+  .kw {
+    display: inline-block;
+    white-space: nowrap;
+  }
+  .kc {
+    display: inline-block;
+  }
+  /* zaman tabanlı dalga; --t (sn) tek bir döngüden yazılır */
+  :root[data-motion='on'] .kh[data-efekt~='dalga'] .kc {
+    transform: translateY(calc(sin(calc(var(--t, 0) * 2.4 * var(--hz, 1) + var(--i) * 0.62)) * -0.075em * var(--genlik, 1)));
+  }
+  /* imleç yakınlığı: --p (0–1) harf başına yazılır; harf imlece yaklaştıkça 800'den 520'ye gevşer. Syne'de genişlik ağırlıkla birlikte artar (800 çok geniştir) */
+  .kh[data-efekt~='imlec'] .kc {
+    font-weight: calc(800 - 280 * var(--p, 0) * var(--imlek, 1));
+  }
+  /* harfler Z ekseninde öne ve arkaya */
+  .kh[data-efekt~='z'] {
+    perspective: 700px;
+    transform-style: preserve-3d;
+  }
+  .kh[data-efekt~='z'] .kh-ic,
+  .kh[data-efekt~='z'] .kw {
+    transform-style: preserve-3d;
+  }
+  :root[data-motion='on'][data-siddet='tam'] .kh[data-efekt~='z'] .kc {
+    transform: translateZ(calc(sin(calc(var(--t, 0) * 2 + var(--i) * 0.7)) * 90px));
+  }
+  /* harf başına kayan kesit: sürekli akan iki yarı */
+  .kh[data-efekt~='kes'] .kc {
+    position: relative;
+  }
+
+  /* ───── maruz şeridi ───── */
+  .mq {
+    position: relative;
+    width: 100%;
+    overflow-x: clip;
+  }
+  .mq-iz {
+    display: flex;
+    width: max-content;
+    will-change: transform;
+  }
+  .mq-birim {
+    display: inline-flex;
+    flex: none;
+    align-items: center;
+    white-space: nowrap;
+  }
+  .mq-ay {
+    display: inline-block;
+    padding-inline: 0.35em;
+  }
+  .mq-durgan {
+    overflow-wrap: anywhere;
+  }
+
+  /* ───── 3B katmanlı metin ───── */
+  .z-sahne {
+    position: relative;
+    perspective: 1100px;
+    perspective-origin: 50% 46%;
+    touch-action: pan-y;
+  }
+  .z-dondur {
+    position: relative;
+    transform-style: preserve-3d;
+    transform: rotateX(var(--rx, -14deg)) rotateY(var(--ry, 24deg));
+  }
+  /* her katman kendi derinliğinde durur (--zb, px) ve hareket açıkken bu derinlik çevresinde soluk alır (--osc) */
+  .z-katman {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    transform: translateZ(calc((var(--zb, 0) + var(--osc, 0) * sin(calc(var(--t, 0) * 1.6 + var(--k, 0) * 0.7))) * 1px));
+    white-space: nowrap;
+  }
+
+  /* ───── yazı biçimli düğme: etiket aşağı yuvarlanır ───── */
+  .kbtn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    min-width: 48px;
+    padding: 0 22px;
+    border: 2px solid var(--metin);
+    border-radius: 0;
+    background: transparent;
+    color: var(--metin);
+    font-family: var(--font-metin);
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 1;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-decoration: none;
+    white-space: nowrap;
+    cursor: pointer;
+    transition:
+      background-color 300ms,
+      color 300ms,
+      border-color 300ms;
+  }
+  .kbtn:hover {
+    background: var(--metin);
+    color: var(--zemin);
+  }
+  .kbtn[data-ton='vurgu'] {
+    background: var(--vurgu);
+    border-color: var(--vurgu);
+    color: var(--vurgu-uzeri);
+  }
+  .kbtn[data-ton='vurgu']:hover {
+    background: transparent;
+    color: var(--vurgu-yazi);
+  }
+  .kbtn[data-ton='yalin'] {
+    border-color: transparent;
+    padding-inline: 12px;
+  }
+  .kbtn[aria-pressed='true'],
+  .kbtn[data-on] {
+    background: var(--metin);
+    color: var(--zemin);
+  }
+  .kbtn[aria-pressed='true']:hover {
+    background: transparent;
+    color: var(--metin);
+  }
+  .kbtn:disabled {
+    border-color: var(--kontrol);
+    color: var(--soluk);
+    background: transparent;
+    cursor: not-allowed;
+  }
+  .kbtn-y {
+    display: grid;
+    overflow: clip;
+    padding-block: 2px;
+    margin-block: -2px;
+  }
+  .kbtn-y > span {
+    grid-area: 1 / 1;
+    display: block;
+    transition: transform 300ms cubic-bezier(0.7, 0, 0.2, 1);
+  }
+  .kbtn-b {
+    transform: translateY(115%);
+  }
+  .kbtn:hover .kbtn-a,
+  .kbtn:focus-visible .kbtn-a {
+    transform: translateY(-115%);
+  }
+  .kbtn:hover .kbtn-b,
+  .kbtn:focus-visible .kbtn-b {
+    transform: translateY(0);
+  }
+  :root[data-motion='off'] .kbtn-b {
+    display: none;
+  }
+  :root[data-motion='off'] .kbtn:hover .kbtn-a,
+  :root[data-motion='off'] .kbtn:focus-visible .kbtn-a {
+    transform: none;
+  }
+
+  /* seçim çipi */
+  .cip {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    min-height: 48px;
+    padding: 0 18px;
+    border: 2px solid var(--kontrol);
+    font-family: var(--font-metin);
+    font-weight: 600;
+    font-size: 12.5px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    cursor: pointer;
+    user-select: none;
+    transition:
+      background-color 300ms,
+      color 300ms,
+      border-color 300ms;
+  }
+  .cip:hover {
+    border-color: var(--metin);
+  }
+  .cip[data-on] {
+    background: var(--metin);
+    border-color: var(--metin);
+    color: var(--zemin);
+  }
+  .cip:has(:focus-visible) {
+    outline: var(--odak-kalin) solid var(--vurgu-yazi);
+    outline-offset: 3px;
+  }
+
+  /* kaydırıcı */
+  .aralik {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 100%;
+    height: 48px;
+    margin: 0;
+    background: transparent;
+    cursor: pointer;
+  }
+  .aralik::-webkit-slider-runnable-track {
+    height: 2px;
+    background: var(--metin);
+  }
+  .aralik::-moz-range-track {
+    height: 2px;
+    background: var(--metin);
+  }
+  .aralik::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 18px;
+    height: 30px;
+    margin-top: -14px;
+    border: 0;
+    border-radius: 0;
+    background: var(--vurgu);
+  }
+  .aralik::-moz-range-thumb {
+    width: 18px;
+    height: 30px;
+    border: 0;
+    border-radius: 0;
+    background: var(--vurgu);
+  }
+  .aralik:focus-visible {
+    outline: var(--odak-kalin) solid var(--vurgu-yazi);
+    outline-offset: 0;
+  }
+
+  /* form alanı */
+  .alan {
+    display: block;
+    width: 100%;
+    min-height: 52px;
+    padding: 12px 14px;
+    border: 2px solid var(--kontrol);
+    border-radius: 0;
+    background: transparent;
+    color: var(--metin);
+    font-size: 17px;
+  }
+  .alan:hover {
+    border-color: var(--metin);
+  }
+  .alan[aria-invalid='true'] {
+    border-color: var(--vurgu-yazi);
+    border-style: dashed;
+  }
+  select.alan option {
+    background: var(--zemin);
+    color: var(--metin);
+  }
+
+  /* anahtar: kelimeyle (AÇIK / KAPALI) */
+  .anahtar {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    min-height: 48px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    text-align: left;
+  }
+  .anahtar-iz {
+    position: relative;
+    width: 56px;
+    height: 28px;
+    border: 2px solid var(--metin);
+    flex: none;
+  }
+  .anahtar-iz::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 20px;
+    height: 20px;
+    background: var(--metin);
+    transition: transform 300ms cubic-bezier(0.7, 0, 0.2, 1);
+  }
+  .anahtar[aria-checked='true'] .anahtar-iz {
+    background: var(--vurgu);
+    border-color: var(--vurgu);
+  }
+  .anahtar[aria-checked='true'] .anahtar-iz::after {
+    transform: translateX(28px);
+    background: var(--vurgu-uzeri);
+  }
+
+  /* tablo */
+  .tablo th {
+    padding: 14px 16px 14px 0;
+    border-bottom: 2px solid var(--metin);
+    font-family: var(--font-metin);
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-align: left;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .tablo tbody th {
+    border-bottom: 1px solid var(--hat);
+    font-size: 14px;
+    letter-spacing: 0.02em;
+    text-transform: none;
+    white-space: normal;
+  }
+  .tablo td {
+    padding: 14px 16px 14px 0;
+    border-bottom: 1px solid var(--hat);
+    vertical-align: top;
+  }
+  .tablo caption {
+    text-align: left;
+    padding-bottom: 14px;
+  }
+
+  /* kod */
+  .kod {
+    padding: 22px 24px;
+    border: 1px solid var(--hat);
+    background: var(--yuzey);
+    color: var(--metin);
+    font-family: var(--font-mono);
+    font-size: 13.5px;
+    line-height: 1.7;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+  }
+  .kod.kod-dar {
+    white-space: pre;
+    overflow-wrap: normal;
+    overflow-x: auto;
+  }
+
+  /* ince ilerleme çizgisi */
+  .ilerleme-iz {
+    height: 2px;
+    background: var(--hat);
+  }
+  .ilerleme-dolu {
+    height: 2px;
+    background: var(--vurgu);
+    transform-origin: 0 50%;
+  }
+}
+
+/* ── Madde 16: hareket bileşenleri ── */
+@keyframes vurus {
+  0% {
+    transform: scale(1.45);
+    opacity: 0;
+  }
+  22% {
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@keyframes sallan {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(0.12em);
+  }
+}
+:root[data-motion='on'] .vurus {
+  animation: vurus 420ms cubic-bezier(0.2, 0.9, 0.2, 1) both;
+}
+:root[data-motion='on'] .sallan {
+  animation: sallan 900ms ease-in-out infinite;
+}
+@keyframes yanip {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.25;
+  }
+}
+:root[data-motion='on'] .yanip {
+  animation: yanip 1.6s steps(2, jump-none) infinite;
+}
+:root[data-motion='off'] *,
+:root[data-motion='off'] *::before,
+:root[data-motion='off'] *::after {
+  animation: none !important;
+  transition-duration: 0.01ms !important;
+  transition-delay: 0ms !important;
+}
+
+/* dönen halka metni ve ipucu hareketleri */
+@keyframes doner {
+  to {
+    transform: rotate(360deg);
+  }
+}
+:root[data-motion='on'] .doner {
+  animation: doner var(--doner-sure, 16s) linear infinite;
+  transform-origin: 50% 50%;
+  transform-box: fill-box;
+}
+/* kesik harf: yatay dilimler sinüs ile kayar */
+.dilim {
+  display: block;
+  grid-area: 1 / 1;
+  white-space: nowrap;
+}
+:root[data-motion='on'] .dilim {
+  transform: translateX(calc(sin(calc(var(--t, 0) * 1.8 * var(--hiz, 1) + var(--k) * 0.55)) * var(--gen, 0.12) * 1em));
+}
+/* çizgi kelimede vurgu dilimi: dolgulu kopya çizgili kopyanın üstünde gezer */
+.tara {
+  clip-path: inset(0 0 0 100%);
+}
+:root[data-motion='on'] .tara {
+  --c: calc(50% + 68% * sin(calc(var(--t, 0) * 1.1 * var(--hiz, 1))));
+  clip-path: inset(0 max(0%, calc(100% - var(--c) - 16%)) 0 max(0%, calc(var(--c) - 16%)));
+}
+:root[data-motion='off'] .tara {
+  clip-path: inset(0 55% 0 30%);
+}
+
+/* Figma "Hover" varyantı: imleç 3. harfin üstünde donmuş gibi (harfler 800'den gevşer) */
+.pose-hover .kc {
+  font-weight: calc(800 - 280 * var(--p, 0));
+}
+.pose-hover .kc:nth-child(3) {
+  --p: 1;
+}
+.pose-hover .kc:nth-child(2),
+.pose-hover .kc:nth-child(4) {
+  --p: 0.55;
+}

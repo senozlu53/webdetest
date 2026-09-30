@@ -1,0 +1,928 @@
+{
+  "$description": "Stil 034: Kinetic Typography (Motion-Driven Text). W3C DTCG formatı. Adlar Figma yoluyla aynıdır: Typography/KineticDisplay, Animation/TextSpeedSlow · TextSpeedNormal · TextSpeedFast ve Kinetic/Text bileşen seti (State: Static · Animating · Hover). Palet saf siyah, saf beyaz ve tek bir neondur (asit yeşili ya da elektrik kırmızısı). Gölge, gradyan, doku ve ikon yoktur. Kontrast sayıları sayfadaki tarayıcı taramasının aynısıdır.",
+  "Color": {
+    "Black": {
+      "$type": "color",
+      "$value": "#000000",
+      "$description": "Madde 4: Saf Siyah. Zemin",
+      "contrast": {
+        "whiteOnIt": 21
+      }
+    },
+    "White": {
+      "$type": "color",
+      "$value": "#FFFFFF",
+      "$description": "Madde 4: Saf Beyaz. Metin",
+      "contrast": {
+        "onBlack": 21
+      }
+    },
+    "AcidGreen": {
+      "$type": "color",
+      "$value": "#CCFF00",
+      "$description": "Madde 4: Asit Yeşili. Tek neon (1)",
+      "contrast": {
+        "onBlack": 17.87,
+        "onWhite": 1.18
+      }
+    },
+    "ElectricRed": {
+      "$type": "color",
+      "$value": "#FF3B3B",
+      "$description": "Madde 4: Elektrik Kırmızısı. Tek neon (2)",
+      "contrast": {
+        "onBlack": 5.94,
+        "onWhite": 3.53
+      }
+    },
+    "Derived": {
+      "$description": "Neonun beyaz zeminde yazı olarak güvenli türevleri",
+      "OliveInk": {
+        "$type": "color",
+        "$value": "#3D5A00",
+        "$description": "Asit yeşilinin beyaz zeminde yazı rengi",
+        "contrast": {
+          "onWhite": 7.89
+        }
+      },
+      "OliveInkHigh": {
+        "$type": "color",
+        "$value": "#2C4200",
+        "$description": "Yüksek kontrast (7:1)",
+        "contrast": {
+          "onWhite": 11.13
+        }
+      },
+      "RedOnWhite": {
+        "$type": "color",
+        "$value": "#D40000",
+        "contrast": {
+          "onWhite": 5.53,
+          "whiteOnIt": 5.53
+        }
+      },
+      "RedOnBlackHigh": {
+        "$type": "color",
+        "$value": "#FF6060",
+        "$description": "Yüksek kontrast, siyah zeminde",
+        "contrast": {
+          "onBlack": 7.09
+        }
+      },
+      "RedOnWhiteHigh": {
+        "$type": "color",
+        "$value": "#B00000",
+        "$description": "Yüksek kontrast, beyaz zeminde",
+        "contrast": {
+          "onWhite": 7.38
+        }
+      }
+    }
+  },
+  "Theme": {
+    "DarkAcid": {
+      "$description": "Siyah zemin, beyaz metin, neon: asit yeşili",
+      "Normal": {
+        "zemin": {
+          "$type": "color",
+          "$value": "#000000"
+        },
+        "metin": {
+          "$type": "color",
+          "$value": "#ffffff",
+          "contrast": {
+            "onZemin": 21
+          }
+        },
+        "soluk": {
+          "$type": "color",
+          "$value": "#a3a3a3",
+          "contrast": {
+            "onZemin": 8.33
+          }
+        },
+        "kontrol": {
+          "$type": "color",
+          "$value": "#8a8a8a",
+          "$description": "Form ve düğme çerçevesi (≥ 3:1)",
+          "contrast": {
+            "onZemin": 6.08
+          }
+        },
+        "ayrac": {
+          "$type": "color",
+          "$value": "#2b2b2b",
+          "$description": "Yalnız süs",
+          "contrast": {
+            "onZemin": 1.48
+          }
+        },
+        "vurgu": {
+          "$type": "color",
+          "$value": "#ccff00",
+          "$description": "Dolgu (düğme, seçili şerit)"
+        },
+        "vurguYazi": {
+          "$type": "color",
+          "$value": "#ccff00",
+          "$description": "Zemin üstünde neon yazı ve odak halkası",
+          "contrast": {
+            "onZemin": 17.87
+          }
+        },
+        "vurguUzeri": {
+          "$type": "color",
+          "$value": "#000000",
+          "$description": "Vurgu dolgusunun üstündeki yazı",
+          "contrast": {
+            "onVurgu": 17.87
+          }
+        }
+      },
+      "HighContrast": {
+        "zemin": {
+          "$type": "color",
+          "$value": "#000000"
+        },
+        "metin": {
+          "$type": "color",
+          "$value": "#ffffff",
+          "contrast": {
+            "onZemin": 21
+          }
+        },
+        "soluk": {
+          "$type": "color",
+          "$value": "#d4d4d4",
+          "contrast": {
+            "onZemin": 14.17
+          }
+        },
+        "kontrol": {
+          "$type": "color",
+          "$value": "#d4d4d4",
+          "$description": "Form ve düğme çerçevesi (≥ 3:1)",
+          "contrast": {
+            "onZemin": 14.17
+          }
+        },
+        "ayrac": {
+          "$type": "color",
+          "$value": "#8a8a8a",
+          "$description": "Yalnız süs",
+          "contrast": {
+            "onZemin": 6.08
+          }
+        },
+        "vurgu": {
+          "$type": "color",
+          "$value": "#ccff00",
+          "$description": "Dolgu (düğme, seçili şerit)"
+        },
+        "vurguYazi": {
+          "$type": "color",
+          "$value": "#ccff00",
+          "$description": "Zemin üstünde neon yazı ve odak halkası",
+          "contrast": {
+            "onZemin": 17.87
+          }
+        },
+        "vurguUzeri": {
+          "$type": "color",
+          "$value": "#000000",
+          "$description": "Vurgu dolgusunun üstündeki yazı",
+          "contrast": {
+            "onVurgu": 17.87
+          }
+        }
+      }
+    },
+    "DarkRed": {
+      "$description": "Siyah zemin, beyaz metin, neon: elektrik kırmızısı",
+      "Normal": {
+        "zemin": {
+          "$type": "color",
+          "$value": "#000000"
+        },
+        "metin": {
+          "$type": "color",
+          "$value": "#ffffff",
+          "contrast": {
+            "onZemin": 21
+          }
+        },
+        "soluk": {
+          "$type": "color",
+          "$value": "#a3a3a3",
+          "contrast": {
+            "onZemin": 8.33
+          }
+        },
+        "kontrol": {
+          "$type": "color",
+          "$value": "#8a8a8a",
+          "$description": "Form ve düğme çerçevesi (≥ 3:1)",
+          "contrast": {
+            "onZemin": 6.08
+          }
+        },
+        "ayrac": {
+          "$type": "color",
+          "$value": "#2b2b2b",
+          "$description": "Yalnız süs",
+          "contrast": {
+            "onZemin": 1.48
+          }
+        },
+        "vurgu": {
+          "$type": "color",
+          "$value": "#ff3b3b",
+          "$description": "Dolgu (düğme, seçili şerit)"
+        },
+        "vurguYazi": {
+          "$type": "color",
+          "$value": "#ff3b3b",
+          "$description": "Zemin üstünde neon yazı ve odak halkası",
+          "contrast": {
+            "onZemin": 5.94
+          }
+        },
+        "vurguUzeri": {
+          "$type": "color",
+          "$value": "#000000",
+          "$description": "Vurgu dolgusunun üstündeki yazı",
+          "contrast": {
+            "onVurgu": 5.94
+          }
+        }
+      },
+      "HighContrast": {
+        "zemin": {
+          "$type": "color",
+          "$value": "#000000"
+        },
+        "metin": {
+          "$type": "color",
+          "$value": "#ffffff",
+          "contrast": {
+            "onZemin": 21
+          }
+        },
+        "soluk": {
+          "$type": "color",
+          "$value": "#d4d4d4",
+          "contrast": {
+            "onZemin": 14.17
+          }
+        },
+        "kontrol": {
+          "$type": "color",
+          "$value": "#d4d4d4",
+          "$description": "Form ve düğme çerçevesi (≥ 3:1)",
+          "contrast": {
+            "onZemin": 14.17
+          }
+        },
+        "ayrac": {
+          "$type": "color",
+          "$value": "#8a8a8a",
+          "$description": "Yalnız süs",
+          "contrast": {
+            "onZemin": 6.08
+          }
+        },
+        "vurgu": {
+          "$type": "color",
+          "$value": "#ff6060",
+          "$description": "Dolgu (düğme, seçili şerit)"
+        },
+        "vurguYazi": {
+          "$type": "color",
+          "$value": "#ff6060",
+          "$description": "Zemin üstünde neon yazı ve odak halkası",
+          "contrast": {
+            "onZemin": 7.09
+          }
+        },
+        "vurguUzeri": {
+          "$type": "color",
+          "$value": "#000000",
+          "$description": "Vurgu dolgusunun üstündeki yazı",
+          "contrast": {
+            "onVurgu": 7.09
+          }
+        }
+      }
+    },
+    "LightAcid": {
+      "$description": "Beyaz zemin, siyah metin, neon: asit yeşili",
+      "Normal": {
+        "zemin": {
+          "$type": "color",
+          "$value": "#ffffff"
+        },
+        "metin": {
+          "$type": "color",
+          "$value": "#000000",
+          "contrast": {
+            "onZemin": 21
+          }
+        },
+        "soluk": {
+          "$type": "color",
+          "$value": "#525252",
+          "contrast": {
+            "onZemin": 7.81
+          }
+        },
+        "kontrol": {
+          "$type": "color",
+          "$value": "#757575",
+          "$description": "Form ve düğme çerçevesi (≥ 3:1)",
+          "contrast": {
+            "onZemin": 4.61
+          }
+        },
+        "ayrac": {
+          "$type": "color",
+          "$value": "#d4d4d4",
+          "$description": "Yalnız süs",
+          "contrast": {
+            "onZemin": 1.48
+          }
+        },
+        "vurgu": {
+          "$type": "color",
+          "$value": "#ccff00",
+          "$description": "Dolgu (düğme, seçili şerit)"
+        },
+        "vurguYazi": {
+          "$type": "color",
+          "$value": "#3d5a00",
+          "$description": "Zemin üstünde neon yazı ve odak halkası",
+          "contrast": {
+            "onZemin": 7.89
+          }
+        },
+        "vurguUzeri": {
+          "$type": "color",
+          "$value": "#000000",
+          "$description": "Vurgu dolgusunun üstündeki yazı",
+          "contrast": {
+            "onVurgu": 17.87
+          }
+        }
+      },
+      "HighContrast": {
+        "zemin": {
+          "$type": "color",
+          "$value": "#ffffff"
+        },
+        "metin": {
+          "$type": "color",
+          "$value": "#000000",
+          "contrast": {
+            "onZemin": 21
+          }
+        },
+        "soluk": {
+          "$type": "color",
+          "$value": "#262626",
+          "contrast": {
+            "onZemin": 15.13
+          }
+        },
+        "kontrol": {
+          "$type": "color",
+          "$value": "#404040",
+          "$description": "Form ve düğme çerçevesi (≥ 3:1)",
+          "contrast": {
+            "onZemin": 10.37
+          }
+        },
+        "ayrac": {
+          "$type": "color",
+          "$value": "#737373",
+          "$description": "Yalnız süs",
+          "contrast": {
+            "onZemin": 4.74
+          }
+        },
+        "vurgu": {
+          "$type": "color",
+          "$value": "#ccff00",
+          "$description": "Dolgu (düğme, seçili şerit)"
+        },
+        "vurguYazi": {
+          "$type": "color",
+          "$value": "#2c4200",
+          "$description": "Zemin üstünde neon yazı ve odak halkası",
+          "contrast": {
+            "onZemin": 11.13
+          }
+        },
+        "vurguUzeri": {
+          "$type": "color",
+          "$value": "#000000",
+          "$description": "Vurgu dolgusunun üstündeki yazı",
+          "contrast": {
+            "onVurgu": 17.87
+          }
+        }
+      }
+    },
+    "LightRed": {
+      "$description": "Beyaz zemin, siyah metin, neon: elektrik kırmızısı",
+      "Normal": {
+        "zemin": {
+          "$type": "color",
+          "$value": "#ffffff"
+        },
+        "metin": {
+          "$type": "color",
+          "$value": "#000000",
+          "contrast": {
+            "onZemin": 21
+          }
+        },
+        "soluk": {
+          "$type": "color",
+          "$value": "#525252",
+          "contrast": {
+            "onZemin": 7.81
+          }
+        },
+        "kontrol": {
+          "$type": "color",
+          "$value": "#757575",
+          "$description": "Form ve düğme çerçevesi (≥ 3:1)",
+          "contrast": {
+            "onZemin": 4.61
+          }
+        },
+        "ayrac": {
+          "$type": "color",
+          "$value": "#d4d4d4",
+          "$description": "Yalnız süs",
+          "contrast": {
+            "onZemin": 1.48
+          }
+        },
+        "vurgu": {
+          "$type": "color",
+          "$value": "#d40000",
+          "$description": "Dolgu (düğme, seçili şerit)"
+        },
+        "vurguYazi": {
+          "$type": "color",
+          "$value": "#d40000",
+          "$description": "Zemin üstünde neon yazı ve odak halkası",
+          "contrast": {
+            "onZemin": 5.53
+          }
+        },
+        "vurguUzeri": {
+          "$type": "color",
+          "$value": "#ffffff",
+          "$description": "Vurgu dolgusunun üstündeki yazı",
+          "contrast": {
+            "onVurgu": 5.53
+          }
+        }
+      },
+      "HighContrast": {
+        "zemin": {
+          "$type": "color",
+          "$value": "#ffffff"
+        },
+        "metin": {
+          "$type": "color",
+          "$value": "#000000",
+          "contrast": {
+            "onZemin": 21
+          }
+        },
+        "soluk": {
+          "$type": "color",
+          "$value": "#262626",
+          "contrast": {
+            "onZemin": 15.13
+          }
+        },
+        "kontrol": {
+          "$type": "color",
+          "$value": "#404040",
+          "$description": "Form ve düğme çerçevesi (≥ 3:1)",
+          "contrast": {
+            "onZemin": 10.37
+          }
+        },
+        "ayrac": {
+          "$type": "color",
+          "$value": "#737373",
+          "$description": "Yalnız süs",
+          "contrast": {
+            "onZemin": 4.74
+          }
+        },
+        "vurgu": {
+          "$type": "color",
+          "$value": "#b00000",
+          "$description": "Dolgu (düğme, seçili şerit)"
+        },
+        "vurguYazi": {
+          "$type": "color",
+          "$value": "#b00000",
+          "$description": "Zemin üstünde neon yazı ve odak halkası",
+          "contrast": {
+            "onZemin": 7.38
+          }
+        },
+        "vurguUzeri": {
+          "$type": "color",
+          "$value": "#ffffff",
+          "$description": "Vurgu dolgusunun üstündeki yazı",
+          "contrast": {
+            "onVurgu": 7.38
+          }
+        }
+      }
+    }
+  },
+  "Typography": {
+    "KineticDisplay": {
+      "$type": "typography",
+      "$description": "Madde 13: Typography/KineticDisplay. Dev başlık. Boy clamp() ile sınırlanır ve kapsayıcıya sığdırılır: min(clamp(…), 100cqw / (en uzun kelime × 1,25))",
+      "$value": {
+        "fontFamily": ["Syne Variable", "Syne", "Arial Black", "sans-serif"],
+        "fontWeight": 800,
+        "fontSize": "clamp(48px, 15vw, 260px)",
+        "lineHeight": 0.88,
+        "letterSpacing": "-0.045em"
+      },
+      "$extensions": {
+        "com.devinim.text": {
+          "textTransform": "uppercase"
+        }
+      }
+    },
+    "KineticHeading": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": ["Syne Variable", "Syne", "Arial Black", "sans-serif"],
+        "fontWeight": 800,
+        "fontSize": "clamp(38px, 9.4vw, 152px)",
+        "lineHeight": 0.88,
+        "letterSpacing": "-0.045em"
+      }
+    },
+    "Body": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": ["Inter Variable", "Inter", "Helvetica Neue", "Arial", "sans-serif"],
+        "fontWeight": 400,
+        "fontSize": "17px",
+        "lineHeight": 1.6,
+        "letterSpacing": "0em"
+      }
+    },
+    "Label": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": ["Inter Variable", "Inter", "Helvetica Neue", "Arial", "sans-serif"],
+        "fontWeight": 500,
+        "fontSize": "12px",
+        "lineHeight": 1.5,
+        "letterSpacing": "0.18em"
+      }
+    },
+    "WeightRange": {
+      "$type": "string",
+      "$value": "400 – 800",
+      "$description": "Syne değişken eksen. Genişlik ağırlıkla artar: 700 → 800 arasında kelime yaklaşık 1,47 kat genişler; 400: 0,58 em/harf, 700: 0,75, 800: 1,14 (HAREKET kelimesi)"
+    },
+    "FitFactor": {
+      "$type": "number",
+      "$value": 1.25,
+      "$description": "Syne 800 büyük harf ortalama ilerleme ≈ 1,0–1,17 em; sığdırma böleni 1,25 (dev kelime kapsayıcının ~%85–95’i)"
+    }
+  },
+  "Animation": {
+    "TextSpeedSlow": {
+      "$type": "number",
+      "$value": 40,
+      "$description": "Madde 13: Animation/TextSpeedSlow. Maruz şeridi taban hızı, px/sn"
+    },
+    "TextSpeedNormal": {
+      "$type": "number",
+      "$value": 100,
+      "$description": "px/sn"
+    },
+    "TextSpeedFast": {
+      "$type": "number",
+      "$value": 240,
+      "$description": "Madde 13: Animation/TextSpeedFast. px/sn"
+    },
+    "SpeedMultiplier": {
+      "$description": "Ayarlardaki “Metin hızı” bütün şeritleri ve dalgaları bu çarpanla ölçekler",
+      "slow": {
+        "$type": "number",
+        "$value": 0.45
+      },
+      "normal": {
+        "$type": "number",
+        "$value": 1
+      },
+      "fast": {
+        "$type": "number",
+        "$value": 2.4
+      }
+    },
+    "ScrollVelocity": {
+      "$description": "Madde 16: kaydırma hızı bir kez ölçülür (useVelocity) ve yayla yumuşatılır; hem eğim, esneme hem şerit hızı bundan gelir",
+      "springDamping": {
+        "$type": "number",
+        "$value": 50
+      },
+      "springStiffness": {
+        "$type": "number",
+        "$value": 400
+      },
+      "skewMax": {
+        "$type": "dimension",
+        "$value": "14deg",
+        "$description": "±3000 px/sn’de; yön değişince ters"
+      },
+      "stretchMax": {
+        "$type": "number",
+        "$value": 1.12,
+        "$description": "scaleX"
+      },
+      "marqueeBoostMax": {
+        "$type": "number",
+        "$value": 5,
+        "$description": "şerit hızı en çok ×5 (1 + 4·|v|/1000)"
+      },
+      "marqueeReverse": {
+        "$type": "string",
+        "$value": "yukarı kaydırınca yön ters döner; aşağı kaydırınca eski haline"
+      }
+    },
+    "Parallax": {
+      "$type": "dimension",
+      "$value": "16%",
+      "$description": "Satırların kaydırma boyunca zıt yönlerde kayması"
+    },
+    "Wave": {
+      "amplitude": {
+        "$type": "dimension",
+        "$value": "0.075em"
+      },
+      "phasePerLetter": {
+        "$type": "number",
+        "$value": 0.62
+      },
+      "frequency": {
+        "$type": "number",
+        "$value": 2.4
+      }
+    },
+    "Pointer": {
+      "radius": {
+        "$type": "dimension",
+        "$value": "150px"
+      },
+      "weightFrom": {
+        "$type": "fontWeight",
+        "$value": 800
+      },
+      "weightTo": {
+        "$type": "fontWeight",
+        "$value": 520
+      },
+      "smoothing": {
+        "$type": "number",
+        "$value": 0.16
+      },
+      "follow": {
+        "stiffness": {
+          "$type": "number",
+          "$value": 90
+        },
+        "damping": {
+          "$type": "number",
+          "$value": 18
+        }
+      }
+    },
+    "Punch": {
+      "$type": "duration",
+      "$value": "420ms",
+      "$description": "Söz ve slayt girişi: ölçek 1,45 → 1, opaklık 0 → 1"
+    },
+    "PunchEasing": {
+      "$type": "cubicBezier",
+      "$value": [0.2, 0.9, 0.2, 1]
+    },
+    "ButtonRoll": {
+      "$type": "duration",
+      "$value": "300ms",
+      "$description": "Düğme etiketi aşağı yuvarlanır (transition-transform duration-300)"
+    },
+    "ButtonRollEasing": {
+      "$type": "cubicBezier",
+      "$value": [0.7, 0, 0.2, 1]
+    },
+    "Counter": {
+      "$type": "duration",
+      "$value": "1.6s",
+      "$description": "Ajans rakamları sayarak yükselir"
+    },
+    "Off": {
+      "$type": "string",
+      "$value": "animation: none; transition-duration: .01ms; sticky sahne yok; --t silinir",
+      "$description": "Durdur, Sisteme uy (prefers-reduced-motion) ya da Hareket=Durdur"
+    }
+  },
+  "Depth": {
+    "Shadow": {
+      "$type": "string",
+      "$value": "none",
+      "$description": "Madde 7: gölge yok. Derinlik Z ekseninden gelir"
+    },
+    "Perspective": {
+      "$type": "dimension",
+      "$value": "1100px",
+      "$description": "Katmanlı metin sahnesi"
+    },
+    "LayerCount": {
+      "$type": "number",
+      "$value": 8,
+      "$description": "Varsayılan; 2–14"
+    },
+    "LayerSpacing": {
+      "$type": "dimension",
+      "$value": "40px",
+      "$description": "8–80 px"
+    },
+    "LayerBreath": {
+      "$type": "number",
+      "$value": 0.4,
+      "$description": "Katmanın kendi derinliği çevresindeki salınım genliği (aralığın oranı)"
+    },
+    "LetterPerspective": {
+      "$type": "dimension",
+      "$value": "700px"
+    },
+    "LetterZAmplitude": {
+      "$type": "dimension",
+      "$value": "90px"
+    },
+    "Pose": {
+      "rotateX": {
+        "$type": "dimension",
+        "$value": "-14deg"
+      },
+      "rotateY": {
+        "$type": "dimension",
+        "$value": "24deg"
+      },
+      "$description": "Hareket kapalıyken sabit açı"
+    }
+  },
+  "Layout": {
+    "MaxWidth": {
+      "$type": "dimension",
+      "$value": "1440px"
+    },
+    "Gutter": {
+      "$type": "dimension",
+      "$value": "clamp(16px, 4.5vw, 72px)"
+    },
+    "SectionSpace": {
+      "$type": "dimension",
+      "$value": "clamp(88px, 13vw, 200px)"
+    },
+    "Corner": {
+      "$type": "dimension",
+      "$value": "0px",
+      "$description": "Keskin: kutu ve kart yok, çerçeveler 2 px"
+    },
+    "Stroke": {
+      "$type": "dimension",
+      "$value": "2px"
+    }
+  },
+  "Accessibility": {
+    "$description": "Madde 18: sürekli hareket eden metin hareket duyarlılığı olan kullanıcıları zorlayabilir",
+    "StopControl": {
+      "$type": "string",
+      "$value": "Başlıkta “Durdur / Oynat” düğmesi, ilk odak sırasında; aria-pressed; localStorage kt-hareket",
+      "$description": "WCAG 2.2.2 Pause, Stop, Hide"
+    },
+    "MotionModes": {
+      "$type": "string",
+      "$value": "Sisteme uy · Açık · Durdur"
+    },
+    "Intensity": {
+      "$type": "string",
+      "$value": "Tam · Hafif (eğim, esneme, 3B ve imleç etkisi kapalı; yalnız yavaş şerit ve küçük dalga)"
+    },
+    "FlashLimit": {
+      "$type": "number",
+      "$value": 3,
+      "$description": "Saniyede en çok 3 değişim; en hızlı söz değişimi 0,67 sn (180 bpm, iki vuruşta bir)"
+    },
+    "FocusRing": {
+      "$type": "string",
+      "$value": "3px solid var(--vurgu-yazi); outline-offset: 3px"
+    },
+    "TargetSize": {
+      "$type": "dimension",
+      "$value": "48px",
+      "$description": "Düğme, çip, alan; sayfada 44 px altında hedef 0"
+    },
+    "TextContrast": {
+      "$type": "number",
+      "$value": 4.5,
+      "$description": "Küçük yazı; yüksek kontrastta 7"
+    },
+    "LargeTextContrast": {
+      "$type": "number",
+      "$value": 3,
+      "$description": "Büyük yazı; yüksek kontrastta 4,5"
+    },
+    "ScreenReader": {
+      "$type": "string",
+      "$value": "Bölünmüş harfler aria-hidden; başlık metni bir kez (sr-only); şerit metni bir kez"
+    },
+    "Scan": {
+      "$description": "Tarayıcıda tüm metin düğümleri (1161–1194) 10 kombinasyonda ölçüldü: siyah / beyaz zemin × asit / kırmızı × normal / yüksek kontrast, hafif ve hızlı, hareket açık",
+      "combos": {
+        "$type": "string",
+        "$value": "kara+asit, kara+kırmızı, ak+asit, ak+kırmızı, dört yüksek kontrast, hafif+hızlı, hareket açık"
+      },
+      "failures": {
+        "$type": "number",
+        "$value": 0
+      },
+      "minMargin": {
+        "$type": "number",
+        "$value": 1.03,
+        "$description": "Eşiğin üstündeki en küçük pay (ak + kırmızı)"
+      }
+    },
+    "Variants": {
+      "$type": "string",
+      "$value": "hareket (sisteme uy, açık, durdur) · şiddet (tam, hafif) · metin hızı (yavaş, normal, hızlı) · zemin (siyah, beyaz) · neon (asit, kırmızı) · kontrast (normal, yüksek)"
+    }
+  },
+  "Icon": {
+    "count": {
+      "$type": "number",
+      "$value": 0,
+      "$description": "Madde 9: ikon yok. Sayfada svg (harf yolu çizimleri hariç), img, canvas ve simge sınıfı sayısı canlı sayılır: 0. Yön ve eylem kelimeyle: Geri · İleri · Menü · Kapat · Oynat · Durdur"
+    }
+  },
+  "Components": {
+    "$description": "Madde 14: React bileşenleri (Framer Motion)",
+    "KineticHeader": {
+      "$type": "string",
+      "$value": "<KineticHeader satirlar as>"
+    },
+    "MarqueeText": {
+      "$type": "string",
+      "$value": "<MarqueeText metin hiz yon tepki durHover ayirac kontur>"
+    },
+    "ImlecBaslik": {
+      "$type": "string",
+      "$value": "<ImlecBaslik metin alt boy yukseklik>"
+    },
+    "KatmanMetin": {
+      "$type": "string",
+      "$value": "<KatmanMetin metin katman aralik>"
+    },
+    "Harfler": {
+      "$type": "string",
+      "$value": "<Harfler metin efekt vurgulu>"
+    },
+    "FigmaSet": {
+      "$description": "Madde 12: Component Set “Kinetic/Text”. Özellikler",
+      "State": {
+        "$type": "string",
+        "$value": "Static · Animating · Hover"
+      },
+      "Speed": {
+        "$type": "string",
+        "$value": "Slow (40) · Normal (100) · Fast (240) px/sn"
+      }
+    }
+  },
+  "Tailwind": {
+    "classes": {
+      "$type": "string",
+      "$value": "font-extrabold tracking-tighter uppercase transition-transform duration-300",
+      "$description": "Madde 15: hesaplanan değerler sayfada okunur (800, −0,05 em, uppercase, transform, 0,3 s)"
+    }
+  }
+}
