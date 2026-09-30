@@ -1,0 +1,494 @@
+{
+  "$description": "Stil 039: Dark Fantasy (Gothic UI). W3C DTCG formatı. Adlar Figma yoluyla aynıdır: Color/BloodRed, Texture/RustMetal, Effects/GothicShadow. Palet gece siyahı zemin; kuru kan kırmızısı ve pas dolgu, ışık ve süstür, metin soluk gümüştür (#D1D5DB). Kontrast sayıları düz renk çiftleri içindir; `onWeave` ilgili dokunun en açık noktası üstündedir (dokunun gerçek piksellerinden ölçülür). Sayfadaki tarama, metnin altındaki gerçek piksellerin en kötü %2'lik dilimini ölçer (AAA 7:1, büyük metin 4,5:1).",
+  "Color": {
+    "NightBlack": {
+      "$type": "color",
+      "$value": "#0A0A0C",
+      "$description": "Madde 4: Gece Siyahı. Zemin ve kartın iç yüzü",
+      "contrast": {
+        "textSilverOnIt": 13.42
+      }
+    },
+    "BloodRed": {
+      "$type": "color",
+      "$value": "#5C0606",
+      "$description": "Madde 4: Kuru Kan Kırmızısı. Kenarlık, mühür, düğme ve ilerleme dolgusu. Zemin üstünde 1,40:1: yalnız dolgu ve süs, metin taşımaz",
+      "contrast": {
+        "textSilverOnIt": 9.61,
+        "boneOnIt": 10.97,
+        "onNight": 1.4
+      }
+    },
+    "BloodFill": {
+      "$type": "color",
+      "$value": "#7A0C0C",
+      "$description": "Düğme ve seçili çip dolgusunun açık ucu; alt uç #5C0606",
+      "contrast": {
+        "boneOnIt": 8.63
+      }
+    },
+    "BloodLight": {
+      "$type": "color",
+      "$value": "#8F1010",
+      "$description": "Aktif çizgi, alan alt kenarı, kaydırıcı dolgusu; yalnız süs"
+    },
+    "BloodText": {
+      "$type": "color",
+      "$value": "#FF9A8C",
+      "$description": "Kanın küçük metin tonu: künye numarası, kanıt satırı, hata",
+      "contrast": {
+        "onNight": 9.66,
+        "onBlood": 6.91
+      }
+    },
+    "Rust": {
+      "$type": "color",
+      "$value": "#8B4513",
+      "$description": "Madde 4: Pas Rengi. Zincir lekesi, süs çizgisi, ikincil vurgu. Zemin üstünde 2,79:1: yalnız süs",
+      "contrast": {
+        "whiteOnIt": 7.1,
+        "onNight": 2.79
+      }
+    },
+    "RustText": {
+      "$type": "color",
+      "$value": "#ECB586",
+      "$description": "Pasın küçük metin tonu: tablo başlığı",
+      "contrast": {
+        "onNight": 10.85,
+        "onWeave": 7.51
+      }
+    },
+    "Silver": {
+      "$type": "color",
+      "$value": "#A0A0A0",
+      "$description": "Madde 4: Gümüş Gri. Metal, ince çizgi, simge, denetim sınırı (en az 3:1)",
+      "contrast": {
+        "onNight": 7.56,
+        "nightOnIt": 7.56,
+        "onBlood": 5.41
+      }
+    },
+    "TextSilver": {
+      "$type": "color",
+      "$value": "#D1D5DB",
+      "$description": "Madde 18: gövde metni. Hafif soluk gümüş; saf beyaz karanlıkta parlar ve gözü yorar. Tailwind: text-gray-300",
+      "contrast": {
+        "onNight": 13.42,
+        "onWeave": 9.29,
+        "onBlood": 9.61
+      }
+    },
+    "SoftText": {
+      "$type": "color",
+      "$value": "#BCBEC3",
+      "$description": "İkincil metin: etiket, alt açıklama",
+      "contrast": {
+        "onNight": 10.64,
+        "onWeave": 7.36
+      }
+    },
+    "Bone": {
+      "$type": "color",
+      "$value": "#E6E2DC",
+      "$description": "Düğme yazısı ve odak halkası (3 px)",
+      "contrast": {
+        "onNight": 15.33,
+        "onBloodFill": 8.63
+      }
+    },
+    "TextSilverHigh": {
+      "$type": "color",
+      "$value": "#FFFFFF",
+      "$description": "Yüksek kontrast metin",
+      "contrast": {
+        "onNight": 19.78
+      }
+    },
+    "SoftTextHigh": {
+      "$type": "color",
+      "$value": "#E6E8EB",
+      "$description": "Yüksek kontrast ikincil metin",
+      "contrast": {
+        "onNight": 16.11
+      }
+    },
+    "Night2": {
+      "$type": "color",
+      "$value": "#101013",
+      "$description": "Düz panel zemini (640 px altı)"
+    },
+    "Iron": {
+      "$type": "color",
+      "$value": "#24242A",
+      "$description": "Demir levha ve düğme orta tonu"
+    }
+  },
+  "Texture": {
+    "RustMetal": {
+      "$type": "string",
+      "$value": "SVG karo 256 px · #1A1512 zemin + fractalNoise 0,011×0,017 (4 oktav) pas lekesi #8B4513 + oyuk + çizik",
+      "$description": "Madde 8 · 12: paslı demir. Pas katmanı bir alfa maskesidir (renk matrisi eşiği); en açık nokta #402818",
+      "baseFrequency": "0.011 0.017",
+      "numOctaves": 4,
+      "tile": "256x256",
+      "peak": "#402818"
+    },
+    "StoneWall": {
+      "$type": "string",
+      "$value": "SVG karo 224×160 px · üç sıra düzensiz kesme taş, #060607 derz, çatlak",
+      "$description": "Eskitilmiş taş duvar; en açık nokta #242429",
+      "tile": "224x160",
+      "peak": "#242429"
+    },
+    "TornLeather": {
+      "$type": "string",
+      "$value": "SVG karo 200 px · #1D1411 zemin, ince gren, ridged turbulence kırışıklık damarı; alt kenar düzensiz kopuk (clip-path)",
+      "$description": "Yırtık deri; en açık nokta #38251D",
+      "tile": "200x200",
+      "peak": "#38251D"
+    },
+    "Velvet": {
+      "$type": "string",
+      "$value": "SVG karo 128 px · #1C0709 zemin, kana çalan havlı gren + 118° yumuşak parıltı",
+      "$description": "Kadife kumaş; en açık nokta #4A0E0F",
+      "tile": "128x128",
+      "peak": "#4A0E0F"
+    },
+    "ChainLink": {
+      "$type": "string",
+      "$value": "SVG şerit 40×18 px · yüz halka + kenar halka, gümüş gradyan, pas lekesi",
+      "$description": "Madde 6 · 11: paslı zincir. Yatay ve dikey iki şerit; süs, ekran okuyucudan gizli",
+      "tile": "40x18"
+    },
+    "SpearFence": {
+      "$type": "string",
+      "$value": "SVG karo 22×22 px · sivri uçlu mızrak",
+      "$description": "Madde 6: mızrak çiti; başlık altı ayracı",
+      "tile": "22x22"
+    }
+  },
+  "Shape": {
+    "PointedArch": {
+      "$type": "string",
+      "$value": "polygon(0% calc(var(--k) * 1), …, 50% 0, …, 100% calc(var(--k) * 1), 100% 100%, 0 100%) · 31 nokta, yarıçap = 0,85 × genişlik",
+      "$description": "Madde 6 · 15: sivri gotik kemer. Yükseklik --k ile ölçeklenir; --k 0 ise düz üst kenar (Madde 17)"
+    },
+    "ArchInner": {
+      "$type": "string",
+      "$value": "aynı çokgen, her nokta + 2,5 px aşağıda; kutu 2 px içeride",
+      "$description": "İki katmanlı kenarlık: dış katman #5C0606, iç katman doku"
+    },
+    "HexPlate": {
+      "$type": "string",
+      "$value": "polygon(14px 0, calc(100% − 14px) 0, 100% 50%, calc(100% − 14px) 100%, 14px 100%, 0 50%)",
+      "$description": "Düğme ve sekme: iki ucu sivri demir levha. Odaktayken düz dikdörtgen, halka görünür"
+    },
+    "WaxSeal": {
+      "$type": "string",
+      "$value": "daire r=39, feTurbulence 0,045 + feDisplacementMap 9 · iç halka r=29,5",
+      "$description": "Madde 6: dairesel mum mühür; kan, pas ve gümüş"
+    },
+    "RivetBox": {
+      "$type": "string",
+      "$value": "4 radyal gradyan perçin, 9 px · iç çizgi 8 px içeride",
+      "$description": "Madde 6: demir perçinli kutu"
+    }
+  },
+  "Effects": {
+    "GothicShadow": {
+      "$type": "shadow",
+      "$value": [
+        {
+          "color": "rgba(92, 6, 6, 0.5)",
+          "offsetX": "0px",
+          "offsetY": "0px",
+          "blur": "20px",
+          "spread": "0px"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0.82)",
+          "offsetX": "0px",
+          "offsetY": "0px",
+          "blur": "46px",
+          "spread": "8px",
+          "inset": true
+        }
+      ],
+      "$description": "Madde 7 · 15: kan kırmızısı dış ışık ve boğucu iç gölge. Tailwind: shadow-[0_0_20px_rgba(92,6,6,0.5)]. 640 px altında yalnız dış gölge"
+    },
+    "RedBleed": {
+      "$type": "string",
+      "$value": "radial-gradient(58% 56% at 50% 58%, rgb(178 16 20 / .62), rgb(178 16 20 / .18) 55%, transparent 74%) · blur 22px · kartın arkasında",
+      "$description": "Madde 7: arkadan sızan kırmızı ışık; 4,3 sn'lik düzensiz mum titremesi. Pas kipinde rgb(205 110 35)"
+    },
+    "InnerVignette": {
+      "$type": "string",
+      "$value": "radial-gradient(78% 74% at 50% 52%, transparent 42%, rgb(0 0 0 / .78) 100%)",
+      "$description": "Kenarlara doğru kararan vinyet; kemer omuzlarını da karartır"
+    },
+    "BleedGlow": {
+      "$type": "shadow",
+      "$value": {
+        "color": "rgba(178, 16, 20, 0.5)",
+        "offsetX": "0px",
+        "offsetY": "0px",
+        "blur": "18px",
+        "spread": "0px"
+      },
+      "$description": "Kartın dış hattını izleyen drop-shadow; kemer ve kesikleri izler"
+    }
+  },
+  "Border": {
+    "Frame": {
+      "$type": "dimension",
+      "$value": "2.5px",
+      "$description": "Kart kenarlığı; yan ve alt 2 px iç kutu payı, kemerde 2,5 px dikey fark"
+    },
+    "FrameColor": {
+      "$type": "color",
+      "$value": "#5C0606",
+      "$description": "Madde 15: border-[#5C0606]. Yüksek kontrastta #A0A0A0"
+    }
+  },
+  "Dimension": {
+    "ArchHeight": {
+      "$type": "dimension",
+      "$value": "56px",
+      "$description": "Kart kemeri; modalda 76 px, 0–110 px ayarlanır"
+    },
+    "ChainZone": {
+      "$type": "dimension",
+      "$value": "84px",
+      "$description": "Asılı kartın zincir boyu; 40–140 px ayarlanır. 640 px altında 0"
+    },
+    "TouchTarget": {
+      "$type": "dimension",
+      "$value": "52px",
+      "$description": "Düğme ve çip yüksekliği (küçük 44 px)"
+    },
+    "SimplifyBreakpoint": {
+      "$type": "dimension",
+      "$value": "640px",
+      "$description": "Madde 17: bu genişliğin altında kemer, zincir ve doku düşer, düz hatlı koyu panel kalır"
+    },
+    "FocusRing": {
+      "$type": "dimension",
+      "$value": "3px",
+      "$description": "Odak halkası, renk #E6E2DC"
+    }
+  },
+  "Font": {
+    "Display": {
+      "$type": "fontFamily",
+      "$value": ["Pirata One", "Grenze Gotisch Variable", "UnifrakturCook", "Old English Text MT", "Georgia", "serif"],
+      "$description": "Madde 5: Old English / blackletter. Yalnız 48 px ve üstü başlık; ₺ içermez"
+    },
+    "Heading": {
+      "$type": "fontFamily",
+      "$value": ["Grenze Gotisch Variable", "Pirata One", "Old English Text MT", "Georgia", "serif"],
+      "$description": "Gotik başlık, düğme; 19 px ve üstü, 700"
+    },
+    "Body": {
+      "$type": "fontFamily",
+      "$value": ["Spectral", "Iowan Old Style", "Georgia", "Times New Roman", "serif"],
+      "$description": "Okunabilir sert serif: gövde 20 px / 1,6, etiket, tablo"
+    },
+    "Quote": {
+      "$type": "fontFamily",
+      "$value": ["Cormorant Variable", "Spectral", "Georgia", "serif"],
+      "$description": "Alıntı ve epigraf; italik, 24 px ve üstü"
+    }
+  },
+  "Motion": {
+    "ModalOpen": {
+      "$type": "transition",
+      "$value": {
+        "duration": "900ms",
+        "delay": "0ms",
+        "timingFunction": [0.16, 0.8, 0.28, 1]
+      },
+      "$description": "Madde 16: kemerli pencere zincirlerle iner; 400–1800 ms ayarlanır. Yükselirken karanlıktan sıyrılır (brightness .35 → 1, blur 5 → 0)"
+    },
+    "ModalClose": {
+      "$type": "duration",
+      "$value": "460ms",
+      "$description": "Pencere kapanışı, ease-in"
+    },
+    "CandleFlicker": {
+      "$type": "duration",
+      "$value": "4300ms",
+      "$description": "Madde 16: titreyen mum ışığı; opaklık .66–1 arasında düzensiz duraklar; 1,5–8 sn ayarlanır"
+    },
+    "BloodDrip": {
+      "$type": "duration",
+      "$value": "7000ms",
+      "$description": "Kan damlası döngüsü (6–9 sn): önce şişer, ağırlaşır, sonra kopar"
+    },
+    "ChainSway": {
+      "$type": "duration",
+      "$value": "8000ms",
+      "$description": "Asılı kartın sarkaç salınımı, ±0,7°, gidip gelme; 0–3° ayarlanır"
+    },
+    "BloodFlow": {
+      "$type": "duration",
+      "$value": "5000ms",
+      "$description": "Kan çubuğunda çapraz gölge dilimlerinin akışı, doğrusal"
+    }
+  },
+  "Theme": {
+    "Gothic": {
+      "$description": "Tek zemin: gece siyahı. Vurgu Accent grubundan seçilir",
+      "Normal": {
+        "zemin": {
+          "$type": "color",
+          "$value": "#0a0a0c"
+        },
+        "metin": {
+          "$type": "color",
+          "$value": "#d1d5db",
+          "contrast": {
+            "onZemin": 13.42
+          }
+        },
+        "soluk": {
+          "$type": "color",
+          "$value": "#bcbec3",
+          "contrast": {
+            "onZemin": 10.64
+          }
+        },
+        "sinir": {
+          "$type": "color",
+          "$value": "#a0a0a0",
+          "contrast": {
+            "onZemin": 7.56
+          }
+        }
+      },
+      "High": {
+        "zemin": {
+          "$type": "color",
+          "$value": "#0a0a0c"
+        },
+        "metin": {
+          "$type": "color",
+          "$value": "#ffffff",
+          "contrast": {
+            "onZemin": 19.78
+          }
+        },
+        "soluk": {
+          "$type": "color",
+          "$value": "#e6e8eb",
+          "contrast": {
+            "onZemin": 16.11
+          }
+        },
+        "sinir": {
+          "$type": "color",
+          "$value": "#a0a0a0",
+          "contrast": {
+            "onZemin": 7.56
+          }
+        },
+        "doku": {
+          "$type": "string",
+          "$value": "kapalı; kırmızı ışık sızıntısı ve iç gölge kapalı"
+        }
+      }
+    },
+    "Accent": {
+      "Blood": {
+        "vurgu": {
+          "$type": "color",
+          "$value": "#5c0606"
+        },
+        "yazi": {
+          "$type": "color",
+          "$value": "#ff9a8c",
+          "contrast": {
+            "onNight": 9.66
+          }
+        },
+        "dolguUst": {
+          "$type": "color",
+          "$value": "#7a0c0c",
+          "contrast": {
+            "boneOnIt": 8.63
+          }
+        },
+        "isik": {
+          "$type": "color",
+          "$value": "#b21014"
+        }
+      },
+      "Rust": {
+        "vurgu": {
+          "$type": "color",
+          "$value": "#8b4513"
+        },
+        "yazi": {
+          "$type": "color",
+          "$value": "#efb88a",
+          "contrast": {
+            "onNight": 11.2
+          }
+        },
+        "dolguUst": {
+          "$type": "color",
+          "$value": "#6f3510",
+          "contrast": {
+            "creamOnIt": 8.25
+          }
+        },
+        "isik": {
+          "$type": "color",
+          "$value": "#cd6e23"
+        }
+      }
+    }
+  },
+  "Component": {
+    "GothicCard": {
+      "$description": "Madde 11 · 14: <GothicCard>. Dış sarmalayıcı drop-shadow ve ışık sızıntısı, iç katman clip-path",
+      "kemer": {
+        "$type": "string",
+        "$value": "sivri | duz"
+      },
+      "yuzey": {
+        "$type": "string",
+        "$value": "demir | tas | deri | kadife | duz"
+      },
+      "zincir": {
+        "$type": "string",
+        "$value": "yok | cerceve | asili"
+      }
+    },
+    "BloodProgressBar": {
+      "$description": "Madde 11 · 14: <BloodProgressBar>. role=progressbar; kan damlaları süstür, değer metinle de verilir",
+      "deger": {
+        "$type": "number",
+        "$value": 62
+      },
+      "belirsiz": {
+        "$type": "boolean",
+        "$value": false
+      }
+    },
+    "ChainBorder": {
+      "$description": "Madde 6 · 14: <ChainBorder>. Zincir şeridi ve köşe levhaları; asılı kipte iki zincir",
+      "mod": {
+        "$type": "string",
+        "$value": "cerceve | asili"
+      }
+    },
+    "GothicModal": {
+      "$description": "Madde 11 · 16: <GothicModal>. Radix Dialog; kemerli kart ekranın üstünden zincirlerle iner",
+      "sure": {
+        "$type": "duration",
+        "$value": "900ms"
+      }
+    }
+  }
+}
