@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Stil 035: Experimental & Variable Typography. Fare imlecine yaklaştıkça şişen, incelen, uzayan harfler; kalınlık, genişlik ve eğim eksenlerinin elastik biçimde bükülmesi; ham siyah-beyaz ya da tek patlayan renk; Roboto Flex, Recursive ve Fraunces." />
+    <meta name="theme-color" content="#ffffff" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' fill='%23fff'/%3E%3Cpath d='M5 40V8H13L20 26L27 8H35V40H29V20L23 36H17L11 20V40Z' fill='%23000'/%3E%3Crect x='37' y='30' width='8' height='10' fill='%23FF3D00'/%3E%3C/svg%3E"
+    />
+    <title>Stil 035 · Experimental Typography</title>
+    <script>
+      try {
+        var d = document.documentElement
+        var g = function (k) {
+          return localStorage.getItem(k)
+        }
+        var m = g('vk-hareket')
+        d.dataset.motion = m === 'kapali' || (m !== 'acik' && matchMedia('(prefers-reduced-motion: reduce)').matches) ? 'off' : 'on'
+        d.dataset.esneklik = g('vk-esneklik') === 'kilitli' ? 'kilitli' : 'oto'
+        var p = g('vk-palet')
+        d.dataset.palet = p === 'ters' || p === 'kobalt' || p === 'beton' ? p : 'ham'
+        d.dataset.kontrast = g('vk-kontrast') === 'yuksek' ? 'yuksek' : 'normal'
+        d.dataset.glitch = g('vk-glitch') === 'kapali' ? 'kapali' : 'acik'
+      } catch (e) {}
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/variable/main.tsx"></script>
+  </body>
+</html>

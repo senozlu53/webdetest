@@ -1,0 +1,896 @@
+@import 'tailwindcss' source(none);
+@source '.';
+
+/* ─────────────────────────────────────────────────────────────
+   STİL 035 · EXPERIMENTAL & VARIABLE TYPOGRAPHY
+   Eksenler (kalınlık, genişlik, eğim) sabit değil; fareyle, yayla ve kullanıcıyla bükülür.
+   Palet ya ham siyah-beyaz ya da monokrom zemin üstünde patlayan tek bir renktir.
+   Deneysel ayarlar yalnız büyük başlıkta; gövde metni hiçbir zaman bükülmez.
+   ───────────────────────────────────────────────────────────── */
+
+/* Roboto Flex: 13 eksen (opsz, wght, GRAD, wdth, slnt, XOPQ, YOPQ, XTRA, YTUC, YTLC, YTAS, YTDE, YTFI) */
+@font-face {
+  font-family: 'Roboto Flex Variable';
+  font-style: oblique 0deg 10deg;
+  font-display: swap;
+  font-weight: 100 1000;
+  font-stretch: 25% 151%;
+  src: url('@fontsource-variable/roboto-flex/files/roboto-flex-latin-ext-full-normal.woff2') format('woff2-variations');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Roboto Flex Variable';
+  font-style: oblique 0deg 10deg;
+  font-display: swap;
+  font-weight: 100 1000;
+  font-stretch: 25% 151%;
+  src: url('@fontsource-variable/roboto-flex/files/roboto-flex-latin-full-normal.woff2') format('woff2-variations');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* Recursive: MONO, CASL, wght, slnt, CRSV */
+@font-face {
+  font-family: 'Recursive Variable';
+  font-style: oblique 0deg 15deg;
+  font-display: swap;
+  font-weight: 300 1000;
+  src: url('@fontsource-variable/recursive/files/recursive-latin-ext-full-normal.woff2') format('woff2-variations');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Recursive Variable';
+  font-style: oblique 0deg 15deg;
+  font-display: swap;
+  font-weight: 300 1000;
+  src: url('@fontsource-variable/recursive/files/recursive-latin-full-normal.woff2') format('woff2-variations');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* Fraunces: opsz, wght, SOFT, WONK */
+@font-face {
+  font-family: 'Fraunces Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url('@fontsource-variable/fraunces/files/fraunces-latin-ext-full-normal.woff2') format('woff2-variations');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Fraunces Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url('@fontsource-variable/fraunces/files/fraunces-latin-full-normal.woff2') format('woff2-variations');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* Inter: yalnız gövde. Hiçbir zaman bükülmez */
+@font-face {
+  font-family: 'Inter Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url('@fontsource-variable/inter/files/inter-latin-ext-wght-normal.woff2') format('woff2-variations');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Inter Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url('@fontsource-variable/inter/files/inter-latin-wght-normal.woff2') format('woff2-variations');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* ── Madde 14: eksen değerleri kayıtlı sayısal özelliklerdir; böylece CSS geçişleri eksenler arasında gerçekten ara değer üretir ── */
+@property --wght {
+  syntax: '<number>';
+  inherits: true;
+  initial-value: 400;
+}
+@property --wdth {
+  syntax: '<number>';
+  inherits: true;
+  initial-value: 100;
+}
+@property --slnt {
+  syntax: '<number>';
+  inherits: true;
+  initial-value: 0;
+}
+@property --opsz {
+  syntax: '<number>';
+  inherits: true;
+  initial-value: 144;
+}
+@property --casl {
+  syntax: '<number>';
+  inherits: true;
+  initial-value: 0;
+}
+@property --mono {
+  syntax: '<number>';
+  inherits: true;
+  initial-value: 0;
+}
+@property --soft {
+  syntax: '<number>';
+  inherits: true;
+  initial-value: 0;
+}
+@property --wonk {
+  syntax: '<number>';
+  inherits: true;
+  initial-value: 0;
+}
+/* esneklik: 1 serbest, 0 güvenli standart değerlere kilitli (Madde 17) */
+@property --e {
+  syntax: '<number>';
+  inherits: true;
+  initial-value: 1;
+}
+
+/* ── Madde 4: palet. Ham siyah-beyaz ya da monokrom zemin + patlayan tek renk ── */
+:root,
+[data-onizle='ham'] {
+  --zemin: #ffffff;
+  --metin: #000000;
+  --soluk: #4a4a4a;
+  --kontrol: #767676;
+  --hat: #d4d4d4;
+  --yuzey: #f2f2f2;
+  --patlama: #ff3d00; /* dolgu */
+  --patlama-yazi: #c22800; /* zemin üstünde yazı */
+  --patlama-uzeri: #000000; /* dolgunun üstündeki yazı */
+  color-scheme: light;
+}
+:root[data-palet='ters'],
+[data-onizle='ters'] {
+  --zemin: #000000;
+  --metin: #ffffff;
+  --soluk: #b3b3b3;
+  --kontrol: #8c8c8c;
+  --hat: #333333;
+  --yuzey: #111111;
+  --patlama: #ff2bd6;
+  --patlama-yazi: #ff2bd6;
+  --patlama-uzeri: #000000;
+  color-scheme: dark;
+}
+:root[data-palet='kobalt'],
+[data-onizle='kobalt'] {
+  --zemin: #1a2bff;
+  --metin: #ffffff;
+  --soluk: #d6daff;
+  --kontrol: #b8bfff;
+  --hat: #4d5bff;
+  --yuzey: #1220d6;
+  --patlama: #ffe600;
+  --patlama-yazi: #ffe600;
+  --patlama-uzeri: #000000;
+  color-scheme: dark;
+}
+:root[data-palet='beton'],
+[data-onizle='beton'] {
+  --zemin: #d9d9d6;
+  --metin: #0a0a0a;
+  --soluk: #3b3b3b;
+  --kontrol: #5c5c5c;
+  --hat: #b5b5b2;
+  --yuzey: #e8e8e5;
+  --patlama: #ff3d00;
+  --patlama-yazi: #b32000;
+  --patlama-uzeri: #000000;
+}
+[data-onizle] {
+  background-color: var(--zemin);
+  color: var(--metin);
+}
+/* Madde 18 varyantı: yüksek kontrast (7:1) */
+:root[data-kontrast='yuksek'],
+:root[data-kontrast='yuksek'] [data-onizle='ham'] {
+  --soluk: #262626;
+  --kontrol: #404040;
+  --hat: #737373;
+  --patlama: #ff6a33;
+  --patlama-yazi: #a32100;
+}
+:root[data-kontrast='yuksek'][data-palet='ters'],
+:root[data-kontrast='yuksek'] [data-onizle='ters'] {
+  --soluk: #dcdcdc;
+  --kontrol: #bfbfbf;
+  --hat: #8c8c8c;
+  --patlama: #ff5ee0;
+  --patlama-yazi: #ff6be6;
+}
+:root[data-kontrast='yuksek'][data-palet='kobalt'],
+:root[data-kontrast='yuksek'] [data-onizle='kobalt'] {
+  --zemin: #1420e0;
+  --soluk: #e4e7ff;
+  --kontrol: #ffffff;
+  --hat: #8a94ff;
+  --yuzey: #0d17b8;
+  --patlama: #ffe600;
+  --patlama-yazi: #ffe600;
+}
+:root[data-kontrast='yuksek'][data-palet='beton'],
+:root[data-kontrast='yuksek'] [data-onizle='beton'] {
+  --soluk: #1f1f1f;
+  --kontrol: #3d3d3d;
+  --hat: #7d7d7a;
+  --patlama: #ff6a33;
+  --patlama-yazi: #7a1600;
+}
+
+:root {
+  --font-disp: 'Roboto Flex Variable', 'Roboto Flex', 'Arial Narrow', Arial, sans-serif;
+  --font-rec: 'Recursive Variable', 'Recursive', ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+  --font-fra: 'Fraunces Variable', 'Fraunces', Georgia, 'Times New Roman', serif;
+  --font-metin: 'Inter Variable', 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+  --kenar: clamp(16px, 4.5vw, 72px);
+  --max: 1440px;
+  --bolum: clamp(88px, 12vw, 190px);
+  --odak-kalin: 3px;
+}
+/* Madde 17: dar ekranda eksenler güvenli standart değerlere (wght 400, wdth 100, slnt 0) kilitlenir */
+@media (max-width: 639px) {
+  :root[data-esneklik='oto'] {
+    --e: 0;
+  }
+}
+:root[data-esneklik='kilitli'] {
+  --e: 0;
+}
+
+/* Madde 17 simülatörü: adlı kapsayıcı 640 pikselin altındaysa içindeki eksenler de kilitlenir */
+@container kilit (max-width: 639px) {
+  .vk {
+    --e: 0;
+  }
+}
+
+@theme inline {
+  --color-*: initial;
+  --font-*: initial;
+  --shadow-*: initial;
+  --font-disp: 'Roboto Flex Variable', 'Roboto Flex', 'Arial Narrow', Arial, sans-serif;
+  --font-rec: 'Recursive Variable', 'Recursive', ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+  --font-fra: 'Fraunces Variable', 'Fraunces', Georgia, 'Times New Roman', serif;
+  --font-metin: 'Inter Variable', 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+  --font-weight-black: 900;
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-transparent: transparent;
+  --color-zemin: var(--zemin);
+  --color-metin: var(--metin);
+  --color-soluk: var(--soluk);
+  --color-kontrol: var(--kontrol);
+  --color-hat: var(--hat);
+  --color-yuzey: var(--yuzey);
+  --color-patlama: var(--patlama);
+  --color-patlama-yazi: var(--patlama-yazi);
+  --color-patlama-uzeri: var(--patlama-uzeri);
+}
+
+@layer base {
+  html {
+    background: var(--zemin);
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+  }
+  :root[data-motion='off'] {
+    scroll-behavior: auto;
+  }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background: var(--zemin);
+    color: var(--metin);
+    font-family: var(--font-metin);
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 1.6;
+    overflow-x: clip;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    margin: 0;
+    font-family: var(--font-disp);
+    font-weight: 700;
+    line-height: 0.9;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+  p {
+    margin: 0;
+  }
+  a {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 5px;
+    text-decoration-color: var(--patlama);
+  }
+  a:hover {
+    color: var(--patlama-yazi);
+  }
+  :focus-visible {
+    outline: var(--odak-kalin) solid var(--patlama-yazi);
+    outline-offset: 3px;
+  }
+  ::selection {
+    background: var(--patlama);
+    color: var(--patlama-uzeri);
+  }
+  button,
+  input,
+  select,
+  textarea {
+    font: inherit;
+    color: inherit;
+    letter-spacing: inherit;
+  }
+  button {
+    cursor: pointer;
+  }
+  pre,
+  ul,
+  ol,
+  dl,
+  dd,
+  figure,
+  fieldset {
+    margin: 0;
+    padding: 0;
+  }
+  ul,
+  ol {
+    list-style: none;
+  }
+}
+
+/* ───────────────── Madde 5 · 6 · 14 · 15: değişken metin ───────────────── */
+@layer components {
+  /* Değişken metin. Bütün eksenler --e ile kilitlenebilir: e=0 → wght 400, wdth 100, slnt 0 */
+  .vk,
+  .vk .hk {
+    --opsz: 144;
+    font-family: var(--font-disp);
+    font-variation-settings:
+      'wght' calc(400 + (var(--wght) - 400) * var(--e)),
+      'wdth' calc(100 + (var(--wdth) - 100) * var(--e)),
+      'slnt' calc(var(--slnt) * var(--e)),
+      'opsz' var(--opsz);
+    font-optical-sizing: none;
+  }
+  .vk.f-rec,
+  .vk.f-rec .hk {
+    font-family: var(--font-rec);
+    font-variation-settings:
+      'wght' calc(400 + (var(--wght) - 400) * var(--e)),
+      'slnt' calc(var(--slnt) * var(--e)),
+      'CASL' calc(var(--casl) * var(--e)),
+      'MONO' calc(var(--mono) * var(--e)),
+      'CRSV' 0.5;
+  }
+  .vk.f-fra,
+  .vk.f-fra .hk {
+    font-family: var(--font-fra);
+    font-variation-settings:
+      'wght' calc(400 + (var(--wght) - 400) * var(--e)),
+      'opsz' var(--opsz),
+      'SOFT' calc(var(--soft) * var(--e)),
+      'WONK' calc(var(--wonk) * var(--e));
+  }
+  .disp {
+    text-transform: none;
+    letter-spacing: -0.02em;
+    line-height: 0.9;
+  }
+  .kicker {
+    font-family: var(--font-metin);
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.5;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--soluk);
+  }
+  .etiket {
+    font-family: var(--font-metin);
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  .rakam {
+    font-family: var(--font-rec);
+    font-variation-settings:
+      'wght' 600,
+      'MONO' 1,
+      'CASL' 0;
+    font-variant-numeric: tabular-nums;
+  }
+  .yazi-patlama {
+    color: var(--patlama-yazi);
+  }
+  .patlama-blok {
+    background: var(--patlama);
+    color: var(--patlama-uzeri);
+  }
+
+  /* bölünmüş metin: kelime > harf */
+  .kh {
+    display: block;
+  }
+  .kh-ic {
+    display: block;
+  }
+  .kw {
+    display: inline-block;
+    white-space: nowrap;
+  }
+  .hk {
+    display: inline-block;
+  }
+  /* sığdırma: kapsayıcı genişliği ve en uzun kelimenin harf sayısı boyu sınırlar; clamp() üst sınırı verir */
+  .sigdir {
+    display: block;
+    container-type: inline-size;
+    width: 100%;
+  }
+  .sigdir .vk-boy {
+    font-size: min(var(--boy, 12vw), calc(100cqw / (var(--uz, 8) * var(--k, 0.78))));
+  }
+
+  /* düğme: küçük etiket bükülmez (Madde 18), vurguda yalnız renk ve simge oynar */
+  .kbtn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 48px;
+    min-width: 48px;
+    padding: 0 20px;
+    border: 2px solid var(--metin);
+    border-radius: 0;
+    background: transparent;
+    color: var(--metin);
+    font-family: var(--font-metin);
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 1;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    white-space: nowrap;
+    cursor: pointer;
+    transition:
+      background-color 250ms,
+      color 250ms,
+      border-color 250ms;
+  }
+  .kbtn:hover {
+    background: var(--metin);
+    color: var(--zemin);
+  }
+  .kbtn[data-ton='patlama'] {
+    background: var(--patlama);
+    border-color: var(--patlama);
+    color: var(--patlama-uzeri);
+  }
+  .kbtn[data-ton='patlama']:hover {
+    background: transparent;
+    color: var(--patlama-yazi);
+  }
+  .kbtn[data-ton='yalin'] {
+    border-color: transparent;
+    padding-inline: 12px;
+  }
+  .kbtn[aria-pressed='true'] {
+    background: var(--metin);
+    color: var(--zemin);
+  }
+  .kbtn[aria-pressed='true']:hover {
+    background: transparent;
+    color: var(--metin);
+  }
+  .kbtn:disabled {
+    border-color: var(--kontrol);
+    color: var(--soluk);
+    background: transparent;
+    cursor: not-allowed;
+  }
+  /* madde 9: simge, yazı tipinin kendi glifidir; kalınlığı vurguda artar */
+  .glif {
+    display: inline-block;
+    font-family: var(--font-disp);
+    font-variation-settings:
+      'wght' 500,
+      'wdth' 100,
+      'slnt' 0,
+      'opsz' 14;
+    line-height: 1;
+    transition: font-variation-settings 300ms cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  .kbtn:hover .glif,
+  .kbtn:focus-visible .glif {
+    font-variation-settings:
+      'wght' 1000,
+      'wdth' 151,
+      'slnt' 0,
+      'opsz' 14;
+  }
+
+  /* seçim çipi */
+  .cip {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    min-height: 48px;
+    padding: 0 16px;
+    border: 2px solid var(--kontrol);
+    font-family: var(--font-metin);
+    font-weight: 600;
+    font-size: 12.5px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    user-select: none;
+    transition:
+      background-color 250ms,
+      color 250ms,
+      border-color 250ms;
+  }
+  .cip:hover {
+    border-color: var(--metin);
+  }
+  .cip[data-on] {
+    background: var(--metin);
+    border-color: var(--metin);
+    color: var(--zemin);
+  }
+  .cip:has(:focus-visible) {
+    outline: var(--odak-kalin) solid var(--patlama-yazi);
+    outline-offset: 3px;
+  }
+
+  /* kaydırıcı */
+  .aralik {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 100%;
+    height: 48px;
+    margin: 0;
+    background: transparent;
+    cursor: pointer;
+  }
+  .aralik::-webkit-slider-runnable-track {
+    height: 2px;
+    background: var(--metin);
+  }
+  .aralik::-moz-range-track {
+    height: 2px;
+    background: var(--metin);
+  }
+  .aralik::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 18px;
+    height: 30px;
+    margin-top: -14px;
+    border: 0;
+    border-radius: 0;
+    background: var(--patlama);
+    box-sizing: border-box;
+    border: 2px solid var(--metin);
+  }
+  .aralik::-moz-range-thumb {
+    width: 18px;
+    height: 30px;
+    border: 2px solid var(--metin);
+    border-radius: 0;
+    background: var(--patlama);
+    box-sizing: border-box;
+  }
+  .aralik:focus-visible {
+    outline: var(--odak-kalin) solid var(--patlama-yazi);
+    outline-offset: 0;
+  }
+
+  /* form alanı */
+  .alan {
+    display: block;
+    width: 100%;
+    min-height: 52px;
+    padding: 12px 14px;
+    border: 2px solid var(--kontrol);
+    border-radius: 0;
+    background: transparent;
+    color: var(--metin);
+    font-size: 17px;
+  }
+  .alan:hover {
+    border-color: var(--metin);
+  }
+  .alan[aria-invalid='true'] {
+    border-color: var(--patlama-yazi);
+    border-style: dashed;
+  }
+  select.alan option {
+    background: var(--zemin);
+    color: var(--metin);
+  }
+
+  /* anahtar */
+  .anahtar {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    min-height: 48px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    text-align: left;
+  }
+  .anahtar-iz {
+    position: relative;
+    width: 56px;
+    height: 28px;
+    border: 2px solid var(--metin);
+    flex: none;
+  }
+  .anahtar-iz::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 20px;
+    height: 20px;
+    background: var(--metin);
+    transition: transform 250ms cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  .anahtar[aria-checked='true'] .anahtar-iz {
+    background: var(--patlama);
+    border-color: var(--patlama);
+  }
+  .anahtar[aria-checked='true'] .anahtar-iz::after {
+    transform: translateX(28px);
+    background: var(--patlama-uzeri);
+  }
+
+  /* tablo */
+  .tablo th {
+    padding: 14px 16px 14px 0;
+    border-bottom: 2px solid var(--metin);
+    font-family: var(--font-metin);
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-align: left;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .tablo tbody th {
+    border-bottom: 1px solid var(--hat);
+    font-size: 14px;
+    letter-spacing: 0.02em;
+    text-transform: none;
+    white-space: normal;
+  }
+  .tablo td {
+    padding: 14px 16px 14px 0;
+    border-bottom: 1px solid var(--hat);
+    vertical-align: top;
+  }
+  .tablo caption {
+    text-align: left;
+    padding-bottom: 14px;
+  }
+
+  /* kod */
+  .kod {
+    padding: 22px 24px;
+    border: 1px solid var(--hat);
+    background: var(--yuzey);
+    color: var(--metin);
+    font-family: var(--font-mono);
+    font-size: 13.5px;
+    line-height: 1.7;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+  }
+  .kod.kod-dar {
+    white-space: pre;
+    overflow-wrap: normal;
+    overflow-x: auto;
+  }
+
+  .ilerleme-iz {
+    height: 2px;
+    background: var(--hat);
+  }
+  .ilerleme-dolu {
+    height: 2px;
+    background: var(--patlama);
+    transform-origin: 0 50%;
+  }
+
+  /* ───── Madde 7: üst üste binen metin katmanları ───── */
+  .katman-sahne {
+    position: relative;
+    isolation: isolate;
+    overflow-x: clip;
+    touch-action: pan-y;
+  }
+  .katman {
+    position: absolute;
+    left: 0;
+    right: 0;
+    white-space: nowrap;
+    line-height: 0.82;
+    pointer-events: none;
+  }
+
+  /* ───── Madde 8: glitch ───── */
+  .glitch {
+    position: relative;
+    display: block;
+  }
+  .glitch-kat {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    clip-path: inset(var(--gt, 0%) 0 var(--gb, 100%) 0);
+    transform: translateX(calc(var(--gx, 0) * 1px));
+  }
+  .glitch-kat[data-kat='a'] {
+    color: var(--patlama-yazi);
+  }
+  .glitch-kat[data-kat='b'] {
+    color: var(--metin);
+    opacity: 0.9;
+  }
+  .piksel-tuval {
+    display: block;
+    width: 100%;
+    height: auto;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+  }
+
+  /* ───── Madde 11: grid'i bozan metin blokları ───── */
+  .izgara12 {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    column-gap: clamp(8px, 1.5vw, 24px);
+    row-gap: 0;
+  }
+  .izgara-kilavuz {
+    position: absolute;
+    inset: -12px 0;
+    z-index: 0;
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    column-gap: clamp(8px, 1.5vw, 24px);
+    pointer-events: none;
+  }
+  .izgara-kilavuz > span {
+    background: color-mix(in srgb, var(--patlama) 20%, transparent);
+  }
+  .kirik {
+    position: relative;
+    z-index: 1;
+    min-width: 0;
+    grid-column: var(--c, 1) / span var(--s, 6);
+    grid-row: var(--r, auto);
+    transition:
+      transform 500ms cubic-bezier(0.34, 1.56, 0.64, 1),
+      margin 500ms cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  .izgara12[data-duzen='kirik'] .kirik {
+    margin-left: var(--mx, 0);
+    margin-top: var(--my, 0);
+    transform: rotate(var(--don, 0deg));
+  }
+  .kirik-dikey {
+    writing-mode: vertical-rl;
+  }
+  /* dar ekran: bloklar 12 kolonda ama daha geniş yayılır; gövde metni bir kelime/satıra düşmez, dikey yazı kırpılmaz */
+  @media (max-width: 639px) {
+    .kirik {
+      grid-column: var(--cm, var(--c, 1)) / span var(--sm, var(--s, 6));
+      grid-row: var(--rm, var(--r, auto));
+    }
+    .izgara12[data-duzen='kirik'] .kirik {
+      margin-left: var(--mxm, var(--mx, 0));
+      margin-top: var(--mym, var(--my, 0));
+    }
+  }
+}
+
+/* ── Madde 16: hareket ── */
+@keyframes sallan {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-0.08em);
+  }
+}
+:root[data-motion='on'] .sallan {
+  animation: sallan 1400ms ease-in-out infinite;
+}
+:root[data-motion='off'] *,
+:root[data-motion='off'] *::before,
+:root[data-motion='off'] *::after {
+  animation: none !important;
+  transition-duration: 0.01ms !important;
+  transition-delay: 0ms !important;
+}
+
+/* Madde 15: doğrudan font-variation-settings geçişi (eksenler --e ile kilitlenebilir) */
+.fvs-gecis {
+  font-family: var(--font-disp);
+  font-variation-settings:
+    'wght' calc(400 - 200 * var(--e)),
+    'wdth' calc(100 - 50 * var(--e)),
+    'opsz' 144;
+  transition: font-variation-settings 700ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.fvs-gecis:hover,
+.fvs-gecis:focus-visible {
+  font-variation-settings:
+    'wght' calc(400 + 600 * var(--e)),
+    'wdth' calc(100 + 51 * var(--e)),
+    'opsz' 144;
+}
+
+/* Şekil müzesi: kayıtlı özellikler elastik eğriyle ara değer üretir */
+.muze-gecis {
+  --wght: var(--w0);
+  --wdth: var(--d0);
+  --slnt: var(--s0);
+  transition:
+    --wght 800ms cubic-bezier(0.34, 1.56, 0.64, 1),
+    --wdth 800ms cubic-bezier(0.34, 1.56, 0.64, 1),
+    --slnt 800ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.muze-kart:hover .muze-gecis,
+.muze-kart:focus-visible .muze-gecis {
+  --wght: var(--wh);
+  --wdth: var(--dh);
+  --slnt: var(--sh);
+}
+
+/* Madde 14 kanıtı: kayıtlı özellik eksenler arasında ara değer üretir, kayıtsız olan sıçrar */
+.kanit-kayitli {
+  --wght: 200;
+  transition: --wght 900ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.kanit-kayitli:hover,
+.kanit-kayitli[data-zorla] {
+  --wght: 1000;
+}
+.kanit-kayitsiz {
+  --wght-x: 200;
+  font-variation-settings:
+    'wght' var(--wght-x),
+    'wdth' 100,
+    'opsz' 144;
+  transition: --wght-x 900ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.kanit-kayitsiz:hover,
+.kanit-kayitsiz[data-zorla] {
+  --wght-x: 1000;
+}

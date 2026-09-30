@@ -1,0 +1,1092 @@
+{
+  "$description": "Stil 035: Experimental & Variable Typography. W3C DTCG formatı. Adlar Figma yoluyla aynıdır: Typography/VariableAxisWeight, Typography/VariableAxisWidth (ve Slant). Üç değişken yazı tipi (Roboto Flex 13 eksen, Recursive 5, Fraunces 4). Palet ham siyah-beyaz ya da tek renkli zemin üstünde tek bir patlama rengidir. Gölge, gradyan ve çizilmiş ikon yoktur; simge yazı tipinin kendi glifleridir. Kontrast sayıları sayfadaki tarayıcı taramasının aynısıdır.",
+  "Color": {
+    "White": {
+      "$type": "color",
+      "$value": "#FFFFFF",
+      "$description": "Madde 4: Ham beyaz",
+      "contrast": {
+        "onBlack": 21
+      }
+    },
+    "Black": {
+      "$type": "color",
+      "$value": "#000000",
+      "$description": "Madde 4: Ham siyah",
+      "contrast": {
+        "onWhite": 21
+      }
+    },
+    "Blast": {
+      "$description": "Patlayan tek zıt renk (palet başına bir tane)",
+      "Vermilion": {
+        "$type": "color",
+        "$value": "#FF3D00",
+        "$description": "Ham ve Beton paletinde",
+        "contrast": {
+          "onWhite": 3.55,
+          "blackOnIt": 5.92
+        }
+      },
+      "HotPink": {
+        "$type": "color",
+        "$value": "#FF2BD6",
+        "$description": "Ters paletinde (siyah zeminde)",
+        "contrast": {
+          "onBlack": 6.57
+        }
+      },
+      "Yellow": {
+        "$type": "color",
+        "$value": "#FFE600",
+        "$description": "Kobalt paletinde",
+        "contrast": {
+          "onCobalt": 5.85
+        }
+      }
+    },
+    "Cobalt": {
+      "$type": "color",
+      "$value": "#1A2BFF",
+      "$description": "Kobalt palet zemini",
+      "contrast": {
+        "whiteOnIt": 7.41
+      }
+    },
+    "Concrete": {
+      "$type": "color",
+      "$value": "#D9D9D6",
+      "$description": "Beton palet zemini",
+      "contrast": {
+        "inkOnIt": 14
+      }
+    }
+  },
+  "Theme": {
+    "Raw": {
+      "$description": "Ham siyah-beyaz zıtlık; patlayan tek renk turuncu kırmızı",
+      "Normal": {
+        "zemin": {
+          "$type": "color",
+          "$value": "#ffffff"
+        },
+        "metin": {
+          "$type": "color",
+          "$value": "#000000",
+          "contrast": {
+            "onZemin": 21
+          }
+        },
+        "soluk": {
+          "$type": "color",
+          "$value": "#4a4a4a",
+          "contrast": {
+            "onZemin": 8.86
+          }
+        },
+        "kontrol": {
+          "$type": "color",
+          "$value": "#767676",
+          "$description": "Form ve düğme çerçevesi (≥ 3:1)",
+          "contrast": {
+            "onZemin": 4.54
+          }
+        },
+        "ayrac": {
+          "$type": "color",
+          "$value": "#d4d4d4",
+          "$description": "Yalnız süs",
+          "contrast": {
+            "onZemin": 1.48
+          }
+        },
+        "patlama": {
+          "$type": "color",
+          "$value": "#ff3d00",
+          "$description": "Dolgu (düğme, etiket, seçili şerit)"
+        },
+        "patlamaYazi": {
+          "$type": "color",
+          "$value": "#c22800",
+          "$description": "Zemin üstünde patlama renginde yazı ve odak halkası",
+          "contrast": {
+            "onZemin": 5.84
+          }
+        },
+        "patlamaUzeri": {
+          "$type": "color",
+          "$value": "#000000",
+          "$description": "Patlama dolgusunun üstündeki yazı",
+          "contrast": {
+            "onPatlama": 5.92
+          }
+        }
+      },
+      "HighContrast": {
+        "zemin": {
+          "$type": "color",
+          "$value": "#ffffff"
+        },
+        "metin": {
+          "$type": "color",
+          "$value": "#000000",
+          "contrast": {
+            "onZemin": 21
+          }
+        },
+        "soluk": {
+          "$type": "color",
+          "$value": "#262626",
+          "contrast": {
+            "onZemin": 15.13
+          }
+        },
+        "kontrol": {
+          "$type": "color",
+          "$value": "#404040",
+          "$description": "Form ve düğme çerçevesi (≥ 3:1)",
+          "contrast": {
+            "onZemin": 10.37
+          }
+        },
+        "ayrac": {
+          "$type": "color",
+          "$value": "#737373",
+          "$description": "Yalnız süs",
+          "contrast": {
+            "onZemin": 4.74
+          }
+        },
+        "patlama": {
+          "$type": "color",
+          "$value": "#ff6a33",
+          "$description": "Dolgu (düğme, etiket, seçili şerit)"
+        },
+        "patlamaYazi": {
+          "$type": "color",
+          "$value": "#a32100",
+          "$description": "Zemin üstünde patlama renginde yazı ve odak halkası",
+          "contrast": {
+            "onZemin": 7.57
+          }
+        },
+        "patlamaUzeri": {
+          "$type": "color",
+          "$value": "#000000",
+          "$description": "Patlama dolgusunun üstündeki yazı",
+          "contrast": {
+            "onPatlama": 7.36
+          }
+        }
+      }
+    },
+    "Inverse": {
+      "$description": "Siyah zemin, beyaz metin; patlayan tek renk sıcak pembe",
+      "Normal": {
+        "zemin": {
+          "$type": "color",
+          "$value": "#000000"
+        },
+        "metin": {
+          "$type": "color",
+          "$value": "#ffffff",
+          "contrast": {
+            "onZemin": 21
+          }
+        },
+        "soluk": {
+          "$type": "color",
+          "$value": "#b3b3b3",
+          "contrast": {
+            "onZemin": 10.02
+          }
+        },
+        "kontrol": {
+          "$type": "color",
+          "$value": "#8c8c8c",
+          "$description": "Form ve düğme çerçevesi (≥ 3:1)",
+          "contrast": {
+            "onZemin": 6.25
+          }
+        },
+        "ayrac": {
+          "$type": "color",
+          "$value": "#333333",
+          "$description": "Yalnız süs",
+          "contrast": {
+            "onZemin": 1.66
+          }
+        },
+        "patlama": {
+          "$type": "color",
+          "$value": "#ff2bd6",
+          "$description": "Dolgu (düğme, etiket, seçili şerit)"
+        },
+        "patlamaYazi": {
+          "$type": "color",
+          "$value": "#ff2bd6",
+          "$description": "Zemin üstünde patlama renginde yazı ve odak halkası",
+          "contrast": {
+            "onZemin": 6.57
+          }
+        },
+        "patlamaUzeri": {
+          "$type": "color",
+          "$value": "#000000",
+          "$description": "Patlama dolgusunun üstündeki yazı",
+          "contrast": {
+            "onPatlama": 6.57
+          }
+        }
+      },
+      "HighContrast": {
+        "zemin": {
+          "$type": "color",
+          "$value": "#000000"
+        },
+        "metin": {
+          "$type": "color",
+          "$value": "#ffffff",
+          "contrast": {
+            "onZemin": 21
+          }
+        },
+        "soluk": {
+          "$type": "color",
+          "$value": "#dcdcdc",
+          "contrast": {
+            "onZemin": 15.31
+          }
+        },
+        "kontrol": {
+          "$type": "color",
+          "$value": "#bfbfbf",
+          "$description": "Form ve düğme çerçevesi (≥ 3:1)",
+          "contrast": {
+            "onZemin": 11.42
+          }
+        },
+        "ayrac": {
+          "$type": "color",
+          "$value": "#8c8c8c",
+          "$description": "Yalnız süs",
+          "contrast": {
+            "onZemin": 6.25
+          }
+        },
+        "patlama": {
+          "$type": "color",
+          "$value": "#ff5ee0",
+          "$description": "Dolgu (düğme, etiket, seçili şerit)"
+        },
+        "patlamaYazi": {
+          "$type": "color",
+          "$value": "#ff6be6",
+          "$description": "Zemin üstünde patlama renginde yazı ve odak halkası",
+          "contrast": {
+            "onZemin": 8.5
+          }
+        },
+        "patlamaUzeri": {
+          "$type": "color",
+          "$value": "#000000",
+          "$description": "Patlama dolgusunun üstündeki yazı",
+          "contrast": {
+            "onPatlama": 7.93
+          }
+        }
+      }
+    },
+    "Cobalt": {
+      "$description": "Monokrom kobalt zemin; patlayan tek renk sarı",
+      "Normal": {
+        "zemin": {
+          "$type": "color",
+          "$value": "#1a2bff"
+        },
+        "metin": {
+          "$type": "color",
+          "$value": "#ffffff",
+          "contrast": {
+            "onZemin": 7.41
+          }
+        },
+        "soluk": {
+          "$type": "color",
+          "$value": "#d6daff",
+          "contrast": {
+            "onZemin": 5.41
+          }
+        },
+        "kontrol": {
+          "$type": "color",
+          "$value": "#b8bfff",
+          "$description": "Form ve düğme çerçevesi (≥ 3:1)",
+          "contrast": {
+            "onZemin": 4.21
+          }
+        },
+        "ayrac": {
+          "$type": "color",
+          "$value": "#4d5bff",
+          "$description": "Yalnız süs",
+          "contrast": {
+            "onZemin": 1.5
+          }
+        },
+        "patlama": {
+          "$type": "color",
+          "$value": "#ffe600",
+          "$description": "Dolgu (düğme, etiket, seçili şerit)"
+        },
+        "patlamaYazi": {
+          "$type": "color",
+          "$value": "#ffe600",
+          "$description": "Zemin üstünde patlama renginde yazı ve odak halkası",
+          "contrast": {
+            "onZemin": 5.85
+          }
+        },
+        "patlamaUzeri": {
+          "$type": "color",
+          "$value": "#000000",
+          "$description": "Patlama dolgusunun üstündeki yazı",
+          "contrast": {
+            "onPatlama": 16.57
+          }
+        }
+      },
+      "HighContrast": {
+        "zemin": {
+          "$type": "color",
+          "$value": "#1420e0"
+        },
+        "metin": {
+          "$type": "color",
+          "$value": "#ffffff",
+          "contrast": {
+            "onZemin": 9.08
+          }
+        },
+        "soluk": {
+          "$type": "color",
+          "$value": "#e4e7ff",
+          "contrast": {
+            "onZemin": 7.43
+          }
+        },
+        "kontrol": {
+          "$type": "color",
+          "$value": "#ffffff",
+          "$description": "Form ve düğme çerçevesi (≥ 3:1)",
+          "contrast": {
+            "onZemin": 9.08
+          }
+        },
+        "ayrac": {
+          "$type": "color",
+          "$value": "#8a94ff",
+          "$description": "Yalnız süs",
+          "contrast": {
+            "onZemin": 3.36
+          }
+        },
+        "patlama": {
+          "$type": "color",
+          "$value": "#ffe600",
+          "$description": "Dolgu (düğme, etiket, seçili şerit)"
+        },
+        "patlamaYazi": {
+          "$type": "color",
+          "$value": "#ffe600",
+          "$description": "Zemin üstünde patlama renginde yazı ve odak halkası",
+          "contrast": {
+            "onZemin": 7.17
+          }
+        },
+        "patlamaUzeri": {
+          "$type": "color",
+          "$value": "#000000",
+          "$description": "Patlama dolgusunun üstündeki yazı",
+          "contrast": {
+            "onPatlama": 16.57
+          }
+        }
+      }
+    },
+    "Concrete": {
+      "$description": "Monokrom beton grisi; patlayan tek renk turuncu kırmızı",
+      "Normal": {
+        "zemin": {
+          "$type": "color",
+          "$value": "#d9d9d6"
+        },
+        "metin": {
+          "$type": "color",
+          "$value": "#0a0a0a",
+          "contrast": {
+            "onZemin": 14
+          }
+        },
+        "soluk": {
+          "$type": "color",
+          "$value": "#3b3b3b",
+          "contrast": {
+            "onZemin": 7.92
+          }
+        },
+        "kontrol": {
+          "$type": "color",
+          "$value": "#5c5c5c",
+          "$description": "Form ve düğme çerçevesi (≥ 3:1)",
+          "contrast": {
+            "onZemin": 4.73
+          }
+        },
+        "ayrac": {
+          "$type": "color",
+          "$value": "#b5b5b2",
+          "$description": "Yalnız süs",
+          "contrast": {
+            "onZemin": 1.45
+          }
+        },
+        "patlama": {
+          "$type": "color",
+          "$value": "#ff3d00",
+          "$description": "Dolgu (düğme, etiket, seçili şerit)"
+        },
+        "patlamaYazi": {
+          "$type": "color",
+          "$value": "#b32000",
+          "$description": "Zemin üstünde patlama renginde yazı ve odak halkası",
+          "contrast": {
+            "onZemin": 4.75
+          }
+        },
+        "patlamaUzeri": {
+          "$type": "color",
+          "$value": "#000000",
+          "$description": "Patlama dolgusunun üstündeki yazı",
+          "contrast": {
+            "onPatlama": 5.92
+          }
+        }
+      },
+      "HighContrast": {
+        "zemin": {
+          "$type": "color",
+          "$value": "#d9d9d6"
+        },
+        "metin": {
+          "$type": "color",
+          "$value": "#0a0a0a",
+          "contrast": {
+            "onZemin": 14
+          }
+        },
+        "soluk": {
+          "$type": "color",
+          "$value": "#1f1f1f",
+          "contrast": {
+            "onZemin": 11.65
+          }
+        },
+        "kontrol": {
+          "$type": "color",
+          "$value": "#3d3d3d",
+          "$description": "Form ve düğme çerçevesi (≥ 3:1)",
+          "contrast": {
+            "onZemin": 7.68
+          }
+        },
+        "ayrac": {
+          "$type": "color",
+          "$value": "#7d7d7a",
+          "$description": "Yalnız süs",
+          "contrast": {
+            "onZemin": 2.92
+          }
+        },
+        "patlama": {
+          "$type": "color",
+          "$value": "#ff6a33",
+          "$description": "Dolgu (düğme, etiket, seçili şerit)"
+        },
+        "patlamaYazi": {
+          "$type": "color",
+          "$value": "#7a1600",
+          "$description": "Zemin üstünde patlama renginde yazı ve odak halkası",
+          "contrast": {
+            "onZemin": 7.64
+          }
+        },
+        "patlamaUzeri": {
+          "$type": "color",
+          "$value": "#000000",
+          "$description": "Patlama dolgusunun üstündeki yazı",
+          "contrast": {
+            "onPatlama": 7.36
+          }
+        }
+      }
+    }
+  },
+  "Typography": {
+    "VariableAxisWeight": {
+      "$description": "Kalınlık (wght). Roboto Flex 100–1000; Recursive 300–1000; Fraunces 100–900",
+      "min": {
+        "$type": "number",
+        "$value": 100
+      },
+      "default": {
+        "$type": "number",
+        "$value": 400
+      },
+      "max": {
+        "$type": "number",
+        "$value": 1000
+      }
+    },
+    "VariableAxisWidth": {
+      "$description": "Genişlik (wdth). Roboto Flex. Uzatılmış (151) ve sıkıştırılmış (25) radikal geometriler",
+      "min": {
+        "$type": "number",
+        "$value": 25
+      },
+      "default": {
+        "$type": "number",
+        "$value": 100
+      },
+      "max": {
+        "$type": "number",
+        "$value": 151
+      }
+    },
+    "VariableAxisSlant": {
+      "$description": "Eğim (slnt). Roboto Flex −10…0; Recursive −15…0",
+      "min": {
+        "$type": "number",
+        "$value": -10
+      },
+      "default": {
+        "$type": "number",
+        "$value": 0
+      },
+      "max": {
+        "$type": "number",
+        "$value": 0
+      }
+    },
+    "VariableAxisOpticalSize": {
+      "$description": "Optik boyut (opsz). Roboto Flex 8–144; Fraunces 9–144. Display metinde üst uç",
+      "min": {
+        "$type": "number",
+        "$value": 8
+      },
+      "default": {
+        "$type": "number",
+        "$value": 14
+      },
+      "max": {
+        "$type": "number",
+        "$value": 144
+      }
+    },
+    "VariableAxisCasual": {
+      "$description": "Sıradanlık (CASL). Recursive",
+      "min": {
+        "$type": "number",
+        "$value": 0
+      },
+      "default": {
+        "$type": "number",
+        "$value": 0
+      },
+      "max": {
+        "$type": "number",
+        "$value": 1
+      }
+    },
+    "VariableAxisSoft": {
+      "$description": "Yumuşaklık (SOFT). Fraunces",
+      "min": {
+        "$type": "number",
+        "$value": 0
+      },
+      "default": {
+        "$type": "number",
+        "$value": 0
+      },
+      "max": {
+        "$type": "number",
+        "$value": 100
+      }
+    },
+    "VariableAxisWonk": {
+      "$description": "Tuhaflık (WONK). Fraunces",
+      "min": {
+        "$type": "number",
+        "$value": 0
+      },
+      "default": {
+        "$type": "number",
+        "$value": 0
+      },
+      "max": {
+        "$type": "number",
+        "$value": 1
+      }
+    },
+    "VariableDisplay": {
+      "$type": "typography",
+      "$description": "Madde 13: dev display başlık. Eksenler font-variation-settings ile sürülür; boy clamp() ile sınırlanır ve kapsayıcıya sığdırılır: min(clamp(…), 100cqw / (en uzun kelime × k))",
+      "$value": {
+        "fontFamily": ["Roboto Flex Variable", "Roboto Flex", "Arial Narrow", "Arial", "sans-serif"],
+        "fontWeight": 400,
+        "fontSize": "clamp(48px, 14vw, 220px)",
+        "lineHeight": 0.95,
+        "letterSpacing": "-0.02em"
+      },
+      "$extensions": {
+        "com.devinim.variation": {
+          "wght": "calc(400 + (var(--wght) - 400) * var(--e))",
+          "wdth": "calc(100 + (var(--wdth) - 100) * var(--e))",
+          "slnt": "calc(var(--slnt) * var(--e))"
+        }
+      }
+    },
+    "Body": {
+      "$type": "typography",
+      "$description": "Madde 18: gövde metni bükülmez. Inter, hiçbir eksen değişmez",
+      "$value": {
+        "fontFamily": ["Inter Variable", "Inter", "Helvetica Neue", "Arial", "sans-serif"],
+        "fontWeight": 400,
+        "fontSize": "17px",
+        "lineHeight": 1.6,
+        "letterSpacing": "0em"
+      }
+    },
+    "Label": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": ["Inter Variable", "Inter", "Helvetica Neue", "Arial", "sans-serif"],
+        "fontWeight": 600,
+        "fontSize": "12px",
+        "lineHeight": 1.5,
+        "letterSpacing": "0.16em"
+      }
+    },
+    "Mono": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": ["Recursive Variable", "Recursive", "ui-monospace", "Menlo", "monospace"],
+        "fontWeight": 500,
+        "fontSize": "13px",
+        "lineHeight": 1.5,
+        "letterSpacing": "0em"
+      },
+      "$extensions": {
+        "com.devinim.variation": {
+          "MONO": 1,
+          "CASL": 0
+        }
+      }
+    },
+    "FitFactor": {
+      "$type": "number",
+      "$value": 0.66,
+      "$description": "Harf başına ortalama ilerleme (em). Kaos halinde ortalama harf genişliği; sığdırma: 100cqw / (harf sayısı × 0,66)"
+    },
+    "ChaosChannels": {
+      "$description": "Dinlenme halinde her harf üç normalize kanaldan (A kalınlık, B genişlik/yumuşaklık, C eğim/tuhaflık) kendi değerini alır; imleç etkisi bu kanalları yayla sürer",
+      "flex": {
+        "$type": "string",
+        "$value": "wght 100–1000 · wdth 25–151 · slnt 0…−10"
+      },
+      "recursive": {
+        "$type": "string",
+        "$value": "wght 300–1000 · CASL 0–1 · slnt 0…−15"
+      },
+      "fraunces": {
+        "$type": "string",
+        "$value": "wght 100–900 · SOFT 0–100 · WONK 0/1"
+      }
+    }
+  },
+  "Motion": {
+    "Spring": {
+      "$description": "Madde 16: her harf ve her eksen kendi yayında. Yarı-örtük Euler. Sönüm oranı 1’in altında: hedef aşılır ve sallanır",
+      "stiffness": {
+        "$type": "number",
+        "$value": 170
+      },
+      "damping": {
+        "$type": "number",
+        "$value": 11
+      },
+      "dampingRatio": {
+        "$type": "number",
+        "$value": 0.42,
+        "$description": "ζ = c / (2 √k)"
+      },
+      "overshoot": {
+        "$type": "number",
+        "$value": 23.2,
+        "$description": "Yüzde. Sayfada basamak yanıtı ölçülür: 23,1"
+      }
+    },
+    "Proximity": {
+      "swellRadius": {
+        "$type": "dimension",
+        "$value": "150px",
+        "$description": "En az; harf yüksekliğinin 1,5 katı ile büyür"
+      },
+      "swellExponent": {
+        "$type": "number",
+        "$value": 1.4
+      },
+      "ringCenter": {
+        "$type": "number",
+        "$value": 0.42
+      },
+      "ringWidth": {
+        "$type": "number",
+        "$value": 0.16,
+        "$description": "Halkadaki harf incelir (Gauss)"
+      },
+      "restSway": {
+        "$type": "string",
+        "$value": "± %10 (kalınlık), ± %8 (genişlik); sin(1,3 t + 0,9 i)"
+      }
+    },
+    "HoverTransition": {
+      "$description": "Kayıtlı --wght/--wdth/--slnt geçişi (@property sayesinde CSS ara değer üretir) ve doğrudan font-variation-settings geçişi",
+      "museum": {
+        "$type": "duration",
+        "$value": "800ms",
+        "$description": "Şekil müzesi kartları"
+      },
+      "direct": {
+        "$type": "duration",
+        "$value": "700ms",
+        "$description": "font-variation-settings: doğrudan geçiş"
+      },
+      "proof": {
+        "$type": "duration",
+        "$value": "900ms",
+        "$description": "@property kanıtı: kayıtlı ve kayıtsız özellik yan yana"
+      },
+      "glyph": {
+        "$type": "duration",
+        "$value": "300ms",
+        "$description": "Simge (glif) üzerine gelince"
+      }
+    },
+    "HoverEasing": {
+      "$type": "cubicBezier",
+      "$value": [0.34, 1.56, 0.64, 1],
+      "$description": "Elastik (taşan) eğri"
+    },
+    "Glitch": {
+      "duration": {
+        "$type": "duration",
+        "$value": "260ms",
+        "$description": "4 adım × 55 ms + 40 ms"
+      },
+      "minGap": {
+        "$type": "duration",
+        "$value": "1200ms",
+        "$description": "İki patlama arası en az"
+      },
+      "sliceHeight": {
+        "$type": "string",
+        "$value": "%8–30"
+      },
+      "maxShift": {
+        "$type": "dimension",
+        "$value": "26px"
+      },
+      "layers": {
+        "$type": "number",
+        "$value": 2
+      },
+      "description": {
+        "$type": "string",
+        "$value": "Renk değiştirmez; yalnız birkaç yatay dilim kayar. Saniyede 3’ten az değişim"
+      }
+    },
+    "Pixelate": {
+      "start": {
+        "$type": "dimension",
+        "$value": "28px"
+      },
+      "rest": {
+        "$type": "dimension",
+        "$value": "2px"
+      },
+      "hover": {
+        "$type": "dimension",
+        "$value": "2px"
+      },
+      "leave": {
+        "$type": "dimension",
+        "$value": "14px"
+      },
+      "range": {
+        "$type": "string",
+        "$value": "1–40 px"
+      },
+      "duration": {
+        "$type": "duration",
+        "$value": "1600ms"
+      },
+      "easing": {
+        "$type": "cubicBezier",
+        "$value": [0.2, 0.9, 0.2, 1]
+      }
+    },
+    "Off": {
+      "$type": "string",
+      "$value": "yay çalışmaz; harfler dinlenme durumunda; glitch ve piksel efekti yok; transition-duration: .01ms",
+      "$description": "Durdur, Sisteme uy (prefers-reduced-motion) ya da Hareket=Durdur"
+    }
+  },
+  "Depth": {
+    "Shadow": {
+      "$type": "string",
+      "$value": "none",
+      "$description": "Madde 7: gölge yok. Derinlik üst üste binen farklı boyutlu metin katmanlarından gelir"
+    },
+    "LayerCount": {
+      "$type": "number",
+      "$value": 4,
+      "$description": "2–4"
+    },
+    "LayerSizeRatio": {
+      "$type": "number",
+      "$value": 0.62,
+      "$description": "Her katman bir öncekinin 0,62 katı; ölçülen boyutlar 300 · 186 · 115 · 71 px"
+    },
+    "LayerTone": {
+      "$type": "string",
+      "$value": "en büyük katman en soluk (%9), en küçük en koyu (%100)"
+    },
+    "Parallax": {
+      "$type": "string",
+      "$value": "İmleçle ön katman daha çok kayar; ölçülen 23 · 45 · 68 · 91 px"
+    },
+    "LabelOverlap": {
+      "$type": "string",
+      "$value": "Hero etiketleri devasa başlığın üstüne biner (z-10)"
+    }
+  },
+  "Lock": {
+    "$description": "Madde 17: dar ekranda bütün eksenler güvenli standart değerlere kilitlenir",
+    "Breakpoint": {
+      "$type": "dimension",
+      "$value": "640px",
+      "$description": "< 640: kilitli"
+    },
+    "Factor": {
+      "$type": "number",
+      "$value": 0,
+      "$description": "--e: 0 kilitli, 1 serbest. font-variation-settings: calc(400 + (var(--wght) - 400) * var(--e))"
+    },
+    "LockedWeight": {
+      "$type": "number",
+      "$value": 400
+    },
+    "LockedWidth": {
+      "$type": "number",
+      "$value": 100
+    },
+    "LockedSlant": {
+      "$type": "number",
+      "$value": 0
+    },
+    "LockedOthers": {
+      "$type": "string",
+      "$value": "CASL 0 · SOFT 0 · WONK 0"
+    },
+    "Query": {
+      "$type": "string",
+      "$value": "@media (max-width: 639px) + @container kilit (max-width: 639px)",
+      "$description": "Sayfa ve simülatör aynı kuralla"
+    },
+    "Exemption": {
+      "$type": "string",
+      "$value": "Eksen laboratuvarı ve data-deney gösterimleri: kullanıcı bilerek büker"
+    }
+  },
+  "Layout": {
+    "MaxWidth": {
+      "$type": "dimension",
+      "$value": "1440px"
+    },
+    "Gutter": {
+      "$type": "dimension",
+      "$value": "clamp(16px, 4.5vw, 72px)"
+    },
+    "SectionSpace": {
+      "$type": "dimension",
+      "$value": "clamp(88px, 12vw, 190px)"
+    },
+    "Grid": {
+      "$type": "number",
+      "$value": 12,
+      "$description": "Bozan bloklar 12 kolonda kayar, döner ve üst üste biner; mobilde daha geniş yayılır"
+    },
+    "Corner": {
+      "$type": "dimension",
+      "$value": "0px"
+    },
+    "Stroke": {
+      "$type": "dimension",
+      "$value": "2px"
+    }
+  },
+  "Accessibility": {
+    "$description": "Madde 18: deneysel karakter yalnız büyük display başlıkta; gövde hiçbir zaman bükülmez",
+    "MinExperimentalSize": {
+      "$type": "dimension",
+      "$value": "32px",
+      "$description": "Bunun altında deneysel eksen yok. Sayfadaki canlı denetim: 312 büyük başlık, 0 ihlal, 419 bükülmeyen gövde metni"
+    },
+    "StopControl": {
+      "$type": "string",
+      "$value": "Başlıkta Durdur / Oynat düğmesi; aria-pressed; localStorage vk-hareket",
+      "$description": "WCAG 2.2.2 Pause, Stop, Hide"
+    },
+    "MotionModes": {
+      "$type": "string",
+      "$value": "Sisteme uy · Açık · Durdur"
+    },
+    "AxisModes": {
+      "$type": "string",
+      "$value": "Dar ekranda kilitle · Hep kilitli"
+    },
+    "FocusRing": {
+      "$type": "string",
+      "$value": "3px solid var(--patlama-yazi); outline-offset: 3px"
+    },
+    "TargetSize": {
+      "$type": "dimension",
+      "$value": "44px",
+      "$description": "Sayfada 44 px altında hedef 0"
+    },
+    "TextContrast": {
+      "$type": "number",
+      "$value": 4.5,
+      "$description": "Küçük yazı; yüksek kontrastta 7"
+    },
+    "LargeTextContrast": {
+      "$type": "number",
+      "$value": 3,
+      "$description": "Büyük yazı (≥ 24 px); yüksek kontrastta 4,5"
+    },
+    "ScreenReader": {
+      "$type": "string",
+      "$value": "Bölünmüş harfler aria-hidden; başlık metni bir kez (sr-only). Piksel metni tuval değil erişilebilir görsel"
+    },
+    "Keyboard": {
+      "$type": "string",
+      "$value": "Eksen kartları odaklanır; ok tuşları sanal imleç, Home sıfırlar (sayfayı kaydırmaz)"
+    },
+    "Scan": {
+      "$description": "Tarayıcıda tüm metin düğümleri (1073) 11 kombinasyonda ölçüldü: 4 palet × normal / yüksek kontrast, hep kilitli, hareket açık, hareket açık + kobalt",
+      "failures": {
+        "$type": "number",
+        "$value": 0
+      },
+      "minMargin": {
+        "$type": "number",
+        "$value": 0.17,
+        "$description": "Eşiğin üstündeki en küçük pay (kobalt + yüksek kontrast)"
+      }
+    },
+    "Variants": {
+      "$type": "string",
+      "$value": "hareket (sisteme uy, açık, durdur) · eksenler (dar ekranda kilitle, hep kilitli) · palet (ham, ters, kobalt, beton) · kontrast (normal, yüksek) · glitch ve piksel (açık, kapalı)"
+    }
+  },
+  "Icon": {
+    "count": {
+      "$type": "number",
+      "$value": 0,
+      "$description": "Madde 9: çizilmiş ikon yok. Sayfada svg (veri grafiği hariç), img, picture ve canvas (piksel metni hariç) sayısı canlı sayılır: 0"
+    },
+    "Glyphs": {
+      "$type": "string",
+      "$value": "↑ ↓ + − × ÷ • § ¶ @ # &",
+      "$description": "Yazı tipinin kendi karakter setinden (dingbat). Sağa ve sola için ↓ döndürülür"
+    },
+    "HoverAxes": {
+      "$type": "string",
+      "$value": "font-variation-settings: 'wght' 500 → 1000, 'wdth' 100 → 151",
+      "$description": "Simge de bir harftir; üzerine gelince kalınlaşır ve genişler"
+    }
+  },
+  "Components": {
+    "$description": "Madde 12 · 14: React bileşenleri; Figma bileşen özellikleri",
+    "Degisken": {
+      "$type": "string",
+      "$value": "<Degisken metin aile mod bazi vurgulu boy k>"
+    },
+    "EksenBaslik": {
+      "$type": "string",
+      "$value": "<EksenBaslik metin aile harita sertlik sonum boy>"
+    },
+    "KatmanSahne": {
+      "$type": "string",
+      "$value": "<KatmanSahne katmanlar oran>"
+    },
+    "GlitchMetin": {
+      "$type": "string",
+      "$value": "<GlitchMetin metin tetik boy>"
+    },
+    "PikselMetin": {
+      "$type": "string",
+      "$value": "<PikselMetin metin piksel agirlik genislik>"
+    },
+    "FigmaSet": {
+      "$description": "Madde 12: Component “Variable/Text”. Sayı özellikleri",
+      "FontWeight": {
+        "$type": "string",
+        "$value": "Number · 100–1000 · 400"
+      },
+      "Width": {
+        "$type": "string",
+        "$value": "Number · 25–151 · 100"
+      },
+      "Slant": {
+        "$type": "string",
+        "$value": "Number · −10–0 · 0"
+      },
+      "Family": {
+        "$type": "string",
+        "$value": "Variant · Flex · Recursive · Fraunces"
+      },
+      "Text": {
+        "$type": "string",
+        "$value": "Text · en çok 8 karakter"
+      },
+      "Matrix": {
+        "$type": "string",
+        "$value": "Weight (100, 500, 1000) × Width (25, 100, 151) = 9 varyant"
+      }
+    }
+  },
+  "Tailwind": {
+    "classes": {
+      "$type": "string",
+      "$value": "[font-variation-settings:'wght'_900,'wdth'_125]",
+      "$description": "Madde 15: React style nesnesi ile aynı hesaplanan değeri üretir (sayfada karşılaştırılır)"
+    },
+    "property": {
+      "$type": "string",
+      "$value": "@property --wght { syntax: '<number>'; inherits: true; initial-value: 400 }",
+      "$description": "Dokuz kayıtlı sayı: --wght --wdth --slnt --opsz --casl --mono --soft --wonk --e"
+    }
+  }
+}
